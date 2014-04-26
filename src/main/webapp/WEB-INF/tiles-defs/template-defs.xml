@@ -50,4 +50,9 @@
         <put-attribute name="content" expression="/WEB-INF/views/www/error/content.html"/>
     </definition>
 
+    <definition name="access_is_denied" extends="main_template">
+        <put-attribute name="head" expression="/WEB-INF/views/www/access_is_denied/head.html"/>
+        <put-attribute name="content" expression="/WEB-INF/views/www/access_is_denied/content.html"/>
+    </definition>
+
 </tiles-definitions>

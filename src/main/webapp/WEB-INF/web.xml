@@ -93,10 +93,13 @@
         <error-code>500</error-code>
         <location>/internal_server_error</location>
     </error-page>
-
     <error-page>
         <error-code>404</error-code>
         <location>/page_not_found</location>
+    </error-page>
+    <error-page>
+        <error-code>403</error-code>
+        <location>/access_is_denied</location>
     </error-page>
 
 </web-app>
