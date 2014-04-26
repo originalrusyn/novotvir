@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/data/jpa
+       http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="springLiquibase" class="liquibase.integration.spring.SpringLiquibase"
+          p:dataSource-ref="dataSource"
+          p:changeLog="classpath:changelogs/changelog-master.xml"/>
+
+    <bean id="entityManagerFactory"
+          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
+          p:packagesToScan="novotvir.persistence.domain"
+          p:dataSource-ref="dataSource"
+          p:jpaPropertyMap-ref="jpaPropertyMap"
+          p:jpaVendorAdapter-ref="hibernateVendor"
+          depends-on="springLiquibase"/>
+
+    <bean id="hibernateVendor"
+          class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"
+          p:databasePlatform="${jdbc.dialect}"/>
+
+    <util:map id="jpaPropertyMap">
+        <entry key="hibernate.hbm2ddl.auto" value="validate"/>
+    </util:map>
+
+    <bean id="dataSource"
+          destroy-method="close"
+          class="org.apache.commons.dbcp.BasicDataSource"
+          p:removeAbandoned="${jdbc.removeAbandoned}"
+          p:removeAbandonedTimeout="${jdbc.removeAbandonedTimeout}"
+          p:testOnBorrow="${jdbc.testOnBorrow}"
+          p:validationQuery="${jdbc.validationQuery}"
+          p:maxActive="${jdbc.maxActive}"
+          p:maxIdle="${jdbc.maxIdle}"
+          p:maxWait="${jdbc.maxWait}"
+          p:username="${jdbc.username}"
+          p:password="${jdbc.password}"
+          p:driverClassName="${jdbc.driverClassName}"
+          p:url="${jdbc.url}" />
+
+    <bean id="transactionManager"
+          class="org.springframework.orm.jpa.JpaTransactionManager"
+          p:dataSource-ref="dataSource"
+          p:entityManagerFactory-ref="entityManagerFactory"/>
+
+    <jpa:repositories
+            base-package="novotvir.persistence.repository"
+            entity-manager-factory-ref="entityManagerFactory"
+            transaction-manager-ref="transactionManager"/>
+
+</beans>

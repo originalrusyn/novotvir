@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:sec="http://www.springframework.org/schema/security"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+
+    <sec:http pattern="/version" security="none" />
+
+    <sec:http create-session="stateless" use-expressions="true">
+
+        <sec:intercept-url pattern="/assets/**" access="permitAll" method="GET" />
+        <sec:intercept-url pattern="/doc**" access="hasRole('DEV')" />
+        <sec:intercept-url pattern="/api-docs**" access="hasRole('DEV')" />
+        <sec:intercept-url pattern="/signup**" access="permitAll" />
+        <sec:intercept-url pattern="/signin**" access="permitAll" />
+        <sec:intercept-url pattern="/signout" access="permitAll" />
+        <sec:intercept-url pattern="/restore_password**" access="permitAll" />
+        <sec:intercept-url pattern="/faq**" access="permitAll" />
+        <sec:intercept-url pattern="/terms**" access="permitAll" />
+        <sec:intercept-url pattern="/privacy_policy**" access="permitAll" />
+        <sec:intercept-url pattern="/error**" access="permitAll" />
+        <sec:intercept-url pattern="/internal_server_error**" access="permitAll" />
+        <sec:intercept-url pattern="/page_not_found**" access="permitAll" />
+        <sec:intercept-url pattern="/**" access="authenticated" />
+
+        <sec:http-basic />
+
+        <sec:custom-filter before="FORM_LOGIN_FILTER" ref="facebookAuthFilter" />
+
+        <sec:form-login default-target-url="/account.html"
+                        authentication-failure-url="/signin.html?error"
+                        login-page="/signin.html"
+                        password-parameter="token"
+                        username-parameter="email"
+                        login-processing-url="/signin"/>
+
+        <sec:logout logout-success-url="/signin.html"
+                    logout-url="/signout"
+                    delete-cookies="JSESSIONID" />
+
+        <sec:remember-me key="${rememberMe.key}" services-ref="customRememberMeServices" />
+
+        <sec:custom-filter after="REMEMBER_ME_FILTER" ref="afterRememberMeFilter" />
+    </sec:http>
+
+    <sec:authentication-manager alias="authenticationManager">
+        <sec:authentication-provider user-service-ref="userDetailsService">
+            <sec:password-encoder ref="passwordEncoder">
+                <sec:salt-source user-property="username" />
+            </sec:password-encoder>
+        </sec:authentication-provider>
+
+        <sec:authentication-provider ref="facebookUserDetailsAuthenticationProvider"/>
+    </sec:authentication-manager>
+
+    <bean id="customRememberMeServices"
+          class="novotvir.security.service.impl.CustomTokenBasedRememberMeServicesImpl"
+          p:cookieName="${rememberMe.cookieName}"
+          p:tokenValiditySeconds="${rememberMe.tokenValiditySeconds}"
+          p:alwaysRemember="true"
+          p:successHandler-ref="rememberMeSuccessfulHandler"
+          c:key="${rememberMe.key}"
+          c:userDetailsService-ref="userDetailsService"/>
+
+    <bean id="rememberMeSuccessfulHandler"
+          class="novotvir.security.handler.impl.RememberMeSuccessfulHandler"
+          p:userService-ref="userService" />
+
+    <bean id="nullAuthoritiesMapper"
+          class="org.springframework.security.core.authority.mapping.NullAuthoritiesMapper"/>
+
+    <bean id="facebookUserDetailsAuthenticationProvider"
+          class="novotvir.security.social.facebook.provider.impl.FacebookUserDetailsAuthenticationProviderImpl"
+          p:facebookUserDetailsService-ref="facebookUserDetailsService"
+          p:authoritiesMapper-ref="nullAuthoritiesMapper"/>
+
+    <bean id="facebookAuthFilter"
+          class="novotvir.security.social.facebook.filter.impl.FacebookAuthFilterImpl"
+          p:rememberMeServices-ref="customRememberMeServices"
+          p:authenticationManager-ref="authenticationManager"
+          p:authenticationSuccessHandler-ref="simpleUrlAuthenticationSuccessHandler"
+          p:authenticationFailureHandler-ref="simpleUrlAuthenticationFailureHandler"
+          p:facebookService-ref="facebookService"
+          c:defaultFilterProcessesUrl="/facebook_auth" />
+
+    <bean id="simpleUrlAuthenticationSuccessHandler"
+            class="org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler"
+            p:defaultTargetUrl="/account.html"
+            p:alwaysUseDefaultTargetUrl="true"/>
+
+    <bean id="simpleUrlAuthenticationFailureHandler"
+            class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler"
+            p:defaultFailureUrl="/signin.html?facebook_error=true" />
+
+    <bean id="passwordEncoder" class="novotvir.security.encoder.impl.PasswordEncoder" />
+
+    <bean id="userDetailsService"
+          class="novotvir.security.service.impl.UserDetailsServiceImpl"
+          p:userService-ref="userService" />
+
+    <bean id="facebookService"
+          class="novotvir.security.social.facebook.service.impl.FacebookServiceImpl"
+          p:facebookRedirectUri="${facebook.connect.fbRedirectUrl}"
+          p:facebookConnectionFactory-ref="facebookConnectionFactory"
+          p:userService-ref="userService"/>
+
+    <bean id="facebookUserDetailsService"
+          class="novotvir.security.social.facebook.service.impl.FacebookUserDetailsServiceImpl"
+          parent="userDetailsService"
+          p:facebookService-ref="facebookService"/>
+
+    <bean id="afterRememberMeFilter"
+          class="novotvir.security.filter.impl.AfterRememberMeFilter"
+          p:tokenBasedRememberMeServices-ref="customRememberMeServices"/>
+
+    <bean id="facebookConnectionFactory"
+          class="org.springframework.social.facebook.connect.FacebookConnectionFactory"
+          c:clientId="${facebook.connect.fbAppId}"
+          c:clientSecret="${facebook.connect.fbAppSecret}"/>
+
+</beans>

@@ -1,0 +1,24 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-3.dtd">
+
+<div xmlns:th="http://www.thymeleaf.org">
+<form name="signUpForm" action="#" th:object="${userRegDetailsDto}" th:action="@{signup}" method="post" accept-charset="UTF-8">
+    <label><strong th:text="#{signup.content.signUpForm.email.label}">Email:</strong></label>
+    <input type="email" th:field="*{email}" value="a@a.a" required="true"/>
+
+    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
+        Wrong email
+    </p>
+
+    <label><strong th:text="#{signup.content.signUpForm.password.label}">Password:</strong></label>
+    <input type="password" th:field="*{token}" value=" " required="true"/>
+    <p th:if="${#fields.hasErrors('token')}" th:errors="*{token}">
+        Wrong token format
+    </p>
+
+    <label><strong th:text="#{signup.content.signUpForm.password.confirmation.label}">Password Confirmation:</strong></label>
+    <input type="password" name="confirmToken" value=" " required="true"/>
+
+    <input type="submit" name="submit" th:value="#{signup.content.signUpForm.submit}" value="Sign Up"/>
+    <a th:text="#{signup.content.facebook.signup.link.text}" th:href="@{facebook_auth?signUp=true}">Facebook Sign Up</a>
+</form>
+</div>

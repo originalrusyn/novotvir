@@ -1,0 +1,13 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-3.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:tiles="http://www.thymeleaf.org">
+
+<head tiles:substituteby="head">
+    <title>Default Title</title>
+</head>
+<body>
+    <div tiles:substituteby="header"/>
+    <div tiles:substituteby="content"/>
+    <div tiles:substituteby="footer"/>
+</body>
+</html>
