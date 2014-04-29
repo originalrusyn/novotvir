@@ -17,6 +17,7 @@
           p:port="${mail.smtp.port}"
           p:username="${mail.smtp.username}"
           p:password="${mail.smtp.password}"
+          p:defaultEncoding="UTF-8"
           p:javaMailProperties-ref="javaMailProperties"/>
 
     <util:properties id="javaMailProperties">
