@@ -50,8 +50,8 @@ create trigger userLogTrigger after insert or update on users for each row execu
 
 -- changeset titov:6 dbms:postgresql runInTransaction:true
 INSERT INTO users
-(id, name, email, token, facebookId, lastSignInIpAddress, lastWebSignInTimestamp) VALUES
-  (1, 'dev@i.ua', 'dev@i.ua', 'token', NULL, '127.0.0.1', NULL);
+(id, name      , email     , token                                                   , facebookId, lastSignInIpAddress, lastWebSignInTimestamp) VALUES
+(1 , 'dev@i.ua', 'dev@i.ua', MD5( extract(epoch from now()) || 'dev@i.ua' || 'token'), NULL     , '127.0.0.1'        , NULL);
 
 INSERT INTO authorities
 (userId, role) VALUES

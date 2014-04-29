@@ -3,6 +3,7 @@ package novotvir.persistence.repository;
 import novotvir.persistence.domain.User;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.repository.annotation.RestResource;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @autor: Titov Mykhaylo (titov)

@@ -16,6 +16,7 @@ import org.springframework.social.support.URIBuilder;
 
 import static novotvir.utils.RequestUtils.getRemoteAddr;
 import static org.springframework.social.oauth2.GrantType.AUTHORIZATION_CODE;
+import static org.springframework.social.support.URIBuilder.fromUri;
 
 /**
  * @author Titov Mykhaylo (titov) on 13.03.14.
@@ -58,6 +59,6 @@ public class FacebookServiceImpl implements FacebookService{
     }
 
     private String getFacebookRedirectUtilWithSignUpParam(boolean signUp) {
-        return URIBuilder.fromUri(facebookRedirectUri).queryParam(SIGN_UP, String.valueOf(signUp)).build().toString();
+        return fromUri(facebookRedirectUri).queryParam(SIGN_UP, String.valueOf(signUp)).build().toString();
     }
 }

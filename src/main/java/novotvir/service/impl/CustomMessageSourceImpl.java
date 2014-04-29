@@ -20,6 +20,16 @@ public class CustomMessageSourceImpl implements CustomMessageSource {
     @Delegate
     ReloadableResourceBundleMessageSource messageSource;
 
+    @Override
+    public String getMailValidationMailSubj(){
+        return getMessage("email.validation.email.subj", null, getRequestLocale());
+    }
+
+    @Override
+    public String getMailValidationMailText(String emailValidationUrl){
+        return getMessage("email.validation.email.txt", new String[]{emailValidationUrl}, getRequestLocale());
+    }
+
     private Locale getRequestLocale() {
         HttpServletRequest request = RequestUtils.getHttpServletRequest();
         return request.getLocale();
