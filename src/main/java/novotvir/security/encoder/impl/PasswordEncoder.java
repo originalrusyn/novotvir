@@ -12,7 +12,7 @@ public class PasswordEncoder extends Md5PasswordEncoder {
 
     @Override
     public String encodePassword(String rawPass, Object salt){
-        String message = System.currentTimeMillis() + (String) salt + rawPass;
+        String message = salt + rawPass;
         byte[] messageDigest = getMessageDigest().digest(message.getBytes());
         BigInteger number = new BigInteger(1, messageDigest);
         String md5 = number.toString(16);

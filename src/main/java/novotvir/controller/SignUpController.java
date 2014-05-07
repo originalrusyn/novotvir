@@ -3,7 +3,8 @@ package novotvir.controller;
 import lombok.extern.slf4j.Slf4j;
 import novotvir.dto.UserRegDetailsDto;
 import novotvir.persistence.domain.User;
-import novotvir.service.UserService;
+import novotvir.service.UserEmailRegService;
+import novotvir.service.UserRegService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -37,12 +38,9 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 @Slf4j
 public class SignUpController {
 
-    @Autowired
-    UserService userService;
-    @Autowired
-    RememberMeServices rememberMeServices;
-    @Autowired
-    AuthenticationManager authenticationManager;
+    @Autowired UserEmailRegService userEmailRegService;
+    @Autowired RememberMeServices rememberMeServices;
+    @Autowired AuthenticationManager authenticationManager;
 
     @RequestMapping(value = "/signup", method = GET)
     public ModelAndView getSignUpModelAndView() {
@@ -69,7 +67,7 @@ public class SignUpController {
     }
 
     private ModelAndView registerUserAndAutoLogin(HttpServletRequest request, HttpServletResponse response, UserRegDetailsDto userRegDetailsDto) {
-        User user = userService.registerUser(userRegDetailsDto);
+        User user = userEmailRegService.registerUser(userRegDetailsDto);
         return autoLogin(request, response, user);
     }
 

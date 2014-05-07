@@ -51,12 +51,16 @@
     <sec:authentication-manager alias="authenticationManager">
         <sec:authentication-provider user-service-ref="userDetailsService">
             <sec:password-encoder ref="passwordEncoder">
-                <sec:salt-source user-property="username" />
+                <sec:salt-source ref="saltSource" />
             </sec:password-encoder>
         </sec:authentication-provider>
 
-        <sec:authentication-provider ref="facebookUserDetailsAuthenticationProvider"/>
+        <sec:authentication-provider ref="facebookUserDetailsAuthProvider"/>
     </sec:authentication-manager>
+
+    <bean id="saltSource"
+          class="org.springframework.security.authentication.dao.ReflectionSaltSource"
+          p:userPropertyToUse="username" />
 
     <bean id="customRememberMeServices"
           class="novotvir.security.service.impl.CustomTokenBasedRememberMeServicesImpl"
@@ -69,14 +73,15 @@
 
     <bean id="rememberMeSuccessfulHandler"
           class="novotvir.security.handler.impl.RememberMeSuccessfulHandler"
-          p:userService-ref="userService" />
+          p:userRepository-ref="userRepository" />
 
     <bean id="nullAuthoritiesMapper"
           class="org.springframework.security.core.authority.mapping.NullAuthoritiesMapper"/>
 
-    <bean id="facebookUserDetailsAuthenticationProvider"
-          class="novotvir.security.social.facebook.provider.impl.FacebookUserDetailsAuthenticationProviderImpl"
-          p:facebookUserDetailsService-ref="facebookUserDetailsService"
+    <bean id="facebookUserDetailsAuthProvider"
+          class="novotvir.security.social.facebook.provider.impl.FacebookUserDetailsAuthProviderImpl"
+          p:facebookProfileRegService-ref="facebookProfileRegService"
+          p:userDetailsService-ref="userDetailsService"
           p:authoritiesMapper-ref="nullAuthoritiesMapper"/>
 
     <bean id="facebookAuthFilter"
@@ -85,7 +90,8 @@
           p:authenticationManager-ref="authenticationManager"
           p:authenticationSuccessHandler-ref="simpleUrlAuthenticationSuccessHandler"
           p:authenticationFailureHandler-ref="simpleUrlAuthenticationFailureHandler"
-          p:facebookService-ref="facebookService"
+          p:facebookAuthUrlService-ref="facebookAuthUrlService"
+          p:facebookProfileService-ref="facebookProfileService"
           c:defaultFilterProcessesUrl="/facebook_auth" />
 
     <bean id="simpleUrlAuthenticationSuccessHandler"
@@ -101,18 +107,25 @@
 
     <bean id="userDetailsService"
           class="novotvir.security.service.impl.UserDetailsServiceImpl"
-          p:userService-ref="userService" />
+          p:userRepository-ref="userRepository" />
 
-    <bean id="facebookService"
-          class="novotvir.security.social.facebook.service.impl.FacebookServiceImpl"
-          p:facebookRedirectUri="${facebook.connect.fbRedirectUrl}"
+    <bean id="facebookRedirectUriService"
+          class="novotvir.security.social.facebook.service.impl.FacebookRedirectUriServiceImpl"
+          p:facebookRedirectUri="${facebook.connect.fbRedirectUrl}" />
+
+    <bean id="facebookAuthUrlService"
+          class="novotvir.security.social.facebook.service.impl.FacebookAuthUrlServiceImpl"
           p:facebookConnectionFactory-ref="facebookConnectionFactory"
-          p:userService-ref="userService"/>
+          p:facebookRedirectUriService-ref="facebookRedirectUriService"/>
 
-    <bean id="facebookUserDetailsService"
-          class="novotvir.security.social.facebook.service.impl.FacebookUserDetailsServiceImpl"
-          parent="userDetailsService"
-          p:facebookService-ref="facebookService"/>
+    <bean id="facebookProfileService"
+          class="novotvir.security.social.facebook.service.impl.FacebookProfileServiceImpl"
+          p:facebookConnectionFactory-ref="facebookConnectionFactory"
+          p:facebookRedirectUriService-ref="facebookRedirectUriService"/>
+
+    <bean id="facebookProfileRegService"
+          class="novotvir.security.social.facebook.service.impl.FacebookProfileRegServiceImpl"
+          p:userFacebookRegService-ref="userFacebookRegService"/>
 
     <bean id="afterRememberMeFilter"
           class="novotvir.security.filter.impl.AfterRememberMeFilter"

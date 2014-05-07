@@ -2,9 +2,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:tiles="http://www.thymeleaf.org">
 
-<head tiles:substituteby="head">
-    <title>Default Title</title>
-</head>
+<head tiles:substituteby="head"/>
+<title tiles:substituteby="title">Default Title</title>
 <body>
     <div tiles:substituteby="header"/>
     <div tiles:substituteby="content"/>

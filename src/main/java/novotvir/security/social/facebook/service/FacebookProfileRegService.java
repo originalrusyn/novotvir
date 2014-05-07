@@ -7,6 +7,6 @@ import org.springframework.social.facebook.api.FacebookProfile;
 /**
  * @author Titov Mykhaylo (titov) on 17.03.14.
  */
-public interface FacebookUserDetailsService extends UserDetailsService{
+public interface FacebookProfileRegService {
     UserDetails registerUser(FacebookProfile facebookProfile);
 }

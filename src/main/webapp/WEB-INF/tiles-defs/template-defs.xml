@@ -7,6 +7,7 @@
 <tiles-definitions>
 
     <definition name="main_template" template="/WEB-INF/templates/mainTemplate.html">
+        <put-attribute name="head" expression="/WEB-INF/views/www/head.html"/>
         <put-attribute name="header" expression="/WEB-INF/views/www/not_authorized_user/header.html"/>
         <put-attribute name="footer" expression="/WEB-INF/views/www/footer.html"/>
     </definition>
@@ -16,42 +17,43 @@
     </definition>
 
     <definition name="signin" extends="main_template">
-        <put-attribute name="head" expression="/WEB-INF/views/www/signin/head.html"/>
+        <put-attribute name="title" expression="/WEB-INF/views/www/signin/title.html"/>
         <put-attribute name="content" expression="/WEB-INF/views/www/signin/content.html"/>
     </definition>
 
     <definition name="signup" extends="authorized_user_template">
-        <put-attribute name="head" expression="/WEB-INF/views/www/signup/head.html"/>
+        <put-attribute name="title" expression="/WEB-INF/views/www/signup/title.html"/>
         <put-attribute name="content" expression="/WEB-INF/views/www/signup/content.html"/>
     </definition>
 
     <definition name="account" extends="authorized_user_template">
-        <put-attribute name="head" expression="/WEB-INF/views/www/account/head.html"/>
+        <put-attribute name="title" expression="/WEB-INF/views/www/account/title.html"/>
         <put-attribute name="content" expression="/WEB-INF/views/www/account/content.html"/>
     </definition>
 
     <definition name="doc" extends="authorized_user_template">
         <put-attribute name="head" expression="/WEB-INF/views/www/doc/head.html"/>
+        <put-attribute name="title" expression="/WEB-INF/views/www/doc/title.html"/>
         <put-attribute name="content" expression="/WEB-INF/views/www/doc/content.html"/>
     </definition>
 
     <definition name="internal_server_error" extends="main_template">
-        <put-attribute name="head" expression="/WEB-INF/views/www/internal_server_error/head.html"/>
+        <put-attribute name="title" expression="/WEB-INF/views/www/internal_server_error/title.html"/>
         <put-attribute name="content" expression="/WEB-INF/views/www/internal_server_error/content.html"/>
     </definition>
 
     <definition name="page_not_found" extends="main_template">
-        <put-attribute name="head" expression="/WEB-INF/views/www/page_not_found/head.html"/>
+        <put-attribute name="title" expression="/WEB-INF/views/www/page_not_found/title.html"/>
         <put-attribute name="content" expression="/WEB-INF/views/www/page_not_found/content.html"/>
     </definition>
 
     <definition name="error" extends="main_template">
-        <put-attribute name="head" expression="/WEB-INF/views/www/error/head.html"/>
+        <put-attribute name="title" expression="/WEB-INF/views/www/error/title.html"/>
         <put-attribute name="content" expression="/WEB-INF/views/www/error/content.html"/>
     </definition>
 
     <definition name="access_is_denied" extends="main_template">
-        <put-attribute name="head" expression="/WEB-INF/views/www/access_is_denied/head.html"/>
+        <put-attribute name="title" expression="/WEB-INF/views/www/access_is_denied/title.html"/>
         <put-attribute name="content" expression="/WEB-INF/views/www/access_is_denied/content.html"/>
     </definition>
 

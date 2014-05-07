@@ -2,7 +2,8 @@ package novotvir.security.social.facebook.filter.impl;
 
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import novotvir.security.social.facebook.service.impl.FacebookServiceImpl;
+import novotvir.security.social.facebook.service.FacebookAuthUrlService;
+import novotvir.security.social.facebook.service.FacebookProfileService;
 import novotvir.security.social.facebook.token.impl.FacebookAuthenticationToken;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
@@ -16,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 import static java.util.Objects.isNull;
-import static novotvir.security.social.facebook.service.impl.FacebookServiceImpl.SIGN_UP;
+import static novotvir.security.social.facebook.service.impl.FacebookRedirectUriServiceImpl.SIGN_UP;
 
 /**
  * @author Titov Mykhaylo (titov) on 24.04.2014.
@@ -24,8 +25,9 @@ import static novotvir.security.social.facebook.service.impl.FacebookServiceImpl
 
 @Slf4j
 public class FacebookAuthFilterImpl extends AbstractAuthenticationProcessingFilter {
-    @Setter
-    FacebookServiceImpl facebookService;
+
+    @Setter FacebookAuthUrlService facebookAuthUrlService;
+    @Setter FacebookProfileService facebookProfileService;
 
     protected FacebookAuthFilterImpl(String defaultFilterProcessesUrl) {
         super(defaultFilterProcessesUrl);
@@ -34,23 +36,19 @@ public class FacebookAuthFilterImpl extends AbstractAuthenticationProcessingFilt
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException, IOException,
             ServletException {
-        log.debug("input parameters request, response: [{}], [{}]", request, response);
-
-        Authentication authentication = null;
         String code = request.getParameter("code");
         boolean signUp = Boolean.valueOf(request.getParameter(SIGN_UP));
-        String buildAuthorizeUrl = facebookService.getFacebookBuildAuthorizationUrl(signUp);
+        String authorizeUrl = facebookAuthUrlService.getFacebookAuthorizationUrl(signUp);
+        Authentication authentication = null;
         if (isNull(code)) {
-            response.sendRedirect(buildAuthorizeUrl);
+            response.sendRedirect(authorizeUrl);
         } else {
-            FacebookProfile facebookProfile = facebookService.getFacebookProfile(code, signUp);
+            FacebookProfile facebookProfile = facebookProfileService.getFacebookProfile(code, signUp);
             authentication = new FacebookAuthenticationToken(facebookProfile, signUp);
 
             AuthenticationManager authenticationManager = getAuthenticationManager();
             authentication = authenticationManager.authenticate(authentication);
         }
-
-        log.debug("Output parameter authentication=[{}]", authentication);
         return authentication;
     }
 }
