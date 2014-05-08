@@ -30,7 +30,7 @@
     </appender>
 
     <logger name="org.springframework" additivity="false">
-        <level value="DEBUG"></level>
+        <level value="INFO"></level>
         <appender-ref ref="stdout"/>
         <appender-ref ref="stderr"/>
     </logger>
@@ -42,7 +42,7 @@
     <!--</logger>-->
 
     <root>
-        <level value="DEBUG"/>
+        <level value="INFO"/>
         <appender-ref ref="stdout"/>
         <appender-ref ref="stderr"/>
     </root>
