@@ -8,11 +8,10 @@
                 var confirmPass = $('#confirmPassInput').val();
                 if (pass != confirmPass) {
                     var error = [[#{signup.pass.is.not.as.passConfirm}]];
-                    $('#confirmPassParagraph').text(error);
+                    $('#confirmPassParagraphForError').text(error);
                     e.preventDefault();
                 }else {
-                    var salt = [[${pass_salt}]];
-                    var token = $.md5(salt.concat(pass, salt));
+                    var token = encrypt_pass(pass);
                     $('#tokenInput').val(token);
                 }
             });
@@ -39,7 +38,7 @@
         <label><strong th:text="#{signup.content.signUpForm.password.confirmation.label}">Password Confirmation:</strong></label>
         <input id="confirmPassInput" type="password" name="confirmPass" value=" " required="true"/>
 
-        <p id="confirmPassParagraph"></p>
+        <p id="confirmPassParagraphForError"></p>
 
         <input id="signUpButton" type="submit" name="submit" th:value="#{signup.content.signUpForm.submit}" value="Sign Up"/>
         <a th:text="#{signup.content.facebook.signup.link.text}" th:href="@{facebook_auth?signUp=true}">Facebook Sign Up</a>

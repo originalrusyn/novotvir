@@ -5,8 +5,7 @@
         $(document).ready(function () {
             $('#signInForm').submit(function (e) {
                 var pass = $('#passInput').val();
-                var salt = [[${pass_salt}]];
-                var token = $.md5(salt.concat(pass, salt));
+                var token = encrypt_pass(pass);
                 $('#tokenInput').val(token);
             });
         });
