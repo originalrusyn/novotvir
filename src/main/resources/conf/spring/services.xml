@@ -21,7 +21,7 @@
           p:useCodeAsDefaultMessage="true"/>
 
     <bean id="propertyPlaceholderConfigurer"
-          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+          class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer"
           p:locations-ref="appPropertiesLocations"
           p:ignoreUnresolvablePlaceholders="true"
           p:ignoreResourceNotFound="true" />

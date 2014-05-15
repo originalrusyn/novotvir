@@ -19,7 +19,14 @@
 
     <bean id="springLiquibase" class="liquibase.integration.spring.SpringLiquibase"
           p:dataSource-ref="dataSource"
-          p:changeLog="classpath:changelogs/changelog-master.xml"/>
+          p:changeLog="classpath:changelogs/changelog-master.xml"
+          p:changeLogParameters-ref="changeLogParameters"/>
+
+    <util:map id="changeLogParameters" >
+        <entry key="pass_salt" value="${pass_salt}" />
+        <entry key="admin_email" value="${admin_email}" />
+        <entry key="admin_pass" value="${admin_pass}" />
+    </util:map>
 
     <bean id="entityManagerFactory"
           class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"

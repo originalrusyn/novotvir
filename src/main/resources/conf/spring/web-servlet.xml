@@ -47,7 +47,12 @@
     <bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver"
           p:templateEngine-ref="templateEngine"
           p:viewClass="org.thymeleaf.extras.tiles2.spring4.web.view.ThymeleafTilesView"
-          p:contentType="text/html; charset=UTF-8"/>
+          p:contentType="text/html; charset=UTF-8"
+          p:staticVariables-ref="thymeleafViewResolverStaticVars"/>
+
+    <util:map id="thymeleafViewResolverStaticVars" >
+        <entry key="pass_salt" value="${pass_salt}" />
+    </util:map>
 
     <bean id="tilesConfigurer"
           class="org.thymeleaf.extras.tiles2.spring4.web.configurer.ThymeleafTilesConfigurer">
@@ -81,7 +86,7 @@
     </mvc:interceptors>
 
   <bean id="propertyPlaceholderConfigurer"
-          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+          class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer"
           p:locations-ref="appPropertiesLocations"
           p:ignoreUnresolvablePlaceholders="true"
           p:ignoreResourceNotFound="true" />
