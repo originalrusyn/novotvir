@@ -77,9 +77,6 @@ public class CustomTokenBasedRememberMeServicesImpl extends TokenBasedRememberMe
         if (isNull(rememberMeCookie)) {
             rememberMeCookie = super.extractRememberMeCookie(httpServletRequest);
         }
-        if(isNull(rememberMeCookie)){
-            rememberMeCookie = httpServletRequest.getParameter(getCookieName());
-        }
         return rememberMeCookie;
     }
 

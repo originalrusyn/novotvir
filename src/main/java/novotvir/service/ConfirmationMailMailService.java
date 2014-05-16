@@ -7,6 +7,6 @@ import org.springframework.mail.SimpleMailMessage;
 /**
  * @author Titov Mykhaylo (titov) on 28.04.2014.
  */
-public interface MailService {
+public interface ConfirmationMailMailService {
     MailMessage sendMailConfirmationLink(User user);
 }

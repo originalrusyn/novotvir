@@ -3,13 +3,15 @@
 CREATE
 TABLE
   users (
-  id                 BIGSERIAL              NOT NULL,
-  name               VARCHAR(255) UNIQUE NOT NULL,
-  email              VARCHAR(255)        NOT NULL,
-  token              VARCHAR(255)        NOT NULL,
-  facebookId         VARCHAR(255),
+  id                       BIGSERIAL           NOT NULL,
+  name                     VARCHAR(255) UNIQUE NOT NULL,
+  email                    VARCHAR(255)        NOT NULL,
+  token                    VARCHAR(255)        NOT NULL,
+  facebookId               VARCHAR(255),
   lastSignInIpAddress      VARCHAR(255)        NOT NULL,
-  lastWebSignInTimestamp timestamp with time zone,
+  activated                boolean             NOT NULL,
+  blocked                  boolean             NOT NULL,
+  lastWebSignInTimestamp   timestamp with time zone,
   PRIMARY KEY (id),
   CONSTRAINT name_facebookId UNIQUE (name, facebookId)
 );
@@ -50,8 +52,8 @@ create trigger userLogTrigger after insert or update on users for each row execu
 
 -- changeset titov:6 dbms:postgresql runInTransaction:true
 INSERT INTO users
-(id, name            , email           , token                                                                           , facebookId, lastSignInIpAddress, lastWebSignInTimestamp) VALUES
-(1 , '${admin_email}', '${admin_email}', MD5('${admin_email}' || MD5('${pass_salt}'|| '${admin_pass}' || '${pass_salt}')), NULL      , '127.0.0.1'        , NULL);
+(id, name            , email           , token                                                                           , facebookId, lastSignInIpAddress, activated, blocked, lastWebSignInTimestamp) VALUES
+(1 , '${admin_email}', '${admin_email}', MD5('${admin_email}' || MD5('${pass_salt}'|| '${admin_pass}' || '${pass_salt}')), NULL      , '127.0.0.1'        , true     , false  , NULL);
 
 INSERT INTO authorities
 (userId, role  ) VALUES

@@ -55,6 +55,12 @@ public class User {
     @Setter
     public Date lastWebSignInTimestamp;
 
+    @Setter
+    public boolean activated;
+
+    @Setter
+    public boolean blocked;
+
     @OneToMany(mappedBy = "user", fetch = EAGER, cascade = ALL)
     @Setter
     public List<Authority> authorities;

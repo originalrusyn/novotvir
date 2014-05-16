@@ -1,12 +1,9 @@
 package novotvir.service.impl;
 
 import novotvir.dto.RegDto;
-import novotvir.dto.UserRegDetailsDto;
-import novotvir.executors.AfterCommitExecutor;
 import novotvir.persistence.domain.User;
 import novotvir.persistence.repository.UserRepository;
 import novotvir.security.credential.impl.UserDetailsImpl;
-import novotvir.service.MailService;
 import novotvir.service.UserRegService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.dao.SaltSource;

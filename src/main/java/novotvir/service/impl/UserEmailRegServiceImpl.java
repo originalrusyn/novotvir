@@ -4,7 +4,7 @@ import novotvir.dto.RegDto;
 import novotvir.dto.UserRegDetailsDto;
 import novotvir.executors.AfterCommitExecutor;
 import novotvir.persistence.domain.User;
-import novotvir.service.MailService;
+import novotvir.service.ConfirmationMailMailService;
 import novotvir.service.UserEmailRegService;
 import novotvir.service.UserRegService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,14 +19,14 @@ import static org.springframework.transaction.annotation.Propagation.REQUIRED;
 @Service("userEmailRegService")
 public class UserEmailRegServiceImpl implements UserEmailRegService{
     @Autowired AfterCommitExecutor afterCommitExecutor;
-    @Autowired MailService mailService;
+    @Autowired ConfirmationMailMailService confirmationMailMailService;
     @Autowired UserRegService userRegService;
 
     @Override
     @Transactional(propagation = REQUIRED)
     public User registerUser(UserRegDetailsDto userRegDetailsDto) {
         User user = userRegService.registerUser(RegDto.getInstance(userRegDetailsDto));
-        afterCommitExecutor.execute(() -> mailService.sendMailConfirmationLink(user));
+        afterCommitExecutor.execute(() -> confirmationMailMailService.sendMailConfirmationLink(user));
         return user;
     }
 }

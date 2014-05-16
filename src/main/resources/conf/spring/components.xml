@@ -28,4 +28,10 @@
           class="org.springframework.mail.SimpleMailMessage"
           p:from="customerservice@mycompany.com"/>
 
+    <bean id="mailMessageConstructor"
+          class="novotvir.utils.constructor.impl.ConfirmationMailMailMessageConstructorImpl"/>
+
+    <bean id="hiddenHttpMethodEnhancedFilter"
+          class="novotvir.utils.filters.impl.HiddenHttpMethodEnhancedFilterImpl"/>
+
 </beans>

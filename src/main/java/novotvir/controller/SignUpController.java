@@ -54,7 +54,8 @@ public class SignUpController {
     public ModelAndView signUp(HttpServletRequest request, HttpServletResponse response,
                                @Valid @ModelAttribute(USER_REG_DETAILS_DTO) UserRegDetailsDto userRegDetailsDto) {
         log.debug("input parameters request, userRegDetailsDto: [{}], [{}]", new Object[]{request, userRegDetailsDto});
-        return registerUserAndAutoLogin(request, response, userRegDetailsDto);
+        User user = userEmailRegService.registerUser(userRegDetailsDto);
+        return new ModelAndView("redirect:reg_successful");
     }
 
     @ExceptionHandler({BindException.class})
@@ -64,20 +65,6 @@ public class SignUpController {
         ModelAndView signUpModelAndView = new ModelAndView("signup");
         signUpModelAndView.addAllObjects(bindException.getModel());
         return signUpModelAndView;
-    }
-
-    private ModelAndView registerUserAndAutoLogin(HttpServletRequest request, HttpServletResponse response, UserRegDetailsDto userRegDetailsDto) {
-        User user = userEmailRegService.registerUser(userRegDetailsDto);
-        return autoLogin(request, response, user);
-    }
-
-    private ModelAndView autoLogin(HttpServletRequest request, HttpServletResponse response, User user) {
-        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(user.name, user.token);
-        authentication.setDetails(new WebAuthenticationDetails(request));
-        Authentication authenticated = authenticationManager.authenticate(authentication);
-        rememberMeServices.loginSuccess(request, response, authenticated);
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        return new ModelAndView("redirect:account");
     }
 }
 

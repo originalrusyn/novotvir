@@ -13,6 +13,8 @@
 
     <sec:http create-session="stateless" use-expressions="true">
 
+        <sec:intercept-url pattern="/reg_successful" access="permitAll"/>
+        <sec:intercept-url pattern="/accounts/**" access="permitAll" method="GET" />
         <sec:intercept-url pattern="/assets/**" access="permitAll" method="GET" />
         <sec:intercept-url pattern="/doc**" access="hasRole('DEV')" />
         <sec:intercept-url pattern="/api-docs**" access="hasRole('DEV')" />
