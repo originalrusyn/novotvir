@@ -55,4 +55,9 @@
         <put-attribute name="content" expression="/WEB-INF/views/www/access_is_denied/content.html"/>
     </definition>
 
+    <definition name="reset_password" extends="main_template">
+        <put-attribute name="head" expression="/WEB-INF/views/www/reset_password/head.html"/>
+        <put-attribute name="content" expression="/WEB-INF/views/www/reset_password/content.html"/>
+    </definition>
+
 </tiles-definitions>

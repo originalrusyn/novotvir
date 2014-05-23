@@ -18,7 +18,7 @@
     <facet type="web" name="Web Gradle : novotvir.war">
       <configuration>
         <descriptors>
-          <deploymentDescriptor name="web.xml" url="D:\git_repo\novotvir\src\main\webapp\WEB-INF\web.xml" />
+          <deploymentDescriptor name="web.xml" url="$MODULE_DIR$/src/main/webapp/WEB-INF/web.xml" />
         </descriptors>
         <webroots>
           <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
@@ -31,7 +31,7 @@
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager" inherit-compiler-output="true">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
