@@ -17,7 +17,8 @@ import java.lang.reflect.Method;
 
 import static java.util.Arrays.asList;
 import static java.util.Objects.isNull;
-import static novotvir.controller.AccountActivationController.ACTIVATION_TOKEN_PATH_VAR;
+import static novotvir.controller.AccountActivationController.ACTIVATION_TOKEN_REQ_PARAM;
+import static novotvir.controller.AccountActivationController.NAME_PATH_VAR;
 import static novotvir.utils.RequestUtils.getServerURL;
 import static org.springframework.core.annotation.AnnotationUtils.getAnnotation;
 import static org.springframework.social.support.URIBuilder.fromUri;
@@ -36,14 +37,12 @@ public class ConfirmationMailMailMessageConstructorImpl implements ConfirmationM
     public SimpleMailMessage construct(User user){
         SimpleMailMessage msg = new SimpleMailMessage(this.templateMessage);
 
-        String activationToken = "gg";
-
         RequestMapping requestMapping = getActivationRequestMapping();
 
-        String activationUri = requestMapping.value()[0].replaceFirst("\\{.*"+ ACTIVATION_TOKEN_PATH_VAR +".*\\}", activationToken);
+        String activationUri = requestMapping.value()[0].replaceFirst("\\{.*"+ NAME_PATH_VAR +".*\\}", user.name);
         RequestMethod method = requestMapping.method()[0];
 
-        String emailValidationUrl = fromUri(getServerURL()+activationUri).queryParam(hiddenHttpMethodEnhancedFilter.getMethodParam(), method.name()).build().toString();
+        String emailValidationUrl = fromUri(getServerURL()+activationUri).queryParam(ACTIVATION_TOKEN_REQ_PARAM, user.activationToken).queryParam(hiddenHttpMethodEnhancedFilter.getMethodParam(), method.name()).build().toString();
 
         String subj = customMessageSource.getMailValidationMailSubj();
         String text = customMessageSource.getMailValidationMailText(emailValidationUrl);

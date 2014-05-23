@@ -36,6 +36,11 @@
         <put-attribute name="content" expression="/WEB-INF/views/www/account/content.html"/>
     </definition>
 
+    <definition name="activation_can_not_be_completed" extends="main_template">
+        <put-attribute name="title" expression="/WEB-INF/views/www/activation_can_not_be_completed/title.html"/>
+        <put-attribute name="content" expression="/WEB-INF/views/www/activation_can_not_be_completed/content.html"/>
+    </definition>
+
     <definition name="doc" extends="authorized_user_template">
         <put-attribute name="head" expression="/WEB-INF/views/www/doc/head.html"/>
         <put-attribute name="title" expression="/WEB-INF/views/www/doc/title.html"/>
@@ -61,5 +66,6 @@
         <put-attribute name="title" expression="/WEB-INF/views/www/access_is_denied/title.html"/>
         <put-attribute name="content" expression="/WEB-INF/views/www/access_is_denied/content.html"/>
     </definition>
+
 
 </tiles-definitions>

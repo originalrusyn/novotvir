@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -39,8 +40,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 public class SignUpController {
 
     @Autowired UserEmailRegService userEmailRegService;
-    @Autowired RememberMeServices rememberMeServices;
-    @Autowired AuthenticationManager authenticationManager;
+    @Resource(name = "customRememberMeServices") RememberMeServices rememberMeServices;
 
     @RequestMapping(value = "/signup", method = GET)
     public ModelAndView getSignUpModelAndView() {
@@ -55,7 +55,9 @@ public class SignUpController {
                                @Valid @ModelAttribute(USER_REG_DETAILS_DTO) UserRegDetailsDto userRegDetailsDto) {
         log.debug("input parameters request, userRegDetailsDto: [{}], [{}]", new Object[]{request, userRegDetailsDto});
         User user = userEmailRegService.registerUser(userRegDetailsDto);
-        return new ModelAndView("redirect:reg_successful");
+        ModelAndView modelAndView = new ModelAndView("redirect:reg_successful");
+        modelAndView.addObject("user", user);
+        return modelAndView;
     }
 
     @ExceptionHandler({BindException.class})

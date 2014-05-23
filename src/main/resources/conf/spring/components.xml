@@ -34,4 +34,7 @@
     <bean id="hiddenHttpMethodEnhancedFilter"
           class="novotvir.utils.filters.impl.HiddenHttpMethodEnhancedFilterImpl"/>
 
+    <bean id="activationTokenGenerator"
+          class="novotvir.utils.generator.impl.ActivationTokenGeneratorImpl" />
+
 </beans>

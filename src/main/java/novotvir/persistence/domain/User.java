@@ -21,7 +21,8 @@ import static scala.actors.threadpool.Arrays.asList;
 @Entity
 @Table(name = "users", uniqueConstraints = {
         @UniqueConstraint( name = "name", columnNames = "name"),
-        @UniqueConstraint( name = "name_facebookId", columnNames = {"name" ,"facebookId"})
+        @UniqueConstraint( name = "name_facebookId", columnNames = {"name" ,"facebookId"}),
+        @UniqueConstraint( name = "activationToken", columnNames = "activationToken")
 })
 @Accessors(chain = true)
 @ToString(exclude = "authorities")
@@ -54,6 +55,10 @@ public class User {
 
     @Setter
     public Date lastWebSignInTimestamp;
+
+    @Column(nullable = false)
+    @Setter
+    public String activationToken;
 
     @Setter
     public boolean activated;

@@ -7,5 +7,5 @@ import novotvir.persistence.domain.User;
  */
 public interface UserActivationService {
 
-    User activate();
+    User activate(String userName, String activationToken);
 }

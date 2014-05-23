@@ -11,24 +11,24 @@
 
     <sec:http pattern="/version" security="none" />
 
-    <sec:http create-session="stateless" use-expressions="true">
+    <sec:http create-session="stateless" use-expressions="true" path-type="regex">
 
         <sec:intercept-url pattern="/reg_successful" access="permitAll"/>
-        <sec:intercept-url pattern="/accounts/**" access="permitAll" method="GET" />
-        <sec:intercept-url pattern="/assets/**" access="permitAll" method="GET" />
-        <sec:intercept-url pattern="/doc**" access="hasRole('DEV')" />
-        <sec:intercept-url pattern="/api-docs**" access="hasRole('DEV')" />
-        <sec:intercept-url pattern="/signup**" access="permitAll" />
-        <sec:intercept-url pattern="/signin**" access="permitAll" />
+        <sec:intercept-url pattern="/users/.*\?activationToken=.*" access="permitAll" method="GET" />
+        <sec:intercept-url pattern="/assets/.*" access="permitAll" method="GET" />
+        <sec:intercept-url pattern="/doc.*" access="hasRole('DEV')" />
+        <sec:intercept-url pattern="/api-docs.*" access="hasRole('DEV')" />
+        <sec:intercept-url pattern="/signup.*" access="permitAll" />
+        <sec:intercept-url pattern="/signin.*" access="permitAll" />
         <sec:intercept-url pattern="/signout" access="permitAll" />
-        <sec:intercept-url pattern="/restore_password**" access="permitAll" />
-        <sec:intercept-url pattern="/faq**" access="permitAll" />
-        <sec:intercept-url pattern="/terms**" access="permitAll" />
-        <sec:intercept-url pattern="/privacy_policy**" access="permitAll" />
-        <sec:intercept-url pattern="/error**" access="permitAll" />
-        <sec:intercept-url pattern="/internal_server_error**" access="permitAll" />
-        <sec:intercept-url pattern="/page_not_found**" access="permitAll" />
-        <sec:intercept-url pattern="/**" access="authenticated" />
+        <sec:intercept-url pattern="/restore_password.*" access="permitAll" />
+        <sec:intercept-url pattern="/faq.*" access="permitAll" />
+        <sec:intercept-url pattern="/terms.*" access="permitAll" />
+        <sec:intercept-url pattern="/privacy_policy.*" access="permitAll" />
+        <sec:intercept-url pattern="/error.*" access="permitAll" />
+        <sec:intercept-url pattern="/internal_server_error.*" access="permitAll" />
+        <sec:intercept-url pattern="/page_not_found.*" access="permitAll" />
+        <sec:intercept-url pattern="/.*" access="authenticated" />
 
         <sec:http-basic />
 
@@ -58,6 +58,11 @@
         </sec:authentication-provider>
 
         <sec:authentication-provider ref="facebookUserDetailsAuthProvider"/>
+    </sec:authentication-manager>
+
+    <sec:authentication-manager alias="authenticationManagerWithoutPasswordEncoder">
+        <sec:authentication-provider user-service-ref="userDetailsService">
+        </sec:authentication-provider>
     </sec:authentication-manager>
 
     <bean id="saltSource"
@@ -105,7 +110,7 @@
             class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler"
             p:defaultFailureUrl="/signin.html?facebook_error=true" />
 
-    <bean id="passwordEncoder" class="novotvir.security.encoder.impl.PasswordEncoder" />
+    <bean id="passwordEncoder" class="novotvir.security.encoder.impl.PasswordEncoderImpl" />
 
     <bean id="userDetailsService"
           class="novotvir.security.service.impl.UserDetailsServiceImpl"
