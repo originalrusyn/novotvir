@@ -2,18 +2,31 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xmlns:context="http://www.springframework.org/schema/context"
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
        http://www.springframework.org/schema/data/jpa
        http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
        http://www.springframework.org/schema/util
-       http://www.springframework.org/schema/util/spring-util.xsd">
+       http://www.springframework.org/schema/util/spring-util.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
     <bean id="springLiquibase" class="liquibase.integration.spring.SpringLiquibase"
           p:dataSource-ref="dataSource"
-          p:changeLog="classpath:changelogs/changelog-master.xml"/>
+          p:changeLog="classpath:changelogs/changelog-master.xml"
+          p:changeLogParameters-ref="changeLogParameters"/>
+
+    <util:map id="changeLogParameters" >
+        <entry key="pass_salt" value="${pass_salt}" />
+        <entry key="admin_email" value="${admin_email}" />
+        <entry key="admin_pass" value="${admin_pass}" />
+    </util:map>
 
     <bean id="entityManagerFactory"
           class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
@@ -55,5 +68,10 @@
             base-package="novotvir.persistence.repository"
             entity-manager-factory-ref="entityManagerFactory"
             transaction-manager-ref="transactionManager"/>
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <context:annotation-config/>
+    <context:component-scan base-package="novotvir.executors"/>
 
 </beans>

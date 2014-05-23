@@ -32,6 +32,11 @@ public class RequestUtils {
         }
     }
 
+    public static String getRequestUrl(){
+        HttpServletRequest request = getHttpServletRequest();
+        return request.getRequestURL().toString();
+    }
+
     public static String getRemoteAddr(){
         return getHttpServletRequest().getRemoteAddr();
     }

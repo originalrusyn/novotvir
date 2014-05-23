@@ -11,22 +11,24 @@
 
     <sec:http pattern="/version" security="none" />
 
-    <sec:http create-session="stateless" use-expressions="true">
+    <sec:http create-session="stateless" use-expressions="true" path-type="regex">
 
-        <sec:intercept-url pattern="/assets/**" access="permitAll" method="GET" />
-        <sec:intercept-url pattern="/doc**" access="hasRole('DEV')" />
-        <sec:intercept-url pattern="/api-docs**" access="hasRole('DEV')" />
-        <sec:intercept-url pattern="/signup**" access="permitAll" />
-        <sec:intercept-url pattern="/signin**" access="permitAll" />
+        <sec:intercept-url pattern="/reg_successful" access="permitAll"/>
+        <sec:intercept-url pattern="/users/.*\?activationToken=.*" access="permitAll" method="GET" />
+        <sec:intercept-url pattern="/assets/.*" access="permitAll" method="GET" />
+        <sec:intercept-url pattern="/doc.*" access="hasRole('DEV')" />
+        <sec:intercept-url pattern="/api-docs.*" access="hasRole('DEV')" />
+        <sec:intercept-url pattern="/signup.*" access="permitAll" />
+        <sec:intercept-url pattern="/signin.*" access="permitAll" />
         <sec:intercept-url pattern="/signout" access="permitAll" />
-        <sec:intercept-url pattern="/restore_password**" access="permitAll" />
-        <sec:intercept-url pattern="/faq**" access="permitAll" />
-        <sec:intercept-url pattern="/terms**" access="permitAll" />
-        <sec:intercept-url pattern="/privacy_policy**" access="permitAll" />
-        <sec:intercept-url pattern="/error**" access="permitAll" />
-        <sec:intercept-url pattern="/internal_server_error**" access="permitAll" />
-        <sec:intercept-url pattern="/page_not_found**" access="permitAll" />
-        <sec:intercept-url pattern="/**" access="authenticated" />
+        <sec:intercept-url pattern="/restore_password.*" access="permitAll" />
+        <sec:intercept-url pattern="/faq.*" access="permitAll" />
+        <sec:intercept-url pattern="/terms.*" access="permitAll" />
+        <sec:intercept-url pattern="/privacy_policy.*" access="permitAll" />
+        <sec:intercept-url pattern="/error.*" access="permitAll" />
+        <sec:intercept-url pattern="/internal_server_error.*" access="permitAll" />
+        <sec:intercept-url pattern="/page_not_found.*" access="permitAll" />
+        <sec:intercept-url pattern="/.*" access="authenticated" />
 
         <sec:http-basic />
 
@@ -51,12 +53,21 @@
     <sec:authentication-manager alias="authenticationManager">
         <sec:authentication-provider user-service-ref="userDetailsService">
             <sec:password-encoder ref="passwordEncoder">
-                <sec:salt-source user-property="username" />
+                <sec:salt-source ref="saltSource" />
             </sec:password-encoder>
         </sec:authentication-provider>
 
-        <sec:authentication-provider ref="facebookUserDetailsAuthenticationProvider"/>
+        <sec:authentication-provider ref="facebookUserDetailsAuthProvider"/>
     </sec:authentication-manager>
+
+    <sec:authentication-manager alias="authenticationManagerWithoutPasswordEncoder">
+        <sec:authentication-provider user-service-ref="userDetailsService">
+        </sec:authentication-provider>
+    </sec:authentication-manager>
+
+    <bean id="saltSource"
+          class="org.springframework.security.authentication.dao.ReflectionSaltSource"
+          p:userPropertyToUse="username" />
 
     <bean id="customRememberMeServices"
           class="novotvir.security.service.impl.CustomTokenBasedRememberMeServicesImpl"
@@ -69,14 +80,15 @@
 
     <bean id="rememberMeSuccessfulHandler"
           class="novotvir.security.handler.impl.RememberMeSuccessfulHandler"
-          p:userService-ref="userService" />
+          p:userRepository-ref="userRepository" />
 
     <bean id="nullAuthoritiesMapper"
           class="org.springframework.security.core.authority.mapping.NullAuthoritiesMapper"/>
 
-    <bean id="facebookUserDetailsAuthenticationProvider"
-          class="novotvir.security.social.facebook.provider.impl.FacebookUserDetailsAuthenticationProviderImpl"
-          p:facebookUserDetailsService-ref="facebookUserDetailsService"
+    <bean id="facebookUserDetailsAuthProvider"
+          class="novotvir.security.social.facebook.provider.impl.FacebookUserDetailsAuthProviderImpl"
+          p:facebookProfileRegService-ref="facebookProfileRegService"
+          p:userDetailsService-ref="userDetailsService"
           p:authoritiesMapper-ref="nullAuthoritiesMapper"/>
 
     <bean id="facebookAuthFilter"
@@ -85,7 +97,8 @@
           p:authenticationManager-ref="authenticationManager"
           p:authenticationSuccessHandler-ref="simpleUrlAuthenticationSuccessHandler"
           p:authenticationFailureHandler-ref="simpleUrlAuthenticationFailureHandler"
-          p:facebookService-ref="facebookService"
+          p:facebookAuthUrlService-ref="facebookAuthUrlService"
+          p:facebookProfileService-ref="facebookProfileService"
           c:defaultFilterProcessesUrl="/facebook_auth" />
 
     <bean id="simpleUrlAuthenticationSuccessHandler"
@@ -97,22 +110,29 @@
             class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler"
             p:defaultFailureUrl="/signin.html?facebook_error=true" />
 
-    <bean id="passwordEncoder" class="novotvir.security.encoder.impl.PasswordEncoder" />
+    <bean id="passwordEncoder" class="novotvir.security.encoder.impl.PasswordEncoderImpl" />
 
     <bean id="userDetailsService"
           class="novotvir.security.service.impl.UserDetailsServiceImpl"
-          p:userService-ref="userService" />
+          p:userRepository-ref="userRepository" />
 
-    <bean id="facebookService"
-          class="novotvir.security.social.facebook.service.impl.FacebookServiceImpl"
-          p:facebookRedirectUri="${facebook.connect.fbRedirectUrl}"
+    <bean id="facebookRedirectUriService"
+          class="novotvir.security.social.facebook.service.impl.FacebookRedirectUriServiceImpl"
+          p:facebookRedirectUri="${facebook.connect.fbRedirectUrl}" />
+
+    <bean id="facebookAuthUrlService"
+          class="novotvir.security.social.facebook.service.impl.FacebookAuthUrlServiceImpl"
           p:facebookConnectionFactory-ref="facebookConnectionFactory"
-          p:userService-ref="userService"/>
+          p:facebookRedirectUriService-ref="facebookRedirectUriService"/>
 
-    <bean id="facebookUserDetailsService"
-          class="novotvir.security.social.facebook.service.impl.FacebookUserDetailsServiceImpl"
-          parent="userDetailsService"
-          p:facebookService-ref="facebookService"/>
+    <bean id="facebookProfileService"
+          class="novotvir.security.social.facebook.service.impl.FacebookProfileServiceImpl"
+          p:facebookConnectionFactory-ref="facebookConnectionFactory"
+          p:facebookRedirectUriService-ref="facebookRedirectUriService"/>
+
+    <bean id="facebookProfileRegService"
+          class="novotvir.security.social.facebook.service.impl.FacebookProfileRegServiceImpl"
+          p:userFacebookRegService-ref="userFacebookRegService"/>
 
     <bean id="afterRememberMeFilter"
           class="novotvir.security.filter.impl.AfterRememberMeFilter"

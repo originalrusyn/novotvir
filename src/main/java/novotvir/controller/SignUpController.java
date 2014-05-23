@@ -3,7 +3,8 @@ package novotvir.controller;
 import lombok.extern.slf4j.Slf4j;
 import novotvir.dto.UserRegDetailsDto;
 import novotvir.persistence.domain.User;
-import novotvir.service.UserService;
+import novotvir.service.UserEmailRegService;
+import novotvir.service.UserRegService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -37,12 +39,8 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 @Slf4j
 public class SignUpController {
 
-    @Autowired
-    UserService userService;
-    @Autowired
-    RememberMeServices rememberMeServices;
-    @Autowired
-    AuthenticationManager authenticationManager;
+    @Autowired UserEmailRegService userEmailRegService;
+    @Resource(name = "customRememberMeServices") RememberMeServices rememberMeServices;
 
     @RequestMapping(value = "/signup", method = GET)
     public ModelAndView getSignUpModelAndView() {
@@ -56,7 +54,10 @@ public class SignUpController {
     public ModelAndView signUp(HttpServletRequest request, HttpServletResponse response,
                                @Valid @ModelAttribute(USER_REG_DETAILS_DTO) UserRegDetailsDto userRegDetailsDto) {
         log.debug("input parameters request, userRegDetailsDto: [{}], [{}]", new Object[]{request, userRegDetailsDto});
-        return registerUserAndAutoLogin(request, response, userRegDetailsDto);
+        User user = userEmailRegService.registerUser(userRegDetailsDto);
+        ModelAndView modelAndView = new ModelAndView("redirect:reg_successful");
+        modelAndView.addObject("user", user);
+        return modelAndView;
     }
 
     @ExceptionHandler({BindException.class})
@@ -66,20 +67,6 @@ public class SignUpController {
         ModelAndView signUpModelAndView = new ModelAndView("signup");
         signUpModelAndView.addAllObjects(bindException.getModel());
         return signUpModelAndView;
-    }
-
-    private ModelAndView registerUserAndAutoLogin(HttpServletRequest request, HttpServletResponse response, UserRegDetailsDto userRegDetailsDto) {
-        User user = userService.registerUser(userRegDetailsDto);
-        return autoLogin(request, response, user);
-    }
-
-    private ModelAndView autoLogin(HttpServletRequest request, HttpServletResponse response, User user) {
-        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(user.name, user.token);
-        authentication.setDetails(new WebAuthenticationDetails(request));
-        Authentication authenticated = authenticationManager.authenticate(authentication);
-        rememberMeServices.loginSuccess(request, response, authenticated);
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        return new ModelAndView("redirect:account");
     }
 }
 

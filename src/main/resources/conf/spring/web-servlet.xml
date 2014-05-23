@@ -13,7 +13,7 @@
 
     <bean id="messageSource"
           class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
-          p:basenames="file:${conf.dir.path}/i18n/messages, i18n/messages"
+          p:basenames="file:${conf.dir.path}/i18n/messages, /i18n/messages"
           p:defaultEncoding="UTF-8"
           p:fileEncodings="UTF-8"
           p:cacheSeconds="10"
@@ -21,7 +21,7 @@
 
     <bean id="localeResolver"
           class="org.springframework.web.servlet.i18n.CookieLocaleResolver"
-          p:defaultLocale="ua"
+          p:defaultLocale="uk"
           p:cookieName="_LOCALE" />
 
     <bean class="novotvir.conf.MyRepositoryRestMvcConfiguration" />
@@ -47,7 +47,12 @@
     <bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver"
           p:templateEngine-ref="templateEngine"
           p:viewClass="org.thymeleaf.extras.tiles2.spring4.web.view.ThymeleafTilesView"
-          p:contentType="text/html; charset=UTF-8"/>
+          p:contentType="text/html; charset=UTF-8"
+          p:staticVariables-ref="thymeleafViewResolverStaticVars"/>
+
+    <util:map id="thymeleafViewResolverStaticVars" >
+        <entry key="pass_salt" value="${pass_salt}" />
+    </util:map>
 
     <bean id="tilesConfigurer"
           class="org.thymeleaf.extras.tiles2.spring4.web.configurer.ThymeleafTilesConfigurer">
@@ -59,6 +64,13 @@
     </bean>
 
     <mvc:resources mapping="/assets/**" location="/assets/**" />
+
+    <mvc:view-controller path="**/reg_successful" view-name="reg_successful" />
+    <!--<mvc:view-controller path="**/account" view-name="account" />
+    <mvc:view-controller path="**/doc" view-name="doc" />
+    <mvc:view-controller path="**/signin" view-name="signin" />
+    <mvc:view-controller path="**/signout" view-name="signout" />
+    <mvc:view-controller path="**/" view-name="account" />-->
 
     <mvc:interceptors>
         <mvc:interceptor>
@@ -81,7 +93,7 @@
     </mvc:interceptors>
 
   <bean id="propertyPlaceholderConfigurer"
-          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+          class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer"
           p:locations-ref="appPropertiesLocations"
           p:ignoreUnresolvablePlaceholders="true"
           p:ignoreResourceNotFound="true" />

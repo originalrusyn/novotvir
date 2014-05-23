@@ -11,18 +11,17 @@
        http://www.springframework.org/schema/util
        http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 
-    <import resource="components.xml"/>
 
     <bean id="messageSource"
           class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
-          p:basename="file:${conf.dir.path}/i18n/messages, /i18n/messages"
+          p:basenames="file:${conf.dir.path}/i18n/messages, /i18n/messages"
           p:defaultEncoding="UTF-8"
           p:fileEncodings="UTF-8"
           p:cacheSeconds="180"
           p:useCodeAsDefaultMessage="true"/>
 
     <bean id="propertyPlaceholderConfigurer"
-          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+          class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer"
           p:locations-ref="appPropertiesLocations"
           p:ignoreUnresolvablePlaceholders="true"
           p:ignoreResourceNotFound="true" />
@@ -36,4 +35,5 @@
 
     <context:component-scan base-package="novotvir.service"/>
 
+    <import resource="components.xml"/>
 </beans>

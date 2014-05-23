@@ -13,14 +13,28 @@
 
     <bean id="mailSender"
           class="org.springframework.mail.javamail.JavaMailSenderImpl"
-          p:host="mail.mycompany.com"/>
+          p:host="${mail.smtp.host}"
+          p:port="${mail.smtp.port}"
+          p:username="${mail.smtp.username}"
+          p:password="${mail.smtp.password}"
+          p:defaultEncoding="UTF-8"
+          p:javaMailProperties-ref="javaMailProperties"/>
+
+    <util:properties id="javaMailProperties">
+        <prop key="mail.smtp.starttls.enable">${mail.smtp.enableSSL}</prop>
+    </util:properties>
 
     <bean id="templateMessage"
           class="org.springframework.mail.SimpleMailMessage"
           p:from="customerservice@mycompany.com"/>
 
-    <context:annotation-config/>
+    <bean id="mailMessageConstructor"
+          class="novotvir.utils.constructor.impl.ConfirmationMailMailMessageConstructorImpl"/>
 
-    <context:component-scan base-package="novotvir.executors"/>
+    <bean id="hiddenHttpMethodEnhancedFilter"
+          class="novotvir.utils.filters.impl.HiddenHttpMethodEnhancedFilterImpl"/>
+
+    <bean id="activationTokenGenerator"
+          class="novotvir.utils.generator.impl.ActivationTokenGeneratorImpl" />
 
 </beans>

@@ -30,19 +30,19 @@
     </appender>
 
     <logger name="org.springframework" additivity="false">
-        <level value="DEBUG"></level>
+        <level value="TRACE"></level>
         <appender-ref ref="stdout"/>
         <appender-ref ref="stderr"/>
     </logger>
 
-    <!--<logger name="org.thymeleaf" additivity="false">-->
-        <!--<level value="TRACE"></level>-->
-        <!--<appender-ref ref="stdout"/>-->
-        <!--<appender-ref ref="stderr"/>-->
-    <!--</logger>-->
+    <logger name="org.thymeleaf" additivity="false">
+        <level value="TRACE"></level>
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="stderr"/>
+    </logger>
 
     <root>
-        <level value="DEBUG"/>
+        <level value="TRACE"/>
         <appender-ref ref="stdout"/>
         <appender-ref ref="stderr"/>
     </root>

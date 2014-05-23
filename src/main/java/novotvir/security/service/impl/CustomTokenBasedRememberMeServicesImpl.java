@@ -2,6 +2,7 @@ package novotvir.security.service.impl;
 
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import novotvir.security.service.CustomTokenBasedRememberMeService;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -24,7 +25,7 @@ import static org.springframework.util.DigestUtils.md5DigestAsHex;
  *         11.01.14 19:23
  */
 @Slf4j
-public class CustomTokenBasedRememberMeServicesImpl extends TokenBasedRememberMeServices {
+public class CustomTokenBasedRememberMeServicesImpl extends TokenBasedRememberMeServices implements CustomTokenBasedRememberMeService{
 
     @Setter
     private AuthenticationSuccessHandler successHandler;
@@ -76,12 +77,10 @@ public class CustomTokenBasedRememberMeServicesImpl extends TokenBasedRememberMe
         if (isNull(rememberMeCookie)) {
             rememberMeCookie = super.extractRememberMeCookie(httpServletRequest);
         }
-        if(isNull(rememberMeCookie)){
-            rememberMeCookie = httpServletRequest.getParameter(getCookieName());
-        }
         return rememberMeCookie;
     }
 
+    @Override
     public String getRememberMeToken(String userName, String password) {
         log.debug("input parameters email, password: [{}], [{}]", new String[]{userName, password});
 
