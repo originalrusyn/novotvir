@@ -3,6 +3,7 @@ package novotvir.persistence.domain;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.Accessors;
+import novotvir.enums.Role;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -27,6 +28,8 @@ import static scala.actors.threadpool.Arrays.asList;
 @Accessors(chain = true)
 @ToString(exclude = "authorities")
 public class User {
+
+    public static final String USER = "user";
 
     @Id
     @SequenceGenerator(name = "users_id_seq", sequenceName = "users_id_seq")
@@ -75,6 +78,6 @@ public class User {
     }
 
     private List getUserDefaultAuthorities(User user) {
-        return asList(new Authority[]{new Authority().setUser(user).setRole(USER)});
+        return asList(new Authority[]{new Authority().setUser(user).setRole(Role.USER)});
     }
 }

@@ -24,6 +24,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import static novotvir.dto.ErrorDto.ERROR_DTO;
+import static novotvir.persistence.domain.User.USER;
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 
@@ -65,8 +66,8 @@ public class AccountActivationController {
         Authentication authenticated = authenticationManager.authenticate(authentication);
         rememberMeServices.loginSuccess(request, response, authenticated);
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        ModelAndView modelAndView = new ModelAndView("redirect:account");
-        modelAndView.addObject("user", user);
+        ModelAndView modelAndView = new ModelAndView("redirect:/users/" + user.name);
+        modelAndView.addObject(USER, user);
         return modelAndView;
     }
 }
