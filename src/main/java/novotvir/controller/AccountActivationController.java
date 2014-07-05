@@ -4,13 +4,10 @@ import exceptions.i18n.activation.CouldNotActivateUserException;
 import lombok.extern.slf4j.Slf4j;
 import novotvir.dto.ErrorDto;
 import novotvir.persistence.domain.User;
-import novotvir.security.credential.impl.UserDetailsImpl;
 import novotvir.service.UserActivationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.authentication.dao.SaltSource;
-import org.springframework.security.authentication.encoding.PasswordEncoder;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.RememberMeServices;
@@ -52,9 +49,9 @@ public class AccountActivationController {
     @ExceptionHandler({CouldNotActivateUserException.class})
     @ResponseStatus(BAD_REQUEST)
     public ModelAndView handleValidationException(CouldNotActivateUserException couldNotActivateUserException){
-        log.warn(couldNotActivateUserException.getMessage(), couldNotActivateUserException);
+        log.warn(couldNotActivateUserException.getMessage());
         ModelAndView modelAndView = new ModelAndView("activation_can_not_be_completed");
-        ErrorDto errorDto = new ErrorDto().setMessageCode(couldNotActivateUserException.getMessageCode()).setMessageArgs(couldNotActivateUserException.getMessageArgs());
+        ErrorDto errorDto = new ErrorDto().setErrCode(couldNotActivateUserException.getErrCode()).setLocalizedMessage(couldNotActivateUserException.getLocalizedMessage());
         modelAndView.addObject(ERROR_DTO, errorDto);
         return modelAndView;
     }

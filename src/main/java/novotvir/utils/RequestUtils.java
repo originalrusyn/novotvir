@@ -7,6 +7,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Locale;
 
 /**
  * @author Titov Mykhaylo (titov)
@@ -30,6 +31,11 @@ public class RequestUtils {
             log.error(e.getMessage(), e);
             return null;
         }
+    }
+
+    public static Locale getRequestLocale() {
+        HttpServletRequest request = RequestUtils.getHttpServletRequest();
+        return request.getLocale();
     }
 
     public static String getRequestUrl(){
