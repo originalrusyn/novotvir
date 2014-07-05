@@ -34,7 +34,7 @@ public class UserActivationServiceImpl implements UserActivationService {
         } else if(!user.activationToken.equals(activationToken)){
             throwUnExpectedActivationTokenException(userName, activationToken, user);
         } else if (user.activated){
-            getUserAlreadyActivatedException(userName);
+            throwUserAlreadyActivatedException(userName);
         }
         return userRepository.save(user.setActivated(true));
     }
@@ -51,7 +51,7 @@ public class UserActivationServiceImpl implements UserActivationService {
         throw new UnExpectedActivationTokenException(message, localizedMessage);
     }
 
-    private User getUserAlreadyActivatedException(String userName) {
+    private User throwUserAlreadyActivatedException(String userName) {
         String message = "User with name ["+userName+"] had been already activated";
         String localizedMessage = customMessageSource.getMessage(USER_ALREADY_ACTIVATED_EXCEPTION_MESSAGE_CODE, userName);
         throw new UserAlreadyActivatedException(message, localizedMessage);
