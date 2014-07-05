@@ -1,5 +1,6 @@
 package novotvir.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -7,14 +8,15 @@ import org.springframework.web.servlet.ModelAndView;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 /**
- * @autor: Titov Mykhaylo (titov)
- * 21.02.14 18:04
+ * @author Titov Mykhaylo (titov)
+ *         20.02.14 20:16
  */
 @Controller
-public class DocController {
+@Slf4j
+public class UserController {
 
-    @RequestMapping(value = "/doc", method =  GET)
-    public ModelAndView getDocView(){
-        return new ModelAndView("doc");
+    @RequestMapping(value = {"/", "/users/{name}"}, method = GET)
+    public ModelAndView getAccountView(){
+        return new ModelAndView("account");
     }
 }

@@ -26,6 +26,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import static novotvir.dto.UserRegDetailsDto.USER_REG_DETAILS_DTO;
+import static novotvir.persistence.domain.User.USER;
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
@@ -51,12 +52,12 @@ public class SignUpController {
 
     @RequestMapping(value = "/signup", method = POST)
     @ResponseStatus(CREATED)
-    public ModelAndView signUp(HttpServletRequest request, HttpServletResponse response,
+    public ModelAndView signUp(HttpServletRequest request,
                                @Valid @ModelAttribute(USER_REG_DETAILS_DTO) UserRegDetailsDto userRegDetailsDto) {
         log.debug("input parameters request, userRegDetailsDto: [{}], [{}]", new Object[]{request, userRegDetailsDto});
         User user = userEmailRegService.registerUser(userRegDetailsDto);
         ModelAndView modelAndView = new ModelAndView("redirect:reg_successful");
-        modelAndView.addObject("user", user);
+        modelAndView.addObject(USER, user);
         return modelAndView;
     }
 
