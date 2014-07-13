@@ -10,6 +10,12 @@
         var salt = /*[[${pass_salt}]]*/ 'Роисся Вперде';
         return $.md5(salt.concat(pass, salt));
     }
+
+    /*<![CDATA[*/
+    var encrypt_admin_pass = function encrypt_pass(pass){
+        var salt = /*[[${admin_pass_salt}]]*/ 'Роисся Вперде';
+        return $.md5(salt.concat(pass, salt));
+    }
     /*]]>*/
 </script>
 <body>

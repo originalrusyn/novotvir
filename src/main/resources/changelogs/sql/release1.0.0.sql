@@ -54,9 +54,43 @@ create trigger userLogTrigger after insert or update on users for each row execu
 -- changeset titov:6 dbms:postgresql runInTransaction:true
 INSERT INTO users
 (id, name            , email           , token                                                                           , facebookId, lastSignInIpAddress, activationToken , activated, blocked, lastWebSignInTimestamp) VALUES
-(1 , '${admin_email}', '${admin_email}', MD5('${admin_email}' || MD5('${pass_salt}'|| '${admin_pass}' || '${pass_salt}')), NULL      , '127.0.0.1'        , '${admin_email}', true     , false  , NULL);
+  (1 , '${admin_email}', '${admin_email}', MD5('${admin_email}' || MD5('${pass_salt}'|| '${admin_pass}' || '${pass_salt}')), NULL      , '127.0.0.1'        , '${admin_email}', true     , false  , NULL);
 
 INSERT INTO authorities
 (userId, role  ) VALUES
 (1     , 'USER'),
 (1     , 'DEV');
+
+-- changeset titov:7 dbms:postgresql runInTransaction:true
+CREATE
+TABLE
+  admins (
+  id                       BIGSERIAL           NOT NULL,
+  email                    VARCHAR(255) UNIQUE NOT NULL,
+  token                    VARCHAR(255)        NOT NULL,
+  lastSignInIpAddress      VARCHAR(255)        NOT NULL,
+  blocked                  boolean             NOT NULL,
+  lastWebSignInTimestamp   timestamp with time zone,
+  PRIMARY KEY (id)
+);
+
+-- changeset titov:8 dbms:postgresql runInTransaction:true
+CREATE
+TABLE
+  adminAuthorities(
+  id BIGSERIAL NOT NULL ,
+  adminId bigint NOT NULL,
+  role VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id),
+  CONSTRAINT adminId_role UNIQUE (adminId,role),
+  CONSTRAINT adminAuthorities_managers FOREIGN KEY (adminId) REFERENCES admins (id) MATCH SIMPLE ON DELETE CASCADE
+);
+
+-- changeset titov:9 dbms:postgresql runInTransaction:true
+INSERT INTO admins
+(id, email           , token                                                                                       , lastSignInIpAddress, blocked, lastWebSignInTimestamp) VALUES
+(1 , '${admin_email}', MD5('${admin_email}' || MD5('${admin_pass_salt}'|| '${admin_pass}' || '${admin_pass_salt}')), '127.0.0.1'        , false  , NULL);
+
+INSERT INTO adminAuthorities
+(adminId, role  ) VALUES
+(1     , 'ADMIN');

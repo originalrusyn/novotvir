@@ -2,41 +2,35 @@ package novotvir.security.service.impl;
 
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import novotvir.persistence.domain.User;
-import novotvir.persistence.repository.UserRepository;
-import novotvir.security.credential.impl.UserDetailsImpl;
+import novotvir.persistence.domain.Admin;
+import novotvir.persistence.repository.AdminRepository;
+import novotvir.security.credential.impl.AdminDetailsImpl;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.transaction.annotation.Transactional;
 
 import static java.util.Objects.isNull;
 
 /**
- * @author Titov Mykhaylo (titov)
- *         11.01.14 20:22
+ * Created by Mykaylo Titov on 06.07.14.
  */
 @Slf4j
-public class UserDetailsServiceImpl implements UserDetailsService {
+public class AdminDetailsServiceImpl implements UserDetailsService {
 
-    @Setter
-    protected UserRepository userRepository;
+    @Setter AdminRepository adminRepository;
 
     @Override
-    @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
         log.debug("input parameters userName: [{}]", userName);
 
-        User user = userRepository.findByName(userName);
+        Admin admin = adminRepository.findByEmail(userName);
 
-        if (isNull(user))
+        if (isNull(admin))
             throw new UsernameNotFoundException("Couldn't find user with userName [" + userName + "] in the DB");
 
-        UserDetails userDetails = new UserDetailsImpl(user);
+        UserDetails userDetails = new AdminDetailsImpl(admin);
 
         log.debug("Output parameter userDetails=[{}]", userDetails);
         return userDetails;
     }
-
 }
-

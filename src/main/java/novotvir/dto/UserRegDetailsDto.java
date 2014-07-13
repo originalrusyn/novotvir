@@ -8,7 +8,7 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
 /**
- * @autor: Titov Mykhaylo (titov)
+ * @author: Titov Mykhaylo (titov)
  * 18.02.14 16:20
  */
 @ToString

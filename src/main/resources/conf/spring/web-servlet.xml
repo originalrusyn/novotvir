@@ -52,6 +52,7 @@
 
     <util:map id="thymeleafViewResolverStaticVars" >
         <entry key="pass_salt" value="${pass_salt}" />
+        <entry key="admin_pass_salt" value="${admin_pass_salt}" />
     </util:map>
 
     <bean id="tilesConfigurer"
@@ -67,6 +68,7 @@
 
     <mvc:view-controller path="/reg_successful" view-name="reg_successful" />
     <mvc:view-controller path="/doc" view-name="doc" />
+    <mvc:view-controller path="/admin/signin.html" view-name="admin_signin" />
     <mvc:view-controller path="/signin.html" view-name="signin" />
     <mvc:view-controller path="/signout.html" view-name="signout" />
 

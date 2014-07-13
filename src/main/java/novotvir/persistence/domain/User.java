@@ -12,7 +12,6 @@ import java.util.List;
 import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.GenerationType.SEQUENCE;
-import static novotvir.enums.Role.USER;
 import static scala.actors.threadpool.Arrays.asList;
 
 /**
@@ -32,8 +31,8 @@ public class User {
     public static final String USER = "user";
 
     @Id
-    @SequenceGenerator(name = "users_id_seq", sequenceName = "users_id_seq")
-    @GeneratedValue(strategy = SEQUENCE, generator = "users_id_seq")
+    @SequenceGenerator(name = "users_id_seq_gen", sequenceName = "users_id_seq")
+    @GeneratedValue(strategy = SEQUENCE, generator = "users_id_seq_gen")
     public Long id;
 
     @Column(nullable = false)

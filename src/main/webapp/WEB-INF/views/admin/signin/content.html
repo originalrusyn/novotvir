@@ -1,0 +1,25 @@
+<div xmlns:th="http://www.thymeleaf.org">
+    <script src='assets/lib/jquery.md5.min.js' th:src="@{/assets/lib/jquery.md5.min.js}" type='text/javascript'></script>
+    <script type='text/javascript' th:inline="javascript">
+        /*<![CDATA[*/
+        $(document).ready(function () {
+            $('#signInForm').submit(function (e) {
+                var pass = $('#passInput').val();
+                var token = encrypt_admin_pass(pass);
+                $('#tokenInput').val(token);
+            });
+        });
+        /*]]>*/
+    </script>
+    <form id="signInForm" name="signInForm" action="#" th:action="@{signin}" method="post">
+        <label><strong th:text="#{admin.signin.content.signInForm.email.label}">Email:</strong></label>
+        <input type="email" name="email" value="dev@i.ua" required="true"/>
+
+        <label><strong th:text="#{admin.signin.content.signInForm.password.label}">Password:</strong></label>
+        <input id="passInput" type="password" value="password" required="true" pattern="[A-Za-z]{6,12}"/>
+
+        <input id="tokenInput" name="token" type="hidden" value=""/>
+
+        <input id="SignInButton" type="submit" name="submit" th:value="#{admin.signin.content.signInForm.submit}" value="Send"/>
+    </form>
+</div>

@@ -16,6 +16,11 @@
         <put-attribute name="header" expression="/WEB-INF/views/www/authorized_user/header.html"/>
     </definition>
 
+    <definition name="admin_signin" extends="main_template">
+        <put-attribute name="title" expression="/WEB-INF/views/admin/signin/title.html"/>
+        <put-attribute name="content" expression="/WEB-INF/views/admin/signin/content.html"/>
+    </definition>
+
     <definition name="signin" extends="main_template">
         <put-attribute name="title" expression="/WEB-INF/views/www/signin/title.html"/>
         <put-attribute name="content" expression="/WEB-INF/views/www/signin/content.html"/>

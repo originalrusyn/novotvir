@@ -4,14 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import novotvir.dto.UserRegDetailsDto;
 import novotvir.persistence.domain.User;
 import novotvir.service.UserEmailRegService;
-import novotvir.service.UserRegService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.RememberMeServices;
-import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -22,7 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import static novotvir.dto.UserRegDetailsDto.USER_REG_DETAILS_DTO;
@@ -33,7 +26,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 /**
- * @autor: Titov Mykhaylo (titov)
+ * @author: Titov Mykhaylo (titov)
  * 18.02.14 15:53
  */
 @Controller

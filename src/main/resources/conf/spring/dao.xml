@@ -24,6 +24,7 @@
 
     <util:map id="changeLogParameters" >
         <entry key="pass_salt" value="${pass_salt}" />
+        <entry key="admin_pass_salt" value="${admin_pass_salt}" />
         <entry key="admin_email" value="${admin_email}" />
         <entry key="admin_pass" value="${admin_pass}" />
     </util:map>
