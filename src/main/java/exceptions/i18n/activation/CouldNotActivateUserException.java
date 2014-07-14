@@ -7,7 +7,8 @@ import exceptions.i18n.LocalizedException;
  */
 public abstract class CouldNotActivateUserException extends LocalizedException{
 
-    protected CouldNotActivateUserException(String defaultMessage, Object[] messageArgs) {
-        super(defaultMessage, messageArgs);
+    public CouldNotActivateUserException(String message, String localizedMessage){
+        super(message);
+        this.localizedMessage=localizedMessage;
     }
 }

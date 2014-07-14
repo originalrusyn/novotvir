@@ -9,4 +9,5 @@ public interface CustomMessageSource extends HierarchicalMessageSource {
 
     String getMailValidationMailSubj();
     String getMailValidationMailText(String emailValidationUrl);
+    String getMessage(String code, Object... args);
 }

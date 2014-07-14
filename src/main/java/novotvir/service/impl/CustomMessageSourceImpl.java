@@ -2,13 +2,11 @@ package novotvir.service.impl;
 
 import lombok.Delegate;
 import novotvir.service.CustomMessageSource;
-import novotvir.utils.RequestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpServletRequest;
-import java.util.Locale;
+import static novotvir.utils.RequestUtils.getRequestLocale;
 
 /**
  * @author Titov Mykhaylo (titov) on 13.03.14.
@@ -22,16 +20,17 @@ public class CustomMessageSourceImpl implements CustomMessageSource {
 
     @Override
     public String getMailValidationMailSubj(){
-        return getMessage("email.validation.email.subj", null, getRequestLocale());
+        return getMessage("email.validation.email.subj", null);
     }
 
     @Override
     public String getMailValidationMailText(String emailValidationUrl){
-        return getMessage("email.validation.email.txt", new String[]{emailValidationUrl}, getRequestLocale());
+        return getMessage("email.validation.email.txt", emailValidationUrl);
     }
 
-    private Locale getRequestLocale() {
-        HttpServletRequest request = RequestUtils.getHttpServletRequest();
-        return request.getLocale();
+
+    @Override
+    public String getMessage(String code, Object... args){
+        return getMessage(code, args, getRequestLocale());
     }
 }

@@ -6,14 +6,11 @@ import lombok.Getter;
  * @author Titov Mykhaylo (titov) on 22.05.2014.
  */
 public abstract class LocalizedException extends RuntimeException{
+    @Getter public String localizedMessage;
 
-    @Getter
-    protected Object[] messageArgs;
-
-    protected LocalizedException(String defaultMessage, Object[] messageArgs) {
-        super(defaultMessage);
-        this.messageArgs = messageArgs;
+    public LocalizedException(String message){
+        super(message);
     }
 
-    public abstract String getMessageCode();
+    public abstract String getErrCode();
 }

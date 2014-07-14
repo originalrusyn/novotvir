@@ -1,15 +1,19 @@
 package novotvir.service.impl;
 
+import exceptions.i18n.activation.impl.NoSuchUserException;
+import exceptions.i18n.activation.impl.UnExpectedActivationTokenException;
+import exceptions.i18n.activation.impl.UserAlreadyActivatedException;
 import lombok.extern.slf4j.Slf4j;
 import novotvir.persistence.domain.User;
 import novotvir.persistence.repository.UserRepository;
+import novotvir.service.CustomMessageSource;
 import novotvir.service.UserActivationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import static exceptions.i18n.activation.impl.NoSuchUserException.NoSuchUserExceptionBuilder;
-import static exceptions.i18n.activation.impl.UnExpectedActivationTokenException.UnExpectedActivationTokenExceptionBuilder;
-import static exceptions.i18n.activation.impl.UserAlreadyActivatedException.UserAlreadyActivatedExceptionBuilder;
+import static exceptions.i18n.activation.impl.NoSuchUserException.NO_SUCH_USER_EXCEPTION_MESSAGE_CODE;
+import static exceptions.i18n.activation.impl.UnExpectedActivationTokenException.UN_EXPECTED_ACTIVATION_TOKEN_EXCEPTION_MESSAGE_CODE;
+import static exceptions.i18n.activation.impl.UserAlreadyActivatedException.USER_ALREADY_ACTIVATED_EXCEPTION_MESSAGE_CODE;
 import static java.util.Objects.isNull;
 
 /**
@@ -20,20 +24,36 @@ import static java.util.Objects.isNull;
 public class UserActivationServiceImpl implements UserActivationService {
 
     @Autowired UserRepository userRepository;
+    @Autowired CustomMessageSource customMessageSource;
 
     @Override
     public User activate(String userName, String activationToken) {
         User user = userRepository.findByName(userName);
         if(isNull(user)) {
-            log.info("Couldn't find user with name [{}]", userName);
-            throw new NoSuchUserExceptionBuilder().setUserName(userName).build();
+            throwNoSuchUserException(userName);
         } else if(!user.activationToken.equals(activationToken)){
-            log.info("Expected activation token [{}] for user with name [{}] and actual activated token [{}] aren't the same", user.activationToken, user.name, activationToken);
-            throw new UnExpectedActivationTokenExceptionBuilder().setActualToken(activationToken).setUserName(userName).build();
+            throwUnExpectedActivationTokenException(userName, activationToken, user);
         } else if (user.activated){
-            log.info("User with name [{}] had been already activated", userName);
-            throw new UserAlreadyActivatedExceptionBuilder().setUserName(userName).build();
+            throwUserAlreadyActivatedException(userName);
         }
         return userRepository.save(user.setActivated(true));
+    }
+
+    private User throwNoSuchUserException(String userName) {
+        String message = "Couldn't find user with name ["+userName+"]";
+        String localizedMessage = customMessageSource.getMessage(NO_SUCH_USER_EXCEPTION_MESSAGE_CODE, userName);
+        throw new NoSuchUserException(message, localizedMessage);
+    }
+
+    private User throwUnExpectedActivationTokenException(String userName, String activationToken, User user) {
+        String message = "Expected activation token ["+user.activationToken+"] for user with name ["+user.name+"] and actual activated token ["+activationToken+"] aren't the same";
+        String localizedMessage = customMessageSource.getMessage(UN_EXPECTED_ACTIVATION_TOKEN_EXCEPTION_MESSAGE_CODE, userName, activationToken);
+        throw new UnExpectedActivationTokenException(message, localizedMessage);
+    }
+
+    private User throwUserAlreadyActivatedException(String userName) {
+        String message = "User with name ["+userName+"] had been already activated";
+        String localizedMessage = customMessageSource.getMessage(USER_ALREADY_ACTIVATED_EXCEPTION_MESSAGE_CODE, userName);
+        throw new UserAlreadyActivatedException(message, localizedMessage);
     }
 }
