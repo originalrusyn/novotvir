@@ -2,6 +2,7 @@ package novotvir.dto;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
+import novotvir.utils.RequestUtils;
 
 /**
  * @author Titov Mykhaylo (titov) on 22.05.2014.
@@ -11,7 +12,7 @@ import lombok.experimental.Accessors;
 public class ErrorDto {
     public static final String ERROR_DTO = "errorDto";
 
-    private String requestUrl = getRequestUrl();
+    private String requestUrl = RequestUtils.getRequestUrl();
     private String errCode;
     private String localizedMessage;
 }

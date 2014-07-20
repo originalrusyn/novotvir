@@ -43,7 +43,7 @@ public class AfterCommitExecutorImpl extends TransactionSynchronizationAdapter i
             try {
                 threadCommand.run();
             }catch (Exception e){
-                log.error(e.getMessage(), e);
+                log.error("Couldn't execute thread after transaction was commited", e);
             }
         }
     }

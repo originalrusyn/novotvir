@@ -21,7 +21,7 @@ public class GlobalControllerExceptionHandler {
     @ExceptionHandler({DataIntegrityViolationException.class})
     @ResponseStatus(value = CONFLICT)
     public ModelAndView handleConstraintViolationException(HttpServletRequest req, DataIntegrityViolationException dataIntegrityViolationException){
-        log.trace(dataIntegrityViolationException.getMessage(), dataIntegrityViolationException);
+        log.trace("Data integrity violation", dataIntegrityViolationException);
 
         ModelAndView errorModelAndView = new ModelAndView("error");
         errorModelAndView.addObject("errorReason", "data.integrity.violation");

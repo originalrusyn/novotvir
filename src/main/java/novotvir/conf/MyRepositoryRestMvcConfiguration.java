@@ -3,6 +3,7 @@ package novotvir.conf;
 import novotvir.persistence.domain.User;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
+import org.springframework.data.rest.core.config.ResourceMapping;
 import org.springframework.data.rest.webmvc.config.RepositoryRestMvcConfiguration;
 
 /**
@@ -14,7 +15,8 @@ public class MyRepositoryRestMvcConfiguration extends RepositoryRestMvcConfigura
 
     @Override
     protected void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
-        config.setResourceMappingForDomainType(User.class).addResourceMappingFor("name").setPath("name");
-        config.setResourceMappingForDomainType(User.class).addResourceMappingFor("id").setPath("id");
+        ResourceMapping resourceMapping = config.setResourceMappingForDomainType(User.class);
+        resourceMapping.addResourceMappingFor("name").setPath("name");
+        resourceMapping.addResourceMappingFor("id").setPath("id");
     }
 }

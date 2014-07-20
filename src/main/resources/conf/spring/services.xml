@@ -28,7 +28,7 @@
 
     <util:list id="appPropertiesLocations" value-type="org.springframework.core.io.Resource" >
         <value>file:${conf.dir.path}/app.properties</value>
-        <value>WEB-INF/conf/app.properties</value>
+        <value>classpath:/conf/app.properties</value>
     </util:list>
 
     <context:annotation-config/>

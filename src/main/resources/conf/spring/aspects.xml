@@ -8,16 +8,16 @@
        http://www.springframework.org/schema/aop
        http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <aop:aspectj-autoproxy expose-proxy="true" proxy-target-class="true"/>
+    <aop:aspectj-autoproxy expose-proxy="true" proxy-target-class="false"/>
 
     <bean id="customizableTraceInterceptor"
           class="org.springframework.aop.interceptor.CustomizableTraceInterceptor"
-          p:enterMessage="Entering $[methodName]($[arguments])"
-          p:exitMessage="Leaving $[methodName](): $[returnValue]"/>
+          p:enterMessage="Entering $[targetClassShortName].$[methodName]($[arguments])"
+          p:exitMessage="Leaving $[targetClassShortName].$[methodName](): $[returnValue]"/>
 
     <aop:config>
-        <aop:advisor advice-ref="customizableTraceInterceptor" pointcut="execution(public * novotvir.*.*(..))"/>
-        <aop:advisor advice-ref="customizableTraceInterceptor" pointcut="execution(public * novotvir.controller.AsyncController.signin(..))"/>
+        <aop:advisor advice-ref="customizableTraceInterceptor" pointcut="execution(public * novotvir.controller..*(..))"/>
+        <aop:advisor advice-ref="customizableTraceInterceptor" pointcut="execution(public * novotvir.service.impl..*(..))"/>
+        <aop:advisor advice-ref="customizableTraceInterceptor" pointcut="execution(public * novotvir.executors.impl..*(..))"/>
     </aop:config>
-
 </beans>

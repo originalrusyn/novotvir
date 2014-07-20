@@ -57,7 +57,7 @@ public class SignUpController {
     @ExceptionHandler({BindException.class})
     @ResponseStatus(BAD_REQUEST)
     public ModelAndView handleValidationException(BindException bindException){
-        log.trace(bindException.getMessage(), bindException);
+        log.trace("Bad request", bindException);
         ModelAndView signUpModelAndView = new ModelAndView("signup");
         signUpModelAndView.addAllObjects(bindException.getModel());
         return signUpModelAndView;
