@@ -28,7 +28,7 @@ public class RequestUtils {
                     request.getServerPort(), request.getContextPath());
             return reconstructedURL.toString();
         } catch (MalformedURLException e) {
-            log.error(e.getMessage(), e);
+            log.error("Couldn't get Server URL", e);
             return null;
         }
     }

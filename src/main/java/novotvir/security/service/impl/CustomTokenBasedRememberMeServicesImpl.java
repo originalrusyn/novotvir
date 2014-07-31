@@ -14,6 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.nio.charset.Charset;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
@@ -50,13 +51,13 @@ public class CustomTokenBasedRememberMeServicesImpl extends TokenBasedRememberMe
             if (nonNull(successHandler))
                 successHandler.onAuthenticationSuccess(request, response, successfulAuthentication);
         } catch (IOException | ServletException e) {
-            log.error(e.getMessage(), e);
+            log.error("Couldn't login", e);
         }
     }
 
     @Override
     protected String makeTokenSignature(long tokenExpiryTimeMillis, String username, String password) {
-        return md5DigestAsHex((getEncodedUserName(username) + ":" + tokenExpiryTimeMillis + ":" + password + ":" + getKey()).getBytes());
+        return md5DigestAsHex((getEncodedUserName(username) + ":" + tokenExpiryTimeMillis + ":" + password + ":" + getKey()).getBytes(Charset.forName("UTF-8")));
     }
 
     @Override
@@ -66,7 +67,7 @@ public class CustomTokenBasedRememberMeServicesImpl extends TokenBasedRememberMe
             log.debug("Process auto login with cookie auth tokens: [{}]", cookieTokens);
             return super.processAutoLoginCookie(cookieTokens, request, response);
         } catch (Exception e) {
-            log.error(e.getMessage(), e);
+            log.error("Couldn't auto login", e);
             throw new InvalidCookieException(e.getMessage());
         }
     }

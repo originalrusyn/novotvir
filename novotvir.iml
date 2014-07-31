@@ -25,8 +25,8 @@
         </webroots>
         <sourceRoots>
           <root url="file://$MODULE_DIR$/src/main/resources" />
-          <root url="file://$MODULE_DIR$/src/main/groovy" />
           <root url="file://$MODULE_DIR$/src/main/java" />
+          <root url="file://$MODULE_DIR$/src/main/groovy" />
         </sourceRoots>
       </configuration>
     </facet>
@@ -52,7 +52,7 @@
     <orderEntry type="library" exported="" name="Gradle: spring-security-taglibs-3.2.0.RELEASE" level="project" />
     <orderEntry type="library" exported="" name="Gradle: spring-social-core-1.0.3.RELEASE" level="project" />
     <orderEntry type="library" exported="" name="Gradle: spring-social-facebook-1.0.3.RELEASE" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: cglib-3.1.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: asm-5.0_BETA" level="project" />
     <orderEntry type="library" exported="" name="Gradle: aspectjtools-1.7.4" level="project" />
     <orderEntry type="library" exported="" name="Gradle: slf4j-log4j12-1.7.5" level="project" />
     <orderEntry type="library" exported="" name="Gradle: log4j-1.2.17" level="project" />
@@ -60,7 +60,6 @@
     <orderEntry type="library" exported="" name="Gradle: hibernate-core-4.3.1.Final" level="project" />
     <orderEntry type="library" exported="" name="Gradle: hibernate-entitymanager-4.3.1.Final" level="project" />
     <orderEntry type="library" exported="" name="Gradle: hibernate-jpa-2.1-api-1.0.0.Final" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: hibernate-cglib-repack-2.1_3" level="project" />
     <orderEntry type="library" exported="" name="Gradle: hibernate-validator-5.1.0.Final" level="project" />
     <orderEntry type="library" exported="" name="Gradle: javassist-3.18.1-GA" level="project" />
     <orderEntry type="library" exported="" name="Gradle: tiles-api-2.2.2" level="project" />

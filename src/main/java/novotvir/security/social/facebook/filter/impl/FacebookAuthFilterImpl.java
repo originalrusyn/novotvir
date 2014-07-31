@@ -37,7 +37,7 @@ public class FacebookAuthFilterImpl extends AbstractAuthenticationProcessingFilt
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException, IOException,
             ServletException {
         String code = request.getParameter("code");
-        boolean signUp = Boolean.valueOf(request.getParameter(SIGN_UP));
+        boolean signUp = Boolean.parseBoolean(request.getParameter(SIGN_UP));
         String authorizeUrl = facebookAuthUrlService.getFacebookAuthorizationUrl(signUp);
         Authentication authentication = null;
         if (isNull(code)) {
