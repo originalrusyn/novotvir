@@ -53,6 +53,7 @@ sourceSets {
     test {
         compileClasspath += configurations.testProvided
         runtimeClasspath += configurations.testProvided
+        runtimeClasspath += files("src/main/webapp")
 
         java{
             srcDirs = ['src/test/java']
@@ -105,11 +106,12 @@ dependencies {
     compile 'org.springframework.security:spring-security-taglibs:3.2.0.RELEASE'
     compile 'org.springframework.social:spring-social-core:1.0.3.RELEASE'
     compile 'org.springframework.social:spring-social-facebook:1.0.3.RELEASE'
+//    compile 'org.springframework.data:spring-data-solr:1.2.1.RELEASE'
 //    compile 'org.springframework.social:spring-social-google:1.0.0.M3'
     compile 'javax.mail:mail:1.4.7'
     compile 'jaf:activation:1.0.2'
     compile 'org.sonatype.sisu.inject:cglib:3.1.1'
-    compile 'org.ow2.asm:asm:5.0_BETA'
+    compile 'org.ow2.asm:asm:5.0.3'
 //    compile 'org.aspectj:aspectjrt:1.7.4'
 //    compile 'org.aspectj:aspectjweaver:1.7.4'
     compile 'org.aspectj:aspectjtools:1.7.4'
@@ -138,7 +140,7 @@ dependencies {
     compile 'postgresql:postgresql:9.0-801.jdbc4'
     compile 'com.mangofactory:swagger-springmvc:0.6.6'
 
-    testCompile 'org.springframework:spring-test:4.0.0.M1'
+    testCompile 'org.springframework:spring-test:4.0.6.RELEASE'
     testCompile "org.codehaus.groovy:groovy-all:2.2.0"
     testCompile 'junit:junit:4.11'
     testCompile 'info.cukes:cucumber-junit:1.1.8'

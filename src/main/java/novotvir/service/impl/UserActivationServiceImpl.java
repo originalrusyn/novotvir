@@ -11,6 +11,8 @@ import novotvir.service.UserActivationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 import static exceptions.i18n.activation.impl.NoSuchUserException.NO_SUCH_USER_EXCEPTION_MESSAGE_CODE;
 import static exceptions.i18n.activation.impl.UnExpectedActivationTokenException.UN_EXPECTED_ACTIVATION_TOKEN_EXCEPTION_MESSAGE_CODE;
 import static exceptions.i18n.activation.impl.UserAlreadyActivatedException.USER_ALREADY_ACTIVATED_EXCEPTION_MESSAGE_CODE;
@@ -23,7 +25,7 @@ import static java.util.Objects.isNull;
 @Service("userActivationService")
 public class UserActivationServiceImpl implements UserActivationService {
 
-    @Autowired UserRepository userRepository;
+    @Resource(name = "userRepository") UserRepository userRepository;
     @Autowired CustomMessageSource customMessageSource;
 
     @Override
