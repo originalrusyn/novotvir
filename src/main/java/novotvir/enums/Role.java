@@ -6,5 +6,5 @@ package novotvir.enums;
 public enum Role {
     USER,
     DEV,
-    ADMIN
+    ADMIN;
 }
