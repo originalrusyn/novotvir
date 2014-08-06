@@ -1,8 +1,6 @@
 package novotvir.dto;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 import lombok.experimental.Accessors;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
@@ -11,11 +9,11 @@ import org.hibernate.validator.constraints.NotBlank;
  * @author: Titov Mykhaylo (titov)
  * 18.02.14 16:20
  */
-@ToString
+@Data
 @Accessors(chain = true)
 public class UserRegDetailsDto {
     public static final String USER_REG_DETAILS_DTO = "userRegDetailsDto";
 
-    @Email @Setter @Getter public String email;
-    @NotBlank @Setter @Getter public String token;
+    @Email public String email;
+    @NotBlank public String token;
 }

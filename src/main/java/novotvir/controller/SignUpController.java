@@ -47,7 +47,6 @@ public class SignUpController {
     @ResponseStatus(CREATED)
     public ModelAndView signUp(HttpServletRequest request,
                                @Valid @ModelAttribute(USER_REG_DETAILS_DTO) UserRegDetailsDto userRegDetailsDto) {
-        log.debug("input parameters request, userRegDetailsDto: [{}], [{}]", new Object[]{request, userRegDetailsDto});
         User user = userEmailRegService.registerUser(userRegDetailsDto);
         ModelAndView modelAndView = new ModelAndView("redirect:reg_successful");
         modelAndView.addObject(USER, user);

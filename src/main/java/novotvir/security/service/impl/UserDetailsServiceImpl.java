@@ -25,17 +25,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        log.debug("input parameters userName: [{}]", userName);
-
         User user = userRepository.findByName(userName);
 
         if (isNull(user))
             throw new UsernameNotFoundException("Couldn't find user with userName [" + userName + "] in the DB");
 
-        UserDetails userDetails = new UserDetailsImpl(user);
-
-        log.debug("Output parameter userDetails=[{}]", userDetails);
-        return userDetails;
+        return new UserDetailsImpl(user);
     }
 
 }

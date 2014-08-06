@@ -12,9 +12,7 @@ import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.GenerationType.SEQUENCE;
 
-/**
- * Created by Mykaylo Titov on 05.07.14.
- */
+// @author: Mykaylo Titov on 05.07.14 22:17.
 @Entity
 @Table(name = "admins", uniqueConstraints = {
         @UniqueConstraint(name = "email", columnNames = "email"),
