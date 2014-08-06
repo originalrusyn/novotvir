@@ -64,6 +64,7 @@ public class UsersServiceImpl implements UsersService {
     @Transactional(readOnly = true)
     public Set<User> findUsers(String q) {
         QueriedParamExtractor paramExtractor = new QueriedParamExtractor(q);
-        return userRepository.findByIdOrNameOrEmailOrActivatedOrBlocked(paramExtractor.ids, paramExtractor.lastKeyWord, paramExtractor.roles, paramExtractor.activations);
+        //return userRepository.findByIdOrNameOrEmailOrActivatedOrBlocked(paramExtractor.ids, paramExtractor.lastKeyWord, paramExtractor.roles, paramExtractor.activations);
+        return userRepository.findByIdOrNameOrEmailOrActivatedOrBlocked(paramExtractor.lastKeyWord);
     }
 }

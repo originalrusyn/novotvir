@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.transaction.TransactionConfiguration;
 
 import javax.annotation.Resource;
 import java.util.Set;
@@ -16,14 +17,15 @@ import static org.junit.Assert.assertThat;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 //@ContextHierarchy({
-//        @ContextConfiguration("/conf/spring/services.xml"),
-//        @ContextConfiguration("/conf/spring/dao.xml")
+//        @ContextConfiguration("/conf/spring/services-test.xml"),
+//        @ContextConfiguration("/conf/spring/dao-test.xml")
 //})
-@ContextConfiguration({"/conf/spring/services.xml", "/conf/spring/dao.xml"})
+@TransactionConfiguration
+@ContextConfiguration({"/conf/spring/services-test.xml", "/conf/spring/security.xml", "/conf/spring/dao-test.xml"})
 public class UsersServiceIT {
 
     @Autowired UsersService usersService;
-    @Resource(name = "userRepository") UserRepository userRepository;
+    @Resource UserRepository userRepository;
 
     @Test
     public void shouldFindUsers() {
@@ -35,7 +37,6 @@ public class UsersServiceIT {
         Set<User> users = usersService.findUsers(q);
 
         //then
-        assertThat(users.size(), is(1));
-        //assertThat(users., is(1));
+        assertThat(users.size(), is(0));
     }
 }
