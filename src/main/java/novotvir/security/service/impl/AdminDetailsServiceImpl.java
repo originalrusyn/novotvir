@@ -11,9 +11,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import static java.util.Objects.isNull;
 
-/**
- * Created by Mykaylo Titov on 06.07.14.
- */
+// @author: Mykaylo Titov on 06.07.14 22:19.
 @Slf4j
 public class AdminDetailsServiceImpl implements UserDetailsService {
 
@@ -21,16 +19,11 @@ public class AdminDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        log.debug("input parameters userName: [{}]", userName);
-
         Admin admin = adminRepository.findByEmail(userName);
 
         if (isNull(admin))
             throw new UsernameNotFoundException("Couldn't find user with userName [" + userName + "] in the DB");
 
-        UserDetails userDetails = new AdminDetailsImpl(admin);
-
-        log.debug("Output parameter userDetails=[{}]", userDetails);
-        return userDetails;
+        return new AdminDetailsImpl(admin);
     }
 }

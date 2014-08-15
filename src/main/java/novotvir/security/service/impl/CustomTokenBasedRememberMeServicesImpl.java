@@ -83,17 +83,12 @@ public class CustomTokenBasedRememberMeServicesImpl extends TokenBasedRememberMe
 
     @Override
     public String getRememberMeToken(String userName, String password) {
-        log.debug("input parameters email, password: [{}], [{}]", new String[]{userName, password});
-
         String encodedUserName = getEncodedUserName(userName);
 
         long tokenExpirationMillis = getTokenExpirationMillis();
         String tokenSignature = makeTokenSignature(tokenExpirationMillis, encodedUserName, password);
 
-        String rememberMeToken = encodeCookie(new String[] {encodedUserName, Long.toString(tokenExpirationMillis), tokenSignature});
-
-        log.debug("Remember me auth token was generated [{}]", rememberMeToken);
-        return rememberMeToken;
+        return encodeCookie(new String[] {encodedUserName, Long.toString(tokenExpirationMillis), tokenSignature});
     }
 
     private long getTokenExpirationMillis(){

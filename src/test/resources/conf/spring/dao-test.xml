@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/data/jpa
+       http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/jdbc
+       http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd">
+
+    <bean id="adminDataSource"
+          destroy-method="close"
+          class="org.apache.commons.dbcp.BasicDataSource"
+          p:removeAbandoned="${jdbc.admin.removeAbandoned}"
+          p:removeAbandonedTimeout="${jdbc.admin.removeAbandonedTimeout}"
+          p:testOnBorrow="${jdbc.admin.testOnBorrow}"
+          p:validationQuery="${jdbc.admin.validationQuery}"
+          p:maxActive="${jdbc.admin.maxActive}"
+          p:maxIdle="${jdbc.admin.maxIdle}"
+          p:maxWait="${jdbc.admin.maxWait}"
+          p:username="${jdbc.admin.username}"
+          p:password="${jdbc.admin.password}"
+          p:driverClassName="${jdbc.admin.driverClassName}"
+          p:url="${jdbc.admin.url}"/>
+
+
+        <jdbc:initialize-database data-source="adminDataSource">
+        <jdbc:script location="conf/init-test.sql"/>
+        </jdbc:initialize-database>
+
+    <import resource="dao.xml"/>
+
+    <bean id="dataSource" depends-on="org.springframework.jdbc.datasource.init.DataSourceInitializer#0"
+          destroy-method="close"
+          class="org.apache.commons.dbcp.BasicDataSource"
+          p:removeAbandoned="${jdbc.removeAbandoned}"
+          p:removeAbandonedTimeout="${jdbc.removeAbandonedTimeout}"
+          p:testOnBorrow="${jdbc.testOnBorrow}"
+          p:validationQuery="${jdbc.validationQuery}"
+          p:maxActive="${jdbc.maxActive}"
+          p:maxIdle="${jdbc.maxIdle}"
+          p:maxWait="${jdbc.maxWait}"
+          p:username="${jdbc.username}"
+          p:password="${jdbc.password}"
+          p:driverClassName="${jdbc.driverClassName}"
+          p:url="${jdbc.url}" />
+
+</beans>

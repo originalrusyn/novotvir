@@ -35,7 +35,7 @@ public class AccountActivationController {
     public static final String ACTIVATION_TOKEN_REQ_PARAM = "activationToken";
 
     @Resource(name = "customRememberMeServices") RememberMeServices rememberMeServices;
-    @Resource(name= "authenticationManagerWithoutPasswordEncoder") AuthenticationManager authenticationManager;
+    @Resource AuthenticationManager authenticationManagerWithoutPasswordEncoder;
     @Autowired UserActivationService userActivationService;
 
     @RequestMapping(value = "/users/{" + NAME_PATH_VAR + ":.*}", method = PUT)
@@ -60,7 +60,7 @@ public class AccountActivationController {
     private ModelAndView autoLogin(HttpServletRequest request, HttpServletResponse response, User user) {
         UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(user.name, user.token);
         authentication.setDetails(new WebAuthenticationDetails(request));
-        Authentication authenticated = authenticationManager.authenticate(authentication);
+        Authentication authenticated = authenticationManagerWithoutPasswordEncoder.authenticate(authentication);
         rememberMeServices.loginSuccess(request, response, authenticated);
         SecurityContextHolder.getContext().setAuthentication(authentication);
         ModelAndView modelAndView = new ModelAndView("redirect:/users/" + user.name);
