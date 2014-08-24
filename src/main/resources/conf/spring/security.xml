@@ -18,14 +18,14 @@
 
         <sec:http-basic />
 
-        <sec:form-login default-target-url="/"
-                        authentication-failure-url="/admin.html?error"
-                        login-page="/admin.html"
+        <sec:form-login default-target-url="/admin/account.html"
+                        authentication-failure-url="/admin/signin.html?error"
+                        login-page="/signin.html"
                         password-parameter="token"
                         username-parameter="email"
                         login-processing-url="/signin"/>
 
-        <sec:logout logout-success-url="/signin.html"
+        <sec:logout logout-success-url="/admin/signin.html"
                     logout-url="/signout"
                     delete-cookies="JSESSIONID" />
 

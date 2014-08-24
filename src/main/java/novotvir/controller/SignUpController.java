@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import static novotvir.dto.UserRegDetailsDto.USER_REG_DETAILS_DTO;
@@ -45,8 +44,7 @@ public class SignUpController {
 
     @RequestMapping(value = "/signup", method = POST)
     @ResponseStatus(CREATED)
-    public ModelAndView signUp(HttpServletRequest request,
-                               @Valid @ModelAttribute(USER_REG_DETAILS_DTO) UserRegDetailsDto userRegDetailsDto) {
+    public ModelAndView signUp(@Valid @ModelAttribute(USER_REG_DETAILS_DTO) UserRegDetailsDto userRegDetailsDto) {
         User user = userEmailRegService.registerUser(userRegDetailsDto);
         ModelAndView modelAndView = new ModelAndView("redirect:reg_successful");
         modelAndView.addObject(USER, user);

@@ -11,6 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.Set;
 
 import static org.hamcrest.core.Is.is;
@@ -25,20 +26,52 @@ public class UsersServiceIT extends DataBaseIT{
     @Resource UserRepository userRepository;
 
     @Test
-    public void shouldFindUsers() {
+    public void shouldFindUserByName() {
         //given
-        String q = "USER";
-        User user = userRepository.save(new User().setName("name").setEmail("email").setFacebookId("facebookId").setActivationToken("activationToken").setActivated(true).setLastSignInIpAddress("lastSignInIpAddress").setToken("token"));
+        String q = "name";
+        User user = userRepository.save(new User().setName(q).setEmail("email").setFacebookId("facebookId").setActivationToken("activationToken").setActivated(true).setLastSignInIpAddress("lastSignInIpAddress").setToken("token"));
 
         //when
         Set<User> users = usersService.findUsers(q);
 
         //then
-        assertThat(users.size(), is(0));
+        assertThat(users.size(), is(1));
+        assertThat(users.iterator().next().id, is(user.id));
     }
 
     @Test
-    public void shouldFindUsers2() {
+    public void shouldFindUserByEmail() {
+        //given
+        String q = "email";
+        User user = userRepository.save(new User().setName("name").setEmail(q).setFacebookId("facebookId").setActivationToken("activationToken").setActivated(true).setLastSignInIpAddress("lastSignInIpAddress").setToken("token"));
+
+        //when
+        Set<User> users = usersService.findUsers(q);
+
+        //then
+        assertThat(users.size(), is(1));
+        assertThat(users.iterator().next().id, is(user.id));
+    }
+
+    @Test
+    public void shouldFindUserByActivation() {
+        //given
+        boolean q = true;
+        User user = userRepository.save(new User().setName("name").setEmail("email").setFacebookId("facebookId").setActivationToken("activationToken").setActivated(q).setLastSignInIpAddress("lastSignInIpAddress").setToken("token"));
+
+        //when
+        Set<User> users = usersService.findUsers(Boolean.toString(q));
+
+        //then
+        ArrayList<User> userList = new ArrayList<>(users);
+
+        assertThat(users.size(), is(2));
+        assertThat(userList.get(0).id, is(1L));
+        assertThat(userList.get(1).id, is(user.id));
+    }
+
+    @Test
+    public void shouldFindUsersByRole() {
         //given
         String q = "USER";
         User user = userRepository.save(new User().setName("name").setEmail("email").setFacebookId("facebookId").setActivationToken("activationToken").setActivated(true).setLastSignInIpAddress("lastSignInIpAddress").setToken("token"));
@@ -47,6 +80,10 @@ public class UsersServiceIT extends DataBaseIT{
         Set<User> users = usersService.findUsers(q);
 
         //then
-        assertThat(users.size(), is(0));
+        ArrayList<User> userList = new ArrayList<>(users);
+
+        assertThat(users.size(), is(2));
+        assertThat(userList.get(0).id, is(1L));
+        assertThat(userList.get(1).id, is(user.id));
     }
 }

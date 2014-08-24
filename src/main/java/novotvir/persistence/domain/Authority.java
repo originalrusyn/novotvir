@@ -20,19 +20,18 @@ import static javax.persistence.GenerationType.SEQUENCE;
 })
 @Accessors(chain = true)
 @ToString(exclude = "user")
+@Setter
 public class Authority {
 
     @Id
-    @SequenceGenerator(name = "authorities_id_seq", sequenceName = "authorities_id_seq")
+    @SequenceGenerator(name = "authorities_id_seq", sequenceName = "authorities_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = SEQUENCE, generator = "authorities_id_seq")
     public Long id;
 
-    @Setter
     @ManyToOne(fetch = EAGER, optional = false)
     @JoinColumn(name = "userId")
     public User user;
 
-    @Setter
     @Enumerated(STRING)
     @Column(nullable = false)
     public Role role;

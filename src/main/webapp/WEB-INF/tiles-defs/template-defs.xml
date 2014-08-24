@@ -21,6 +21,16 @@
         <put-attribute name="content" expression="/WEB-INF/views/admin/signin/content.html"/>
     </definition>
 
+    <definition name="admin_account" extends="authorized_user_template">
+        <put-attribute name="title" expression="/WEB-INF/views/admin/account/title.html"/>
+        <put-attribute name="content" expression="/WEB-INF/views/admin/account/content.html"/>
+    </definition>
+
+    <definition name="admin_users" extends="authorized_user_template">
+        <put-attribute name="title" expression="/WEB-INF/views/admin/users/title.html"/>
+        <put-attribute name="content" expression="/WEB-INF/views/admin/users/content.html"/>
+    </definition>
+
     <definition name="signin" extends="main_template">
         <put-attribute name="title" expression="/WEB-INF/views/www/signin/title.html"/>
         <put-attribute name="content" expression="/WEB-INF/views/www/signin/content.html"/>

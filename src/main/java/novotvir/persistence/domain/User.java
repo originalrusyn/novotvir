@@ -26,50 +26,41 @@ import static scala.actors.threadpool.Arrays.asList;
 })
 @Accessors(chain = true)
 @ToString(exclude = "authorities")
+@Setter
 public class User {
 
     public static final String USER = "user";
 
     @Id
-    @SequenceGenerator(name = "users_id_seq_gen", sequenceName = "users_id_seq")
+    @SequenceGenerator(name = "users_id_seq_gen", sequenceName = "users_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = SEQUENCE, generator = "users_id_seq_gen")
     public Long id;
 
     @Column(nullable = false)
-    @Setter
     public String name;
 
     @Column(nullable = false)
-    @Setter
     public String email;
 
     @Column(nullable = true)
-    @Setter
     public String token;
 
     @Column(nullable = true)
-    @Setter
     public String facebookId;
 
     @Column(nullable = false)
-    @Setter
     public String lastSignInIpAddress;
 
-    @Setter
     public Date lastWebSignInTimestamp;
 
     @Column(nullable = false)
-    @Setter
     public String activationToken;
 
-    @Setter
     public boolean activated;
 
-    @Setter
     public boolean blocked;
 
     @OneToMany(mappedBy = "user", fetch = EAGER, cascade = ALL)
-    @Setter
     public List<Authority> authorities;
 
     public User(){

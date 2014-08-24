@@ -149,4 +149,5 @@ dependencies {
     testCompile 'org.powermock:powermock-core:1.5'
     testCompile 'org.powermock:powermock-module-junit4-rule-agent:1.5'
     testCompile 'org.codehaus.groovy:groovy-all:2.3.6'
+    testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
 }
