@@ -7,6 +7,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceUnit;
+import javax.persistence.Query;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -15,11 +20,12 @@ import java.util.Set;
 @Service
 public class UsersServiceImpl implements UsersService {
 
-    @Resource(name = "userRepository") UserRepository userRepository;
+    @PersistenceContext EntityManager entityManager;
 
     @Override
     @Transactional(readOnly = true)
     public Set<User> findUsers(String q) {
-        return userRepository.findByIdOrNameOrEmailOrActivatedOrBlocked(q);
+        Query query = entityManager.createQuery("select user from User user left join user.authorities authority where "+q, User.class);
+        return new HashSet<User>(query.getResultList());
     }
 }

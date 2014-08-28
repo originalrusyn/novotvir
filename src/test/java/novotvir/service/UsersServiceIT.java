@@ -26,64 +26,17 @@ public class UsersServiceIT extends DataBaseIT{
     @Resource UserRepository userRepository;
 
     @Test
-    public void shouldFindUserByName() {
+    public void shouldFindUsersByNameAndEmailAndRole() {
         //given
-        String q = "name";
-        User user = userRepository.save(new User().setName(q).setEmail("email").setFacebookId("facebookId").setActivationToken("activationToken").setActivated(true).setLastSignInIpAddress("lastSignInIpAddress").setToken("token"));
-
-        //when
-        Set<User> users = usersService.findUsers(q);
-
-        //then
-        assertThat(users.size(), is(1));
-        assertThat(users.iterator().next().id, is(user.id));
-    }
-
-    @Test
-    public void shouldFindUserByEmail() {
-        //given
-        String q = "email";
-        User user = userRepository.save(new User().setName("name").setEmail(q).setFacebookId("facebookId").setActivationToken("activationToken").setActivated(true).setLastSignInIpAddress("lastSignInIpAddress").setToken("token"));
-
-        //when
-        Set<User> users = usersService.findUsers(q);
-
-        //then
-        assertThat(users.size(), is(1));
-        assertThat(users.iterator().next().id, is(user.id));
-    }
-
-    @Test
-    public void shouldFindUserByActivation() {
-        //given
-        boolean q = true;
-        User user = userRepository.save(new User().setName("name").setEmail("email").setFacebookId("facebookId").setActivationToken("activationToken").setActivated(q).setLastSignInIpAddress("lastSignInIpAddress").setToken("token"));
-
-        //when
-        Set<User> users = usersService.findUsers(Boolean.toString(q));
-
-        //then
-        ArrayList<User> userList = new ArrayList<>(users);
-
-        assertThat(users.size(), is(2));
-        assertThat(userList.get(0).id, is(1L));
-        assertThat(userList.get(1).id, is(user.id));
-    }
-
-    @Test
-    public void shouldFindUsersByRole() {
-        //given
-        String q = "USER";
         User user = userRepository.save(new User().setName("name").setEmail("email").setFacebookId("facebookId").setActivationToken("activationToken").setActivated(true).setLastSignInIpAddress("lastSignInIpAddress").setToken("token"));
 
         //when
-        Set<User> users = usersService.findUsers(q);
+        Set<User> users = usersService.findUsers("name='name' and email='email' and authority.role='USER'");
 
         //then
         ArrayList<User> userList = new ArrayList<>(users);
 
-        assertThat(users.size(), is(2));
-        assertThat(userList.get(0).id, is(1L));
-        assertThat(userList.get(1).id, is(user.id));
+        assertThat(users.size(), is(1));
+        assertThat(userList.get(0).id, is(user.id));
     }
 }
