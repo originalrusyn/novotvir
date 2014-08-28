@@ -72,6 +72,8 @@
     <mvc:view-controller path="/signin.html" view-name="signin" />
     <mvc:view-controller path="/signout.html" view-name="signout" />
     <mvc:view-controller path="/admin/account.html" view-name="admin_account" />
+    <mvc:view-controller path="/" view-name="account" />
+    <mvc:view-controller path="/users/{name}" view-name="account" />
 
     <mvc:interceptors>
         <mvc:interceptor>
