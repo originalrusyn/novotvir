@@ -54,7 +54,7 @@ create trigger userLogTrigger after insert or update on users for each row execu
 -- changeset titov:6 dbms:postgresql runInTransaction:true
 INSERT INTO users
 (id, name            , email           , token                                                                           , facebookId, lastSignInIpAddress, activationToken , activated, blocked, lastWebSignInTimestamp) VALUES
-  (1 , '${admin_email}', '${admin_email}', MD5('${admin_email}' || MD5('${pass_salt}'|| '${admin_pass}' || '${pass_salt}')), NULL      , '127.0.0.1'        , '${admin_email}', true     , false  , NULL);
+(1 , '${admin_email}', '${admin_email}', MD5('${admin_email}' || MD5('${pass_salt}'|| '${admin_pass}' || '${pass_salt}')), NULL      , '127.0.0.1'        , '${admin_email}', true     , false  , NULL);
 
 INSERT INTO authorities
 (userId, role  ) VALUES
@@ -89,8 +89,14 @@ TABLE
 -- changeset titov:9 dbms:postgresql runInTransaction:true
 INSERT INTO admins
 (id, email           , token                                                                                       , lastSignInIpAddress, blocked, lastWebSignInTimestamp) VALUES
-(1 , '${admin_email}', MD5('${admin_email}' || MD5('${admin_pass_salt}'|| '${admin_pass}' || '${admin_pass_salt}')), '127.0.0.1'        , false  , NULL);
+  (1 , '${admin_email}', MD5('${admin_email}' || MD5('${admin_pass_salt}'|| '${admin_pass}' || '${admin_pass_salt}')), '127.0.0.1'        , false  , NULL);
 
 INSERT INTO adminAuthorities
 (adminId, role  ) VALUES
-(1     , 'ADMIN');
+  (1     , 'ADMIN');
+
+-- changeset titov:10 dbms:postgresql runInTransaction:true
+alter SEQUENCE users_id_seq RESTART WITH 2;
+
+-- changeset titov:11 dbms:postgresql runInTransaction:true
+alter SEQUENCE admins_id_seq RESTART WITH 2;

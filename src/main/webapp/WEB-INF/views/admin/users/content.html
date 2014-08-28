@@ -1,0 +1,38 @@
+<div>
+    <form id="userSearchForm" name="userSearchForm" action="#" th:action="@{users}" method="get">
+        <label><strong th:text="#{admin.users.content.userSearchForm.keywords.label}">Key Words:</strong></label>
+        <input type="text" name="q" value="dev@i.ua" required="true"/>
+
+        <input id="userSearchButton" type="submit" name="submit" th:value="#{admin.users.content.userSearchForm.submit}"
+               value="Find"/>
+    </form>
+
+    <table class="table" th:if="${users}">
+        <thead>
+        <tr>
+            <th th:text="#{admin.users.content.usersTable.head.position}" scope="col">#</th>
+            <th th:text="#{admin.users.content.usersTable.head.id}" scope="col">Id</th>
+            <th th:text="#{admin.users.content.usersTable.head.userName}" scope="col">UserName</th>
+            <th th:text="#{admin.users.content.usersTable.head.email}" scope="col">Email</th>
+            <th th:text="#{admin.users.content.usersTable.head.facebookId}" scope="col">Facebook Id</th>
+            <th th:text="#{admin.users.content.usersTable.head.lastWebSignInTimestamp}" scope="col">Last Web Sign In
+            </th>
+            <th th:text="#{admin.users.content.usersTable.head.role}" scope="col">Role</th>
+            <th th:text="#{admin.users.content.usersTable.head.position.activated}" scope="col">Activated?</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user, it: ${users}">
+            <td th:text="${it.index+1}">1</td>
+            <td th:text="${user.id}">1</td>
+            <td th:text="${user.name}">dev@i.ua</td>
+            <td th:text="${user.email}">dev@i.ua</td>
+            <td th:text="${user.facebookId}">sdfsfsdfsdfsfsfsfsdf</td>
+            <td th:text="${user.lastWebSignInTimestamp}">2014-08-24 18:27:57.548</td>
+            <td><span th:each="authority: ${user.authorities}"><span th:text="${authority.role}">USER</span>&#160;<br/></span>
+            </td>
+            <td th:text="${user.activated}">true</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,4 +1,4 @@
-<div xmlns:th="http://www.thymeleaf.org">
+<div class="container" xmlns:th="http://www.thymeleaf.org">
     <script src='assets/lib/jquery.md5.min.js' th:src="@{/assets/lib/jquery.md5.min.js}" type='text/javascript'></script>
     <script type='text/javascript' th:inline="javascript">
         /*<![CDATA[*/
@@ -11,15 +11,13 @@
         });
         /*]]>*/
     </script>
-    <form id="signInForm" name="signInForm" action="#" th:action="@{signin}" method="post">
-        <label><strong th:text="#{admin.signin.content.signInForm.email.label}">Email:</strong></label>
-        <input type="email" name="email" value="dev@i.ua" required="true"/>
+    <form id="signInForm" name="signInForm" class="form-signin" role="form" action="#" th:action="@{signin}" method="post">
+        <input type="email" name="email" class="form-control"  placeholder="Email" th:placeholder="#{admin.signin.content.signInForm.email.input.placeholder}" value="dev@i.ua" required="true"/>
 
-        <label><strong th:text="#{admin.signin.content.signInForm.password.label}">Password:</strong></label>
-        <input id="passInput" type="password" value="password" required="true" pattern="[A-Za-z]{6,12}"/>
+        <input id="passInput" type="password" class="form-control" placeholder="Password" th:placeholder="#{admin.signin.content.signInForm.password.input.placeholder}" value="password" required="true" pattern="[A-Za-z]{6,12}"/>
 
         <input id="tokenInput" name="token" type="hidden" value=""/>
 
-        <input id="SignInButton" type="submit" name="submit" th:value="#{admin.signin.content.signInForm.submit}" value="Send"/>
+        <input id="SignInButton" type="submit" name="submit" class="btn btn-lg btn-primary btn-block" th:value="#{admin.signin.content.signInForm.submit}" value="Send"/>
     </form>
 </div>

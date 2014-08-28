@@ -19,33 +19,28 @@ import static javax.persistence.GenerationType.SEQUENCE;
 })
 @Accessors(chain = true)
 @ToString(exclude = "authorities")
+@Setter
 public class Admin {
 
     @Id
-    @SequenceGenerator(name = "admins_id_seq", sequenceName = "admins_id_seq")
+    @SequenceGenerator(name = "admins_id_seq", sequenceName = "admins_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = SEQUENCE, generator = "admins_id_seq")
     public Long id;
 
     @Column(nullable = false)
-    @Setter
     public String email;
 
     @Column(nullable = true)
-    @Setter
     public String token;
 
     @Column(nullable = false)
-    @Setter
     public String lastSignInIpAddress;
 
-    @Setter
     public Date lastWebSignInTimestamp;
 
-    @Setter
     public boolean blocked;
 
     @OneToMany(mappedBy = "admin", fetch = EAGER, cascade = ALL)
-    @Setter
     public List<AdminAuthority> authorities;
 
 }

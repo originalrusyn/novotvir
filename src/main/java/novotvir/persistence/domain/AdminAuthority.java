@@ -16,21 +16,20 @@ import static javax.persistence.GenerationType.SEQUENCE;
 @Table(name = "adminAuthorities", uniqueConstraints = {
         @UniqueConstraint(name = "admin_role", columnNames = {"adminId", "role"})
 })
+@Setter
 @Accessors(chain = true)
 @ToString(exclude = "admin")
 public class AdminAuthority {
 
     @Id
-    @SequenceGenerator(name = "adminAuthorities_id_seq_gen", sequenceName = "adminAuthorities_id_seq")
+    @SequenceGenerator(name = "adminAuthorities_id_seq_gen", sequenceName = "adminAuthorities_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = SEQUENCE, generator = "adminAuthorities_id_seq_gen")
     public Long id;
 
-    @Setter
     @ManyToOne(fetch = EAGER, optional = false)
     @JoinColumn(name = "adminId")
     public Admin admin;
 
-    @Setter
     @Enumerated(STRING)
     @Column(nullable = false)
     public Role role;

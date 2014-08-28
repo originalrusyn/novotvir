@@ -14,23 +14,16 @@ public interface UserRepository extends PagingAndSortingRepository<User, Long> {
 
     User findByName(String userName);
 
-//    @Query("from User u " +
-//            "join FETCH u.authorities a " +
-//            "where " +
-//            "u.id in :ids " +
-//            "or u.name like :keyWord " +
-//            "or u.email like :keyWord " +
-//            "or u.activated in :activations " +
-//            "or a.role in :roles " +
-//            "order by u.id, u.name, u.email, u.activated")
-//    Set<User> findByIdOrNameOrEmailOrActivatedOrBlocked(@Param("ids") Set<Long> ids, @Param("keyWord") String keyWord, @Param("roles") Set<Role> roles, @Param("activations") Set<Boolean> activations);
-
-    @Query("from User u " +
-            "join FETCH u.authorities a " +
+    @Query( nativeQuery=true,
+            value = "select u.* from users u " +
+            "join authorities a on u.id=a.userId " +
             "where " +
-            "u.name like :keyWord " +
-            "or u.email like :keyWord " +
+            "cast(u.id as text) similar to :q " +
+            "or u.name similar to :q " +
+            "or u.email similar to :q " +
+            "or cast(u.activated as text) similar to :q " +
+            "or a.role similar to  :q " +
             "order by u.id, u.name, u.email, u.activated")
-    Set<User> findByIdOrNameOrEmailOrActivatedOrBlocked( @Param("keyWord") String keyWord);
+    Set<User> findByIdOrNameOrEmailOrActivatedOrBlocked(@Param("q") String q);
 
 }
