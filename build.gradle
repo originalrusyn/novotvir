@@ -36,7 +36,7 @@ repositories {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '1.10'
+    gradleVersion = '2.0'
 }
 
 configurations {
@@ -69,7 +69,7 @@ javadoc {
 }
 idea {
     module {
-        scopes.PROVIDED.plus += configurations.provided
+        scopes.PROVIDED.plus += [configurations.provided]
         downloadJavadoc = true
         downloadSources = true
     }
@@ -148,4 +148,6 @@ dependencies {
     }
     testCompile 'org.powermock:powermock-core:1.5'
     testCompile 'org.powermock:powermock-module-junit4-rule-agent:1.5'
+    testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
+    testCompile 'org.spockframework:spock-spring:0.7-groovy-2.0'
 }
