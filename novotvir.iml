@@ -164,6 +164,9 @@
     <orderEntry type="library" scope="TEST" name="Gradle: info.cukes:cucumber-jvm-deps:1.0.3" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: info.cukes:gherkin:2.12.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.springframework:spring-core:4.0.6.RELEASE" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: info.cukes:cucumber-groovy:1.1.8" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: info.cukes:cucumber-java:1.1.8" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: info.cukes:cucumber-spring:1.1.8" level="project" />
   </component>
   <component name="org.twodividedbyzero.idea.findbugs">
     <option name="_basePreferences">

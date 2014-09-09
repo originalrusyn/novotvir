@@ -3,6 +3,7 @@ package novotvir.controller;
 import lombok.extern.slf4j.Slf4j;
 import novotvir.dto.CriteriaSuggestionsDTO;
 import novotvir.persistence.domain.User;
+import novotvir.service.UserSearchSuggestionService;
 import novotvir.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,13 +16,13 @@ import java.util.Set;
 
 import static java.util.Objects.nonNull;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
-import static scala.actors.threadpool.Arrays.asList;
 
 // @author: Titov Mykhaylo (titov) on 28.08.14 21:10.
 @Controller
 @Slf4j
 public class UsersController {
     @Autowired UsersService usersService;
+    @Autowired UserSearchSuggestionService userSearchSuggestionService;
 
 //    @RequestMapping(value = {"/admin/criteria"}, method = GET)
 //    public ModelAndView get(){
@@ -32,7 +33,7 @@ public class UsersController {
 
     @RequestMapping(value = {"/admin/criteria"}, method = GET)
     public @ResponseBody CriteriaSuggestionsDTO get(){
-        return new CriteriaSuggestionsDTO().setSuggestions(asList(new String[]{"name"}));
+        return userSearchSuggestionService.getCriteriaSuggestionsDTO();
     }
 
     @RequestMapping(value = {"/admin/users"}, method = GET)
