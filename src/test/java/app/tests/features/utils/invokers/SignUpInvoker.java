@@ -25,6 +25,7 @@ import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.assertThat;
 import static org.springframework.http.HttpMethod.POST;
 import static org.springframework.http.HttpStatus.OK;
+import static org.springframework.http.HttpStatus.SEE_OTHER;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 
 // @author: Mykhaylo Titov on 11.09.14 22:59.
@@ -41,9 +42,8 @@ public class SignUpInvoker {
 
                 ResponseEntity<AccountDto> responseEntity = invoke(email, randomToken());
 
-                assertThat(responseEntity.getStatusCode(), is(OK));
+                assertThat(responseEntity.getStatusCode(), is(SEE_OTHER));
                 assertThat(responseEntity.getBody(), is(notNullValue()));
-                assertThat(responseEntity.getHeaders().get("Set-Cookie"), is(notNullValue()));
 
                 device.getApplications().iterator().next().setAccount(new Account(responseEntity));
             }
