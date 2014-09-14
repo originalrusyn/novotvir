@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 import static novotvir.service.impl.UsersServiceImpl.aliasClassMap;
 
-// @author: Mykaylo Titov on 29.08.14 22:36.
+// @author: Mykhaylo Titov on 29.08.14 22:36.
 @Service
 public class UserSearchSuggestionServiceImpl implements UserSearchSuggestionService {
 

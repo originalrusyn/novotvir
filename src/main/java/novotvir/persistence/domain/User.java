@@ -15,7 +15,7 @@ import static javax.persistence.GenerationType.SEQUENCE;
 import static scala.actors.threadpool.Arrays.asList;
 
 /**
- * author: Titov Mykhaylo (titov)
+ * author: Titov Mykhaylo (titov) (titov)
  * 20.06.13 17:22
  */
 @Entity
@@ -28,8 +28,6 @@ import static scala.actors.threadpool.Arrays.asList;
 @ToString(exclude = "authorities")
 @Setter
 public class User {
-
-    public static final String USER = "user";
 
     @Id
     @SequenceGenerator(name = "users_id_seq_gen", sequenceName = "users_id_seq", allocationSize = 1)

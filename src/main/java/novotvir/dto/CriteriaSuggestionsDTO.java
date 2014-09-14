@@ -1,10 +1,11 @@
-package novotvir.dto;// @author: Mykaylo Titov on 28.08.14 22:37.
+package novotvir.dto;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
 
 import java.util.List;
 
+// @author: Titov Mykhaylo (titov) on 28.08.14 22:37.
 @Data
 @Accessors(chain = true)
 public class CriteriaSuggestionsDTO {

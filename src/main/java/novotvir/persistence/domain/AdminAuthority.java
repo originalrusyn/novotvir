@@ -11,7 +11,7 @@ import static javax.persistence.EnumType.STRING;
 import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.GenerationType.SEQUENCE;
 
-// @author: Mykaylo Titov on 05.07.14 22:17.
+// @author: Titov Mykhaylo (titov) on 05.07.14 22:17.
 @Entity
 @Table(name = "adminAuthorities", uniqueConstraints = {
         @UniqueConstraint(name = "admin_role", columnNames = {"adminId", "role"})

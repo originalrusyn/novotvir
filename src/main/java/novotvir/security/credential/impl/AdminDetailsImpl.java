@@ -12,7 +12,7 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * Created by Mykaylo Titov on 06.07.14.
+ * @author Titov Mykhaylo (titov) on 06.07.14.
  */
 public class AdminDetailsImpl implements UserDetails, SecurityContextDetails {
 

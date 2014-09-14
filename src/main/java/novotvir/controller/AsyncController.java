@@ -11,10 +11,7 @@ import java.util.concurrent.Callable;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
-/**
- * @author Titov Mykhaylo (titov)
- * 15.06.13 10:13
- */
+// @author Titov Mykhaylo (titov) on 15.06.13 10:13
 @Controller
 @Slf4j
 public class AsyncController {

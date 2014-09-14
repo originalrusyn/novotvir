@@ -11,7 +11,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import static java.util.Objects.isNull;
 
-// @author: Mykaylo Titov on 06.07.14 22:19.
+// @author: Mykhaylo Titov on 06.07.14 22:19.
 @Slf4j
 public class AdminDetailsServiceImpl implements UserDetailsService {
 

@@ -41,9 +41,9 @@
         <put-attribute name="content" expression="/WEB-INF/views/www/signup/content.html"/>
     </definition>
 
-    <definition name="reg_successful" extends="main_template">
-        <put-attribute name="title" expression="/WEB-INF/views/www/reg_successful/title.html"/>
-        <put-attribute name="content" expression="/WEB-INF/views/www/reg_successful/content.html"/>
+    <definition name="sign_up_successful" extends="main_template">
+        <put-attribute name="title" expression="/WEB-INF/views/www/sign_up_successful/title.html"/>
+        <put-attribute name="content" expression="/WEB-INF/views/www/sign_up_successful/content.html"/>
     </definition>
 
     <definition name="account" extends="authorized_user_template">
