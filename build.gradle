@@ -1,8 +1,8 @@
 apply plugin: 'tomcat'
 apply plugin: 'java'
 apply plugin: 'groovy'
-apply plugin: "idea"
-apply plugin: "pitest"
+apply plugin: 'idea'
+apply plugin: 'pitest'
 
 group = 'novotvir'
 
@@ -38,43 +38,53 @@ repositories {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.0'
+    gradleVersion = '2.1'
 }
 
 configurations {
     all*.exclude group: "commons-logging", module: "commons-logging"
-    all*.exclude group: "cglib", module: "cglib", version: "2.2"
+    all*.exclude group: "cglib", module: "cglib"
     provided
-    testProvided { extendsFrom provided }
+    testProvided.extendsFrom provided
+    app_testProvided.extendsFrom provided
+    app_testCompile.extendsFrom compile
+    app_testRuntime.extendsFrom runtime, app_testCompile
 }
 
 sourceSets {
     main {
-        compileClasspath += configurations.provided
+        compileClasspath += [configurations.provided]
     }
     test {
-        compileClasspath += configurations.testProvided
-        runtimeClasspath += configurations.testProvided
+        compileClasspath += [configurations.testProvided]
+        runtimeClasspath += [configurations.testProvided]
         runtimeClasspath += files("src/main/webapp")
-
-        java{
-            srcDirs = ['src/test/java']
-        }
-        groovy {
-            srcDirs = ['src/test/groovy']
-        }
+    }
+    app_test {
+        compileClasspath = sourceSets.main.output + configurations.app_testCompile + configurations.app_testProvided
+        runtimeClasspath = output + sourceSets.main.output + configurations.app_testRuntime + configurations.app_testProvided
     }
 }
 
 javadoc {
-    classpath += configurations.provided
+    classpath += [configurations.provided]
 }
-idea {
-    module {
+
+compileApp_testJava.dependsOn processApp_testResources
+
+idea.module{
         scopes.PROVIDED.plus += [configurations.provided]
+        testSourceDirs += file('src/app_test/java')
+        scopes.TEST.plus += [configurations.app_testCompile]
+        scopes.TEST.plus += [configurations.app_testRuntime]
+        inheritOutputDirs=false
         downloadJavadoc = true
         downloadSources = true
-    }
+}
+
+task app_test(type:Test){
+    testClassesDir = sourceSets.app_test.output.classesDir
+    classpath = sourceSets.app_test.runtimeClasspath
 }
 
 dependencies {
@@ -138,8 +148,6 @@ dependencies {
     testCompile "org.codehaus.groovy:groovy-all:2.2.0"
     testCompile 'info.cukes:cucumber-junit:1.1.8'
     testCompile 'info.cukes:cucumber-groovy:1.1.8'
-    testCompile 'info.cukes:cucumber-java:1.1.8'
-    testCompile 'info.cukes:cucumber-spring:1.1.8'
     testCompile ('org.mockito:mockito-core:1.9.5'){
         exclude module: 'hamcrest-core', group: 'org.hamcrest'
     }
@@ -156,5 +164,23 @@ dependencies {
     testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
     testCompile 'org.spockframework:spock-spring:0.7-groovy-2.0'
     testCompile 'org.codehaus.groovy:http-builder:0.4.1'
-    testCompile 'org.apache.httpcomponents:httpclient:4.3.5'
+
+    app_testCompile 'org.springframework:spring-core:4.0.3.RELEASE'
+    app_testCompile 'org.springframework:spring-context:4.0.3.RELEASE'
+    app_testCompile 'org.springframework:spring-context-support:4.0.3.RELEASE'
+    app_testCompile 'org.springframework:spring-beans:4.0.3.RELEASE'
+    app_testCompile 'org.springframework:spring-web:4.0.3.RELEASE'
+    app_testCompile 'org.springframework:spring-test:4.0.6.RELEASE'
+    app_testCompile 'info.cukes:cucumber-junit:1.1.8'
+    app_testCompile 'info.cukes:cucumber-groovy:1.1.8'
+    app_testCompile 'info.cukes:cucumber-java:1.1.8'
+    app_testCompile 'info.cukes:cucumber-spring:1.1.8'
+    app_testCompile ('junit:junit:4.11'){
+        exclude module: 'hamcrest-core', group: 'org.hamcrest'
+    }
+    app_testCompile 'org.hamcrest:hamcrest-all:1.3'
+    app_testCompile 'org.apache.httpcomponents:httpclient:4.3.5'
+    app_testCompile 'commons-collections:commons-collections:3.2'
+    app_testCompile 'commons-lang:commons-lang:2.6'
+
 }

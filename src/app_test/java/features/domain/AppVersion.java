@@ -1,4 +1,4 @@
-package app.tests.features.domain;
+package features.domain;
 
 
 // @author: Mykhaylo Titov on 13.09.14 15:20.

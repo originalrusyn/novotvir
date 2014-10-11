@@ -31,7 +31,7 @@ public class UsersServiceIT extends DataBaseIT{
         User user = userRepository.save(new User().setName("name").setEmail("email").setFacebookId("facebookId").setActivationToken("activationToken").setActivated(true).setLastSignInIpAddress("lastSignInIpAddress").setToken("token"));
 
         //when
-        Set<User> users = usersService.findUsers("name='name' and email='email' and authority.role='USER'");
+        Set<User> users = usersService.findUsers("name='name' and email='email' and authorities.role='USER'");
 
         //then
         ArrayList<User> userList = new ArrayList<>(users);

@@ -1,4 +1,4 @@
-package app.tests.features.domain;
+package features.domain;
 
 import lombok.Data;
 import lombok.ToString;

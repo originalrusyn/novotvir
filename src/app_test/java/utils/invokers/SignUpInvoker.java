@@ -1,8 +1,8 @@
-package app.tests.features.utils.invokers;
+package utils.invokers;
 
-import app.tests.features.domain.Account;
-import app.tests.features.domain.Device;
-import app.tests.features.domain.Person;
+import features.domain.Account;
+import features.domain.Device;
+import features.domain.Person;
 import novotvir.dto.AccountDto;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
@@ -15,16 +15,13 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
 
-import java.net.HttpURLConnection;
-
-import static app.tests.features.domain.Application.randomToken;
+import static features.domain.Application.randomToken;
 import static java.lang.Math.min;
 import static java.util.Arrays.asList;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.assertThat;
 import static org.springframework.http.HttpMethod.POST;
-import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.http.HttpStatus.SEE_OTHER;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 
@@ -45,7 +42,7 @@ public class SignUpInvoker {
                 assertThat(responseEntity.getStatusCode(), is(SEE_OTHER));
                 assertThat(responseEntity.getBody(), is(notNullValue()));
 
-                device.getApplications().iterator().next().setAccount(new Account(responseEntity));
+                device.getApplications().iterator().next().setAccount(new Account(person, responseEntity));
             }
         }
         return person;

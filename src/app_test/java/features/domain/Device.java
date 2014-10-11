@@ -1,4 +1,4 @@
-package app.tests.features.domain;
+package features.domain;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -6,7 +6,7 @@ import lombok.experimental.Accessors;
 import java.util.HashSet;
 import java.util.Set;
 
-import static app.tests.features.domain.DeviceType.ANDROID;
+import static features.domain.DeviceType.ANDROID;
 import static java.util.UUID.randomUUID;
 
 // @author: Mykhaylo Titov on 13.09.14 13:24.

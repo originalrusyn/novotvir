@@ -11,13 +11,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.web.authentication.RememberMeServices;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindException;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
-import java.net.URISyntaxException;
 
 import static novotvir.dto.AccountDto.accountDto;
 import static novotvir.dto.UserRegDetailsDto.USER_REG_DETAILS_DTO;
@@ -45,7 +47,7 @@ public class SignUpController {
     }
 
     @RequestMapping(value = "/signup", method = POST)
-    public ResponseEntity<AccountDto> signUp(@Valid @ModelAttribute(USER_REG_DETAILS_DTO) UserRegDetailsDto userRegDetailsDto) throws URISyntaxException {
+    public ResponseEntity<AccountDto> signUp(@Valid @ModelAttribute(USER_REG_DETAILS_DTO) UserRegDetailsDto userRegDetailsDto) {
         User user = userEmailRegService.registerUser(userRegDetailsDto);
 
         HttpHeaders headers = new HttpHeaders ();

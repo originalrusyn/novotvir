@@ -1,4 +1,4 @@
-package app.tests.features.domain;
+package features.domain;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -14,10 +14,13 @@ import static org.apache.commons.collections.CollectionUtils.isNotEmpty;
 @Data
 @Accessors(chain = true)
 public class Account {
+    final Person person;
     final AccountDto lastAccountDto;
     String lastRememberMeToken;
 
-    public Account(ResponseEntity<AccountDto> responseEntity){
+    public Account(Person person, ResponseEntity<AccountDto> responseEntity){
+        this.person = person;
+        person.addAccount(this);
         this.lastAccountDto = responseEntity.getBody();
         HttpHeaders headers = responseEntity.getHeaders();
         List<String> cookies = headers.get("Set-Cookie");

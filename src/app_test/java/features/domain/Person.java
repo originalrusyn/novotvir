@@ -1,4 +1,4 @@
-package app.tests.features.domain;
+package features.domain;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -11,6 +11,7 @@ import java.util.Set;
 @Data
 @Accessors(chain = true)
 public class Person {
+    transient final Set<Account> accounts = new HashSet<>();
     transient final Set<Device> devices = new HashSet<>();
     transient final Set<Email> emails = new HashSet<>();
     transient final Set<String> phoneNumbers = new HashSet<>();
@@ -30,4 +31,8 @@ public class Person {
         return this;
     }
 
+    public Person addAccount(Account account) {
+        accounts.add(account);
+        return this;
+    }
 }

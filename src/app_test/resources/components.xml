@@ -19,11 +19,11 @@
           p:ignoreResourceNotFound="true" />
 
     <util:list id="appPropertiesLocations" value-type="org.springframework.core.io.Resource" >
-        <value>classpath:/app/tests/conf/app-functional-test.properties</value>
+        <value>classpath:app-functional-test.properties</value>
     </util:list>
 
     <context:annotation-config/>
-    <context:component-scan base-package="app.tests.features.utils.invokers"/>
+    <context:component-scan base-package="utils.invokers"/>
 
     <bean id="httpClientBuilder" class="org.apache.http.impl.client.HttpClientBuilder"/>
 

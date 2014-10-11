@@ -1,4 +1,4 @@
-package app.tests.features;
+package features;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
@@ -10,8 +10,9 @@ import static cucumber.api.SnippetType.CAMELCASE;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         tags = "@T",
-        glue = "classpath:app.tests.features.registration",
-        features = "src/test/resources/app/tests/features/registration",
+        //glue = "classpath:features/registration",
+        //features = "src/test/resources/app/tests/features/registration",
+        features = "classpath:**/*.feature",
         monochrome = false,
         format = {"html:target/build/reports/tests/cucumber"},
         strict = false,

@@ -1,22 +1,20 @@
-package app.tests.features.registration;
+package features.registration;
 
-import app.tests.features.domain.*;
-import app.tests.features.utils.invokers.SignUpInvoker;
+import features.domain.*;
+import utils.invokers.SignUpInvoker;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.springframework.test.context.ContextConfiguration;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
-import static app.tests.features.domain.AppVersion._1_0;
-import static app.tests.features.domain.Device.android;
-import static app.tests.features.domain.Email.uniqueEmail;
+import static features.domain.AppVersion._1_0;
+import static features.domain.Device.android;
+import static features.domain.Email.uniqueEmail;
 
 // @author: Mykhaylo Titov on 08.09.14 23:03.
-@ContextConfiguration("/cucumber.xml")
 public class AccountRegistrationSuccess{
 
     @Resource SignUpInvoker signUpInvoker;
