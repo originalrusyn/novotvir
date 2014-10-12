@@ -11,11 +11,11 @@ import static cucumber.api.SnippetType.CAMELCASE;
 @CucumberOptions(
         tags = "@T",
         //glue = "classpath:features/registration",
-        //features = "src/test/resources/app/tests/features/registration",
-        features = "classpath:**/*.feature",
+        features = "src/auto_test/resources/features/registration",
+        //features = "classpath:**/*.feature",
         monochrome = false,
         format = {"html:target/build/reports/tests/cucumber"},
         strict = false,
         snippets = CAMELCASE)
-public class AppTestsEntryPoint {
+public class AutoTestEntryPoint {
 }

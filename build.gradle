@@ -46,23 +46,25 @@ configurations {
     all*.exclude group: "cglib", module: "cglib"
     provided
     testProvided.extendsFrom provided
-    app_testProvided.extendsFrom provided
-    app_testCompile.extendsFrom compile
-    app_testRuntime.extendsFrom runtime, app_testCompile
+    auto_testProvided.extendsFrom provided
+    auto_testCompile.extendsFrom compile
+    auto_testRuntime.extendsFrom runtime, auto_testCompile
 }
 
 sourceSets {
     main {
-        compileClasspath += [configurations.provided]
+        compileClasspath += configurations.provided
     }
     test {
-        compileClasspath += [configurations.testProvided]
-        runtimeClasspath += [configurations.testProvided]
+        compileClasspath += configurations.testProvided
+        runtimeClasspath += configurations.testProvided
         runtimeClasspath += files("src/main/webapp")
     }
-    app_test {
-        compileClasspath = sourceSets.main.output + configurations.app_testCompile + configurations.app_testProvided
-        runtimeClasspath = output + sourceSets.main.output + configurations.app_testRuntime + configurations.app_testProvided
+    auto_test {test ->
+        java.srcDirs = ['src/auto_test/java']
+        resources.srcDirs = ['src/auto_test/resources/']
+        compileClasspath = sourceSets.main.output + configurations.auto_testCompile + configurations.auto_testProvided
+        runtimeClasspath = output + sourceSets.main.output + configurations.auto_testRuntime + configurations.auto_testProvided
     }
 }
 
@@ -70,21 +72,27 @@ javadoc {
     classpath += [configurations.provided]
 }
 
-compileApp_testJava.dependsOn processApp_testResources
+compileAuto_testJava.dependsOn processAuto_testResources
 
-idea.module{
-        scopes.PROVIDED.plus += [configurations.provided]
-        testSourceDirs += file('src/app_test/java')
-        scopes.TEST.plus += [configurations.app_testCompile]
-        scopes.TEST.plus += [configurations.app_testRuntime]
-        inheritOutputDirs=false
-        downloadJavadoc = true
-        downloadSources = true
+idea{
+    project{
+        jdkName = '1.8'
+        languageLevel = '1.8'
+    }
+        module {
+            testSourceDirs += file('src/app_test/java')
+            testSourceDirs += file('src/app_test/resources')
+            scopes.PROVIDED.plus += [configurations.provided]
+            scopes.TEST.plus += [configurations.auto_testCompile]
+            scopes.TEST.plus += [configurations.auto_testRuntime]
+            downloadJavadoc = true
+            downloadSources = true
+        }
 }
 
-task app_test(type:Test){
-    testClassesDir = sourceSets.app_test.output.classesDir
-    classpath = sourceSets.app_test.runtimeClasspath
+task auto_test(type:Test){
+    testClassesDir = sourceSets.auto_test.output.classesDir
+    classpath = sourceSets.auto_test.runtimeClasspath
 }
 
 dependencies {
@@ -165,22 +173,21 @@ dependencies {
     testCompile 'org.spockframework:spock-spring:0.7-groovy-2.0'
     testCompile 'org.codehaus.groovy:http-builder:0.4.1'
 
-    app_testCompile 'org.springframework:spring-core:4.0.3.RELEASE'
-    app_testCompile 'org.springframework:spring-context:4.0.3.RELEASE'
-    app_testCompile 'org.springframework:spring-context-support:4.0.3.RELEASE'
-    app_testCompile 'org.springframework:spring-beans:4.0.3.RELEASE'
-    app_testCompile 'org.springframework:spring-web:4.0.3.RELEASE'
-    app_testCompile 'org.springframework:spring-test:4.0.6.RELEASE'
-    app_testCompile 'info.cukes:cucumber-junit:1.1.8'
-    app_testCompile 'info.cukes:cucumber-groovy:1.1.8'
-    app_testCompile 'info.cukes:cucumber-java:1.1.8'
-    app_testCompile 'info.cukes:cucumber-spring:1.1.8'
-    app_testCompile ('junit:junit:4.11'){
+    auto_testCompile 'org.springframework:spring-core:4.0.3.RELEASE'
+    auto_testCompile 'org.springframework:spring-context:4.0.3.RELEASE'
+    auto_testCompile 'org.springframework:spring-context-support:4.0.3.RELEASE'
+    auto_testCompile 'org.springframework:spring-beans:4.0.3.RELEASE'
+    auto_testCompile 'org.springframework:spring-web:4.0.3.RELEASE'
+    auto_testCompile 'org.springframework:spring-test:4.0.6.RELEASE'
+    auto_testCompile 'info.cukes:cucumber-junit:1.1.8'
+    auto_testCompile 'info.cukes:cucumber-java:1.1.8'
+    auto_testCompile 'info.cukes:cucumber-spring:1.1.8'
+    auto_testCompile ('junit:junit:4.11'){
         exclude module: 'hamcrest-core', group: 'org.hamcrest'
     }
-    app_testCompile 'org.hamcrest:hamcrest-all:1.3'
-    app_testCompile 'org.apache.httpcomponents:httpclient:4.3.5'
-    app_testCompile 'commons-collections:commons-collections:3.2'
-    app_testCompile 'commons-lang:commons-lang:2.6'
+    auto_testCompile 'org.hamcrest:hamcrest-all:1.3'
+    auto_testCompile 'org.apache.httpcomponents:httpclient:4.3.5'
+    auto_testCompile 'commons-collections:commons-collections:3.2'
+    auto_testCompile 'commons-lang:commons-lang:2.6'
 
 }
