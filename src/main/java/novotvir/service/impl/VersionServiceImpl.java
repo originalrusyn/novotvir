@@ -18,7 +18,7 @@ import java.util.jar.Manifest;
 @Service("versionService")
 public class VersionServiceImpl implements VersionService {
 
-    @Value("META-INF/MANIFEST.MF")
+    @Value("classpath:META-INF/MANIFEST.MF")
     private Resource manifestFile;
     private Attributes manifestAttributes;
 

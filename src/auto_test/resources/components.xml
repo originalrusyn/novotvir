@@ -19,7 +19,7 @@
           p:ignoreResourceNotFound="true" />
 
     <util:list id="appPropertiesLocations" value-type="org.springframework.core.io.Resource" >
-        <value>classpath:app-functional-test.properties</value>
+        <value>classpath:auto-test.properties</value>
     </util:list>
 
     <context:annotation-config/>
