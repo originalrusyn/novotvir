@@ -60,9 +60,9 @@ sourceSets {
         runtimeClasspath += configurations.testProvided
         runtimeClasspath += files("src/main/webapp")
     }
-    auto_test {test ->
-        java.srcDirs = ['src/auto_test/java']
-        resources.srcDirs = ['src/auto_test/resources/']
+    auto_test {
+        //java.srcDirs = ['src/auto_test/java']
+        //resources.srcDirs = ['src/auto_test/resources/']
         compileClasspath = sourceSets.main.output + configurations.auto_testCompile + configurations.auto_testProvided
         runtimeClasspath = output + sourceSets.main.output + configurations.auto_testRuntime + configurations.auto_testProvided
     }
