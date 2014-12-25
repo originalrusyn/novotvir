@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="messageSource"
+          class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
+          p:basenames="/i18n/messages"
+          p:defaultEncoding="UTF-8"
+          p:fileEncodings="UTF-8"
+          p:cacheSeconds="180"
+          p:useCodeAsDefaultMessage="true"/>
+
+    <bean id="propertyPlaceholderConfigurer"
+          class="org.jasypt.spring31.properties.EncryptablePropertyPlaceholderConfigurer"
+          c:stringEncryptor-ref="configurationEncryptor"
+          p:locations-ref="appPropertiesLocations"/>
+
+    <util:list id="appPropertiesLocations" value-type="org.springframework.core.io.Resource" >
+        <value>classpath:/conf/app.properties</value>
+        <value>classpath:/conf/app-test.properties</value>
+    </util:list>
+
+    <bean id="configurationEncryptor"
+          class="org.jasypt.encryption.pbe.StandardPBEStringEncryptor"
+          p:config-ref="environmentVariablesConfiguration"/>
+
+    <bean id="environmentVariablesConfiguration"
+          class="org.jasypt.encryption.pbe.config.EnvironmentStringPBEConfig"
+          p:algorithm="PBEWithMD5AndDES"
+          p:passwordEnvName="PWD"/>
+
+</beans>

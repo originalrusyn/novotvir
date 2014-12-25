@@ -1,5 +1,6 @@
 package features.registration;
 
+import checkers.ActivationMailChecker;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -21,6 +22,7 @@ import static features.domain.Email.uniqueEmail;
 public class AccountRegistrationSuccess{
 
     @Resource SignUpInvoker signUpInvoker;
+    @Resource ActivationMailChecker activationMailChecker;
 
     List<Person> persons = new ArrayList<>();
 
@@ -36,6 +38,6 @@ public class AccountRegistrationSuccess{
 
     @Then("^Account activation email sends$")
     public void Account_activation_email_sends() throws Throwable {
-
+        persons.forEach(activationMailChecker::check);
     }
 }

@@ -13,7 +13,7 @@ import static cucumber.api.SnippetType.CAMELCASE;
         //glue = "classpath:features/registration",
         features = "classpath:features",
         monochrome = false,
-        format = {"html:target/build/reports/tests/cucumber"},
+        format = "html:target/build/reports/tests/cucumber",
         strict = false,
         snippets = CAMELCASE)
 public class AutoTestEntryPoint {

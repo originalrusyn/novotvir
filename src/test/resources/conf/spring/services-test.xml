@@ -13,10 +13,6 @@
        http://www.springframework.org/schema/util/spring-util.xsd">
 
     <import resource="services.xml"/>
-
-    <util:list id="appPropertiesLocations" value-type="org.springframework.core.io.Resource" >
-        <value>classpath:/conf/app.properties</value>
-        <value>classpath:/conf/app-test.properties</value>
-    </util:list>
+    <import resource="messages-test.xml"/>
 
 </beans>

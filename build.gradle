@@ -34,7 +34,6 @@ repositories {
     maven {url "http://repo.spring.io/milestone"}
     maven {url "https://repository.jboss.org/nexus/content/groups/public/"}
     maven {url "http://mavenrepo.openmrs.org/nexus/content/repositories/thirdparty"}
-    maven {url "https://github.com/GabiAxel/maven/raw/master/"}
 }
 
 task wrapper(type: Wrapper) {
@@ -122,7 +121,7 @@ dependencies {
     compile 'org.springframework.security:spring-security-taglibs:3.2.0.RELEASE'
     compile 'org.springframework.social:spring-social-core:1.0.3.RELEASE'
     compile 'org.springframework.social:spring-social-facebook:1.0.3.RELEASE'
-//    compile 'org.springframework.social:spring-social-google:1.0.0.M3'
+//    compile 'org.springframework.social:spring-social-google:1.0.0.RELEASE'
     compile 'javax.mail:mail:1.4.7'
     compile 'jaf:activation:1.0.2'
     compile 'org.sonatype.sisu.inject:cglib:3.1.1'
@@ -151,6 +150,8 @@ dependencies {
     compile 'commons-dbcp:commons-dbcp:1.4'
     compile 'postgresql:postgresql:9.0-801.jdbc4'
     compile 'com.mangofactory:swagger-springmvc:0.6.6'
+    compile 'org.jasypt:jasypt:1.9.2'
+    compile 'org.jasypt:jasypt-spring31:1.9.2'
 
     testCompile 'org.springframework:spring-test:4.0.6.RELEASE'
     testCompile "org.codehaus.groovy:groovy-all:2.2.0"
@@ -189,5 +190,6 @@ dependencies {
     auto_testCompile 'org.apache.httpcomponents:httpclient:4.3.5'
     auto_testCompile 'commons-collections:commons-collections:3.2'
     auto_testCompile 'commons-lang:commons-lang:2.6'
+    auto_testCompile 'org.subethamail:subethasmtp-wiser:1.2'
 
 }

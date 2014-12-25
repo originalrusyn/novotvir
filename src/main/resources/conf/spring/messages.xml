@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans default-lazy-init="true"
-       xmlns="http://www.springframework.org/schema/beans"
+<beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:c="http://www.springframework.org/schema/c"
        xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/util
        http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+    <bean id="messageSource"
+          class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
+          p:basenames="file:${conf.dir.path}/i18n/messages, /i18n/messages"
+          p:defaultEncoding="UTF-8"
+          p:fileEncodings="UTF-8"
+          p:cacheSeconds="180"
+          p:useCodeAsDefaultMessage="true"/>
 
     <bean id="propertyPlaceholderConfigurer"
           class="org.jasypt.spring31.properties.EncryptablePropertyPlaceholderConfigurer"
@@ -19,8 +24,8 @@
           p:locations-ref="appPropertiesLocations"/>
 
     <util:list id="appPropertiesLocations" value-type="org.springframework.core.io.Resource" >
-        <value>classpath:auto-test.properties</value>
-        <value>classpath:app/conf/app.properties</value>
+        <value>classpath:/conf/app.properties</value>
+        <value>file:${conf.dir.path}/app.properties</value>
     </util:list>
 
     <bean id="configurationEncryptor"
@@ -32,27 +37,4 @@
           p:algorithm="PBEWithMD5AndDES"
           p:passwordSysPropertyName="pwd"/>
 
-    <context:annotation-config/>
-    <context:component-scan base-package="utils.invokers, checkers"/>
-
-    <bean id="httpClientBuilder" class="org.apache.http.impl.client.HttpClientBuilder"/>
-
-    <bean id="httpClient" factory-bean="httpClientBuilder" factory-method="build"/>
-
-    <bean id="httpComponentsClientHttpRequestFactory" class="org.springframework.http.client.HttpComponentsClientHttpRequestFactory">
-        <!--<constructor-arg ref="httpClient"/>-->
-    </bean>
-
-    <bean class="org.springframework.web.client.RestTemplate">
-<!--
-        <constructor-arg ref="httpComponentsClientHttpRequestFactory"/>
--->
-    </bean>
-
-    <bean id="mockSMTPServer"
-          class="org.subethamail.wiser.Wiser"
-          init-method="start"
-          destroy-method="stop"
-          p:hostname="${mail.smtp.host}"
-          p:port="${mail.smtp.port}"/>
 </beans>
