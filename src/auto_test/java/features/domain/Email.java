@@ -1,13 +1,17 @@
 package features.domain;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 
 import static java.util.UUID.randomUUID;
 
 // @author: Mykhaylo Titov on 13.09.14 14:09.
-@Data
+@RequiredArgsConstructor
+@Getter
+@Setter
 @Accessors(chain = true)
 @ToString(exclude = "person")
 public class Email {

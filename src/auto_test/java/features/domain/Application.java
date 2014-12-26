@@ -1,14 +1,16 @@
 package features.domain;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.apache.commons.lang.RandomStringUtils;
 
 // @author: Mykhaylo Titov on 13.09.14 13:18.
-@Data
+@Getter
+@Setter
+@ToString(exclude = {"device", "appVersion", "account"})
 @Accessors(chain = true)
-@ToString(exclude = "device")
 public class Application {
     final Device device;
     final AppVersion appVersion;
@@ -23,5 +25,4 @@ public class Application {
     public static String randomToken(){
         return RandomStringUtils.random(10);
     }
-
 }

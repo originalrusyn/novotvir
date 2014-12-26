@@ -1,20 +1,23 @@
 package features.domain;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.Accessors;
 
 import java.util.HashSet;
 import java.util.Set;
 
-
 // @author: Mykhaylo Titov on 13.09.14 12:46.
-@Data
+@Getter
+@Setter
 @Accessors(chain = true)
+@ToString(exclude = {"accounts", "devices", "emails"})
 public class Person {
-    transient final Set<Account> accounts = new HashSet<>();
-    transient final Set<Device> devices = new HashSet<>();
-    transient final Set<Email> emails = new HashSet<>();
-    transient final Set<String> phoneNumbers = new HashSet<>();
+    final Set<Account> accounts = new HashSet<>();
+    final Set<Device> devices = new HashSet<>();
+    final Set<Email> emails = new HashSet<>();
+    final Set<String> phoneNumbers = new HashSet<>();
 
     public Person addDevice(Device device){
         devices.add(device.setPerson(this));

@@ -1,6 +1,8 @@
 package features.domain;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.Accessors;
 
 import java.util.HashSet;
@@ -10,13 +12,15 @@ import static features.domain.DeviceType.ANDROID;
 import static java.util.UUID.randomUUID;
 
 // @author: Mykhaylo Titov on 13.09.14 13:24.
-@Data
+@Getter
+@Setter
 @Accessors(chain = true)
+@ToString(exclude = {"deviceType", "applications", "person"})
 public class Device {
 
     final DeviceType deviceType;
     final String deviceUID;
-    transient final Set<Application> applications = new HashSet<>();
+    final Set<Application> applications = new HashSet<>();
 
     String osVersion;
     Person person;

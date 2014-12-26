@@ -1,6 +1,8 @@
 package features.domain;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.Accessors;
 import novotvir.dto.AccountDto;
 import org.springframework.http.HttpHeaders;
@@ -11,7 +13,9 @@ import java.util.List;
 import static org.apache.commons.collections.CollectionUtils.isNotEmpty;
 
 // @author: Mykhaylo Titov on 13.09.14 12:54.
-@Data
+@Getter
+@Setter
+@ToString(exclude = {"person", "lastAccountDto"})
 @Accessors(chain = true)
 public class Account {
     final Person person;
