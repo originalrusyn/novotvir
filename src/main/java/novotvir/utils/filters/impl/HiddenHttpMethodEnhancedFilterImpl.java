@@ -3,9 +3,6 @@ package novotvir.utils.filters.impl;
 import lombok.Getter;
 import lombok.Setter;
 import novotvir.utils.filters.HiddenHttpMethodEnhancedFilter;
-import org.springframework.util.Assert;
-import org.springframework.util.StringUtils;
-import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;
@@ -14,14 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Locale;
 
 import static java.util.Locale.ENGLISH;
 import static org.springframework.util.StringUtils.hasLength;
 
-/**
- * @author Titov Mykhaylo (titov) on 16.05.2014.
- */
+// @author Titov Mykhaylo (titov) on 16.05.2014.
 public class HiddenHttpMethodEnhancedFilterImpl extends OncePerRequestFilter implements HiddenHttpMethodEnhancedFilter{
 
     public static final String DEFAULT_METHOD_PARAM = "_method";

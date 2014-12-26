@@ -9,9 +9,7 @@ import novotvir.service.UserFacebookRegService;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.social.facebook.api.FacebookProfile;
 
-/**
- * @author Titov Mykhaylo (titov) on 17.03.14.
- */
+// @author Titov Mykhaylo (titov) on 17.03.14.
 @Slf4j
 public class FacebookProfileRegServiceImpl implements FacebookProfileRegService {
 

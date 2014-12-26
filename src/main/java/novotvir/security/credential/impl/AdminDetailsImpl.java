@@ -11,9 +11,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-/**
- * @author Titov Mykhaylo (titov) on 06.07.14.
- */
+// @author Titov Mykhaylo (titov) on 06.07.14.
 public class AdminDetailsImpl implements UserDetails, SecurityContextDetails {
 
     private static final long serialVersionUID = 3753615312297453066L;

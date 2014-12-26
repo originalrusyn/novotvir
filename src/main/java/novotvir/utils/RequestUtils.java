@@ -9,10 +9,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Locale;
 
-/**
- * @author Titov Mykhaylo (titov)
- *         11.01.14 21:28
- */
+// @author Titov Mykhaylo (titov) on 11.01.14 21:28
 @Slf4j
 public class RequestUtils {
 

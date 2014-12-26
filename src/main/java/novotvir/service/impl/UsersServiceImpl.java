@@ -11,9 +11,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.*;
 
-/**
- * @author Titov Mykhaylo (titov) on 14.07.2014.
- */
+// @author Titov Mykhaylo (titov) on 14.07.2014.
 @Service
 public class UsersServiceImpl implements UsersService {
 

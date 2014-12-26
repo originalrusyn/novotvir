@@ -5,10 +5,7 @@ import lombok.experimental.Accessors;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
-/**
- * @author: Titov Mykhaylo (titov)
- * 18.02.14 16:20
- */
+// @author: Titov Mykhaylo (titov) on 18.02.14 16:20
 @Data
 @Accessors(chain = true)
 public class UserRegDetailsDto {

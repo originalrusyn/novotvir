@@ -12,9 +12,7 @@ import java.util.List;
 import static java.util.Objects.isNull;
 import static org.springframework.transaction.support.TransactionSynchronizationManager.isSynchronizationActive;
 
-/**
- * @author Titov Mykhaylo (titov) on 28.04.2014.
- */
+// @author Titov Mykhaylo (titov) on 28.04.2014.
 @Component
 @Slf4j
 public class AfterCommitExecutorImpl extends TransactionSynchronizationAdapter implements AfterCommitExecutor {

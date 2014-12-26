@@ -9,9 +9,7 @@ import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Service;
 
-/**
- * @author Titov Mykhaylo (titov) on 28.04.2014.
- */
+// @author Titov Mykhaylo (titov) on 28.04.2014.
 @Service("confirmationMailMailService")
 public class ConfirmationMailMailServiceImpl implements ConfirmationMailMailService {
 

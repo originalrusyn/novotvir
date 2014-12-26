@@ -21,10 +21,7 @@ import static java.util.Objects.nonNull;
 import static org.apache.commons.lang.StringUtils.isNotBlank;
 import static org.springframework.util.DigestUtils.md5DigestAsHex;
 
-/**
- * @author Titov Mykhaylo (titov)
- *         11.01.14 19:23
- */
+// @author Titov Mykhaylo (titov) on 11.01.14 19:23
 @Slf4j
 public class CustomTokenBasedRememberMeServicesImpl extends TokenBasedRememberMeServices implements CustomTokenBasedRememberMeService{
 

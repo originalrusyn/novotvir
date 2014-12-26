@@ -10,10 +10,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-/**
- * @author Titov Mykhaylo (titov)
- *         09.02.14 11:28
- */
+// @author Titov Mykhaylo (titov) on 09.02.14 11:28
 @RunWith(MockitoJUnitRunner.class)
 public class CustomTokenBasedRememberMeServicesTest {
 

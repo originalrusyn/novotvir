@@ -13,9 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import static org.springframework.transaction.annotation.Propagation.REQUIRED;
 
-/**
- * @author Titov Mykhaylo (titov) on 07.05.2014.
- */
+// @author Titov Mykhaylo (titov) on 07.05.2014.
 @Service("userEmailRegService")
 public class UserEmailRegServiceImpl implements UserEmailRegService{
     @Autowired AfterCommitExecutor afterCommitExecutor;

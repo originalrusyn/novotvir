@@ -14,14 +14,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
-import java.util.UUID;
-
 import static novotvir.utils.RequestUtils.getRemoteAddr;
 import static org.springframework.transaction.annotation.Propagation.REQUIRED;
 
-/**
- * @author Titov Mykhaylo (titov) on 07.05.2014.
- */
+// @author Titov Mykhaylo (titov) on 07.05.2014.
 @Service("userRegService")
 public class UserRegServiceImpl implements UserRegService {
 

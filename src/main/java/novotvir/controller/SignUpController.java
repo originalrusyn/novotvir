@@ -28,10 +28,7 @@ import static org.springframework.http.HttpStatus.SEE_OTHER;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
-/**
- * @author: Titov Mykhaylo (titov)
- * 18.02.14 15:53
- */
+// @author: Titov Mykhaylo (titov) on 18.02.14 15:53
 @Controller
 @Slf4j
 public class SignUpController {

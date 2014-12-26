@@ -23,9 +23,7 @@ import static novotvir.utils.RequestUtils.getServerURL;
 import static org.springframework.core.annotation.AnnotationUtils.getAnnotation;
 import static org.springframework.social.support.URIBuilder.fromUri;
 
-/**
- * @author Titov Mykhaylo (titov) on 16.05.2014.
- */
+// @author Titov Mykhaylo (titov) on 16.05.2014.
 @Slf4j
 public class ConfirmationMailMailMessageConstructorImpl implements ConfirmationMailMailMessageConstructor {
 
@@ -42,7 +40,7 @@ public class ConfirmationMailMailMessageConstructorImpl implements ConfirmationM
         String activationUri = requestMapping.value()[0].replaceFirst("\\{.*"+ NAME_PATH_VAR +".*\\}", user.name);
         RequestMethod method = requestMapping.method()[0];
 
-        String emailValidationUrl = fromUri(getServerURL()+activationUri).queryParam(ACTIVATION_TOKEN_REQ_PARAM, user.activationToken).queryParam(hiddenHttpMethodEnhancedFilter.getMethodParam(), method.name()).build().toString();
+        String emailValidationUrl = fromUri(getServerURL() + activationUri).queryParam(ACTIVATION_TOKEN_REQ_PARAM, user.activationToken).queryParam(hiddenHttpMethodEnhancedFilter.getMethodParam(), method.name()).build().toString();
 
         String subj = customMessageSource.getMailValidationMailSubj();
         String text = customMessageSource.getMailValidationMailText(emailValidationUrl);

@@ -17,10 +17,7 @@ import java.io.IOException;
 
 import static java.util.Objects.nonNull;
 
-/**
- * @author Titov Mykhaylo (titov)
- *         11.01.14 22:49
- */
+// @author Titov Mykhaylo (titov) on 11.01.14 22:49
 public class AfterRememberMeFilter extends GenericFilterBean {
 
     private SimpleGrantedAuthority roleUserSimpleGrantedAuthority = new SimpleGrantedAuthority("ROLE_USER");

@@ -15,10 +15,7 @@ import org.springframework.social.facebook.api.FacebookProfile;
 
 import java.util.Collection;
 
-/**
- * @author Titov Mykhaylo (titov)
- *         11.01.14 20:09
- */
+// @author Titov Mykhaylo (titov) on 11.01.14 20:09
 @Slf4j
 public class FacebookUserDetailsAuthProviderImpl implements AuthenticationProvider {
 

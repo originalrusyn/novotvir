@@ -4,9 +4,7 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 import novotvir.utils.RequestUtils;
 
-/**
- * @author Titov Mykhaylo (titov) on 22.05.2014.
- */
+// @author Titov Mykhaylo (titov) on 22.05.2014.
 @Data
 @Accessors(chain = true)
 public class ErrorDto {

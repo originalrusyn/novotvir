@@ -11,9 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import static org.springframework.http.HttpStatus.CONFLICT;
 
-/**
- * @author Titov Mykhaylo (titov) on 04.04.2014.
- */
+// @author Titov Mykhaylo (titov) on 04.04.2014.
 @ControllerAdvice
 @Slf4j
 public class GlobalControllerExceptionHandler {

@@ -12,10 +12,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-/**
- * @author Titov Mykhaylo (titov)
- *         11.01.14 20:25
- */
+// @author Titov Mykhaylo (titov) on 11.01.14 20:25
 @ToString
 public class UserDetailsImpl implements UserDetails, SecurityContextDetails {
 

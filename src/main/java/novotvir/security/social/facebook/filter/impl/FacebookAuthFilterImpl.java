@@ -19,10 +19,7 @@ import java.io.IOException;
 import static java.util.Objects.isNull;
 import static novotvir.security.social.facebook.service.impl.FacebookRedirectUriServiceImpl.SIGN_UP;
 
-/**
- * @author Titov Mykhaylo (titov) on 24.04.2014.
- */
-
+// @author Titov Mykhaylo (titov) on 24.04.2014.
 @Slf4j
 public class FacebookAuthFilterImpl extends AbstractAuthenticationProcessingFilter {
 

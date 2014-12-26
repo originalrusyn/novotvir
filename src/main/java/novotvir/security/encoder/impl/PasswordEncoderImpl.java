@@ -5,10 +5,7 @@ import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import java.math.BigInteger;
 import java.nio.charset.Charset;
 
-/**
- * @author Titov Mykhaylo (titov)
- *         09.02.14 18:23
- */
+// @author Titov Mykhaylo (titov) on 09.02.14 18:23
 public class PasswordEncoderImpl extends Md5PasswordEncoder {
 
     @Override

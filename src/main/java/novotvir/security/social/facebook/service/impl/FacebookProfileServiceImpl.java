@@ -10,9 +10,7 @@ import org.springframework.social.facebook.connect.FacebookConnectionFactory;
 import org.springframework.social.oauth2.AccessGrant;
 import org.springframework.social.oauth2.OAuth2Operations;
 
-/**
- * @author Titov Mykhaylo (titov) on 07.05.2014.
- */
+// @author Titov Mykhaylo (titov) on 07.05.2014.
 public class FacebookProfileServiceImpl implements FacebookProfileService {
 
     @Setter FacebookConnectionFactory facebookConnectionFactory;

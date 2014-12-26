@@ -9,18 +9,17 @@ import org.springframework.social.facebook.api.FacebookProfile;
 
 import java.util.Collection;
 
-/**
- * @author Titov Mykhaylo (titov)
- *         11.01.14 20:12
- */
+// @author Titov Mykhaylo (titov) on 11.01.14 20:12
+@Getter
 @ToString
 public class FacebookAuthenticationToken extends AbstractAuthenticationToken {
 
     private static final long serialVersionUID = 4205964421055985979L;
-    @Getter private Object credentials;
-    @Getter private FacebookProfile facebookProfile;
-    @Getter private UserDetails principal;
-    @Getter private boolean signUp;
+
+    private Object credentials;
+    private FacebookProfile facebookProfile;
+    private UserDetails principal;
+    private boolean signUp;
 
     public FacebookAuthenticationToken(UserDetails userDetails, Collection<? extends GrantedAuthority> authorities) {
         super(authorities);

@@ -8,9 +8,7 @@ import org.springframework.stereotype.Service;
 
 import static novotvir.utils.RequestUtils.getRequestLocale;
 
-/**
- * @author Titov Mykhaylo (titov) on 13.03.14.
- */
+// @author Titov Mykhaylo (titov) on 13.03.14.
 @Service("customMessageSource")
 public class CustomMessageSourceImpl implements CustomMessageSource {
 
@@ -20,7 +18,7 @@ public class CustomMessageSourceImpl implements CustomMessageSource {
 
     @Override
     public String getMailValidationMailSubj(){
-        return getMessage("email.validation.email.subj", null);
+        return getMessage("email.validation.email.subj");
     }
 
     @Override

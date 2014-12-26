@@ -9,9 +9,7 @@ import org.springframework.social.oauth2.OAuth2Parameters;
 
 import static org.springframework.social.oauth2.GrantType.AUTHORIZATION_CODE;
 
-/**
- * @author Titov Mykhaylo (titov) on 07.05.2014.
- */
+// @author Titov Mykhaylo (titov) on 07.05.2014.
 public class FacebookAuthUrlServiceImpl implements FacebookAuthUrlService {
     @Setter FacebookConnectionFactory facebookConnectionFactory;
     @Setter FacebookRedirectUriService facebookRedirectUriService;

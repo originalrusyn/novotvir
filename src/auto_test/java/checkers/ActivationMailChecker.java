@@ -29,7 +29,7 @@ public class ActivationMailChecker {
                     Set<Email> emails = person.getEmails();
                     for (Email email : emails) {
                         if(recipient.toString().equals(email.getValue())) {
-                            //assertThat(mimeMessage.get);
+                            //assertThat(mimeMessage.getContent(), is(""));
                             break;
                         }
                     }

@@ -6,7 +6,6 @@ import novotvir.persistence.repository.UserRepository;
 import novotvir.security.credential.impl.UserDetailsImpl;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.ServletException;
@@ -18,10 +17,7 @@ import java.util.Date;
 import static novotvir.utils.RequestUtils.getRemoteAddr;
 import static org.springframework.transaction.annotation.Propagation.REQUIRED;
 
-/**
- * @author Titov Mykhaylo (titov)
- *         11.01.14 22:38
- */
+// @author Titov Mykhaylo (titov) on 11.01.14 22:38
 public class RememberMeSuccessfulHandler implements AuthenticationSuccessHandler {
 
     @Setter

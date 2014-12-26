@@ -26,9 +26,7 @@ import static novotvir.dto.ErrorDto.ERROR_DTO;
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 
-/**
- * @author Titov Mykhaylo (titov) on 16.05.2014.
- */
+// @author Titov Mykhaylo (titov) on 16.05.2014.
 @Controller
 @Slf4j
 public class AccountActivationController {

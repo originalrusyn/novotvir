@@ -12,10 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import static java.util.Objects.isNull;
 
-/**
- * @author Titov Mykhaylo (titov)
- *         11.01.14 20:22
- */
+// @author Titov Mykhaylo (titov) on 11.01.14 20:22
 @Slf4j
 public class UserDetailsServiceImpl implements UserDetailsService {
 
