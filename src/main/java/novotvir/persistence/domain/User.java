@@ -9,15 +9,12 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
+import static java.util.Arrays.asList;
 import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.GenerationType.SEQUENCE;
-import static scala.actors.threadpool.Arrays.asList;
 
-/**
- * author: Titov Mykhaylo (titov) (titov)
- * 20.06.13 17:22
- */
+// @author: Titov Mykhaylo (titov) 20.06.13 17:22
 @Entity
 @Table(name = "users", uniqueConstraints = {
         @UniqueConstraint( name = "name", columnNames = "name"),
@@ -65,7 +62,7 @@ public class User {
         this.setAuthorities(getUserDefaultAuthorities(this));
     }
 
-    private List getUserDefaultAuthorities(User user) {
-        return asList(new Authority[]{new Authority().setUser(user).setRole(Role.USER)});
+    private List<Authority> getUserDefaultAuthorities(User user) {
+        return asList(new Authority().setUser(user).setRole(Role.USER));
     }
 }
