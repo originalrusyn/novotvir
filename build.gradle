@@ -63,7 +63,7 @@ sourceSets {
         //java.srcDirs = ['src/auto_test/java']
         //resources.srcDirs = ['src/auto_test/resources/']
         compileClasspath = sourceSets.main.output + configurations.auto_testCompile + configurations.auto_testProvided
-        runtimeClasspath = output + sourceSets.main.output + configurations.auto_testRuntime + configurations.auto_testProvided
+        runtimeClasspath = output + sourceSets.main.output + configurations.auto_testRuntime + configurations.auto_testProvided + files("src/main/webapp")
     }
 }
 
@@ -92,6 +92,9 @@ idea{
 task auto_test(type:Test){
     testClassesDir = sourceSets.auto_test.output.classesDir
     classpath = sourceSets.auto_test.runtimeClasspath
+
+    systemProperties System.getProperties()
+    systemProperty "pwd", System.getProperty("pwd")
 }
 
 dependencies {

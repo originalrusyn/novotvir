@@ -13,6 +13,14 @@
        http://www.springframework.org/schema/util
        http://www.springframework.org/schema/util/spring-util.xsd">
 
+    <bean id="messageSource"
+          class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
+          p:basenames="classpath:i18n/messages"
+          p:defaultEncoding="UTF-8"
+          p:fileEncodings="UTF-8"
+          p:cacheSeconds="180"
+          p:useCodeAsDefaultMessage="true"/>
+
     <bean id="propertyPlaceholderConfigurer"
           class="org.jasypt.spring31.properties.EncryptablePropertyPlaceholderConfigurer"
           c:stringEncryptor-ref="configurationEncryptor"
@@ -20,6 +28,7 @@
 
     <util:list id="appPropertiesLocations" value-type="org.springframework.core.io.Resource" >
         <value>classpath:auto-test.properties</value>
+        <value>classpath:conf/app.properties</value>
         <value>classpath:app/conf/app.properties</value>
     </util:list>
 
