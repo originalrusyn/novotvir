@@ -18,14 +18,12 @@ import static exceptions.i18n.activation.impl.UnExpectedActivationTokenException
 import static exceptions.i18n.activation.impl.UserAlreadyActivatedException.USER_ALREADY_ACTIVATED_EXCEPTION_MESSAGE_CODE;
 import static java.util.Objects.isNull;
 
-/**
- * @author Titov Mykhaylo (titov) on 16.05.2014.
- */
+// @author Titov Mykhaylo (titov) on 16.05.2014.
 @Slf4j
 @Service("userActivationService")
 public class UserActivationServiceImpl implements UserActivationService {
 
-    @Resource(name = "userRepository") UserRepository userRepository;
+    @Resource UserRepository userRepository;
     @Autowired CustomMessageSource customMessageSource;
 
     @Override

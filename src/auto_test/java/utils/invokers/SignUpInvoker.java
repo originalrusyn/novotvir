@@ -1,8 +1,6 @@
 package utils.invokers;
 
-import features.domain.Account;
-import features.domain.Device;
-import features.domain.Person;
+import features.domain.*;
 import novotvir.dto.AccountDto;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
@@ -14,6 +12,8 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
+import java.util.Iterator;
+import java.util.Locale;
 
 import static features.domain.Application.randomToken;
 import static java.lang.Math.min;
@@ -34,23 +34,29 @@ public class SignUpInvoker {
 
     public Person invoke(Person person){
         for (Device device : person.getDevices()) {
-            for (int i = 0; i < min(person.getEmails().size(), device.getApplications().size()); i++) {
-                String email = person.getEmails().iterator().next().getValue();
 
-                ResponseEntity<AccountDto> responseEntity = invoke(email, randomToken());
+            Iterator<Email> emailIterator = person.getEmails().iterator();
+            Iterator<Application> applicationIterator = device.getApplications().iterator();
+
+            for (int i = 0; i < min(person.getEmails().size(), device.getApplications().size()); i++) {
+                String email = emailIterator.next().getValue();
+                Application application = applicationIterator.next();
+
+                ResponseEntity<AccountDto> responseEntity = invoke(email, randomToken(), application.getLocale());
 
                 assertThat(responseEntity.getStatusCode(), is(SEE_OTHER));
                 assertThat(responseEntity.getBody(), is(notNullValue()));
 
-                device.getApplications().iterator().next().setAccount(new Account(person, responseEntity));
+                application.setAccount(new Account(person, responseEntity));
             }
         }
         return person;
     }
 
-    private ResponseEntity<AccountDto> invoke(String email, String token) {
+    private ResponseEntity<AccountDto> invoke(String email, String token, Locale locale) {
         HttpHeaders headers = new HttpHeaders ();
         headers.setAccept(asList(APPLICATION_JSON));
+        headers.add("Accept-Language", locale.toString());
 
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
         params.add("email", email);

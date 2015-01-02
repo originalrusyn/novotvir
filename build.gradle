@@ -95,6 +95,8 @@ task auto_test(type:Test){
 
     systemProperties System.getProperties()
     systemProperty "pwd", System.getProperty("pwd")
+
+    testLogging.showStandardStreams=true
 }
 
 dependencies {
