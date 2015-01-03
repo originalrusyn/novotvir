@@ -1,0 +1,198 @@
+apply plugin: 'tomcat'
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'idea'
+apply plugin: 'pitest'
+
+group = 'novotvir'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'org.gradle.api.plugins:gradle-tomcat-plugin:0.9.9'
+        classpath 'info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.0.0'
+    }
+}
+
+[tomcatRun, tomcatStop]*.stopKey = 'stopKey'
+tomcatRun.httpPort=8080
+tomcatStop.stopPort=8081
+
+compileJava {
+    options.fork = true
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+repositories {
+    mavenCentral()
+    maven {url "http://repo.springsource.org/milestone"}
+    maven {url "http://repo.spring.io/snapshot"}
+    maven {url "http://repo.spring.io/milestone"}
+    maven {url "https://repository.jboss.org/nexus/content/groups/public/"}
+    maven {url "http://mavenrepo.openmrs.org/nexus/content/repositories/thirdparty"}
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.1'
+}
+
+configurations {
+    all*.exclude group: "commons-logging", module: "commons-logging"
+    all*.exclude group: "cglib", module: "cglib"
+    provided
+    testProvided.extendsFrom provided
+    auto_testProvided.extendsFrom provided
+    auto_testCompile.extendsFrom compile
+    auto_testRuntime.extendsFrom runtime, auto_testCompile
+}
+
+sourceSets {
+    main {
+        compileClasspath += configurations.provided
+    }
+    test {
+        compileClasspath += configurations.testProvided
+        runtimeClasspath += configurations.testProvided
+        runtimeClasspath += files("src/main/webapp")
+    }
+    auto_test {
+        //java.srcDirs = ['src/auto_test/java']
+        //resources.srcDirs = ['src/auto_test/resources/']
+        compileClasspath = sourceSets.main.output + configurations.auto_testCompile + configurations.auto_testProvided
+        runtimeClasspath = output + sourceSets.main.output + configurations.auto_testRuntime + configurations.auto_testProvided + files("src/main/webapp")
+    }
+}
+
+javadoc {
+    classpath += [configurations.provided]
+}
+
+compileAuto_testJava.dependsOn processAuto_testResources
+
+idea{
+        module {
+            jdkName = '1.8'
+
+            testSourceDirs += file('src/app_test/java')
+            testSourceDirs += file('src/app_test/resources')
+            scopes.PROVIDED.plus += [configurations.provided]
+            scopes.TEST.plus += [configurations.auto_testCompile]
+            scopes.TEST.plus += [configurations.auto_testRuntime]
+            downloadJavadoc = true
+            downloadSources = true
+        }
+}
+
+task auto_test(type:Test){
+    testClassesDir = sourceSets.auto_test.output.classesDir
+    classpath = sourceSets.auto_test.runtimeClasspath
+
+    systemProperties System.getProperties()
+    systemProperty "pwd", System.getProperty("pwd")
+
+    testLogging.showStandardStreams=true
+}
+
+dependencies {
+
+    def tomcatVersion = '7.0.50'
+    tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
+            "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}"
+    tomcat("org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}") {
+        exclude group: 'org.eclipse.jdt.core.compiler', module: 'ecj'
+    }
+
+    provided 'javax:javaee-api:7.0'
+    provided 'org.projectlombok:lombok:1.12.4'
+
+    compile 'org.springframework:spring-aop:4.0.3.RELEASE'
+    compile 'org.springframework:spring-core:4.0.3.RELEASE'
+    compile 'org.springframework:spring-context:4.0.3.RELEASE'
+    compile 'org.springframework:spring-context-support:4.0.3.RELEASE'
+    compile 'org.springframework:spring-beans:4.0.3.RELEASE'
+    compile 'org.springframework:spring-web:4.0.3.RELEASE'
+    compile 'org.springframework:spring-webmvc:4.0.3.RELEASE'
+    compile 'org.springframework.data:spring-data-jpa:1.6.2.RELEASE'
+    compile 'org.springframework.data:spring-data-rest-webmvc:2.1.2.RELEASE'
+    compile 'org.springframework.security:spring-security-core:3.2.0.RELEASE'
+    compile 'org.springframework.security:spring-security-web:3.2.0.RELEASE'
+    compile 'org.springframework.security:spring-security-config:3.2.0.RELEASE'
+    compile 'org.springframework.security:spring-security-taglibs:3.2.0.RELEASE'
+    compile 'org.springframework.social:spring-social-core:1.0.3.RELEASE'
+    compile 'org.springframework.social:spring-social-facebook:1.0.3.RELEASE'
+//    compile 'org.springframework.social:spring-social-google:1.0.0.RELEASE'
+    compile 'javax.mail:mail:1.4.7'
+    compile 'jaf:activation:1.0.2'
+    compile 'org.sonatype.sisu.inject:cglib:3.1.1'
+    compile 'org.ow2.asm:asm:5.0.3'
+    compile 'org.aspectj:aspectjtools:1.7.4'
+    compile 'org.slf4j:slf4j-api:1.7.5'
+    compile 'org.slf4j:slf4j-log4j12:1.7.5'
+    compile 'org.slf4j:jcl-over-slf4j:1.7.5'
+    compile 'log4j:log4j:1.2.17'
+    compile 'log4j:apache-log4j-extras:1.1'
+    compile 'org.hibernate:hibernate-core:4.3.1.Final'
+    compile 'org.hibernate:hibernate-entitymanager:4.3.1.Final'
+    compile 'org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final'
+    compile 'org.hibernate:hibernate-cglib-repack:2.1_3'
+    compile 'org.hibernate:hibernate-validator:5.1.0.Final'
+//    compile 'org.apache.tiles:tiles-api:3.0.1'
+//    compile 'org.apache.tiles:tiles-core:3.0.1'
+    compile 'org.apache.tiles:tiles-api:2.2.2'
+    compile 'org.apache.tiles:tiles-core:2.2.2'
+    compile 'org.thymeleaf:thymeleaf:2.1.2.RELEASE'
+    compile 'org.thymeleaf.extras:thymeleaf-extras-tiles2-spring4:2.1.1.RELEASE'
+    compile 'javax.servlet:jstl:1.2'
+    compile 'org.liquibase:liquibase-core:3.0.8'
+    compile 'commons-io:commons-io:2.4'
+    compile 'commons-lang:commons-lang:2.6'
+    compile 'commons-dbcp:commons-dbcp:1.4'
+    compile 'postgresql:postgresql:9.0-801.jdbc4'
+    compile 'com.mangofactory:swagger-springmvc:0.6.6'
+    compile 'org.jasypt:jasypt:1.9.2'
+    compile 'org.jasypt:jasypt-spring31:1.9.2'
+
+    testCompile 'org.springframework:spring-test:4.0.6.RELEASE'
+    testCompile "org.codehaus.groovy:groovy-all:2.2.0"
+    testCompile 'info.cukes:cucumber-junit:1.1.8'
+    testCompile 'info.cukes:cucumber-groovy:1.1.8'
+    testCompile ('org.mockito:mockito-core:1.9.5'){
+        exclude module: 'hamcrest-core', group: 'org.hamcrest'
+    }
+    testCompile ('junit:junit:4.11'){
+        exclude module: 'hamcrest-core', group: 'org.hamcrest'
+    }
+    testCompile 'org.hamcrest:hamcrest-all:1.3'
+    testCompile 'org.powermock:powermock-module-junit4:1.5'
+    testCompile ('org.powermock:powermock-api-mockito:1.5'){
+        exclude group: 'org.mockito'
+    }
+    testCompile 'org.powermock:powermock-core:1.5'
+    testCompile 'org.powermock:powermock-module-junit4-rule-agent:1.5'
+    testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
+    testCompile 'org.spockframework:spock-spring:0.7-groovy-2.0'
+    testCompile 'org.codehaus.groovy:http-builder:0.4.1'
+
+    auto_testCompile 'org.springframework:spring-core:4.0.3.RELEASE'
+    auto_testCompile 'org.springframework:spring-context:4.0.3.RELEASE'
+    auto_testCompile 'org.springframework:spring-context-support:4.0.3.RELEASE'
+    auto_testCompile 'org.springframework:spring-beans:4.0.3.RELEASE'
+    auto_testCompile 'org.springframework:spring-web:4.0.3.RELEASE'
+    auto_testCompile 'org.springframework:spring-test:4.0.6.RELEASE'
+    auto_testCompile 'info.cukes:cucumber-junit:1.1.8'
+    auto_testCompile 'info.cukes:cucumber-java:1.1.8'
+    auto_testCompile 'info.cukes:cucumber-spring:1.1.8'
+    auto_testCompile ('junit:junit:4.11'){
+        exclude module: 'hamcrest-core', group: 'org.hamcrest'
+    }
+    auto_testCompile 'org.hamcrest:hamcrest-all:1.3'
+    auto_testCompile 'org.apache.httpcomponents:httpclient:4.3.5'
+    auto_testCompile 'commons-collections:commons-collections:3.2'
+    auto_testCompile 'commons-lang:commons-lang:2.6'
+    auto_testCompile 'org.subethamail:subethasmtp-wiser:1.2'
+
+}
