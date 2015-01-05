@@ -3,6 +3,7 @@ package utils.invokers;
 import features.domain.Email;
 import features.domain.Person;
 import novotvir.dto.AccountDto;
+import novotvir.service.CustomMessageSource;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -23,6 +24,7 @@ import java.util.regex.Pattern;
 
 import static java.util.Arrays.asList;
 import static javax.mail.Message.RecipientType.TO;
+import static novotvir.service.CustomMessageSource.uk_UA_LOCALE;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 
 // @author: Mykhaylo Titov on 04.01.15 22:45.
@@ -32,6 +34,7 @@ public class EmailActivationInvoker {
 
     @Resource Wiser mockSMTPServer;
     @Resource MessageSourceImpl messageSourceImpl;
+    @Resource ServerMessageSourceResolver serverMessageSourceResolver;
     @Resource RestTemplate restTemplate;
 
     public Person invoke(Person person){
@@ -45,7 +48,9 @@ public class EmailActivationInvoker {
                     for (Email email : emails) {
                         if(recipient.toString().equals(email.getValue())) {
                             String content = (String) mimeMessage.getContent();
-                            Pattern p = Pattern.compile("\\Q" + messageSourceImpl.getMailValidationMailText("\\E("+activationUrlRegex+")\\Q") + "\\E");
+                            CustomMessageSource messageSource = serverMessageSourceResolver.getMessageSource(uk_UA_LOCALE);
+
+                            Pattern p = Pattern.compile("\\Q" + messageSource.getMailValidationMailText("\\E("+activationUrlRegex+")\\Q") + "\\E");
                             Matcher matcher = p.matcher(content);
                             matcher.find();
                             String url = matcher.group(1);

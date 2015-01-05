@@ -21,6 +21,10 @@
           class="utils.invokers.MessageSourceImpl"
           p:locale="#{uk_UA_LOCALE}"/>
 
+    <util:list id="messageSources" value-type="utils.invokers.MessageSourceImpl">
+        <ref bean="ukUaMessageSource"/>
+    </util:list>
+
     <bean id="messageSource"
           class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
           p:basenames="classpath:i18n/messages"
