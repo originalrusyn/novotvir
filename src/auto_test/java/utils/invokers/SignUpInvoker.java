@@ -56,7 +56,7 @@ public class SignUpInvoker {
     private ResponseEntity<AccountDto> invoke(String email, String token, Locale locale) {
         HttpHeaders headers = new HttpHeaders ();
         headers.setAccept(asList(APPLICATION_JSON));
-        headers.add("Accept-Language", locale.toString());
+        headers.add("Accept-Language", locale.getLanguage());
 
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
         params.add("email", email);

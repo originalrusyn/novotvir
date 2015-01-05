@@ -8,6 +8,8 @@ import org.apache.commons.lang.RandomStringUtils;
 
 import java.util.Locale;
 
+import static novotvir.service.CustomMessageSource.uk_UA_LOCALE;
+
 // @author: Mykhaylo Titov on 13.09.14 13:18.
 @Getter
 @Setter
@@ -15,15 +17,13 @@ import java.util.Locale;
 @Accessors(chain = true)
 public class Application {
 
-    public static final Locale ua_UA_LOCALE = new Locale("ua", "UA");
-
     final Device device;
     final AppVersion appVersion;
     Account account;
     Locale locale;
 
     public Application(Device device, AppVersion appVersion){
-        this(device, appVersion, ua_UA_LOCALE);
+        this(device, appVersion, uk_UA_LOCALE);
     }
 
     public Application(Device device, AppVersion appVersion, Locale locale){

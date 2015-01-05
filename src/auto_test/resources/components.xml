@@ -13,6 +13,14 @@
        http://www.springframework.org/schema/util
        http://www.springframework.org/schema/util/spring-util.xsd">
 
+    <util:constant
+            id="uk_UA_LOCALE"
+            static-field="novotvir.service.CustomMessageSource.uk_UA_LOCALE"/>
+
+    <bean id="ukUaMessageSource"
+          class="utils.invokers.MessageSourceImpl"
+          p:locale="#{uk_UA_LOCALE}"/>
+
     <bean id="messageSource"
           class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
           p:basenames="classpath:i18n/messages"

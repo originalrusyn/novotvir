@@ -8,7 +8,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
-import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 import org.subethamail.wiser.Wiser;
@@ -48,7 +47,7 @@ public class EmailActivationInvoker {
                             String content = (String) mimeMessage.getContent();
                             Pattern p = Pattern.compile("\\Q" + messageSourceImpl.getMailValidationMailText("\\E("+activationUrlRegex+")\\Q") + "\\E");
                             Matcher matcher = p.matcher(content);
-                            matcher.matches();
+                            matcher.find();
                             String url = matcher.group(1);
 
                             HttpHeaders headers = new HttpHeaders ();
