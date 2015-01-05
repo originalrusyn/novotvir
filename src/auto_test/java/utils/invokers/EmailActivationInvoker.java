@@ -33,7 +33,6 @@ public class EmailActivationInvoker {
     static final String activationUrlRegex = ".+?/users/.+?activationToken=.+?&_method=PUT";
 
     @Resource Wiser mockSMTPServer;
-    @Resource MessageSourceImpl messageSourceImpl;
     @Resource ServerMessageSourceResolver serverMessageSourceResolver;
     @Resource RestTemplate restTemplate;
 

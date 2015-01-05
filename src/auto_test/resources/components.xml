@@ -17,12 +17,21 @@
             id="uk_UA_LOCALE"
             static-field="novotvir.service.CustomMessageSource.uk_UA_LOCALE"/>
 
+    <util:constant
+            id="en_UK_LOCALE"
+            static-field="java.util.Locale.UK"/>
+
     <bean id="ukUaMessageSource"
           class="utils.invokers.MessageSourceImpl"
           p:locale="#{uk_UA_LOCALE}"/>
 
+    <bean id="enUKMessageSource"
+          class="utils.invokers.MessageSourceImpl"
+          p:locale="#{en_UK_LOCALE}"/>
+
     <util:list id="messageSources" value-type="utils.invokers.MessageSourceImpl">
         <ref bean="ukUaMessageSource"/>
+        <ref bean="enUKMessageSource"/>
     </util:list>
 
     <bean id="messageSource"
