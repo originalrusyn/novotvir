@@ -1,29 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.linked.project.id="novotvir" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$" external.system.id="GRADLE" external.system.module.group="novotvir" external.system.module.version="unspecified" relativePaths="true" type="JAVA_MODULE" version="4">
+<module external.linked.project.id="novotvir" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$" external.system.id="GRADLE" relativePaths="true" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="Spring" name="Spring">
       <configuration>
         <fileset id="fileset" name="Spring Application Context" removed="false">
-          <file>file://$MODULE_DIR$/src/main/resources/conf/spring/web-servlet.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/conf/spring/root.xml</file>
-          <file>file://$MODULE_DIR$/src/app_test/resources/cucumber.xml</file>
-          <file>file://$MODULE_DIR$/src/app_test/resources/components.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/conf/spring/components.xml</file>
-          <file>file://$MODULE_DIR$/src/test/resources/conf/spring/dao-test.xml</file>
-          <file>file://$MODULE_DIR$/src/test/resources/conf/spring/root-test.xml</file>
-          <file>file://$MODULE_DIR$/src/test/resources/conf/spring/services-test.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/conf/spring/security.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/conf/spring/dao.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/conf/spring/controllers.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/conf/spring/aspects.xml</file>
-          <file>file://$MODULE_DIR$/src/test/resources/conf/spring/web-servlet-test.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/conf/spring/services.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/conf/spring/docs.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/conf/spring/messages.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/conf/spring/root.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/conf/spring/services.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/conf/spring/components.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/conf/spring/web-servlet.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/conf/spring/docs.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/conf/spring/security.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/conf/spring/dao.xml</file>
         </fileset>
       </configuration>
     </facet>
-    <facet type="web" name="Web Gradle : novotvir.war">
+    <facet type="web" name="Web">
       <configuration>
         <descriptors>
           <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/src/main/webapp/WEB-INF/web.xml" />
@@ -40,21 +34,20 @@
     </facet>
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="false">
-    <output url="file://$MODULE_DIR$/build/classes/main" />
-    <output-test url="file://$MODULE_DIR$/build/classes/test" />
+    <output url="file://$MODULE_DIR$/build" />
+    <output-test url="file://$MODULE_DIR$/build" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src/main/groovy" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/app_test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/app_test/resources" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/auto_test/groovy" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/auto_test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/groovy" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/resources" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/auto_test/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/auto_test/java" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/.gradle" />
       <excludeFolder url="file://$MODULE_DIR$/build" />
     </content>
@@ -65,6 +58,7 @@
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.projectlombok:lombok:1.12.4" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: com.sun.mail:javax.mail:1.5.0" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.springframework:spring-aop:4.0.3.RELEASE" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.springframework:spring-core:4.0.3.RELEASE" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.springframework:spring-context:4.0.3.RELEASE" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.springframework:spring-context-support:4.0.3.RELEASE" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.springframework:spring-beans:4.0.3.RELEASE" level="project" />
@@ -101,6 +95,8 @@
     <orderEntry type="library" exported="" name="Gradle: commons-dbcp:commons-dbcp:1.4" level="project" />
     <orderEntry type="library" exported="" name="Gradle: postgresql:postgresql:9.0-801.jdbc4" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.mangofactory:swagger-springmvc:0.6.6" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.jasypt:jasypt:1.9.2" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.jasypt:jasypt-spring31:1.9.2" level="project" />
     <orderEntry type="library" exported="" name="Gradle: aopalliance:aopalliance:1.0" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.springframework:spring-expression:4.0.3.RELEASE" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.springframework.data:spring-data-commons:1.8.2.RELEASE" level="project" />
@@ -136,12 +132,14 @@
     <orderEntry type="library" exported="" name="Gradle: org.springframework.plugin:spring-plugin-core:1.1.0.RELEASE" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.atteo:evo-inflector:1.2" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.codehaus.jackson:jackson-core-asl:1.9.9" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: xml-apis:xml-apis:1.0.b2" level="project" />
     <orderEntry type="library" exported="" name="Gradle: commons-beanutils:commons-beanutils:1.8.0" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.apache.tiles:tiles-template:2.2.2" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.apache.tiles:tiles-servlet:2.2.2" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.apache.tiles:tiles-jsp:2.2.2" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.fasterxml.jackson.module:jackson-module-scala:2.0.0" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.0.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.objenesis:objenesis:2.1" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.scala-lang:scala-library:2.9.1" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.scalastuff:scalabeans:0.2" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.0.0" level="project" />
@@ -149,17 +147,21 @@
     <orderEntry type="library" exported="" name="Gradle: com.thoughtworks.paranamer:paranamer:2.3" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.slf4j:slf4j-api:1.7.7" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.slf4j:jcl-over-slf4j:1.7.7" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: org.objenesis:objenesis:2.1" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.3.4" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: xml-apis:xml-apis:1.0.b2" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: org.springframework:spring-core:4.0.3.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.springframework:spring-test:4.0.6.RELEASE" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: org.codehaus.groovy:groovy-all:2.2.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: info.cukes:cucumber-junit:1.1.8" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: info.cukes:cucumber-groovy:1.1.8" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: org.mockito:mockito-core:1.9.5" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: junit:junit:4.11" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.hamcrest:hamcrest-all:1.3" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: commons-collections:commons-collections:3.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: info.cukes:cucumber-core:1.1.8" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: info.cukes:cucumber-html:0.2.3" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: info.cukes:cucumber-jvm-deps:1.0.3" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: info.cukes:gherkin:2.12.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.hamcrest:hamcrest-core:1.3" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.springframework:spring-core:4.0.6.RELEASE" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.codehaus.groovy:groovy-all:2.2.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: info.cukes:cucumber-groovy:1.1.8" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.mockito:mockito-core:1.9.5" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.powermock:powermock-module-junit4:1.5" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.powermock:powermock-api-mockito:1.5" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.powermock:powermock-core:1.5" level="project" />
@@ -167,22 +169,17 @@
     <orderEntry type="library" scope="TEST" name="Gradle: org.spockframework:spock-core:0.7-groovy-2.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.spockframework:spock-spring:0.7-groovy-2.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.codehaus.groovy:http-builder:0.4.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: info.cukes:cucumber-core:1.1.8" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: info.cukes:cucumber-jvm-deps:1.0.3" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: info.cukes:gherkin:2.12.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.powermock:powermock-module-junit4-common:1.5" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.powermock:powermock-api-support:1.5" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.powermock:powermock-reflect:1.5" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.powermock:powermock-module-javaagent:1.5" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: junit:junit-dep:4.10" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: org.hamcrest:hamcrest-core:1.3" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.apache.httpcomponents:httpclient:4.0-beta2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: net.sf.json-lib:json-lib:2.2.2:jdk15" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.codehaus.groovy:groovy:1.5.7" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: net.sourceforge.nekohtml:nekohtml:1.9.9" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: info.cukes:cucumber-html:0.2.3" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.apache.httpcomponents:httpcore:4.0-beta3" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: commons-codec:commons-codec:1.3" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: commons-collections:commons-collections:3.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: net.sf.ezmorph:ezmorph:1.0.4" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: asm:asm:2.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.apache.ant:ant:1.7.0" level="project" />
@@ -192,17 +189,13 @@
     <orderEntry type="library" scope="TEST" name="Gradle: jline:jline:0.9.94" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.apache.ant:ant-launcher:1.7.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: xerces:xercesImpl:2.8.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: org.springframework:spring-core:4.0.6.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: xml-apis:xml-apis:1.3.03" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: info.cukes:cucumber-java:1.1.8" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: info.cukes:cucumber-spring:1.1.8" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.apache.httpcomponents:httpclient:4.3.5" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.subethamail:subethasmtp-wiser:1.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.apache.httpcomponents:httpcore:4.3.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: commons-codec:commons-codec:1.6" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: org.subethamail:subethasmtp-wiser:1.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.subethamail:subethasmtp-smtp:1.2" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: org.jasypt:jasypt:1.9.2" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: org.jasypt:jasypt-spring31:1.9.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: net.sf.json-lib:json-lib:2.2.2:jdk15" level="project" />
   </component>
 </module>

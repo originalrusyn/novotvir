@@ -1,6 +1,5 @@
 Feature: Successful user registration via email
 
-  @T
   Scenario: User can be registered via email
     Given First time user
     When User creates credentials
