@@ -60,8 +60,6 @@ sourceSets {
         runtimeClasspath += files("src/main/webapp")
     }
     auto_test {
-        //java.srcDirs = ['src/auto_test/java']
-        //resources.srcDirs = ['src/auto_test/resources/']
         compileClasspath = sourceSets.main.output + configurations.auto_testCompile + configurations.auto_testProvided
         runtimeClasspath = output + sourceSets.main.output + configurations.auto_testRuntime + configurations.auto_testProvided + files("src/main/webapp")
     }
@@ -79,8 +77,8 @@ idea{
         languageLevel = '1.8'
     }
         module {
-            testSourceDirs += file('src/app_test/java')
-            testSourceDirs += file('src/app_test/resources')
+            testSourceDirs += file('src/auto_test/java')
+            testSourceDirs += file('src/auto_test/resources')
             scopes.PROVIDED.plus += [configurations.provided]
             scopes.TEST.plus += [configurations.auto_testCompile]
             scopes.TEST.plus += [configurations.auto_testRuntime]
@@ -184,6 +182,7 @@ dependencies {
     auto_testCompile 'org.springframework:spring-context-support:4.0.3.RELEASE'
     auto_testCompile 'org.springframework:spring-beans:4.0.3.RELEASE'
     auto_testCompile 'org.springframework:spring-web:4.0.3.RELEASE'
+    auto_testCompile 'org.springframework:spring-aspects:4.0.3.RELEASE'
     auto_testCompile 'org.springframework:spring-test:4.0.6.RELEASE'
     auto_testCompile 'info.cukes:cucumber-junit:1.1.8'
     auto_testCompile 'info.cukes:cucumber-java:1.1.8'

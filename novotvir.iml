@@ -41,15 +41,12 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/groovy" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/app_test/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/app_test/resources" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/auto_test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/groovy" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/resources" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/auto_test/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/auto_test/java" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/.gradle" />
-      <excludeFolder url="file://$MODULE_DIR$/build" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -197,5 +194,7 @@
     <orderEntry type="library" scope="TEST" name="Gradle: org.apache.httpcomponents:httpcore:4.3.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: commons-codec:commons-codec:1.6" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.subethamail:subethasmtp-smtp:1.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.springframework:spring-aspects:4.0.3.RELEASE" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.aspectj:aspectjweaver:1.7.4" level="project" />
   </component>
 </module>
