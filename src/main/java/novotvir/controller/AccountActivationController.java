@@ -44,7 +44,7 @@ public class AccountActivationController {
     @RequestMapping(value = "/users/{" + NAME_PATH_VAR + ":.*}", method = PUT)
     public ResponseEntity<AccountDto> activate(HttpServletRequest request,
                                  HttpServletResponse response,
-                                 @PathVariable("name") String userName,
+                                 @PathVariable(NAME_PATH_VAR) String userName,
                                  @RequestParam(ACTIVATION_TOKEN_REQ_PARAM) String activationToken){
         User user = userActivationService.activate(userName, activationToken);
         return autoLogin(request, response, user);
@@ -68,7 +68,7 @@ public class AccountActivationController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         HttpHeaders headers = new HttpHeaders ();
-        headers.setLocation(ServletUriComponentsBuilder.fromCurrentContextPath().path("users/"+user.name).build().toUri());
+        headers.setLocation(ServletUriComponentsBuilder.fromCurrentContextPath().path("users/" + user.name).build().toUri());
         return new ResponseEntity<>(accountDto(user), headers, SEE_OTHER);
     }
 }

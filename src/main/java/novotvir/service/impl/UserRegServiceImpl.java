@@ -6,7 +6,6 @@ import novotvir.persistence.repository.UserRepository;
 import novotvir.security.credential.impl.UserDetailsImpl;
 import novotvir.service.UserRegService;
 import novotvir.utils.generator.ActivationTokenGenerator;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.dao.SaltSource;
 import org.springframework.security.authentication.encoding.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -21,10 +20,10 @@ import static org.springframework.transaction.annotation.Propagation.REQUIRED;
 @Service("userRegService")
 public class UserRegServiceImpl implements UserRegService {
 
-    @Autowired UserRepository userRepository;
-    @Resource(name = "saltSource") SaltSource saltSource;
-    @Resource(name = "passwordEncoder") PasswordEncoder passwordEncoder;
-    @Autowired ActivationTokenGenerator activationTokenGenerator;
+    @Resource UserRepository userRepository;
+    @Resource SaltSource saltSource;
+    @Resource PasswordEncoder passwordEncoder;
+    @Resource ActivationTokenGenerator activationTokenGenerator;
 
     @Override
     @Transactional(propagation = REQUIRED)

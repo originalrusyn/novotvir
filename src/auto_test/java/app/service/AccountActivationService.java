@@ -19,8 +19,6 @@ public class AccountActivationService extends AppService {
 
     public ActivateAccount invoke(Application application, String url){
 
-        log.info("ggggggggg");
-
         HttpEntity<MultiValueMap<String, String>> httpEntity = ActivateAccountV1.getHttpEntity(application.getLocale());
 
         ResponseEntity<AccountDto> responseEntity = restTemplate.exchange(url, GET, httpEntity, AccountDto.class);

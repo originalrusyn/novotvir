@@ -8,7 +8,6 @@ import novotvir.persistence.domain.User;
 import novotvir.persistence.repository.UserRepository;
 import novotvir.service.CustomMessageSource;
 import novotvir.service.UserActivationService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -24,7 +23,7 @@ import static java.util.Objects.isNull;
 public class UserActivationServiceImpl implements UserActivationService {
 
     @Resource UserRepository userRepository;
-    @Autowired CustomMessageSource customMessageSource;
+    @Resource CustomMessageSource customMessageSource;
 
     @Override
     public User activate(String userName, String activationToken) {

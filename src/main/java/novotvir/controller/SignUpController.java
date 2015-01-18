@@ -5,10 +5,8 @@ import novotvir.dto.AccountDto;
 import novotvir.dto.UserRegDetailsDto;
 import novotvir.persistence.domain.User;
 import novotvir.service.UserEmailRegService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.web.authentication.RememberMeServices;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -29,12 +27,11 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 // @author: Titov Mykhaylo (titov) on 18.02.14 15:53
-@Controller
 @Slf4j
+@Controller
 public class SignUpController {
 
-    @Autowired UserEmailRegService userEmailRegService;
-    @Resource(name = "customRememberMeServices") RememberMeServices rememberMeServices;
+    @Resource UserEmailRegService userEmailRegService;
 
     @RequestMapping(value = "/signup", method = GET)
     public ModelAndView getSignUpModelAndView() {

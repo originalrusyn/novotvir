@@ -65,19 +65,21 @@
     <context:annotation-config/>
     <context:component-scan base-package="utils.invokers, checkers, app.service"/>
 
-    <bean id="httpClientBuilder" class="org.apache.http.impl.client.HttpClientBuilder"/>
+    <bean id="httpClientBuilder"
+          class="org.apache.http.impl.client.HttpClientBuilder"
+          init-method="disableRedirectHandling"/>
 
-    <bean id="httpClient" factory-bean="httpClientBuilder" factory-method="build"/>
+    <bean id="httpClient"
+          factory-bean="httpClientBuilder"
+          factory-method="build"/>
 
-    <bean id="httpComponentsClientHttpRequestFactory" class="org.springframework.http.client.HttpComponentsClientHttpRequestFactory">
-        <!--<constructor-arg ref="httpClient"/>-->
-    </bean>
+    <bean id="httpComponentsClientHttpRequestFactory"
+          class="org.springframework.http.client.HttpComponentsClientHttpRequestFactory"
+          c:httpClient-ref="httpClient"/>
 
-    <bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
-<!--
-        <constructor-arg ref="httpComponentsClientHttpRequestFactory"/>
--->
-    </bean>
+    <bean id="restTemplate"
+          class="org.springframework.web.client.RestTemplate"
+          c:requestFactory-ref="httpComponentsClientHttpRequestFactory" />
 
     <bean id="mockSMTPServer"
           class="org.subethamail.wiser.Wiser"
