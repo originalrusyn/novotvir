@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+    <definition name="main_template" template="/WEB-INF/templates/mainTemplate.html">
+        <put-attribute name="head" expression="/WEB-INF/views/www/head.html"/>
+        <put-attribute name="header" expression="/WEB-INF/views/www/not_authorized_user/header.html"/>
+        <put-attribute name="footer" expression="/WEB-INF/views/www/footer.html"/>
+    </definition>
+
+    <definition name="authorized_user_template" extends="main_template">
+        <put-attribute name="header" expression="/WEB-INF/views/www/authorized_user/header.html"/>
+    </definition>
+
+    <definition name="admin_signin" extends="main_template">
+        <put-attribute name="title" expression="/WEB-INF/views/admin/signin/title.html"/>
+        <put-attribute name="content" expression="/WEB-INF/views/admin/signin/content.html"/>
+    </definition>
+
+    <definition name="admin_account" extends="authorized_user_template">
+        <put-attribute name="title" expression="/WEB-INF/views/admin/account/title.html"/>
+        <put-attribute name="content" expression="/WEB-INF/views/admin/account/content.html"/>
+    </definition>
+
+    <definition name="admin_users" extends="authorized_user_template">
+        <put-attribute name="title" expression="/WEB-INF/views/admin/users/title.html"/>
+        <put-attribute name="content" expression="/WEB-INF/views/admin/users/content.html"/>
+    </definition>
+
+    <definition name="signin" extends="main_template">
+        <put-attribute name="title" expression="/WEB-INF/views/www/signin/title.html"/>
+        <put-attribute name="content" expression="/WEB-INF/views/www/signin/content.html"/>
+    </definition>
+
+    <definition name="signup" extends="authorized_user_template">
+        <put-attribute name="title" expression="/WEB-INF/views/www/signup/title.html"/>
+        <put-attribute name="content" expression="/WEB-INF/views/www/signup/content.html"/>
+    </definition>
+
+    <definition name="sign_up_successful" extends="main_template">
+        <put-attribute name="title" expression="/WEB-INF/views/www/sign_up_successful/title.html"/>
+        <put-attribute name="content" expression="/WEB-INF/views/www/sign_up_successful/content.html"/>
+    </definition>
+
+    <definition name="account" extends="authorized_user_template">
+        <put-attribute name="title" expression="/WEB-INF/views/www/account/title.html"/>
+        <put-attribute name="content" expression="/WEB-INF/views/www/account/content.html"/>
+    </definition>
+
+    <definition name="activation_can_not_be_completed" extends="main_template">
+        <put-attribute name="title" expression="/WEB-INF/views/www/activation_can_not_be_completed/title.html"/>
+        <put-attribute name="content" expression="/WEB-INF/views/www/activation_can_not_be_completed/content.html"/>
+    </definition>
+
+    <definition name="doc" extends="authorized_user_template">
+        <put-attribute name="head" expression="/WEB-INF/views/www/doc/head.html"/>
+        <put-attribute name="title" expression="/WEB-INF/views/www/doc/title.html"/>
+        <put-attribute name="content" expression="/WEB-INF/views/www/doc/content.html"/>
+    </definition>
+
+    <definition name="internal_server_error" extends="main_template">
+        <put-attribute name="title" expression="/WEB-INF/views/www/internal_server_error/title.html"/>
+        <put-attribute name="content" expression="/WEB-INF/views/www/internal_server_error/content.html"/>
+    </definition>
+
+    <definition name="page_not_found" extends="main_template">
+        <put-attribute name="title" expression="/WEB-INF/views/www/page_not_found/title.html"/>
+        <put-attribute name="content" expression="/WEB-INF/views/www/page_not_found/content.html"/>
+    </definition>
+
+    <definition name="error" extends="main_template">
+        <put-attribute name="title" expression="/WEB-INF/views/www/error/title.html"/>
+        <put-attribute name="content" expression="/WEB-INF/views/www/error/content.html"/>
+    </definition>
+
+    <definition name="access_is_denied" extends="main_template">
+        <put-attribute name="title" expression="/WEB-INF/views/www/access_is_denied/title.html"/>
+        <put-attribute name="content" expression="/WEB-INF/views/www/access_is_denied/content.html"/>
+    </definition>
+
+
+    <definition name="reset_password" extends="main_template">
+        <put-attribute name="head" expression="/WEB-INF/views/www/reset_password/head.html"/>
+        <put-attribute name="content" expression="/WEB-INF/views/www/reset_password/content.html"/>
+    </definition>
+
+</tiles-definitions>

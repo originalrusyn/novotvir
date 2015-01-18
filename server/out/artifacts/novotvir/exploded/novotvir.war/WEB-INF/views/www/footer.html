@@ -1,0 +1,7 @@
+<div xmlns:th="http://www.thymeleaf.org" th:inline="text">
+    <div style="display: none;" th:if="${exception}">
+        Failed URL: ${url}
+        [[ ${exception.message} ]]
+        <div th:each="trace:${exception.stackTrace}" th:inline="text" th:remove="tag">[[ ${trace} ]]</div>
+    </div>
+</div>

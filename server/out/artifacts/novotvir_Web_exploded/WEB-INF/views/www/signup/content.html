@@ -1,0 +1,46 @@
+<div xmlns:th="http://www.thymeleaf.org">
+    <script src='assets/lib/jquery.md5.min.js' th:src="@{/assets/lib/jquery.md5.min.js}" type='text/javascript'></script>
+    <script type='text/javascript' th:inline="javascript">
+        /*<![CDATA[*/
+        $(document).ready(function() {
+            $('#signUpForm').submit(function(e) {
+                var pass = $('#passInput').val();
+                var confirmPass = $('#confirmPassInput').val();
+                if (pass != confirmPass) {
+                    var error = [[#{signup.pass.is.not.as.passConfirm}]];
+                    $('#confirmPassParagraphForError').text(error);
+                    e.preventDefault();
+                }else {
+                    var token = encrypt_pass(pass);
+                    $('#tokenInput').val(token);
+                }
+            });
+        });
+        /*]]>*/
+    </script>
+    <form id="signUpForm" name="signUpForm" action="#" th:object="${userRegDetailsDto}" th:action="@{signup}" method="post" accept-charset="UTF-8">
+        <label><strong th:text="#{signup.content.signUpForm.email.label}">Email:</strong></label>
+        <input id="emailInput" type="email" th:field="*{email}" value="a@a.a" required="true"/>
+
+        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
+            Wrong email
+        </p>
+
+        <label><strong th:text="#{signup.content.signUpForm.password.label}">Password:</strong></label>
+        <input id="tokenInput" type="hidden" th:field="*{token}" value=""/>
+
+        <input id="passInput" type="password" value=" " required="true" pattern="[A-Za-z]{6,12}"/>
+
+        <p th:if="${#fields.hasErrors('token')}" th:errors="*{token}">
+            Wrong token format
+        </p>
+
+        <label><strong th:text="#{signup.content.signUpForm.password.confirmation.label}">Password Confirmation:</strong></label>
+        <input id="confirmPassInput" type="password" name="confirmPass" value=" " required="true"/>
+
+        <p id="confirmPassParagraphForError"></p>
+
+        <input id="signUpButton" type="submit" name="submit" th:value="#{signup.content.signUpForm.submit}" value="Sign Up"/>
+        <a th:text="#{signup.content.facebook.signup.link.text}" th:href="@{facebook_auth?signUp=true}">Facebook Sign Up</a>
+    </form>
+</div>

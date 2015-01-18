@@ -1,0 +1,26 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-3.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:tiles="http://www.thymeleaf.org" xmlns:th="http://www.thymeleaf.org">
+
+<head tiles:substituteby="head"/>
+<title tiles:substituteby="title">Default Title</title>
+<script type='text/javascript' th:inline="javascript">
+    /*<![CDATA[*/
+    var encrypt_pass = function encrypt_pass(pass){
+        var salt = /*[[${pass_salt}]]*/ 'Роисся Вперде';
+        return $.md5(salt.concat(pass, salt));
+    }
+
+    /*<![CDATA[*/
+    var encrypt_admin_pass = function encrypt_pass(pass){
+        var salt = /*[[${admin_pass_salt}]]*/ 'Роисся Вперде';
+        return $.md5(salt.concat(pass, salt));
+    }
+    /*]]>*/
+</script>
+<body>
+    <div tiles:substituteby="header"/>
+    <div tiles:substituteby="content"/>
+    <div tiles:substituteby="footer"/>
+</body>
+</html>
