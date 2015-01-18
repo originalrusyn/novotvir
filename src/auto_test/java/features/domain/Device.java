@@ -26,9 +26,13 @@ public class Device {
     Person person;
 
     public Device(DeviceType deviceType, String osVersion){
-        this.deviceType=deviceType;
-        this.osVersion=osVersion;
-        this.deviceUID = randomUUID().toString();
+        this(deviceType, osVersion, randomUUID().toString());
+    }
+
+    public Device(DeviceType deviceType, String osVersion, String deviceUID){
+        this.deviceType = deviceType;
+        this.osVersion = osVersion;
+        this.deviceUID = deviceUID;
     }
 
     public static Device android(String osVersion){

@@ -1,35 +1,38 @@
 package features.domain;
 
+import command.SignUp;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import novotvir.dto.AccountDto;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.ResponseEntity;
 
-import java.util.List;
-
-import static org.apache.commons.collections.CollectionUtils.isNotEmpty;
+import static org.junit.Assert.assertNotNull;
 
 // @author: Mykhaylo Titov on 13.09.14 12:54.
 @Getter
 @Setter
-@ToString(exclude = {"person", "lastAccountDto"})
+@ToString(exclude = {"person"})
 @Accessors(chain = true)
 public class Account {
     final Person person;
-    final AccountDto lastAccountDto;
-    String lastRememberMeToken;
+    final String token;
+    AccountDto lastAccountDto;
 
-    public Account(Person person, ResponseEntity<AccountDto> responseEntity){
+    public Account(Person person, SignUp signUp){
+        assertNotNull(person);
+        assertNotNull(signUp);
+
+        signUp.isRespValid();
+
+        this.lastAccountDto = signUp.getRespAccountDto();
+
         this.person = person;
         person.addAccount(this);
-        this.lastAccountDto = responseEntity.getBody();
-        HttpHeaders headers = responseEntity.getHeaders();
-        List<String> cookies = headers.get("Set-Cookie");
-        if(isNotEmpty(cookies)) {
-            this.lastRememberMeToken = cookies.get(0);
-        }
+        this.token = signUp.getReqParamToken();
+    }
+
+    public String getEmail(){
+        return lastAccountDto.getEmail();
     }
 }

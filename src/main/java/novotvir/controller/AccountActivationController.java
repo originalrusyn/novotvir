@@ -2,10 +2,13 @@ package novotvir.controller;
 
 import exceptions.i18n.activation.CouldNotActivateUserException;
 import lombok.extern.slf4j.Slf4j;
+import novotvir.dto.AccountDto;
 import novotvir.dto.ErrorDto;
 import novotvir.persistence.domain.User;
 import novotvir.service.UserActivationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -15,15 +18,16 @@ import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import static novotvir.dto.AccountDto.ACCOUNT_DTO;
 import static novotvir.dto.AccountDto.accountDto;
 import static novotvir.dto.ErrorDto.ERROR_DTO;
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
+import static org.springframework.http.HttpStatus.SEE_OTHER;
 import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 
 // @author Titov Mykhaylo (titov) on 16.05.2014.
@@ -38,7 +42,7 @@ public class AccountActivationController {
     @Autowired UserActivationService userActivationService;
 
     @RequestMapping(value = "/users/{" + NAME_PATH_VAR + ":.*}", method = PUT)
-    public ModelAndView activate(HttpServletRequest request,
+    public ResponseEntity<AccountDto> activate(HttpServletRequest request,
                                  HttpServletResponse response,
                                  @PathVariable("name") String userName,
                                  @RequestParam(ACTIVATION_TOKEN_REQ_PARAM) String activationToken){
@@ -56,14 +60,15 @@ public class AccountActivationController {
         return modelAndView;
     }
 
-    private ModelAndView autoLogin(HttpServletRequest request, HttpServletResponse response, User user) {
+    private ResponseEntity<AccountDto> autoLogin(HttpServletRequest request, HttpServletResponse response, User user) {
         UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(user.name, user.token);
         authentication.setDetails(new WebAuthenticationDetails(request));
         Authentication authenticated = authenticationManagerWithoutPasswordEncoder.authenticate(authentication);
         rememberMeServices.loginSuccess(request, response, authenticated);
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        ModelAndView modelAndView = new ModelAndView("redirect:/users/" + user.name);
-        modelAndView.addObject(ACCOUNT_DTO, accountDto(user));
-        return modelAndView;
+
+        HttpHeaders headers = new HttpHeaders ();
+        headers.setLocation(ServletUriComponentsBuilder.fromCurrentContextPath().path("users/"+user.name).build().toUri());
+        return new ResponseEntity<>(accountDto(user), headers, SEE_OTHER);
     }
 }

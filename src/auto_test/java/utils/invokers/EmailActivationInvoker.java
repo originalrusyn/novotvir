@@ -1,16 +1,13 @@
 package utils.invokers;
 
-import features.domain.Email;
-import features.domain.Person;
-import novotvir.dto.AccountDto;
+import app.service.AccountActivationService;
+import command.AbstractCommand;
+import command.Command;
+import command.SignUp;
+import command.v1.SignUpV1;
+import features.domain.*;
 import novotvir.service.CustomMessageSource;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.client.RestTemplate;
 import org.subethamail.wiser.Wiser;
 import org.subethamail.wiser.WiserMessage;
 
@@ -18,14 +15,10 @@ import javax.annotation.Resource;
 import javax.mail.Address;
 import javax.mail.internet.MimeMessage;
 import java.util.List;
-import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static java.util.Arrays.asList;
 import static javax.mail.Message.RecipientType.TO;
-import static novotvir.service.CustomMessageSource.uk_UA_LOCALE;
-import static org.springframework.http.MediaType.APPLICATION_JSON;
 
 // @author: Mykhaylo Titov on 04.01.15 22:45.
 @Component
@@ -34,7 +27,7 @@ public class EmailActivationInvoker {
 
     @Resource Wiser mockSMTPServer;
     @Resource ServerMessageSourceResolver serverMessageSourceResolver;
-    @Resource RestTemplate restTemplate;
+    @Resource AccountActivationService accountActivationService;
 
     public Person invoke(Person person){
         try {
@@ -43,25 +36,20 @@ public class EmailActivationInvoker {
                 MimeMessage mimeMessage = wiserMessage.getMimeMessage();
                 Address[] recipients = mimeMessage.getRecipients(TO);
                 for (Address recipient : recipients) {
-                    Set<Email> emails = person.getEmails();
-                    for (Email email : emails) {
-                        if(recipient.toString().equals(email.getValue())) {
-                            String content = (String) mimeMessage.getContent();
-                            CustomMessageSource messageSource = serverMessageSourceResolver.getMessageSource(uk_UA_LOCALE);
+                    for (Device device : person.getDevices()) {
+                        for (Application application : device.getApplications()) {
+                            for (Command command : application.getCommandHistory()) {
+                                if(command instanceof SignUp && recipient.toString().equals(((SignUp) command).getReqParamEmail())) {
+                                    String content = (String) mimeMessage.getContent();
+                                    CustomMessageSource messageSource = serverMessageSourceResolver.getMessageSource(((SignUp) command).getReqLocale());
 
-                            Pattern p = Pattern.compile("\\Q" + messageSource.getMailValidationMailText("\\E("+activationUrlRegex+")\\Q") + "\\E");
-                            Matcher matcher = p.matcher(content);
-                            matcher.find();
-                            String url = matcher.group(1);
-
-                            HttpHeaders headers = new HttpHeaders ();
-                            headers.setAccept(asList(APPLICATION_JSON));
-                            //headers.add("Accept-Language", locale.toString());
-
-                            HttpEntity<MultiValueMap<String, String>> httpEntity = new HttpEntity<>(null, headers);
-
-                            ResponseEntity<AccountDto> responseEntity = restTemplate.exchange(url, HttpMethod.GET, httpEntity, AccountDto.class);
-                            break;
+                                    Pattern p = Pattern.compile("\\Q" + messageSource.getMailValidationMailText("\\E(" + activationUrlRegex + ")\\Q") + "\\E");
+                                    Matcher matcher = p.matcher(content);
+                                    matcher.find();
+                                    String url = matcher.group(1);
+                                    accountActivationService.invoke(application, url);
+                                }
+                            }
                         }
                     }
                 }

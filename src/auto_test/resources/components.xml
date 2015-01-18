@@ -63,7 +63,7 @@
           p:passwordSysPropertyName="pwd"/>
 
     <context:annotation-config/>
-    <context:component-scan base-package="utils.invokers, checkers"/>
+    <context:component-scan base-package="utils.invokers, checkers, app.service"/>
 
     <bean id="httpClientBuilder" class="org.apache.http.impl.client.HttpClientBuilder"/>
 
@@ -73,7 +73,7 @@
         <!--<constructor-arg ref="httpClient"/>-->
     </bean>
 
-    <bean class="org.springframework.web.client.RestTemplate">
+    <bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
 <!--
         <constructor-arg ref="httpComponentsClientHttpRequestFactory"/>
 -->

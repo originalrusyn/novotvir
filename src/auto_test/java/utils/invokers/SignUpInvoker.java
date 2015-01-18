@@ -1,15 +1,15 @@
 package utils.invokers;
 
+import app.service.SignUpService;
 import features.domain.*;
 import novotvir.dto.AccountDto;
-import org.springframework.beans.factory.annotation.Value;
+import novotvir.dto.UserRegDetailsDto;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
 import java.util.Iterator;
@@ -29,8 +29,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON;
 @Component
 public class SignUpInvoker {
 
-    @Value("${environment_url}") String environmentUrl;
-    @Resource RestTemplate restTemplate;
+    @Resource SignUpService signUpService;
 
     public Person invoke(Person person){
         for (Device device : person.getDevices()) {
@@ -42,28 +41,10 @@ public class SignUpInvoker {
                 String email = emailIterator.next().getValue();
                 Application application = applicationIterator.next();
 
-                ResponseEntity<AccountDto> responseEntity = invoke(email, randomToken(), application.getLocale());
-
-                assertThat(responseEntity.getStatusCode(), is(SEE_OTHER));
-                assertThat(responseEntity.getBody(), is(notNullValue()));
-
-                application.setAccount(new Account(person, responseEntity));
+                signUpService.invoke(application, email);
             }
         }
         return person;
-    }
-
-    private ResponseEntity<AccountDto> invoke(String email, String token, Locale locale) {
-        HttpHeaders headers = new HttpHeaders ();
-        headers.setAccept(asList(APPLICATION_JSON));
-        headers.add("Accept-Language", locale.getLanguage());
-
-        MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
-        params.add("email", email);
-        params.add("token", token);
-
-        HttpEntity<MultiValueMap<String, String>> httpEntity = new HttpEntity<>(params, headers);
-        return restTemplate.exchange(environmentUrl + "/signup", POST, httpEntity, AccountDto.class);
     }
 
 }
