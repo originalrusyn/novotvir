@@ -6,6 +6,7 @@ import command.Command;
 import command.SignUp;
 import command.v1.SignUpV1;
 import features.domain.*;
+import lombok.extern.slf4j.Slf4j;
 import novotvir.service.CustomMessageSource;
 import org.springframework.stereotype.Component;
 import org.subethamail.wiser.Wiser;
@@ -22,6 +23,7 @@ import static javax.mail.Message.RecipientType.TO;
 
 // @author: Mykhaylo Titov on 04.01.15 22:45.
 @Component
+@Slf4j
 public class EmailActivationInvoker {
     static final String activationUrlRegex = ".+?/users/.+?activationToken=.+?&_method=PUT";
 
@@ -54,8 +56,8 @@ public class EmailActivationInvoker {
                     }
                 }
             }
-        }catch (Exception e){
-            e.printStackTrace();
+        } catch (Exception e){
+            log.error("Can't activate user account by email" ,e);
         }
         return person;
     }

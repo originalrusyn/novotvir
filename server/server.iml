@@ -21,6 +21,42 @@
         </sourceRoots>
       </configuration>
     </facet>
+    <facet type="Spring" name="Spring">
+      <configuration>
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/classes/conf/spring/web-servlet.xml</file>
+          <file>file://$MODULE_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/classes/conf/spring/components.xml</file>
+          <file>file://$MODULE_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/classes/conf/spring/services.xml</file>
+          <file>file://$MODULE_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/classes/conf/spring/root.xml</file>
+          <file>file://$MODULE_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/classes/conf/spring/messages.xml</file>
+          <file>file://$MODULE_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/classes/conf/spring/aspects.xml</file>
+          <file>file://$MODULE_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/classes/conf/spring/controllers.xml</file>
+          <file>file://$MODULE_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/classes/conf/spring/dao.xml</file>
+          <file>file://$MODULE_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/classes/conf/spring/security.xml</file>
+          <file>file://$MODULE_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/classes/conf/spring/docs.xml</file>
+          <file>file://$MODULE_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/classes/conf/spring/root.xml</file>
+          <file>file://$MODULE_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/classes/conf/spring/services.xml</file>
+          <file>file://$MODULE_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/classes/conf/spring/components.xml</file>
+          <file>file://$MODULE_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/classes/conf/spring/web-servlet.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/conf/spring/dao.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/conf/spring/web-servlet.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/conf/spring/components.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/conf/spring/services.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/conf/spring/root.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/conf/spring/messages.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/conf/spring/aspects.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/conf/spring/controllers.xml</file>
+          <file>file://$MODULE_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/classes/conf/spring/aspects.xml</file>
+          <file>file://$MODULE_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/classes/conf/spring/controllers.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/conf/spring/docs.xml</file>
+          <file>file://$MODULE_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/classes/conf/spring/security.xml</file>
+          <file>file://$MODULE_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/classes/conf/spring/docs.xml</file>
+          <file>file://$MODULE_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/classes/conf/spring/messages.xml</file>
+          <file>file://$MODULE_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/classes/conf/spring/dao.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/conf/spring/security.xml</file>
+        </fileset>
+      </configuration>
+    </facet>
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/build/classes/main" />

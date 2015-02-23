@@ -17,6 +17,8 @@ TABLE
   CONSTRAINT name_facebookId UNIQUE (name, facebookId)
 );
 
+-- rollback drop table if exists users;
+
 -- changeset titov:2 dbms:postgresql runInTransaction:true
 CREATE
 TABLE
@@ -29,6 +31,8 @@ TABLE
   CONSTRAINT authorities_user FOREIGN KEY (userId) REFERENCES users (id) MATCH SIMPLE ON DELETE CASCADE
 );
 
+-- rollback drop table if exists authorities;
+
 -- changeset titov:3 dbms:postgresql runInTransaction:true
 CREATE
 TABLE
@@ -40,6 +44,8 @@ TABLE
   PRIMARY KEY (id)
 );
 
+-- rollback drop table if exists authorities;
+
 -- changeset titov:4 dbms:postgresql runInTransaction:true splitStatements:false endDelimiter:#
 create function userLogProcedure() returns trigger as $$
 begin
@@ -48,8 +54,12 @@ return new;
 end;
 $$ LANGUAGE 'plpgsql';
 
+-- rollback drop function if exists userLogProcedure;
+
 -- changeset titov:5 dbms:postgresql runInTransaction:true
 create trigger userLogTrigger after insert or update on users for each row execute PROCEDURE userLogProcedure();
+
+-- rollback drop trigger if exists userLogTrigger;
 
 -- changeset titov:6 dbms:postgresql runInTransaction:true
 INSERT INTO users
@@ -60,6 +70,9 @@ INSERT INTO authorities
 (userId, role  ) VALUES
 (1     , 'USER'),
 (1     , 'DEV');
+
+-- rollback delete from users;
+-- rollback delete from authorities;
 
 -- changeset titov:7 dbms:postgresql runInTransaction:true
 CREATE
@@ -74,6 +87,8 @@ TABLE
   PRIMARY KEY (id)
 );
 
+-- rollback drop table if exists admins;
+
 -- changeset titov:8 dbms:postgresql runInTransaction:true
 CREATE
 TABLE
@@ -86,14 +101,19 @@ TABLE
   CONSTRAINT adminAuthorities_managers FOREIGN KEY (adminId) REFERENCES admins (id) MATCH SIMPLE ON DELETE CASCADE
 );
 
+-- rollback drop table if exists adminAuthorities;
+
 -- changeset titov:9 dbms:postgresql runInTransaction:true
 INSERT INTO admins
 (id, email           , token                                                                                       , lastSignInIpAddress, blocked, lastWebSignInTimestamp) VALUES
-  (1 , '${admin_email}', MD5('${admin_email}' || MD5('${admin_pass_salt}'|| '${admin_pass}' || '${admin_pass_salt}')), '127.0.0.1'        , false  , NULL);
+(1 , '${admin_email}', MD5('${admin_email}' || MD5('${admin_pass_salt}'|| '${admin_pass}' || '${admin_pass_salt}')), '127.0.0.1'        , false  , NULL);
 
 INSERT INTO adminAuthorities
 (adminId, role  ) VALUES
-  (1     , 'ADMIN');
+(1     , 'ADMIN');
+
+-- rollback delete from admins;
+-- rollback delete from adminAuthorities;
 
 -- changeset titov:10 dbms:postgresql runInTransaction:true
 alter SEQUENCE users_id_seq RESTART WITH 2;

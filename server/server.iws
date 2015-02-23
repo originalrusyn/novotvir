@@ -1,427 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="37c75bdc-25f6-4d4e-8a84-b02b70aa4db9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/activation-1.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/antlr-2.7.7.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/antlr-2.7.7.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/aopalliance-1.0.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/aopalliance-1.0.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/apache-log4j-extras-1.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/apache-log4j-extras-1.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/asm-5.0.3.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/asm-5.0.3.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/aspectjrt-1.8.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/aspectjrt-1.8.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/aspectjtools-1.7.4.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/aspectjtools-1.7.4.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/cglib-3.1.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/cglib-3.1.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/classmate-1.0.0.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/classmate-1.0.0.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/commons-beanutils-1.8.0.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/commons-beanutils-1.8.0.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/commons-dbcp-1.4.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/commons-dbcp-1.4.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/commons-digester-2.0.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/commons-digester-2.0.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/commons-io-2.4.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/commons-io-2.4.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/commons-lang-2.6.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/commons-lang-2.6.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/commons-pool-1.5.4.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/commons-pool-1.5.4.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/dom4j-1.6.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/dom4j-1.6.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/evo-inflector-1.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/evo-inflector-1.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/assets/www/imgs/favicon.ico" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/assets/www/imgs/favicon.ico" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/assets/fonts/glyphicons-halflings-regular.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/assets/fonts/glyphicons-halflings-regular.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/assets/fonts/glyphicons-halflings-regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/assets/fonts/glyphicons-halflings-regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/assets/fonts/glyphicons-halflings-regular.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/assets/fonts/glyphicons-halflings-regular.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/guava-14.0.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/guava-14.0.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/hibernate-cglib-repack-2.1_3.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/hibernate-cglib-repack-2.1_3.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/hibernate-commons-annotations-4.0.4.Final.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/hibernate-commons-annotations-4.0.4.Final.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/hibernate-core-4.3.1.Final.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/hibernate-core-4.3.1.Final.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/hibernate-entitymanager-4.3.1.Final.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/hibernate-entitymanager-4.3.1.Final.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/hibernate-jpa-2.1-api-1.0.0.Final.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/hibernate-jpa-2.1-api-1.0.0.Final.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/hibernate-validator-5.1.0.Final.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/hibernate-validator-5.1.0.Final.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt-hibernate3/resources/inherit.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/jackson-annotations-2.3.3.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/jackson-annotations-2.3.3.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/jackson-core-2.3.4.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/jackson-core-2.3.4.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/jackson-core-asl-1.9.9.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/jackson-core-asl-1.9.9.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/jackson-databind-2.3.4.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/jackson-databind-2.3.4.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/jackson-jaxrs-json-provider-2.0.0.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/jackson-jaxrs-json-provider-2.0.0.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/jackson-mapper-asl-1.9.9.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/jackson-mapper-asl-1.9.9.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/jackson-module-jaxb-annotations-2.0.0.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/jackson-module-jaxb-annotations-2.0.0.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/jackson-module-scala-2.0.0.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/jackson-module-scala-2.0.0.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/jandex-1.1.0.Final.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/jandex-1.1.0.Final.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/jasypt-1.9.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/jasypt-1.9.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/lib/jasypt-hibernate4-1.9.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/jasypt-spring31-1.9.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/jasypt-spring31-1.9.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/lib/jasypt-spring31-1.9.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/javassist-3.18.1-GA.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/javassist-3.18.1-GA.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/jboss-logging-3.1.3.GA.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/jboss-logging-3.1.3.GA.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/jboss-logging-annotations-1.2.0.Beta1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/jboss-logging-annotations-1.2.0.Beta1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/jboss-transaction-api_1.2_spec-1.0.0.Final.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/jboss-transaction-api_1.2_spec-1.0.0.Final.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/jcl-over-slf4j-1.7.7.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/jcl-over-slf4j-1.7.7.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/jsr311-api-1.1.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/jsr311-api-1.1.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/jstl-1.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/jstl-1.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/liquibase-core-3.0.8.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/liquibase-core-3.0.8.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/log4j-1.2.17.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/log4j-1.2.17.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/assets/www/imgs/logo_small.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/assets/www/imgs/logo_small.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/mail-1.4.7.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/mail-1.4.7.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/objenesis-2.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/objenesis-2.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/ognl-3.0.6.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/ognl-3.0.6.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/paranamer-2.3.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/paranamer-2.3.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/assets/www/imgs/pet_store_api.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/assets/www/imgs/pet_store_api.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/postgresql-9.0-801.jdbc4.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/postgresql-9.0-801.jdbc4.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/scala-library-2.9.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/scala-library-2.9.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/scalabeans-0.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/scalabeans-0.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server.ids" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/slf4j-api-1.7.7.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/slf4j-api-1.7.7.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/slf4j-log4j12-1.7.5.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/slf4j-log4j12-1.7.5.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/snakeyaml-1.13.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/snakeyaml-1.13.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/spring-aop-4.0.3.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/spring-aop-4.0.3.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/spring-beans-4.0.3.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/spring-beans-4.0.3.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/spring-context-4.0.3.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/spring-context-4.0.3.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/spring-context-support-4.0.3.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/spring-context-support-4.0.3.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/spring-core-4.0.3.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/spring-core-4.0.3.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/spring-data-commons-1.8.2.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/spring-data-commons-1.8.2.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/spring-data-jpa-1.6.2.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/spring-data-jpa-1.6.2.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/spring-data-rest-core-2.1.2.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/spring-data-rest-core-2.1.2.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/spring-data-rest-webmvc-2.1.2.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/spring-data-rest-webmvc-2.1.2.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/spring-expression-4.0.3.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/spring-expression-4.0.3.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/spring-hateoas-0.16.0.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/spring-hateoas-0.16.0.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/spring-jdbc-3.2.10.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/spring-jdbc-3.2.10.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/spring-orm-3.2.10.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/spring-orm-3.2.10.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/spring-plugin-core-1.1.0.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/spring-plugin-core-1.1.0.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/spring-security-acl-3.2.0.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/spring-security-acl-3.2.0.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/spring-security-config-3.2.0.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/spring-security-config-3.2.0.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/spring-security-core-3.2.0.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/spring-security-core-3.2.0.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/spring-security-taglibs-3.2.0.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/spring-security-taglibs-3.2.0.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/spring-security-web-3.2.0.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/spring-security-web-3.2.0.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/spring-social-core-1.0.3.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/spring-social-core-1.0.3.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/spring-social-facebook-1.0.3.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/spring-social-facebook-1.0.3.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/spring-tx-3.2.10.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/spring-tx-3.2.10.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/spring-web-4.0.3.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/spring-web-4.0.3.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/spring-webmvc-4.0.3.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/spring-webmvc-4.0.3.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/swagger-annotations_2.9.1-1.2.0.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/swagger-annotations_2.9.1-1.2.0.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/swagger-core_2.9.1-1.2.0.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/swagger-core_2.9.1-1.2.0.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/swagger-springmvc-0.6.6.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/swagger-springmvc-0.6.6.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/assets/www/imgs/throbber.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/assets/www/imgs/throbber.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/thymeleaf-2.1.2.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/thymeleaf-2.1.2.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/thymeleaf-extras-tiles2-2.1.1.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/thymeleaf-extras-tiles2-2.1.1.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/thymeleaf-extras-tiles2-spring4-2.1.1.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/thymeleaf-extras-tiles2-spring4-2.1.1.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/thymeleaf-spring4-2.1.2.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/thymeleaf-spring4-2.1.2.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/tiles-api-2.2.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/tiles-api-2.2.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/tiles-core-2.2.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/tiles-core-2.2.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/tiles-jsp-2.2.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/tiles-jsp-2.2.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/tiles-servlet-2.2.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/tiles-servlet-2.2.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/tiles-template-2.2.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/tiles-template-2.2.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/validation-api-1.1.0.Final.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/validation-api-1.1.0.Final.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/assets/www/imgs/wordnik_api.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/assets/www/imgs/wordnik_api.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/lib/xml-apis-1.0.b2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/lib/xml-apis-1.0.b2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/auto_test/java/command/ActivateAccount.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/novotvir/executors/impl/AfterCommitExecutorImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt/org/jasypt/intf/cli/class-use/AlgorithmRegistryCLI.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt/org/jasypt/exceptions/class-use/AlreadyInitializedException.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt/org/jasypt/util/password/class-use/BasicPasswordEncryptor.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt/org/jasypt/util/binary/BinaryEncryptor.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt/org/jasypt/util/password/class-use/ConfigurablePasswordEncryptor.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/novotvir/service/ConfirmationMailMailService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/novotvir/security/service/CustomTokenBasedRememberMeService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/novotvir/util/DataBaseIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt-spring31/org/jasypt/spring31/properties/EncryptablePreferencesPlaceholderConfigurer.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt-spring31/org/jasypt/spring31/xml/encryption/EncryptablePropertiesFactoryBean.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt-spring31/org/jasypt/spring31/properties/EncryptablePropertyOverrideConfigurer.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt-hibernate3/org/jasypt/hibernate3/type/EncryptedBigDecimalAsStringType.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt-hibernate4/org/jasypt/hibernate4/type/class-use/EncryptedBigDecimalType.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt-hibernate3/org/jasypt/hibernate3/type/EncryptedCalendarAsStringType.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt-hibernate4/org/jasypt/hibernate4/type/EncryptedCalendarAsStringType.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt-hibernate3/org/jasypt/hibernate/type/class-use/EncryptedFloatAsStringType.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt-hibernate3/org/jasypt/hibernate/type/EncryptedIntegerAsStringType.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt-hibernate3/org/jasypt/hibernate3/type/class-use/EncryptedShortAsStringType.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt/org/jasypt/digest/config/EnvironmentDigesterConfig.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/novotvir/security/social/facebook/service/impl/FacebookAuthUrlServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/novotvir/security/social/facebook/provider/impl/FacebookUserDetailsAuthProviderImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt/org/jasypt/salt/FixedByteArraySaltGenerator.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt-hibernate3/org/jasypt/hibernate/encryptor/HibernatePBEEncryptorRegistry.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt/org/jasypt/util/numeric/class-use/IntegerNumberEncryptor.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt-wicket13/org/jasypt/wicket/JasyptCrypt.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt-wicket13/org/jasypt/wicket13/class-use/JasyptCrypt.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt/org/jasypt/intf/cli/JasyptPBEStringEncryptionCLI.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt/org/jasypt/intf/service/JasyptStatelessService.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LICENSE.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/META-INF/MANIFEST.MF" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/exceptions/i18n/activation/impl/NoSuchUserException.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt/org/jasypt/encryption/pbe/PBEBigDecimalCleanablePasswordEncryptor.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt/org/jasypt/encryption/pbe/PBEBigIntegerEncryptor.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt-springsecurity3/org/jasypt/springsecurity3/authentication/encoding/PasswordEncoder.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt-springsecurity3/org/jasypt/springsecurity3/authentication/encoding/class-use/PasswordEncoder.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt/org/jasypt/encryption/pbe/PooledPBEBigIntegerEncryptor.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt/org/jasypt/properties/PropertyValueEncryptionUtils.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/README" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt/org/jasypt/util/password/rfc2307/class-use/RFC2307SSHAPasswordEncryptor.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/novotvir/dto/RegDto.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/novotvir/utils/RequestUtils.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/auto_test/java/app/service/SignUpService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt/org/jasypt/digest/StandardByteDigester.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt/org/jasypt/util/numeric/class-use/StrongDecimalNumberEncryptor.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt/org/jasypt/util/numeric/StrongIntegerNumberEncryptor.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt-springsecurity3/org/jasypt/springsecurity3/authentication/rememberme/class-use/TokenBasedRememberMeServices.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/novotvir/service/impl/UserRegServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/novotvir/service/UsersService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt/org/jasypt/web/pbeconfig/WebPBEConfigFilter.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt-hibernate4/allclasses-noframe.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/assets/lib/backbone-min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/assets/lib/backbone-min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/assets/www/css/bootstrap-theme.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/assets/www/css/bootstrap-theme.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/assets/www/css/bootstrap-theme.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/assets/www/css/bootstrap-theme.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/assets/www/css/bootstrap-theme.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/assets/www/css/bootstrap-theme.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/assets/www/css/bootstrap-theme.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/assets/www/css/bootstrap.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/assets/www/css/bootstrap.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/assets/www/css/bootstrap.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/assets/www/css/bootstrap.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/assets/lib/bootstrap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/assets/lib/bootstrap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/assets/www/css/bootstrap.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/assets/lib/bootstrap.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/assets/lib/bootstrap.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt-spring2/constant-values.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/views/admin/account/content.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/views/admin/signin/content.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/views/admin/users/content.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/views/www/access_is_denied/content.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/views/www/activation_can_not_be_completed/content.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/views/www/doc/content.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/views/www/error/content.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/views/www/internal_server_error/content.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/views/www/page_not_found/content.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/views/www/reset_password/content.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/views/www/sign_up_successful/content.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/views/www/signin/content.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/views/www/signup/content.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/views/admin/account/content.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/views/admin/signin/content.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/views/admin/users/content.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/views/www/access_is_denied/content.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/views/www/account/content.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/views/www/activation_can_not_be_completed/content.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/views/www/doc/content.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/views/www/error/content.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/views/www/internal_server_error/content.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/views/www/page_not_found/content.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/views/www/reset_password/content.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/views/www/sign_up_successful/content.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/views/www/signin/content.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/views/www/signup/content.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/assets/lib/shred/content.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/assets/lib/shred/content.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/auto_test/resources/cucumber.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt-spring31/deprecated-list.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt-springsecurity3/deprecated-list.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt-wicket13/deprecated-list.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/views/www/footer.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/views/www/footer.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/assets/fonts/glyphicons-halflings-regular.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/assets/fonts/glyphicons-halflings-regular.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gradlew.bat" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gradlew" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/assets/lib/handlebars-1.0.0.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/assets/lib/handlebars-1.0.0.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/views/www/head.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/views/www/doc/head.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/views/www/reset_password/head.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/views/www/head.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/views/www/doc/head.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/views/www/reset_password/head.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/www/head.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/views/www/authorized_user/header.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/views/www/not_authorized_user/header.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/views/www/authorized_user/header.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/views/www/not_authorized_user/header.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt-springsecurity3/help-doc.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/assets/lib/highlight.7.3.pack.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/assets/lib/highlight.7.3.pack.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/assets/www/css/highlight.default.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/assets/www/css/highlight.default.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt-hibernate3/index-all.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt-hibernate4/index-all.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/assets/lib/jquery-1.8.0.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/assets/lib/jquery-1.8.0.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/assets/lib/jquery.autocompleate.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/assets/lib/jquery.autocompleate.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/assets/lib/jquery.ba-bbq.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/assets/lib/jquery.ba-bbq.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/assets/lib/jquery.md5.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/assets/lib/jquery.md5.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/assets/lib/jquery.slideto.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/assets/lib/jquery.slideto.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/assets/lib/jquery.wiggle.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/assets/lib/jquery.wiggle.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/templates/mainTemplate.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/templates/mainTemplate.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/i18n/messages.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/i18n/messages.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/i18n/messages_uk.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/i18n/messages_uk.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt/overview-frame.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt-spring3/package-list" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt/org/jasypt/intf/cli/package-summary.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt/org/jasypt/salt/package-summary.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt-hibernate4/org/jasypt/hibernate4/type/package-tree.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt-spring2/org/jasypt/spring2/properties/package-tree.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt-springsecurity2/org/jasypt/springsecurity2/providers/encoding/package-tree.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt-wicket13/org/jasypt/wicket13/package-tree.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt/org/jasypt/salt/package-tree.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt-hibernate3/org/jasypt/hibernate/connectionprovider/package-use.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt-hibernate4/org/jasypt/hibernate4/connectionprovider/package-use.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt/org/jasypt/encryption/pbe/package-use.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/assets/www/css/screen.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/assets/www/css/screen.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server.ipr" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server.iws" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/conf/spring/services.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/settings.gradle" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/assets/lib/shred.bundle.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/assets/lib/signup.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/assets/lib/signup.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/assets/lib/swagger-ui.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/assets/lib/swagger-ui.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/assets/lib/swagger-ui.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/assets/lib/swagger-ui.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/assets/lib/swagger.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/assets/lib/swagger.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/assets/lib/swagger.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/tiles-defs/template-defs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/tiles-defs/template-defs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/views/admin/account/title.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/views/admin/signin/title.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/views/admin/users/title.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/views/www/access_is_denied/title.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/views/www/account/title.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/views/www/activation_can_not_be_completed/title.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/views/www/doc/title.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/views/www/error/title.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/views/www/page_not_found/title.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/views/www/sign_up_successful/title.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/views/www/signin/title.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/views/www/signup/title.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/views/admin/account/title.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/views/admin/signin/title.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/views/admin/users/title.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/views/www/access_is_denied/title.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/views/www/account/title.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/views/www/activation_can_not_be_completed/title.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/views/www/doc/title.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/views/www/error/title.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/views/www/internal_server_error/title.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/views/www/page_not_found/title.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/views/www/sign_up_successful/title.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/views/www/signin/title.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/views/www/signup/title.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/assets/lib/underscore-min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/assets/lib/underscore-min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/assets/lib/users.autocompleate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/assets/lib/users.autocompleate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/web.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/novotvir_Web_exploded/WEB-INF/web.xml" />
+    <list default="true" id="37c75bdc-25f6-4d4e-8a84-b02b70aa4db9" name="Default" comment="1">
       <change type="DELETED" beforePath="$PROJECT_DIR$/../.gitignore" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../LICENSE.txt" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../README" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../gradlew" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../gradlew.bat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../novotvir.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/novotvir.iml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../src/auto_test/java/app/service/AccountActivationService.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../src/auto_test/java/app/service/AppService.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../src/auto_test/java/command/Command.java" afterPath="" />
@@ -506,15 +92,14 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/../tools/jasypt-1.9.2/lib/jasypt-springsecurity2-1.9.2-sources.jar" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../tools/jasypt-1.9.2/lib/jasypt-springsecurity3-1.9.2-javadoc.jar" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../tools/jasypt-1.9.2/lib/jasypt-springsecurity3-1.9.2.jar" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../src/main/java/novotvir/dto/ErrorDto.java" afterPath="$PROJECT_DIR$/src/main/java/novotvir/dto/ErrorDto.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../src/main/java/novotvir/security/service/impl/AdminDetailsServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/novotvir/security/service/impl/AdminDetailsServiceImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../src/main/webapp/WEB-INF/views/www/internal_server_error/title.html" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/views/www/internal_server_error/title.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../src/main/webapp/WEB-INF/views/www/reset_password/content.html" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/WEB-INF/views/www/account/content.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../src/main/webapp/assets/lib/shred.bundle.js" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/assets/lib/shred.bundle.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../src/main/webapp/assets/www/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/out/artifacts/novotvir/exploded/novotvir.war/assets/www/css/bootstrap.min.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../tools/jasypt-1.9.2/apidocs/jasypt-spring3/org/jasypt/spring/properties/class-use/EncryptablePropertyOverrideConfigurer.html" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt-spring3/org/jasypt/spring/properties/class-use/EncryptablePropertyOverrideConfigurer.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../tools/jasypt-1.9.2/apidocs/jasypt-spring3/org/jasypt/spring/properties/package-tree.html" afterPath="$PROJECT_DIR$/tools/jasypt-1.9.2/apidocs/jasypt-spring3/org/jasypt/spring/properties/package-tree.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.ids" afterPath="$PROJECT_DIR$/server.ids" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/auto_test/java/utils/invokers/EmailActivationInvoker.java" afterPath="$PROJECT_DIR$/src/auto_test/java/utils/invokers/EmailActivationInvoker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/conf/app.properties" afterPath="$PROJECT_DIR$/src/main/resources/conf/app.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../droid/.idea/misc.xml" afterPath="$PROJECT_DIR$/../droid/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/changelogs/sql/release1.0.0.sql" afterPath="$PROJECT_DIR$/src/main/resources/changelogs/sql/release1.0.0.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.iml" afterPath="$PROJECT_DIR$/server.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.ipr" afterPath="$PROJECT_DIR$/server.ipr" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.iws" afterPath="$PROJECT_DIR$/server.iws" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/server/out/" />
@@ -544,49 +129,124 @@
         <option name="myItemId" />
         <option name="myItemType" value="com.intellij.database.view.DbRootNodeDescriptor" />
       </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="PostgreSQL - d@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="d.public" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DbRootNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="PostgreSQL - d@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
     </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view />
+      </state>
+    </system>
+  </component>
   <component name="FavoritesManager">
     <favorites_list name="novotvir" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SimplePBEConfig.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jasypt/jasypt/1.9.2/702f968b6fe5b73722b1ac1f5d1f5169da294879/jasypt-1.9.2-sources.jar!/org/jasypt/encryption/pbe/config/SimplePBEConfig.java">
+      <file leaf-file-name="AccountActivationSuccess.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/auto_test/java/features/activation/AccountActivationSuccess.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="5799" max-vertical-offset="6525">
-              <caret line="433" column="6" selection-start-line="433" selection-start-column="6" selection-end-line="433" selection-end-column="6" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
+              <caret line="37" column="48" selection-start-line="37" selection-start-column="48" selection-end-line="37" selection-end-column="48" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
+      <file leaf-file-name="EmailActivationInvoker.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/auto_test/java/utils/invokers/EmailActivationInvoker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="3075">
-              <caret line="33" column="45" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.5898876" vertical-offset="0" max-vertical-offset="765">
+              <caret line="47" column="28" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/conf/app.properties">
+      <file leaf-file-name="account-registration-success.feature" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/auto_test/resources/features/registration/account-registration-success.feature">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="645">
-              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="56" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
+              <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app-test.properties" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/resources/conf/app-test.properties">
+      <file leaf-file-name="AccountRegistrationSuccess.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/auto_test/java/features/registration/AccountRegistrationSuccess.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5898876" vertical-offset="0" max-vertical-offset="712">
-              <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
+              <caret line="35" column="41" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SignUpInvoker.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/auto_test/java/utils/invokers/SignUpInvoker.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
+              <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SignUpService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/auto_test/java/app/service/SignUpService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
+              <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ActivationMailChecker.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/auto_test/java/checkers/ActivationMailChecker.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
+              <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="account-activation-success.feature" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/auto_test/resources/features/activation/account-activation-success.feature">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
+              <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AutoTestEntryPoint.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/auto_test/java/features/AutoTestEntryPoint.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
+              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -607,7 +267,7 @@
     <option name="recentTasks">
       <list>
         <ExternalTaskExecutionInfo>
-          <option name="executorId" value="Debug" />
+          <option name="executorId" value="Run" />
           <option name="settings">
             <ExternalSystemSettings>
               <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -623,7 +283,7 @@
           </option>
         </ExternalTaskExecutionInfo>
         <ExternalTaskExecutionInfo>
-          <option name="executorId" value="Run" />
+          <option name="executorId" value="Debug" />
           <option name="settings">
             <ExternalSystemSettings>
               <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -1223,8 +883,16 @@
       <list>
         <option value="$PROJECT_DIR$/novotvir.iws" />
         <option value="$PROJECT_DIR$/build/reports/tests/index.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/conf/app.properties" />
         <option value="$PROJECT_DIR$/src/test/resources/conf/app-test.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/novotvir/persistence/domain/User.java" />
+        <option value="$PROJECT_DIR$/src/test/java/novotvir/service/UsersServiceIT.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/conf/spring/dao.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/changelogs/changelog-master.xml" />
+        <option value="db-console:/servera771d99b/0c7e764c-9cf4-4ec4-aa1f-c966b87c1f43/" />
+        <option value="$PROJECT_DIR$/src/main/resources/changelogs/sql/release1.0.0.sql" />
+        <option value="$PROJECT_DIR$/src/main/resources/conf/app.properties" />
+        <option value="$PROJECT_DIR$/src/auto_test/resources/features/registration/account-registration-success.feature" />
+        <option value="$PROJECT_DIR$/src/auto_test/java/utils/invokers/EmailActivationInvoker.java" />
       </list>
     </option>
   </component>
@@ -1242,6 +910,131 @@
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="832" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>AOP</id>
+          </State>
+          <State>
+            <id>Abstraction issues</id>
+          </State>
+          <State>
+            <id>Android Lint</id>
+          </State>
+          <State>
+            <id>CDI(Contexts and Dependency Injection) issues</id>
+          </State>
+          <State>
+            <id>Code style issues</id>
+          </State>
+          <State>
+            <id>Concurrency annotation issues</id>
+          </State>
+          <State>
+            <id>Declaration redundancy</id>
+          </State>
+          <State>
+            <id>Dependency issues</id>
+          </State>
+          <State>
+            <id>Encapsulation issues</id>
+          </State>
+          <State>
+            <id>General</id>
+          </State>
+          <State>
+            <id>GeneralJavaScript</id>
+          </State>
+          <State>
+            <id>Groovy</id>
+          </State>
+          <State>
+            <id>HTML</id>
+          </State>
+          <State>
+            <id>Initialization issues</id>
+          </State>
+          <State>
+            <id>Internationalization issues</id>
+          </State>
+          <State>
+            <id>JPA issues</id>
+          </State>
+          <State>
+            <id>JSF annotated elements errors</id>
+          </State>
+          <State>
+            <id>JSP Inspections</id>
+          </State>
+          <State>
+            <id>Java language level migration aids</id>
+          </State>
+          <State>
+            <id>JavaFX</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript validity issuesJavaScript</id>
+          </State>
+          <State>
+            <id>Javadoc issues</id>
+          </State>
+          <State>
+            <id>Maven</id>
+          </State>
+          <State>
+            <id>Memory issues</id>
+          </State>
+          <State>
+            <id>Packaging issues</id>
+          </State>
+          <State>
+            <id>Potentially confusing code constructsGroovy</id>
+          </State>
+          <State>
+            <id>Potentially confusing code constructsJavaScript</id>
+          </State>
+          <State>
+            <id>Probable bugs</id>
+          </State>
+          <State>
+            <id>RELAX NG</id>
+          </State>
+          <State>
+            <id>RESTful Web Service</id>
+          </State>
+          <State>
+            <id>SQL</id>
+          </State>
+          <State>
+            <id>Spring</id>
+          </State>
+          <State>
+            <id>Spring CoreSpring</id>
+          </State>
+          <State>
+            <id>Spring MVCSpring</id>
+          </State>
+          <State>
+            <id>WebSocket issues</id>
+          </State>
+          <State>
+            <id>XML</id>
+          </State>
+          <State>
+            <id>XMLSpring CoreSpring</id>
+          </State>
+        </expanded-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -1266,7 +1059,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1288,6 +1080,8 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1300,13 +1094,17 @@
     <property name="recentsLimit" value="5" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../novotvir" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="options.lastSelected" value="File.Encoding" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="project.structure.last.edited" value="Facets" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="true" />
+    <property name="FullScreen" value="false" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RunManager" selected="Multirun.ccmbr">
     <configuration default="false" name="server [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -1369,6 +1167,45 @@
       <ConfigurationWrapper RunnerId="ExternalSystemTaskRunner" />
       <method />
     </configuration>
+    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
+      <module name="" />
+      <setting name="vmparams" value="" />
+      <setting name="cmdLine" value="run-app" />
+      <setting name="depsClasspath" value="false" />
+      <setting name="passParentEnv" value="true" />
+      <setting name="launchBrowser" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="com.intellij.database.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
+      <option name="VM_PARAMETERS" value="" />
+      <option name="USER_CFG_CLASS" />
+      <option name="CONTEXT_PROVIDER" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -1389,12 +1226,13 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <pass-parent-envs>true</pass-parent-envs>
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
@@ -1405,68 +1243,6 @@
       <predefined_log_file id="Tomcat Manager" enabled="false" />
       <predefined_log_file id="Tomcat Host Manager" enabled="false" />
       <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
-      <module name="" />
-      <option name="ACTIVITY_CLASS" value="" />
-      <option name="MODE" value="default_activity" />
-      <option name="DEPLOY" value="true" />
-      <option name="ARTIFACT_NAME" value="" />
-      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
-      <method />
-    </configuration>
-    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
-      <module name="" />
-      <setting name="vmparams" value="" />
-      <setting name="cmdLine" value="run-app" />
-      <setting name="depsClasspath" value="false" />
-      <setting name="passParentEnv" value="true" />
-      <setting name="launchBrowser" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <method />
-    </configuration>
-    <configuration default="true" type="JarApplication" factoryName="JAR Application">
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <pass-parent-envs>true</pass-parent-envs>
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="Multirun" factoryName="Multirun" separateTabs="true" startOneByOne="true" markFailedProcess="true" hideSuccessProcess="false" delayTime="0">
       <method />
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
@@ -1490,7 +1266,8 @@
       <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
-    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+    <configuration default="true" type="JarApplication" factoryName="JAR Application">
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
@@ -1509,20 +1286,7 @@
       </ExternalSystemSettings>
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
+    <configuration default="true" type="Multirun" factoryName="Multirun" separateTabs="true" startOneByOne="true" markFailedProcess="true" hideSuccessProcess="false" delayTime="0">
       <method />
     </configuration>
     <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
@@ -1541,6 +1305,40 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
     <list size="6">
@@ -1581,54 +1379,111 @@
       <workItem from="1421616459224" duration="19000" />
       <workItem from="1421616544254" duration="338000" />
       <workItem from="1421617027997" duration="1828000" />
-      <workItem from="1421619622172" duration="67000" />
+      <workItem from="1421619622172" duration="1171000" />
+      <workItem from="1423076930152" duration="1037000" />
+      <workItem from="1423254248489" duration="555000" />
+      <workItem from="1423255019366" duration="163000" />
+      <workItem from="1423255185813" duration="159000" />
+      <workItem from="1423255434389" duration="495000" />
+      <workItem from="1423255954194" duration="73000" />
+      <workItem from="1423256057060" duration="70000" />
+      <workItem from="1423256145993" duration="212000" />
+      <workItem from="1423256371660" duration="1973000" />
+      <workItem from="1424107010459" duration="7278000" />
+      <workItem from="1424711177591" duration="4148000" />
     </task>
+    <task id="LOCAL-00001" summary="1">
+      <created>1421619705367</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1421619705367</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2252000" />
+    <option name="totallyTimeSpent" value="19519000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="832" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="832" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24964234" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="AdbCommander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Atlassian " active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Gradle View" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32837838" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24964234" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Atlassian " active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle View" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Tail" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="AdbCommander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Tail" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32837838" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297568" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24964234" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Atlassian " active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle View" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="AdbCommander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Tail" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="18" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -1674,17 +1529,9 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jasypt/jasypt/1.9.2/702f968b6fe5b73722b1ac1f5d1f5169da294879/jasypt-1.9.2-sources.jar!/org/jasypt/encryption/pbe/config/SimplePBEConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="5799" max-vertical-offset="6525">
-          <caret line="433" column="6" selection-start-line="433" selection-start-column="6" selection-end-line="433" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="3075">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <caret line="33" column="45" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="45" />
           <folding />
         </state>
@@ -1692,7 +1539,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/conf/app.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="645">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="56" />
           <folding />
         </state>
@@ -1700,40 +1547,410 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/resources/conf/app-test.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+          <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/conf/spring/messages.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+          <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/src.zip!/java/nio/file/StandardCopyOption.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+          <caret line="30" column="11" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jasypt/jasypt/1.9.2/702f968b6fe5b73722b1ac1f5d1f5169da294879/jasypt-1.9.2-sources.jar!/org/jasypt/encryption/pbe/config/SimplePBEConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+          <caret line="433" column="6" selection-start-line="433" selection-start-column="6" selection-end-line="433" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+          <caret line="33" column="45" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/conf/app.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/conf/app-test.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jasypt/jasypt/1.9.2/702f968b6fe5b73722b1ac1f5d1f5169da294879/jasypt-1.9.2-sources.jar!/org/jasypt/encryption/pbe/config/SimplePBEConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+          <caret line="433" column="6" selection-start-line="433" selection-start-column="6" selection-end-line="433" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/conf/app-test.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+          <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/conf/spring/messages.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+          <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/src.zip!/java/nio/file/StandardCopyOption.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
+          <caret line="40" column="7" selection-start-line="40" selection-start-column="7" selection-end-line="40" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/novotvir/security/service/impl/CustomTokenBasedRememberMeServicesTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/novotvir/persistence/domain/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.09550562" vertical-offset="188" max-vertical-offset="900">
+          <caret line="20" column="52" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/servera771d99b/0c7e764c-9cf4-4ec4-aa1f-c966b87c1f43/d.public.databasechangelog">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/novotvir/service/UsersServiceIT.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="705">
+          <caret line="30" column="11" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.liquibase/liquibase-core/3.0.8/2baecf7f0028b3d4bdd63deb17734ac3158e5785/liquibase-core-3.0.8-sources.jar!/liquibase/integration/spring/SpringLiquibase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="5.424157" vertical-offset="143" max-vertical-offset="5415">
+          <caret line="316" column="19" selection-start-line="316" selection-start-column="19" selection-end-line="316" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://db-console:/servera771d99b/0c7e764c-9cf4-4ec4-aa1f-c966b87c1f43/">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="438">
+          <caret line="0" column="30" selection-start-line="0" selection-start-column="30" selection-end-line="0" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="468">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jasypt/jasypt/1.9.2/702f968b6fe5b73722b1ac1f5d1f5169da294879/jasypt-1.9.2-sources.jar!/org/jasypt/encryption/pbe/config/SimplePBEConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="5799" max-vertical-offset="6525">
-          <caret line="433" column="6" selection-start-line="433" selection-start-column="6" selection-end-line="433" selection-end-column="6" />
+    <entry file="dbDummy://dbtable:/servera771d99b/0c7e764c-9cf4-4ec4-aa1f-c966b87c1f43/d.public.userlogs">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/servera771d99b/0c7e764c-9cf4-4ec4-aa1f-c966b87c1f43/d.public.users">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3075">
+        <state vertical-scroll-proportion="0.3258427" vertical-offset="263" max-vertical-offset="3075">
           <caret line="33" column="45" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/conf/app.properties">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/conf/spring/dao.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="177" max-vertical-offset="645">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="56" />
+        <state vertical-scroll-proportion="0.44241574" vertical-offset="0" max-vertical-offset="1260">
+          <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/conf/app-test.properties">
+    <entry file="file://$PROJECT_DIR$/src/test/resources/conf/spring/dao-test.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5898876" vertical-offset="0" max-vertical-offset="712">
-          <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+        <state vertical-scroll-proportion="-0.39044943" vertical-offset="278" max-vertical-offset="990">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/conf/spring/components.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="712">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/conf/spring/aspects.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="712">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/conf/spring/web-servlet.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.3174157" vertical-offset="938" max-vertical-offset="1650">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/i18n/messages.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.5835777" vertical-offset="398" max-vertical-offset="1080">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="ResourceBundle">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/conf/app.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.48455057" vertical-offset="0" max-vertical-offset="712">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/changelogs/changelog-master.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1474719" vertical-offset="0" max-vertical-offset="712">
+          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/changelogs/sql/release1.0.0.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1920">
+          <caret line="120" column="0" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
+          <folding>
+            <marker date="1424712954000" expanded="true" signature="-1:-1" placeholder="begin insert..." />
+            <marker date="1424712954000" expanded="true" signature="-1:-1" placeholder="insert into ..." />
+            <marker date="1424712954000" expanded="true" signature="-1:-1" placeholder="select curre..users..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/auto_test/java/app/service/AccountActivationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/auto_test/java/app/service/AppService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/auto_test/resources/auto-test.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="712">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/auto_test/resources/app/conf/app.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="712">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/auto_test/resources/components.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1425">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/auto_test/resources/cucumber.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="712">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/auto_test/java/checkers/ActivationMailChecker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
+          <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/auto_test/java/command/Command.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.105337076" vertical-offset="0" max-vertical-offset="712">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/src.zip!/java/lang/Iterable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33286518" vertical-offset="423" max-vertical-offset="1200">
+          <caret line="71" column="17" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/auto_test/java/features/registration/AccountRegistrationSuccess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
+          <caret line="35" column="41" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/auto_test/java/utils/invokers/SignUpInvoker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
+          <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/auto_test/java/features/domain/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.252809" vertical-offset="0" max-vertical-offset="712">
+          <caret line="25" column="15" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/auto_test/java/features/domain/AppVersion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.084269665" vertical-offset="0" max-vertical-offset="712">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/auto_test/java/app/service/SignUpService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
+          <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/auto_test/java/features/AutoTestEntryPoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/auto_test/resources/features/registration/account-registration-success.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
+          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/auto_test/resources/features/activation/account-activation-success.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
+          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/auto_test/java/features/activation/AccountActivationSuccess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
+          <caret line="37" column="48" selection-start-line="37" selection-start-column="48" selection-end-line="37" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/auto_test/java/utils/invokers/EmailActivationInvoker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5898876" vertical-offset="0" max-vertical-offset="765">
+          <caret line="47" column="28" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -1794,7 +2011,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>Web Gradle : server.war|server</last-edited>
+          <last-edited>server</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
