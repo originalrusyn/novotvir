@@ -11,6 +11,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 // @author Titov Mykhaylo (titov) on 04.04.2014.
 @Controller
+@RequestMapping("/web")
 public class VersionController {
 
     @Autowired

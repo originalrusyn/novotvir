@@ -14,6 +14,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 // @author: Mykhaylo Titov on 18.01.15 21:03.
 @Controller
+@RequestMapping("/web")
 public class AccountController {
 
     @Resource UserService userService;

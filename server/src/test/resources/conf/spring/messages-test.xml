@@ -9,6 +9,16 @@
        http://www.springframework.org/schema/util
        http://www.springframework.org/schema/util/spring-util.xsd">
 
+    <bean id="sysProps"
+          class="org.springframework.beans.factory.config.MethodInvokingFactoryBean"
+          p:targetObject="#{@systemProperties}"
+          p:targetMethod="putAll"
+          p:arguments-ref="sysVars"/>
+
+    <util:properties id="sysVars">
+        <prop key="pwd">fake.pwd</prop>
+    </util:properties>
+
     <bean id="messageSource"
           class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
           p:basenames="/i18n/messages"
@@ -20,7 +30,8 @@
     <bean id="propertyPlaceholderConfigurer"
           class="org.jasypt.spring31.properties.EncryptablePropertyPlaceholderConfigurer"
           c:stringEncryptor-ref="configurationEncryptor"
-          p:locations-ref="appPropertiesLocations"/>
+          p:locations-ref="appPropertiesLocations"
+          depends-on="sysProps"/>
 
     <util:list id="appPropertiesLocations" value-type="org.springframework.core.io.Resource" >
         <value>classpath:/conf/app.properties</value>
@@ -34,6 +45,6 @@
     <bean id="environmentVariablesConfiguration"
           class="org.jasypt.encryption.pbe.config.EnvironmentStringPBEConfig"
           p:algorithm="PBEWithMD5AndDES"
-          p:passwordEnvName="PWD"/>
+          p:passwordSysPropertyName="pwd" depends-on="sysProps"/>
 
 </beans>

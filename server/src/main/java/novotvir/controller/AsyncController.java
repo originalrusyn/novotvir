@@ -14,6 +14,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 // @author Titov Mykhaylo (titov) on 15.06.13 10:13
 @Controller
 @Slf4j
+@RequestMapping("/web")
 public class AsyncController {
 
     @Autowired

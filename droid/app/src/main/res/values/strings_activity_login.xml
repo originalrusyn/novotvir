@@ -1,0 +1,14 @@
+<resources>
+    <string name="title_activity_login">Вхід</string>
+
+    <string name="prompt_email">Електронна скринька</string>
+    <string name="prompt_password">Пароль</string>
+    <string name="action_sign_in">Увійти або зареєструватися</string>
+    <string name="action_sign_in_short">Увійти</string>
+    <string name="plus_sign_out">Інший обліковий запис Google+</string>
+    <string name="plus_disconnect">Від’єднати Google+</string>
+    <string name="error_invalid_email">Невірний формат</string>
+    <string name="error_invalid_password">Закороткий пароль</string>
+    <string name="error_incorrect_password">Невірний формат</string>
+    <string name="error_field_required">Обов’язкове поле</string>
+</resources>

@@ -29,6 +29,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 // @author: Titov Mykhaylo (titov) on 18.02.14 15:53
 @Slf4j
 @Controller
+@RequestMapping("/web")
 public class SignUpController {
 
     @Resource UserEmailRegService userEmailRegService;

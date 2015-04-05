@@ -23,7 +23,7 @@ public class RegDto {
     public String facebookId;
 
     public static RegDto getInstance(FacebookProfile facebookProfile){
-        return new RegDto().setEmail(facebookProfile.getEmail()).setName(facebookProfile.getEmail()).setFacebookId(facebookProfile.getId()).setToken(random(6));
+        return new RegDto().setEmail(facebookProfile.getEmail()).setName(facebookProfile.getId()).setFacebookId(facebookProfile.getId()).setToken(random(6));
     }
 
     public static RegDto getInstance(UserRegDetailsDto userRegDetailsDto){

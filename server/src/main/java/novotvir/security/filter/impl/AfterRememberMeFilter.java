@@ -2,6 +2,7 @@ package novotvir.security.filter.impl;
 
 import lombok.Setter;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices;
@@ -14,6 +15,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Collection;
 
 import static java.util.Objects.nonNull;
 
@@ -21,6 +23,8 @@ import static java.util.Objects.nonNull;
 public class AfterRememberMeFilter extends GenericFilterBean {
 
     private SimpleGrantedAuthority roleUserSimpleGrantedAuthority = new SimpleGrantedAuthority("ROLE_USER");
+    private SimpleGrantedAuthority adminSimpleGrantedAuthority = new SimpleGrantedAuthority("ROLE_ADMIN");
+
     @Setter
     private TokenBasedRememberMeServices tokenBasedRememberMeServices;
 
@@ -30,8 +34,10 @@ public class AfterRememberMeFilter extends GenericFilterBean {
         HttpServletResponse httpServletResponse = (HttpServletResponse) response;
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (nonNull(authentication) && authentication.isAuthenticated()) {
-            if (authentication.getAuthorities().contains(roleUserSimpleGrantedAuthority))
+            Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
+            if (authorities.contains(roleUserSimpleGrantedAuthority) || authorities.contains(adminSimpleGrantedAuthority)) {
                 tokenBasedRememberMeServices.loginSuccess(httpServletRequest, httpServletResponse, authentication);
+            }
         }
         chain.doFilter(request, response);
     }

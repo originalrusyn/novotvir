@@ -69,9 +69,4 @@ public class AdminDetailsImpl implements UserDetails, SecurityContextDetails {
     public long getUserId() {
         return admin.id;
     }
-
-    @Override
-    public List<GrantedAuthority> getUserAuthorities() {
-        return grantedAuthorities;
-    }
 }

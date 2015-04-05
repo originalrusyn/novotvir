@@ -1,5 +1,6 @@
 package novotvir.security.credential.impl;
 
+import lombok.Getter;
 import lombok.ToString;
 import novotvir.persistence.domain.Authority;
 import novotvir.persistence.domain.User;
@@ -17,7 +18,7 @@ import java.util.List;
 public class UserDetailsImpl implements UserDetails, SecurityContextDetails {
 
     private static final long serialVersionUID = 3753615312297453066L;
-    private User user;
+    private @Getter User user;
     private List<GrantedAuthority> grantedAuthorities;
 
     public UserDetailsImpl(User user) {
@@ -70,10 +71,5 @@ public class UserDetailsImpl implements UserDetails, SecurityContextDetails {
     @Override
     public long getUserId() {
         return user.id;
-    }
-
-    @Override
-    public List<GrantedAuthority> getUserAuthorities() {
-        return grantedAuthorities;
     }
 }

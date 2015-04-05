@@ -19,24 +19,18 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 // @author: Titov Mykhaylo (titov) on 28.08.14 21:10.
 @Controller
+@RequestMapping("/admin")
 @Slf4j
 public class UsersController {
     @Autowired UsersService usersService;
     @Autowired UserSearchSuggestionService userSearchSuggestionService;
 
-//    @RequestMapping(value = {"/admin/criteria"}, method = GET)
-//    public ModelAndView get(){
-//        ModelAndView modelAndView = new ModelAndView("admin_users");
-//        modelAndView.addObject(new CriteriaSuggestionsDTO().setSuggestions(asList(new String[]{"name"})));
-//        return modelAndView;
-//    }
-
-    @RequestMapping(value = {"/admin/criteria"}, method = GET)
+    @RequestMapping(value = {"/criteria"}, method = GET)
     public @ResponseBody CriteriaSuggestionsDTO get(){
         return userSearchSuggestionService.getCriteriaSuggestionsDTO();
     }
 
-    @RequestMapping(value = {"/admin/users"}, method = GET)
+    @RequestMapping(value = {"/users"}, method = GET)
     public ModelAndView getUsersView(@RequestParam(required = false, value = "q") String criteria){
         ModelAndView modelAndView = new ModelAndView("admin_users");
         if(nonNull(criteria)){

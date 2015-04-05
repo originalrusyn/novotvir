@@ -16,6 +16,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 // @author: Mykhaylo Titov on 13.09.14 22:01.
 @Controller
+@RequestMapping("/web")
 public class SignUpCongratulationController {
 
     @Resource UserRepository userRepository;

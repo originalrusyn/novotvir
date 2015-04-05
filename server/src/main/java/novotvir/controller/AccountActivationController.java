@@ -32,6 +32,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 
 // @author Titov Mykhaylo (titov) on 16.05.2014.
 @Controller
+@RequestMapping("/web")
 @Slf4j
 public class AccountActivationController {
     public static final String NAME_PATH_VAR = "name";
