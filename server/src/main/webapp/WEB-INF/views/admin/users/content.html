@@ -1,7 +1,25 @@
 <div xmlns:th="http://www.thymeleaf.org">
 
     <script type="text/javascript" src="assets/lib/jquery.autocompleate.min.js" th:src="@{/assets/lib/jquery.autocompleate.min.js}"></script>
-    <script type="text/javascript" src="assets/lib/users.autocompleate.js" th:src="@{/assets/lib/users.autocompleate.js}"></script>
+    <!--<script type="text/javascript" src="assets/lib/users.autocompleate.js" th:src="@{/assets/lib/users.autocompleate.js}"></script>-->
+
+    <script type='text/javascript' th:inline="javascript">
+        /*<![CDATA[*/
+        $(document).ready(function () {
+            var a;
+            jQuery(function(){
+                a = $('#query').autocomplete({
+                    serviceUrl: /*[[@{criteria}]]*/ '/admin/criteria',
+                    delimiter: /\s*/,
+                    maxHeight:400,
+                    width:300,
+                    zIndex: 9999,
+                    deferRequestBy: 0 //miliseconds
+                });
+            });
+        });
+        /*]]>*/
+    </script>
 
     <form id="userSearchForm" name="userSearchForm" action="#" th:action="@{users}" method="get">
         <label><strong th:text="#{admin.users.content.userSearchForm.criteria.label}">Criteria:</strong></label>
