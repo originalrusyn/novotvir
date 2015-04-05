@@ -21,12 +21,18 @@
         /*]]>*/
     </script>
 
-    <form id="userSearchForm" name="userSearchForm" action="#" th:action="@{users}" method="get">
-        <label><strong th:text="#{admin.users.content.userSearchForm.criteria.label}">Criteria:</strong></label>
-        <input type="text" id="query" name="q" required="true"/>
+    <div class="row">
+        <div class="col-lg-6">
+                <form class="input-group" id="userSearchForm" name="userSearchForm" action="#" th:action="@{users}" method="get">
+                    <label class="input-group-addon"><strong th:text="#{admin.users.content.userSearchForm.criteria.label}">Criteria:</strong></label>
+                    <input class="form-control" aria-describedby="basic-addon1" type="text" id="query" name="q" required="true"/>
 
-        <input id="userSearchButton" type="submit" name="submit" th:value="#{admin.users.content.userSearchForm.submit}" value="Find"/>
-    </form>
+                    <span class="input-group-btn">
+                        <input class="btn btn-default" id="userSearchButton" type="submit" name="submit" th:value="#{admin.users.content.userSearchForm.submit}" value="Find"/>
+                    </span>
+                </form>
+        </div>
+    </div>
 
     <table class="table" th:if="${users}">
         <thead>
