@@ -4,3 +4,7 @@ classes/
 .gradle/
 out
 target
+server.ipr
+server.ids
+server.iml
+server.iws
