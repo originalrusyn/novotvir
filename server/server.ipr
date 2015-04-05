@@ -1,120 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ArtifactManager">
-    <artifact type="exploded-war" name="Gradle : novotvir:server : server.war (exploded)">
-      <output-path>$PROJECT_DIR$/server/out/artifacts/server/exploded/server.war</output-path>
-      <properties id="gradle-properties">
-        <options external-project-path="$PROJECT_DIR$" />
-      </properties>
-      <root id="root">
-        <element id="javaee-facet-resources" facet="server/web/Web Gradle : server.war" />
-        <element id="directory" name="WEB-INF">
-          <element id="directory" name="classes">
-            <element id="module-output" name="server" />
-            <element id="dir-copy" path="$PROJECT_DIR$/build/resources/main" />
-          </element>
-          <element id="directory" name="lib">
-            <element id="library" level="project" name="Gradle: org.springframework:spring-aop:4.0.3.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework:spring-context:4.0.3.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework:spring-context-support:4.0.3.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework:spring-beans:4.0.3.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework:spring-web:4.0.3.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework:spring-webmvc:4.0.3.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework.data:spring-data-jpa:1.6.2.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework.data:spring-data-rest-webmvc:2.1.2.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework.security:spring-security-core:3.2.0.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework.security:spring-security-web:3.2.0.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework.security:spring-security-config:3.2.0.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework.security:spring-security-taglibs:3.2.0.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework.social:spring-social-core:1.0.3.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework.social:spring-social-facebook:1.0.3.RELEASE" />
-            <element id="library" level="project" name="Gradle: javax.mail:mail:1.4.7" />
-            <element id="library" level="project" name="Gradle: org.sonatype.sisu.inject:cglib:3.1.1" />
-            <element id="library" level="project" name="Gradle: org.ow2.asm:asm:5.0.3" />
-            <element id="library" level="project" name="Gradle: org.aspectj:aspectjtools:1.7.4" />
-            <element id="library" level="project" name="Gradle: org.slf4j:slf4j-log4j12:1.7.5" />
-            <element id="library" level="project" name="Gradle: log4j:log4j:1.2.17" />
-            <element id="library" level="project" name="Gradle: log4j:apache-log4j-extras:1.1" />
-            <element id="library" level="project" name="Gradle: org.hibernate:hibernate-core:4.3.1.Final" />
-            <element id="library" level="project" name="Gradle: org.hibernate:hibernate-entitymanager:4.3.1.Final" />
-            <element id="library" level="project" name="Gradle: org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final" />
-            <element id="library" level="project" name="Gradle: org.hibernate:hibernate-cglib-repack:2.1_3" />
-            <element id="library" level="project" name="Gradle: org.hibernate:hibernate-validator:5.1.0.Final" />
-            <element id="library" level="project" name="Gradle: org.apache.tiles:tiles-api:2.2.2" />
-            <element id="library" level="project" name="Gradle: org.apache.tiles:tiles-core:2.2.2" />
-            <element id="library" level="project" name="Gradle: org.thymeleaf:thymeleaf:2.1.2.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.thymeleaf.extras:thymeleaf-extras-tiles2-spring4:2.1.1.RELEASE" />
-            <element id="library" level="project" name="Gradle: javax.servlet:jstl:1.2" />
-            <element id="library" level="project" name="Gradle: org.liquibase:liquibase-core:3.0.8" />
-            <element id="library" level="project" name="Gradle: commons-io:commons-io:2.4" />
-            <element id="library" level="project" name="Gradle: commons-lang:commons-lang:2.6" />
-            <element id="library" level="project" name="Gradle: commons-dbcp:commons-dbcp:1.4" />
-            <element id="library" level="project" name="Gradle: postgresql:postgresql:9.0-801.jdbc4" />
-            <element id="library" level="project" name="Gradle: com.mangofactory:swagger-springmvc:0.6.6" />
-            <element id="library" level="project" name="Gradle: org.jasypt:jasypt:1.9.2" />
-            <element id="library" level="project" name="Gradle: org.jasypt:jasypt-spring31:1.9.2" />
-            <element id="library" level="project" name="Gradle: aopalliance:aopalliance:1.0" />
-            <element id="library" level="project" name="Gradle: org.springframework:spring-expression:4.0.3.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework.data:spring-data-commons:1.8.2.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework:spring-orm:3.2.10.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework:spring-tx:3.2.10.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.aspectj:aspectjrt:1.8.1" />
-            <element id="library" level="project" name="Gradle: org.springframework.data:spring-data-rest-core:2.1.2.RELEASE" />
-            <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.3.4" />
-            <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.3.3" />
-            <element id="library" level="project" name="Gradle: org.springframework.security:spring-security-acl:3.2.0.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.codehaus.jackson:jackson-mapper-asl:1.9.9" />
-            <element id="library" level="project" name="Gradle: org.jboss.logging:jboss-logging:3.1.3.GA" />
-            <element id="library" level="project" name="Gradle: org.jboss.logging:jboss-logging-annotations:1.2.0.Beta1" />
-            <element id="library" level="project" name="Gradle: org.jboss.spec.javax.transaction:jboss-transaction-api_1.2_spec:1.0.0.Final" />
-            <element id="library" level="project" name="Gradle: dom4j:dom4j:1.6.1" />
-            <element id="library" level="project" name="Gradle: org.hibernate.common:hibernate-commons-annotations:4.0.4.Final" />
-            <element id="library" level="project" name="Gradle: org.javassist:javassist:3.18.1-GA" />
-            <element id="library" level="project" name="Gradle: antlr:antlr:2.7.7" />
-            <element id="library" level="project" name="Gradle: org.jboss:jandex:1.1.0.Final" />
-            <element id="library" level="project" name="Gradle: javax.validation:validation-api:1.1.0.Final" />
-            <element id="library" level="project" name="Gradle: com.fasterxml:classmate:1.0.0" />
-            <element id="library" level="project" name="Gradle: commons-digester:commons-digester:2.0" />
-            <element id="library" level="project" name="Gradle: ognl:ognl:3.0.6" />
-            <element id="library" level="project" name="Gradle: org.thymeleaf.extras:thymeleaf-extras-tiles2:2.1.1.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.thymeleaf:thymeleaf-spring4:2.1.2.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.yaml:snakeyaml:1.13" />
-            <element id="library" level="project" name="Gradle: commons-pool:commons-pool:1.5.4" />
-            <element id="library" level="project" name="Gradle: com.wordnik:swagger-core_2.9.1:1.2.0" />
-            <element id="library" level="project" name="Gradle: com.wordnik:swagger-annotations_2.9.1:1.2.0" />
-            <element id="library" level="project" name="Gradle: com.google.guava:guava:14.0.1" />
-            <element id="library" level="project" name="Gradle: org.springframework:spring-jdbc:3.2.10.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework.hateoas:spring-hateoas:0.16.0.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework.plugin:spring-plugin-core:1.1.0.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.atteo:evo-inflector:1.2" />
-            <element id="library" level="project" name="Gradle: org.codehaus.jackson:jackson-core-asl:1.9.9" />
-            <element id="library" level="project" name="Gradle: commons-beanutils:commons-beanutils:1.8.0" />
-            <element id="library" level="project" name="Gradle: org.apache.tiles:tiles-template:2.2.2" />
-            <element id="library" level="project" name="Gradle: org.apache.tiles:tiles-servlet:2.2.2" />
-            <element id="library" level="project" name="Gradle: org.apache.tiles:tiles-jsp:2.2.2" />
-            <element id="library" level="project" name="Gradle: com.fasterxml.jackson.module:jackson-module-scala:2.0.0" />
-            <element id="library" level="project" name="Gradle: com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.0.0" />
-            <element id="library" level="project" name="Gradle: org.scala-lang:scala-library:2.9.1" />
-            <element id="library" level="project" name="Gradle: org.scalastuff:scalabeans:0.2" />
-            <element id="library" level="project" name="Gradle: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.0.0" />
-            <element id="library" level="project" name="Gradle: javax.ws.rs:jsr311-api:1.1.1" />
-            <element id="library" level="project" name="Gradle: com.thoughtworks.paranamer:paranamer:2.3" />
-            <element id="library" level="project" name="Gradle: org.slf4j:slf4j-api:1.7.7" />
-            <element id="library" level="project" name="Gradle: org.slf4j:jcl-over-slf4j:1.7.7" />
-            <element id="library" level="project" name="Gradle: org.objenesis:objenesis:2.1" />
-            <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.3.4" />
-            <element id="library" level="project" name="Gradle: xml-apis:xml-apis:1.0.b2" />
-            <element id="library" level="project" name="Gradle: org.springframework:spring-core:4.0.3.RELEASE" />
-            <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.activation/activation/1.1/e6cb541461c2834bdea3eb920f1884d1eb508b50/activation-1.1.jar" />
-          </element>
-        </element>
-        <element id="directory" name="META-INF">
-          <element id="file-copy" path="$PROJECT_DIR$/server/out/artifacts/server/exploded/server.war/META-INF/MANIFEST.MF" />
-        </element>
-      </root>
-    </artifact>
     <artifact type="war" name="Gradle : novotvir:server : server.war">
-      <output-path>$PROJECT_DIR$/server/out/artifacts/server</output-path>
+      <output-path>$PROJECT_DIR$/out/artifacts/server</output-path>
       <properties id="gradle-properties">
         <options external-project-path="$PROJECT_DIR$" />
       </properties>
@@ -126,11 +14,12 @@
             <element id="dir-copy" path="$PROJECT_DIR$/build/resources/main" />
           </element>
           <element id="directory" name="lib">
-            <element id="library" level="project" name="Gradle: org.springframework:spring-aop:4.0.3.RELEASE" />
             <element id="library" level="project" name="Gradle: org.springframework:spring-context:4.0.3.RELEASE" />
             <element id="library" level="project" name="Gradle: org.springframework:spring-context-support:4.0.3.RELEASE" />
             <element id="library" level="project" name="Gradle: org.springframework:spring-beans:4.0.3.RELEASE" />
             <element id="library" level="project" name="Gradle: org.springframework:spring-web:4.0.3.RELEASE" />
+            <element id="library" level="project" name="Gradle: commons-lang:commons-lang:2.6" />
+            <element id="library" level="project" name="Gradle: org.springframework:spring-aop:4.0.3.RELEASE" />
             <element id="library" level="project" name="Gradle: org.springframework:spring-webmvc:4.0.3.RELEASE" />
             <element id="library" level="project" name="Gradle: org.springframework.data:spring-data-jpa:1.6.2.RELEASE" />
             <element id="library" level="project" name="Gradle: org.springframework.data:spring-data-rest-webmvc:2.1.2.RELEASE" />
@@ -138,8 +27,6 @@
             <element id="library" level="project" name="Gradle: org.springframework.security:spring-security-web:3.2.0.RELEASE" />
             <element id="library" level="project" name="Gradle: org.springframework.security:spring-security-config:3.2.0.RELEASE" />
             <element id="library" level="project" name="Gradle: org.springframework.security:spring-security-taglibs:3.2.0.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework.social:spring-social-core:1.0.3.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework.social:spring-social-facebook:1.0.3.RELEASE" />
             <element id="library" level="project" name="Gradle: javax.mail:mail:1.4.7" />
             <element id="library" level="project" name="Gradle: org.sonatype.sisu.inject:cglib:3.1.1" />
             <element id="library" level="project" name="Gradle: org.ow2.asm:asm:5.0.3" />
@@ -159,14 +46,13 @@
             <element id="library" level="project" name="Gradle: javax.servlet:jstl:1.2" />
             <element id="library" level="project" name="Gradle: org.liquibase:liquibase-core:3.0.8" />
             <element id="library" level="project" name="Gradle: commons-io:commons-io:2.4" />
-            <element id="library" level="project" name="Gradle: commons-lang:commons-lang:2.6" />
             <element id="library" level="project" name="Gradle: commons-dbcp:commons-dbcp:1.4" />
             <element id="library" level="project" name="Gradle: postgresql:postgresql:9.0-801.jdbc4" />
             <element id="library" level="project" name="Gradle: com.mangofactory:swagger-springmvc:0.6.6" />
             <element id="library" level="project" name="Gradle: org.jasypt:jasypt:1.9.2" />
             <element id="library" level="project" name="Gradle: org.jasypt:jasypt-spring31:1.9.2" />
-            <element id="library" level="project" name="Gradle: aopalliance:aopalliance:1.0" />
             <element id="library" level="project" name="Gradle: org.springframework:spring-expression:4.0.3.RELEASE" />
+            <element id="library" level="project" name="Gradle: aopalliance:aopalliance:1.0" />
             <element id="library" level="project" name="Gradle: org.springframework.data:spring-data-commons:1.8.2.RELEASE" />
             <element id="library" level="project" name="Gradle: org.springframework:spring-orm:3.2.10.RELEASE" />
             <element id="library" level="project" name="Gradle: org.springframework:spring-tx:3.2.10.RELEASE" />
@@ -175,7 +61,6 @@
             <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.3.4" />
             <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.3.3" />
             <element id="library" level="project" name="Gradle: org.springframework.security:spring-security-acl:3.2.0.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.codehaus.jackson:jackson-mapper-asl:1.9.9" />
             <element id="library" level="project" name="Gradle: org.jboss.logging:jboss-logging:3.1.3.GA" />
             <element id="library" level="project" name="Gradle: org.jboss.logging:jboss-logging-annotations:1.2.0.Beta1" />
             <element id="library" level="project" name="Gradle: org.jboss.spec.javax.transaction:jboss-transaction-api_1.2_spec:1.0.0.Final" />
@@ -199,13 +84,14 @@
             <element id="library" level="project" name="Gradle: org.springframework.hateoas:spring-hateoas:0.16.0.RELEASE" />
             <element id="library" level="project" name="Gradle: org.springframework.plugin:spring-plugin-core:1.1.0.RELEASE" />
             <element id="library" level="project" name="Gradle: org.atteo:evo-inflector:1.2" />
-            <element id="library" level="project" name="Gradle: org.codehaus.jackson:jackson-core-asl:1.9.9" />
+            <element id="library" level="project" name="Gradle: xml-apis:xml-apis:1.0.b2" />
             <element id="library" level="project" name="Gradle: commons-beanutils:commons-beanutils:1.8.0" />
             <element id="library" level="project" name="Gradle: org.apache.tiles:tiles-template:2.2.2" />
             <element id="library" level="project" name="Gradle: org.apache.tiles:tiles-servlet:2.2.2" />
             <element id="library" level="project" name="Gradle: org.apache.tiles:tiles-jsp:2.2.2" />
             <element id="library" level="project" name="Gradle: com.fasterxml.jackson.module:jackson-module-scala:2.0.0" />
             <element id="library" level="project" name="Gradle: com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.0.0" />
+            <element id="library" level="project" name="Gradle: org.objenesis:objenesis:2.1" />
             <element id="library" level="project" name="Gradle: org.scala-lang:scala-library:2.9.1" />
             <element id="library" level="project" name="Gradle: org.scalastuff:scalabeans:0.2" />
             <element id="library" level="project" name="Gradle: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.0.0" />
@@ -213,15 +99,131 @@
             <element id="library" level="project" name="Gradle: com.thoughtworks.paranamer:paranamer:2.3" />
             <element id="library" level="project" name="Gradle: org.slf4j:slf4j-api:1.7.7" />
             <element id="library" level="project" name="Gradle: org.slf4j:jcl-over-slf4j:1.7.7" />
-            <element id="library" level="project" name="Gradle: org.objenesis:objenesis:2.1" />
             <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.3.4" />
-            <element id="library" level="project" name="Gradle: xml-apis:xml-apis:1.0.b2" />
             <element id="library" level="project" name="Gradle: org.springframework:spring-core:4.0.3.RELEASE" />
+            <element id="library" level="project" name="Gradle: javax.inject:javax.inject:1" />
+            <element id="library" level="project" name="Gradle: org.springframework.social:spring-social-facebook:2.0.0.M1" />
+            <element id="library" level="project" name="Gradle: org.springframework.social:spring-social-config:1.1.0.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.springframework.social:spring-social-web:1.1.0.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.springframework.social:spring-social-core:1.1.0.RELEASE" />
             <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.activation/activation/1.1/e6cb541461c2834bdea3eb920f1884d1eb508b50/activation-1.1.jar" />
           </element>
         </element>
         <element id="directory" name="META-INF">
-          <element id="file-copy" path="$PROJECT_DIR$/server/out/artifacts/server/exploded/server.war/META-INF/MANIFEST.MF" />
+          <element id="file-copy" path="$PROJECT_DIR$/out/artifacts/server/exploded/server.war/META-INF/MANIFEST.MF" />
+        </element>
+      </root>
+    </artifact>
+    <artifact type="exploded-war" name="Gradle : novotvir:server : server.war (exploded)">
+      <output-path>$PROJECT_DIR$/out/artifacts/server/exploded/server.war</output-path>
+      <properties id="gradle-properties">
+        <options external-project-path="$PROJECT_DIR$" />
+      </properties>
+      <root id="root">
+        <element id="javaee-facet-resources" facet="server/web/Web Gradle : server.war" />
+        <element id="directory" name="WEB-INF">
+          <element id="directory" name="classes">
+            <element id="module-output" name="server" />
+            <element id="dir-copy" path="$PROJECT_DIR$/build/resources/main" />
+          </element>
+          <element id="directory" name="lib">
+            <element id="library" level="project" name="Gradle: org.springframework:spring-context:4.0.3.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.springframework:spring-context-support:4.0.3.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.springframework:spring-beans:4.0.3.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.springframework:spring-web:4.0.3.RELEASE" />
+            <element id="library" level="project" name="Gradle: commons-lang:commons-lang:2.6" />
+            <element id="library" level="project" name="Gradle: org.springframework:spring-aop:4.0.3.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.springframework:spring-webmvc:4.0.3.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.springframework.data:spring-data-jpa:1.6.2.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.springframework.data:spring-data-rest-webmvc:2.1.2.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.springframework.security:spring-security-core:3.2.0.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.springframework.security:spring-security-web:3.2.0.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.springframework.security:spring-security-config:3.2.0.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.springframework.security:spring-security-taglibs:3.2.0.RELEASE" />
+            <element id="library" level="project" name="Gradle: javax.mail:mail:1.4.7" />
+            <element id="library" level="project" name="Gradle: org.sonatype.sisu.inject:cglib:3.1.1" />
+            <element id="library" level="project" name="Gradle: org.ow2.asm:asm:5.0.3" />
+            <element id="library" level="project" name="Gradle: org.aspectj:aspectjtools:1.7.4" />
+            <element id="library" level="project" name="Gradle: org.slf4j:slf4j-log4j12:1.7.5" />
+            <element id="library" level="project" name="Gradle: log4j:log4j:1.2.17" />
+            <element id="library" level="project" name="Gradle: log4j:apache-log4j-extras:1.1" />
+            <element id="library" level="project" name="Gradle: org.hibernate:hibernate-core:4.3.1.Final" />
+            <element id="library" level="project" name="Gradle: org.hibernate:hibernate-entitymanager:4.3.1.Final" />
+            <element id="library" level="project" name="Gradle: org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final" />
+            <element id="library" level="project" name="Gradle: org.hibernate:hibernate-cglib-repack:2.1_3" />
+            <element id="library" level="project" name="Gradle: org.hibernate:hibernate-validator:5.1.0.Final" />
+            <element id="library" level="project" name="Gradle: org.apache.tiles:tiles-api:2.2.2" />
+            <element id="library" level="project" name="Gradle: org.apache.tiles:tiles-core:2.2.2" />
+            <element id="library" level="project" name="Gradle: org.thymeleaf:thymeleaf:2.1.2.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.thymeleaf.extras:thymeleaf-extras-tiles2-spring4:2.1.1.RELEASE" />
+            <element id="library" level="project" name="Gradle: javax.servlet:jstl:1.2" />
+            <element id="library" level="project" name="Gradle: org.liquibase:liquibase-core:3.0.8" />
+            <element id="library" level="project" name="Gradle: commons-io:commons-io:2.4" />
+            <element id="library" level="project" name="Gradle: commons-dbcp:commons-dbcp:1.4" />
+            <element id="library" level="project" name="Gradle: postgresql:postgresql:9.0-801.jdbc4" />
+            <element id="library" level="project" name="Gradle: com.mangofactory:swagger-springmvc:0.6.6" />
+            <element id="library" level="project" name="Gradle: org.jasypt:jasypt:1.9.2" />
+            <element id="library" level="project" name="Gradle: org.jasypt:jasypt-spring31:1.9.2" />
+            <element id="library" level="project" name="Gradle: org.springframework:spring-expression:4.0.3.RELEASE" />
+            <element id="library" level="project" name="Gradle: aopalliance:aopalliance:1.0" />
+            <element id="library" level="project" name="Gradle: org.springframework.data:spring-data-commons:1.8.2.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.springframework:spring-orm:3.2.10.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.springframework:spring-tx:3.2.10.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.aspectj:aspectjrt:1.8.1" />
+            <element id="library" level="project" name="Gradle: org.springframework.data:spring-data-rest-core:2.1.2.RELEASE" />
+            <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.3.4" />
+            <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.3.3" />
+            <element id="library" level="project" name="Gradle: org.springframework.security:spring-security-acl:3.2.0.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.jboss.logging:jboss-logging:3.1.3.GA" />
+            <element id="library" level="project" name="Gradle: org.jboss.logging:jboss-logging-annotations:1.2.0.Beta1" />
+            <element id="library" level="project" name="Gradle: org.jboss.spec.javax.transaction:jboss-transaction-api_1.2_spec:1.0.0.Final" />
+            <element id="library" level="project" name="Gradle: dom4j:dom4j:1.6.1" />
+            <element id="library" level="project" name="Gradle: org.hibernate.common:hibernate-commons-annotations:4.0.4.Final" />
+            <element id="library" level="project" name="Gradle: org.javassist:javassist:3.18.1-GA" />
+            <element id="library" level="project" name="Gradle: antlr:antlr:2.7.7" />
+            <element id="library" level="project" name="Gradle: org.jboss:jandex:1.1.0.Final" />
+            <element id="library" level="project" name="Gradle: javax.validation:validation-api:1.1.0.Final" />
+            <element id="library" level="project" name="Gradle: com.fasterxml:classmate:1.0.0" />
+            <element id="library" level="project" name="Gradle: commons-digester:commons-digester:2.0" />
+            <element id="library" level="project" name="Gradle: ognl:ognl:3.0.6" />
+            <element id="library" level="project" name="Gradle: org.thymeleaf.extras:thymeleaf-extras-tiles2:2.1.1.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.thymeleaf:thymeleaf-spring4:2.1.2.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.yaml:snakeyaml:1.13" />
+            <element id="library" level="project" name="Gradle: commons-pool:commons-pool:1.5.4" />
+            <element id="library" level="project" name="Gradle: com.wordnik:swagger-core_2.9.1:1.2.0" />
+            <element id="library" level="project" name="Gradle: com.wordnik:swagger-annotations_2.9.1:1.2.0" />
+            <element id="library" level="project" name="Gradle: com.google.guava:guava:14.0.1" />
+            <element id="library" level="project" name="Gradle: org.springframework:spring-jdbc:3.2.10.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.springframework.hateoas:spring-hateoas:0.16.0.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.springframework.plugin:spring-plugin-core:1.1.0.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.atteo:evo-inflector:1.2" />
+            <element id="library" level="project" name="Gradle: xml-apis:xml-apis:1.0.b2" />
+            <element id="library" level="project" name="Gradle: commons-beanutils:commons-beanutils:1.8.0" />
+            <element id="library" level="project" name="Gradle: org.apache.tiles:tiles-template:2.2.2" />
+            <element id="library" level="project" name="Gradle: org.apache.tiles:tiles-servlet:2.2.2" />
+            <element id="library" level="project" name="Gradle: org.apache.tiles:tiles-jsp:2.2.2" />
+            <element id="library" level="project" name="Gradle: com.fasterxml.jackson.module:jackson-module-scala:2.0.0" />
+            <element id="library" level="project" name="Gradle: com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.0.0" />
+            <element id="library" level="project" name="Gradle: org.objenesis:objenesis:2.1" />
+            <element id="library" level="project" name="Gradle: org.scala-lang:scala-library:2.9.1" />
+            <element id="library" level="project" name="Gradle: org.scalastuff:scalabeans:0.2" />
+            <element id="library" level="project" name="Gradle: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.0.0" />
+            <element id="library" level="project" name="Gradle: javax.ws.rs:jsr311-api:1.1.1" />
+            <element id="library" level="project" name="Gradle: com.thoughtworks.paranamer:paranamer:2.3" />
+            <element id="library" level="project" name="Gradle: org.slf4j:slf4j-api:1.7.7" />
+            <element id="library" level="project" name="Gradle: org.slf4j:jcl-over-slf4j:1.7.7" />
+            <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.3.4" />
+            <element id="library" level="project" name="Gradle: org.springframework:spring-core:4.0.3.RELEASE" />
+            <element id="library" level="project" name="Gradle: javax.inject:javax.inject:1" />
+            <element id="library" level="project" name="Gradle: org.springframework.social:spring-social-facebook:2.0.0.M1" />
+            <element id="library" level="project" name="Gradle: org.springframework.social:spring-social-config:1.1.0.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.springframework.social:spring-social-web:1.1.0.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.springframework.social:spring-social-core:1.1.0.RELEASE" />
+            <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.activation/activation/1.1/e6cb541461c2834bdea3eb920f1884d1eb508b50/activation-1.1.jar" />
+          </element>
+        </element>
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/out/artifacts/server/exploded/server.war/META-INF/MANIFEST.MF" />
         </element>
       </root>
     </artifact>
@@ -243,8 +245,8 @@
     </annotationProcessing>
   </component>
   <component name="CopyrightManager" default="" />
-  <component name="DataSourceManagerImpl" format="xml" hash="1093051217">
-    <data-source source="LOCAL" name="PostgreSQL - d@localhost" uuid="0c7e764c-9cf4-4ec4-aa1f-c966b87c1f43">
+  <component name="DataSourceManagerImpl" format="xml" hash="2353430731">
+    <data-source source="LOCAL" name="PostgreSQL - d@localhost" uuid="4f6581b2-f589-440b-98a4-d23697d3be1a">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
@@ -255,7 +257,10 @@
   <component name="DependencyValidationManager">
     <option name="SKIP_IMPORT_STATEMENTS" value="false" />
   </component>
-  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="true" />
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="true">
+    <file url="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_2" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
   </component>
@@ -268,6 +273,7 @@
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleHome" value="/usr/local/Cellar/gradle/2.1/libexec" />
+        <option name="gradleJvm" value="1.8" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
@@ -302,15 +308,14 @@
   </component>
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/novotvir.iml" filepath="$PROJECT_DIR$/novotvir.iml" />
       <module fileurl="file://$PROJECT_DIR$/server.iml" filepath="$PROJECT_DIR$/server.iml" />
     </modules>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
-    <output url="file://$PROJECT_DIR$/server/out" />
+    <output url="file://$PROJECT_DIR$/out" />
   </component>
   <component name="ProjectRunConfigurationManager">
-    <configuration default="false" name="ccmbr" type="Multirun" factoryName="Multirun" separateTabs="false" startOneByOne="true" markFailedProcess="true" hideSuccessProcess="false" delayTime="30">
+    <configuration default="false" name="ccmbr" type="Multirun" factoryName="Multirun" separateTabs="false" startOneByOne="true" markFailedProcess="true" hideSuccessProcess="false" delayTime="20">
       <runConfiguration name="tmct auto-tests" type="Tomcat Server" />
       <runConfiguration name="server [auto_test]" type="Gradle" />
       <RunnerSettings RunnerId="multirun" />
@@ -318,12 +323,15 @@
       <method />
     </configuration>
     <configuration default="false" name="tmct" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.9" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="/Library/Java/JavaVirtualMachines/dcevm/jdk1.8.0_05.jdk/Contents/Home/jre">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/novotvir/web/" />
       <option name="COMMON_VM_ARGUMENTS" value="-XXaltjvm=dcevm -javaagent:/Library/hotswap-agent.jar -Dpwd=novotvir -Dconf.dir.path=$PROJECT_DIR$/src/main/resources/conf/" />
+      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="Gradle : novotvir:server : server.war (exploded)">
           <settings>
-            <option name="CONTEXT_PATH" value="/" />
+            <option name="CONTEXT_PATH" value="/novotvir" />
           </settings>
         </artifact>
       </deployment>
@@ -384,7 +392,7 @@
       <deployment>
         <artifact name="Gradle : novotvir:server : server.war (exploded)">
           <settings>
-            <option name="CONTEXT_PATH" value="/" />
+            <option name="CONTEXT_PATH" value="/novotvir" />
           </settings>
         </artifact>
       </deployment>
@@ -439,9 +447,6 @@
       </method>
     </configuration>
   </component>
-  <component name="SqlDialectMappings">
-    <file url="file://$PROJECT_DIR$/src/main/resources/changelogs/sql/release1.0.0.sql" dialect="PostgreSQL" />
-  </component>
   <component name="SvnBranchConfigurationManager">
     <option name="mySupportsUserInfoFilter" value="true" />
   </component>
@@ -450,7 +455,7 @@
     <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
   </component>
   <component name="dataSourceStorageLocal">
-    <data-source name="PostgreSQL - d@localhost" uuid="0c7e764c-9cf4-4ec4-aa1f-c966b87c1f43">
+    <data-source name="PostgreSQL - d@localhost" uuid="4f6581b2-f589-440b-98a4-d23697d3be1a">
       <secret-storage>master_key</secret-storage>
       <user-name>postgres</user-name>
       <schema-pattern>d.pg_catalog d.public</schema-pattern>
@@ -846,6 +851,17 @@
         <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.activation/activation/1.1/3697e9f67a2ed7ac5f589cff30f21173299440/activation-1.1-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="Gradle: javax.inject:javax.inject:1">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/70ec961c25111ed9015d1af77772d96383c2d238/javax.inject-1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/a00123f261762a7c5e0ec916a2c7c8298d29c400/javax.inject-1-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="Gradle: javax.mail:mail:1.4.7">
       <CLASSES>
         <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.mail/mail/1.4.7/9add058589d5d85adeb625859bf2c5eeaaedf12d/mail-1.4.7.jar!/" />
@@ -1175,24 +1191,6 @@
       </CLASSES>
       <JAVADOC />
       <SOURCES />
-    </library>
-    <library name="Gradle: org.codehaus.jackson:jackson-core-asl:1.9.9">
-      <CLASSES>
-        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.codehaus.jackson/jackson-core-asl/1.9.9/b198f9d20dcc5bd2fe211e10f4110639b8243d6/jackson-core-asl-1.9.9.jar!/" />
-      </CLASSES>
-      <JAVADOC />
-      <SOURCES>
-        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.codehaus.jackson/jackson-core-asl/1.9.9/2a6c597b4f08d789c478b4d4305ebc888c9836fd/jackson-core-asl-1.9.9-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Gradle: org.codehaus.jackson:jackson-mapper-asl:1.9.9">
-      <CLASSES>
-        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.codehaus.jackson/jackson-mapper-asl/1.9.9/174678f285c155bea65c76ae9ac302f63b4aece1/jackson-mapper-asl-1.9.9.jar!/" />
-      </CLASSES>
-      <JAVADOC />
-      <SOURCES>
-        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.codehaus.jackson/jackson-mapper-asl/1.9.9/e85188fcd85dd44a9d3d2c1025d4a818896105d6/jackson-mapper-asl-1.9.9-sources.jar!/" />
-      </SOURCES>
     </library>
     <library name="Gradle: org.hamcrest:hamcrest-core:1.3">
       <CLASSES>
@@ -1686,26 +1684,48 @@
         <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-web/3.2.0.RELEASE/5727bdab507738ea1c247dcbae6210e450c8bd1c/spring-security-web-3.2.0.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Gradle: org.springframework.social:spring-social-core:1.0.3.RELEASE">
+    <library name="Gradle: org.springframework.social:spring-social-config:1.1.0.RELEASE">
       <CLASSES>
-        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.social/spring-social-core/1.0.3.RELEASE/44e648f23b45162c698e255a16759832dfcfc004/spring-social-core-1.0.3.RELEASE.jar!/" />
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.social/spring-social-config/1.1.0.RELEASE/7103e311e82ac0ebe64defec176d626d083f36ae/spring-social-config-1.1.0.RELEASE.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.social/spring-social-core/1.0.3.RELEASE/bab254fdbe675ad7ca8c13a3ffeae3aa7084607b/spring-social-core-1.0.3.RELEASE-javadoc.jar!/" />
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.social/spring-social-config/1.1.0.RELEASE/fc357b0d6153c2098500f0beeaf7d6f06bd40b61/spring-social-config-1.1.0.RELEASE-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.social/spring-social-core/1.0.3.RELEASE/6b21f48b8d5ee48c950c30c0896fc342dc653313/spring-social-core-1.0.3.RELEASE-sources.jar!/" />
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.social/spring-social-config/1.1.0.RELEASE/b366b9b9fa8e1581a3288bec83e87fd81e1e2af3/spring-social-config-1.1.0.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Gradle: org.springframework.social:spring-social-facebook:1.0.3.RELEASE">
+    <library name="Gradle: org.springframework.social:spring-social-core:1.1.0.RELEASE">
       <CLASSES>
-        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.social/spring-social-facebook/1.0.3.RELEASE/41bfbf34d46896a29acceb389a8a7c6e00e71319/spring-social-facebook-1.0.3.RELEASE.jar!/" />
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.social/spring-social-core/1.1.0.RELEASE/17399004ca49180476dc90df4d379e1c9b62f850/spring-social-core-1.1.0.RELEASE.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.social/spring-social-facebook/1.0.3.RELEASE/272745f509fa1052d58112f731bcdb6f58b2000f/spring-social-facebook-1.0.3.RELEASE-javadoc.jar!/" />
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.social/spring-social-core/1.1.0.RELEASE/1789e29ffb5cffe2608d145c94b4bc8cf2a1b481/spring-social-core-1.1.0.RELEASE-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.social/spring-social-facebook/1.0.3.RELEASE/fa4d427715f4257d0dea3fa81844c313052dbb6a/spring-social-facebook-1.0.3.RELEASE-sources.jar!/" />
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.social/spring-social-core/1.1.0.RELEASE/2f6f836d7ee473681a3cde7de89ccdf68432f2aa/spring-social-core-1.1.0.RELEASE-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: org.springframework.social:spring-social-facebook:2.0.0.M1">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.social/spring-social-facebook/2.0.0.M1/3e760b3431a7a5dcea0411c4674bccef8b84c0ca/spring-social-facebook-2.0.0.M1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.social/spring-social-facebook/2.0.0.M1/c48124b6ab2baea552c9294874cc8296510e2f89/spring-social-facebook-2.0.0.M1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.social/spring-social-facebook/2.0.0.M1/6aedb328dfb1ae45de6924cc8cdc1835262281fd/spring-social-facebook-2.0.0.M1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: org.springframework.social:spring-social-web:1.1.0.RELEASE">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.social/spring-social-web/1.1.0.RELEASE/7446db1f18b314f792d4565e1c36f97c79b2eec4/spring-social-web-1.1.0.RELEASE.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.social/spring-social-web/1.1.0.RELEASE/1deaddfe5b44f8ab68e88d87f3985fc5a8bb4692/spring-social-web-1.1.0.RELEASE-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.social/spring-social-web/1.1.0.RELEASE/c0e4011e992da6da97f7e92bd50bdcbb7c59c5a7/spring-social-web-1.1.0.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Gradle: org.springframework:spring-aop:4.0.3.RELEASE">
@@ -1976,45 +1996,228 @@
       <SOURCES />
     </library>
   </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <UIState>
-          <splitter-proportions>
-            <SplitterProportionsDataImpl />
-          </splitter-proportions>
-          <settings />
-        </UIState>
-      </state>
-      <state key="Copyright.UI">
-        <UIState>
-          <splitter-proportions>
-            <SplitterProportionsDataImpl />
-          </splitter-proportions>
-        </UIState>
-      </state>
-      <state key="ProjectJDKs.UI">
-        <UIState>
-          <splitter-proportions>
-            <SplitterProportionsDataImpl>
-              <option name="proportions">
-                <list>
-                  <option value="0.2" />
-                </list>
-              </option>
-            </SplitterProportionsDataImpl>
-          </splitter-proportions>
-          <last-edited>1.6</last-edited>
-        </UIState>
-      </state>
-      <state key="ScopeChooserConfigurable.UI">
-        <UIState>
-          <splitter-proportions>
-            <SplitterProportionsDataImpl />
-          </splitter-proportions>
-          <settings />
-        </UIState>
-      </state>
-    </states>
+  <component name="org.twodividedbyzero.idea.findbugs">
+    <option name="annotationTypeSettings">
+      <map>
+        <entry key="ExpPriority" value="-4473925;-12828863;-8355712;WAVE_UNDERSCORE;0;" />
+        <entry key="HighPriority" value="-39836;-12828863;-39836;WAVE_UNDERSCORE;1;" />
+        <entry key="IgnorePriority" value="-4473925;-12828863;-11978414;WAVE_UNDERSCORE;0;" />
+        <entry key="LowPriority" value="-4473925;-12828863;-10316203;BOXED;0;" />
+        <entry key="NormalPriority" value="-4473925;-12828863;-10461184;WAVE_UNDERSCORE;2;" />
+      </map>
+    </option>
+    <option name="_basePreferences">
+      <map>
+        <entry key="property.analysisEffortLevel" value="default" />
+        <entry key="property.analyzeAfterAutoMake" value="false" />
+        <entry key="property.analyzeAfterCompile" value="false" />
+        <entry key="property.annotationGutterIconEnabled" value="true" />
+        <entry key="property.annotationSuppressWarningsClass" value="edu.umd.cs.findbugs.annotations.SuppressFBWarnings" />
+        <entry key="property.annotationTextRangeMarkupEnabled" value="true" />
+        <entry key="property.exportAsHtml" value="true" />
+        <entry key="property.exportAsXml" value="true" />
+        <entry key="property.exportBaseDir" value="" />
+        <entry key="property.exportCreateArchiveDir" value="false" />
+        <entry key="property.exportOpenBrowser" value="true" />
+        <entry key="property.minPriorityToReport" value="Medium" />
+        <entry key="property.runAnalysisInBackground" value="false" />
+        <entry key="property.showHiddenDetectors" value="false" />
+        <entry key="property.toolWindowEditorPreview" value="true" />
+        <entry key="property.toolWindowToFront" value="true" />
+      </map>
+    </option>
+    <option name="_detectors">
+      <map>
+        <entry key="AppendingToAnObjectOutputStream" value="true" />
+        <entry key="AtomicityProblem" value="true" />
+        <entry key="BadAppletConstructor" value="false" />
+        <entry key="BadResultSetAccess" value="true" />
+        <entry key="BadSyntaxForRegularExpression" value="true" />
+        <entry key="BadUseOfReturnValue" value="true" />
+        <entry key="BadlyOverriddenAdapter" value="true" />
+        <entry key="BooleanReturnNull" value="true" />
+        <entry key="BuildInterproceduralCallGraph" value="false" />
+        <entry key="BuildObligationPolicyDatabase" value="true" />
+        <entry key="BuildStringPassthruGraph" value="true" />
+        <entry key="CallToUnsupportedMethod" value="false" />
+        <entry key="CalledMethods" value="true" />
+        <entry key="CheckCalls" value="false" />
+        <entry key="CheckExpectedWarnings" value="false" />
+        <entry key="CheckImmutableAnnotation" value="true" />
+        <entry key="CheckRelaxingNullnessAnnotation" value="true" />
+        <entry key="CheckTypeQualifiers" value="true" />
+        <entry key="CloneIdiom" value="true" />
+        <entry key="ComparatorIdiom" value="true" />
+        <entry key="ConfusedInheritance" value="true" />
+        <entry key="ConfusionBetweenInheritedAndOuterMethod" value="true" />
+        <entry key="CovariantArrayAssignment" value="false" />
+        <entry key="CrossSiteScripting" value="true" />
+        <entry key="DefaultEncodingDetector" value="true" />
+        <entry key="DoInsideDoPrivileged" value="true" />
+        <entry key="DontCatchIllegalMonitorStateException" value="true" />
+        <entry key="DontIgnoreResultOfPutIfAbsent" value="true" />
+        <entry key="DontUseEnum" value="true" />
+        <entry key="DroppedException" value="true" />
+        <entry key="DumbMethodInvocations" value="true" />
+        <entry key="DumbMethods" value="true" />
+        <entry key="DuplicateBranches" value="true" />
+        <entry key="EmptyZipFileEntry" value="false" />
+        <entry key="EqualsOperandShouldHaveClassCompatibleWithThis" value="true" />
+        <entry key="ExplicitSerialization" value="true" />
+        <entry key="FieldItemSummary" value="true" />
+        <entry key="FinalizerNullsFields" value="true" />
+        <entry key="FindBadCast2" value="true" />
+        <entry key="FindBadForLoop" value="true" />
+        <entry key="FindBugsSummaryStats" value="true" />
+        <entry key="FindCircularDependencies" value="false" />
+        <entry key="FindComparatorProblems" value="true" />
+        <entry key="FindDeadLocalStores" value="true" />
+        <entry key="FindDoubleCheck" value="true" />
+        <entry key="FindEmptySynchronizedBlock" value="true" />
+        <entry key="FindFieldSelfAssignment" value="true" />
+        <entry key="FindFinalizeInvocations" value="true" />
+        <entry key="FindFloatEquality" value="true" />
+        <entry key="FindFloatMath" value="false" />
+        <entry key="FindHEmismatch" value="true" />
+        <entry key="FindInconsistentSync2" value="true" />
+        <entry key="FindJSR166LockMonitorenter" value="true" />
+        <entry key="FindLocalSelfAssignment2" value="true" />
+        <entry key="FindMaskedFields" value="true" />
+        <entry key="FindMismatchedWaitOrNotify" value="true" />
+        <entry key="FindNakedNotify" value="true" />
+        <entry key="FindNoSideEffectMethods" value="true" />
+        <entry key="FindNonSerializableStoreIntoSession" value="false" />
+        <entry key="FindNonSerializableValuePassedToWriteObject" value="false" />
+        <entry key="FindNonShortCircuit" value="true" />
+        <entry key="FindNullDeref" value="true" />
+        <entry key="FindNullDerefsInvolvingNonShortCircuitEvaluation" value="true" />
+        <entry key="FindOpenStream" value="true" />
+        <entry key="FindPuzzlers" value="true" />
+        <entry key="FindRefComparison" value="true" />
+        <entry key="FindReturnRef" value="true" />
+        <entry key="FindRoughConstants" value="true" />
+        <entry key="FindRunInvocations" value="true" />
+        <entry key="FindSelfComparison" value="true" />
+        <entry key="FindSelfComparison2" value="true" />
+        <entry key="FindSleepWithLockHeld" value="true" />
+        <entry key="FindSpinLoop" value="true" />
+        <entry key="FindSqlInjection" value="true" />
+        <entry key="FindTwoLockWait" value="true" />
+        <entry key="FindUncalledPrivateMethods" value="true" />
+        <entry key="FindUnconditionalWait" value="true" />
+        <entry key="FindUninitializedGet" value="true" />
+        <entry key="FindUnrelatedTypesInGenericContainer" value="true" />
+        <entry key="FindUnreleasedLock" value="true" />
+        <entry key="FindUnsatisfiedObligation" value="true" />
+        <entry key="FindUnsyncGet" value="true" />
+        <entry key="FindUseOfNonSerializableValue" value="true" />
+        <entry key="FindUselessControlFlow" value="true" />
+        <entry key="FindUselessObjects" value="true" />
+        <entry key="FormatStringChecker" value="true" />
+        <entry key="FunctionsThatMightBeMistakenForProcedures" value="true" />
+        <entry key="HugeSharedStringConstants" value="true" />
+        <entry key="IDivResultCastToDouble" value="true" />
+        <entry key="IncompatMask" value="true" />
+        <entry key="InconsistentAnnotations" value="true" />
+        <entry key="InefficientIndexOf" value="false" />
+        <entry key="InefficientInitializationInsideLoop" value="false" />
+        <entry key="InefficientMemberAccess" value="false" />
+        <entry key="InefficientToArray" value="false" />
+        <entry key="InfiniteLoop" value="true" />
+        <entry key="InfiniteRecursiveLoop" value="true" />
+        <entry key="InheritanceUnsafeGetResource" value="true" />
+        <entry key="InitializationChain" value="true" />
+        <entry key="InitializeNonnullFieldsInConstructor" value="true" />
+        <entry key="InstantiateStaticClass" value="true" />
+        <entry key="IntCast2LongAsInstant" value="true" />
+        <entry key="InvalidJUnitTest" value="true" />
+        <entry key="IteratorIdioms" value="true" />
+        <entry key="LazyInit" value="true" />
+        <entry key="LoadOfKnownNullValue" value="true" />
+        <entry key="LostLoggerDueToWeakReference" value="true" />
+        <entry key="MethodReturnCheck" value="true" />
+        <entry key="Methods" value="true" />
+        <entry key="MultithreadedInstanceAccess" value="true" />
+        <entry key="MutableEnum" value="true" />
+        <entry key="MutableLock" value="true" />
+        <entry key="MutableStaticFields" value="true" />
+        <entry key="Naming" value="true" />
+        <entry key="Noise" value="false" />
+        <entry key="NoiseNullDeref" value="false" />
+        <entry key="NoteAnnotationRetention" value="true" />
+        <entry key="NoteCheckReturnValueAnnotations" value="true" />
+        <entry key="NoteDirectlyRelevantTypeQualifiers" value="true" />
+        <entry key="NoteJCIPAnnotation" value="true" />
+        <entry key="NoteNonNullAnnotations" value="false" />
+        <entry key="NoteNonnullReturnValues" value="false" />
+        <entry key="NoteSuppressedWarnings" value="true" />
+        <entry key="NoteUnconditionalParamDerefs" value="true" />
+        <entry key="NumberConstructor" value="true" />
+        <entry key="OptionalReturnNull" value="true" />
+        <entry key="OverridingEqualsNotSymmetrical" value="true" />
+        <entry key="PreferZeroLengthArrays" value="true" />
+        <entry key="PublicSemaphores" value="false" />
+        <entry key="QuestionableBooleanAssignment" value="true" />
+        <entry key="ReadOfInstanceFieldInMethodInvokedByConstructorInSuperclass" value="true" />
+        <entry key="ReadReturnShouldBeChecked" value="true" />
+        <entry key="RedundantConditions" value="true" />
+        <entry key="RedundantInterfaces" value="true" />
+        <entry key="ReflectiveClasses" value="true" />
+        <entry key="RepeatedConditionals" value="true" />
+        <entry key="ResolveAllReferences" value="false" />
+        <entry key="RuntimeExceptionCapture" value="true" />
+        <entry key="SerializableIdiom" value="true" />
+        <entry key="StartInConstructor" value="true" />
+        <entry key="StaticCalendarDetector" value="true" />
+        <entry key="StringConcatenation" value="true" />
+        <entry key="SuperfluousInstanceOf" value="true" />
+        <entry key="SuspiciousThreadInterrupted" value="true" />
+        <entry key="SwitchFallthrough" value="true" />
+        <entry key="SynchronizationOnSharedBuiltinConstant" value="true" />
+        <entry key="SynchronizeAndNullCheckField" value="true" />
+        <entry key="SynchronizeOnClassLiteralNotGetClass" value="true" />
+        <entry key="SynchronizingOnContentsOfFieldToProtectField" value="true" />
+        <entry key="TestASM" value="false" />
+        <entry key="TestDataflowAnalysis" value="false" />
+        <entry key="TestingGround" value="false" />
+        <entry key="TestingGround2" value="false" />
+        <entry key="TrainFieldStoreTypes" value="true" />
+        <entry key="TrainLongInstantfParams" value="true" />
+        <entry key="TrainNonNullAnnotations" value="true" />
+        <entry key="TrainUnconditionalDerefParams" value="true" />
+        <entry key="URLProblems" value="true" />
+        <entry key="UncallableMethodOfAnonymousClass" value="true" />
+        <entry key="UnnecessaryMath" value="true" />
+        <entry key="UnreadFields" value="true" />
+        <entry key="UselessSubclassMethod" value="false" />
+        <entry key="VarArgsProblems" value="true" />
+        <entry key="VolatileUsage" value="true" />
+        <entry key="WaitInLoop" value="true" />
+        <entry key="WrongMapIterator" value="true" />
+        <entry key="XMLFactoryBypass" value="true" />
+      </map>
+    </option>
+    <option name="_reportCategories">
+      <map>
+        <entry key="BAD_PRACTICE" value="true" />
+        <entry key="CORRECTNESS" value="true" />
+        <entry key="EXPERIMENTAL" value="true" />
+        <entry key="I18N" value="true" />
+        <entry key="MALICIOUS_CODE" value="true" />
+        <entry key="MT_CORRECTNESS" value="true" />
+        <entry key="PERFORMANCE" value="true" />
+        <entry key="SECURITY" value="true" />
+        <entry key="STYLE" value="true" />
+      </map>
+    </option>
+    <option name="_annotationTypeSettings">
+      <map>
+        <entry key="ExpPriority" value="-4473925;-12828863;-8355712;WAVE_UNDERSCORE;0;" />
+        <entry key="HighPriority" value="-39836;-12828863;-39836;WAVE_UNDERSCORE;1;" />
+        <entry key="IgnorePriority" value="-4473925;-12828863;-11978414;WAVE_UNDERSCORE;0;" />
+        <entry key="LowPriority" value="-4473925;-12828863;-10316203;BOXED;0;" />
+        <entry key="NormalPriority" value="-4473925;-12828863;-10461184;WAVE_UNDERSCORE;2;" />
+      </map>
+    </option>
   </component>
 </project>
