@@ -1,4 +1,4 @@
-package dto;
+package novo.tvir.signin.dto;
 
 import lombok.Data;
 import lombok.experimental.Accessors;

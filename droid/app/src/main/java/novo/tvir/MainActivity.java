@@ -1,4 +1,4 @@
-package com.example.myapplication2.app;
+package novo.tvir;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import novo.tvir.signin.activity.SignInActivity;
 
 public class MainActivity extends Activity {
 
@@ -39,7 +40,7 @@ public class MainActivity extends Activity {
     }
 
     public void doo(View view){
-        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+        Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
         startActivity(intent);
     }
 }

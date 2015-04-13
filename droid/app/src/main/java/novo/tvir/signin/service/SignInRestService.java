@@ -1,4 +1,4 @@
-package com.example.myapplication2.app;
+package novo.tvir.signin.service;
 
 import dto.AccountDto;
 import org.androidannotations.annotations.rest.Post;
@@ -11,7 +11,7 @@ import org.springframework.util.LinkedMultiValueMap;
 
 // @author: m on 29.03.15 18:56.
 @Rest(converters = { FormHttpMessageConverter.class, MappingJackson2HttpMessageConverter.class })
-public interface SignInService extends RestClientRootUrl {
+public interface SignInRestService extends RestClientRootUrl {
 
     @Post("/signin")
     ResponseEntity<AccountDto> signin(LinkedMultiValueMap<String, String> formData);

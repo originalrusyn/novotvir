@@ -1,4 +1,4 @@
-package com.example.myapplication2.app;
+package novo.tvir.signin.activity;
 
 import android.content.Intent;
 import android.content.IntentSender;

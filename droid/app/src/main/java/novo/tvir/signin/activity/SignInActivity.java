@@ -1,4 +1,4 @@
-package com.example.myapplication2.app;
+package novo.tvir.signin.activity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -22,6 +22,8 @@ import android.widget.EditText;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.SignInButton;
+import novo.tvir.R;
+import novo.tvir.signin.task.UserSignInTask;
 import org.androidannotations.annotations.*;
 import org.androidannotations.annotations.res.IntegerRes;
 
@@ -29,18 +31,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@EActivity(R.layout.activity_login)
-public class LoginActivity extends PlusBaseActivity implements LoaderCallbacks<Cursor> {
+@EActivity(R.layout.activity_signin)
+public class SignInActivity extends PlusBaseActivity implements LoaderCallbacks<Cursor> {
 
-    @NonConfigurationInstance @Bean UserLoginTask userLoginTask;
+    @NonConfigurationInstance @Bean UserSignInTask userSignInTask;
 
     @ViewById(R.id.email) AutoCompleteTextView mEmailView;
     @ViewById(R.id.password) EditText mPasswordView;
-    @ViewById(R.id.login_progress) View mProgressView;
-    @ViewById(R.id.email_login_form) View mEmailLoginFormView;
+    @ViewById(R.id.signin_progress) View mProgressView;
+    @ViewById(R.id.email_signin_form) View mEmailLoginFormView;
     @ViewById(R.id.plus_sign_in_button) SignInButton mPlusSignInButton;
     @ViewById(R.id.plus_sign_out_buttons) View mSignOutButtons;
-    @ViewById(R.id.login_form) View mLoginFormView;
+    @ViewById(R.id.signin_form) View mLoginFormView;
     @IntegerRes(android.R.integer.config_shortAnimTime) int shortAnimTime;
 
     @AfterViews
@@ -61,7 +63,7 @@ public class LoginActivity extends PlusBaseActivity implements LoaderCallbacks<C
 
     @EditorAction(R.id.password)
     public boolean onPasswordEditorAction(int id) {
-        if (id == R.id.login || id == EditorInfo.IME_NULL) {
+        if (id == R.id.signin || id == EditorInfo.IME_NULL) {
             attemptLoginOrRegister();
             return true;
         }
@@ -104,7 +106,7 @@ public class LoginActivity extends PlusBaseActivity implements LoaderCallbacks<C
             focusView.requestFocus();
         } else {
             showProgress(true);
-            userLoginTask.login(email, password);
+            userSignInTask.signin(email, password);
         }
     }
 
@@ -229,7 +231,7 @@ public class LoginActivity extends PlusBaseActivity implements LoaderCallbacks<C
 
 
     private void addEmailsToAutoComplete(List<String> emailAddressCollection) {
-        mEmailView.setAdapter(new ArrayAdapter<>(LoginActivity.this, android.R.layout.simple_dropdown_item_1line, emailAddressCollection));
+        mEmailView.setAdapter(new ArrayAdapter<>(SignInActivity.this, android.R.layout.simple_dropdown_item_1line, emailAddressCollection));
     }
 
     public void onLoginComplete(boolean success) {
