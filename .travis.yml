@@ -20,4 +20,5 @@ before_script:
   - sudo apt-get install language-pack-uk
   - sudo /etc/init.d/postgresql stop
   - sudo /etc/init.d/postgresql start 9.3
-  - psql -c 'create database a; create database d;' -U postgres
+  - psql -c 'create database a;'
+  - psql -c 'create database d;' -U postgres
