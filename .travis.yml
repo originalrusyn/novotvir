@@ -29,5 +29,5 @@ before_script:
 script:
   - cd ./server
   - gradle test
-  - cd ../droid/
-  - gradle test
+  - cd ../droid/app/
+  - gradle check
