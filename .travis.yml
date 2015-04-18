@@ -1,6 +1,16 @@
 language: android
 jdk:
   - oraclejdk8
+android:
+  components:
+    - platform-tools
+    - tools
+    - build-tools-22.0.0
+    - android-21
+    - extra-google-google_play_services
+    - extra-google-m2repository
+    - extra-android-m2repository
+    - addon-google_apis-google-21
 addons:
   postgresql: "9.3"
 notifications:
@@ -18,4 +28,6 @@ before_script:
   - psql -c 'create database d;' -U postgres
 script:
   - cd ./server
+  - gradle test
+  - cd ../droid/
   - gradle test
