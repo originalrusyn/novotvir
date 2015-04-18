@@ -1,0 +1,24 @@
+language: java
+jdk:
+  - oraclejdk8
+  - oraclejdk7
+addons:
+  postgresql: "9.3"
+notifications:
+  email:
+    recipients:
+      - ntvorennya@gmail.com
+    on_success: always
+    on_failure: always
+matrix:
+  include:
+    jdk: oraclejdk8
+    script:
+      - cd ./server
+      - gradle check
+before_script:
+  - sudo apt-get update
+  - sudo apt-get install language-pack-uk
+  - sudo /etc/init.d/postgresql stop
+  - sudo /etc/init.d/postgresql start 9.3
+  - psql -c 'create database a; create database d;' -U postgres
