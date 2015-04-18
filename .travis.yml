@@ -9,12 +9,6 @@ notifications:
       - ntvorennya@gmail.com
     on_success: always
     on_failure: always
-matrix:
-  include:
-    jdk: oraclejdk8
-    script:
-      - cd ./server
-      - gradle check
 before_script:
   - sudo apt-get update
   - sudo apt-get install language-pack-uk
@@ -22,3 +16,6 @@ before_script:
   - sudo /etc/init.d/postgresql start 9.3
   - psql -c 'create database a;' -U postgres
   - psql -c 'create database d;' -U postgres
+script:
+  - cd ./server
+  - gradle check
