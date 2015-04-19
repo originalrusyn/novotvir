@@ -23,7 +23,7 @@ public class RedirectStrategy extends DefaultRedirectStrategy {
         String redirectUrl = calculateRedirectUrl(request.getContextPath(), url);
         redirectUrl = response.encodeRedirectURL(redirectUrl);
 
-        log.debug("Redirecting to '{}" ,redirectUrl);
+        log.debug("Redirecting to {}" ,redirectUrl);
 
         response.setStatus(HttpServletResponse.SC_FOUND);
         response.setHeader("Location", redirectUrl);
