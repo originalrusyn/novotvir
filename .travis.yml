@@ -27,7 +27,7 @@ before_script:
   - psql -c 'create database a;' -U postgres
   - psql -c 'create database d;' -U postgres
 script:
-  - cd ./server
-  - gradle test
+  #- cd ./server
+  #- gradle test
   - cd ../droid/
   - gradle check
