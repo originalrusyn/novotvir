@@ -1,0 +1,5 @@
+<resources>
+    <string name="title_activity_sign_up">Реєстрація</string>
+    <string name="action_sign_up">Зареєструватися</string>
+    <string name="action_sign_up_short">Зареєструвати</string>
+</resources>

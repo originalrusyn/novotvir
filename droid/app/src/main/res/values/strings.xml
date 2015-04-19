@@ -8,4 +8,13 @@
     <string name="novotvir_base_url">http://192.168.56.1:8080/novotvir/web</string>
     <string name="novotvir_salt">Роисся вперде</string>
 
+    <string name="prompt_email">Електронна скринька</string>
+    <string name="prompt_password">Пароль</string>
+    <string name="plus_sign_out">Інший обліковий запис Google+</string>
+    <string name="plus_disconnect">Від’єднати Google+</string>
+    <string name="error_invalid_email">Невірний формат</string>
+    <string name="error_invalid_password">Закороткий пароль</string>
+    <string name="error_incorrect_password">Невірний формат</string>
+    <string name="error_field_required">Обов’язкове поле</string>
+
 </resources>

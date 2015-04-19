@@ -1,4 +1,4 @@
-package novo.tvir.signin.activity;
+package novo.tvir.signup.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,6 +6,8 @@ import android.content.IntentSender;
 import android.os.Bundle;
 import android.util.Log;
 import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesClient;
+import com.google.android.gms.common.Scopes;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.drive.Drive;
 import com.google.android.gms.plus.Plus;
@@ -133,6 +135,7 @@ public abstract class PlusBaseActivity extends Activity
 
         // We only want to sign out if we're connected.
         if (mPlusClient.isConnected()) {
+            mPlusClient.disconnect();
             initiatePlusClientDisconnect();
 
             Log.v(TAG, "Sign out successful!");
@@ -207,7 +210,7 @@ public abstract class PlusBaseActivity extends Activity
             // errors to resolve we'll get our onConnectionFailed, but if not,
             // we'll get onConnected.
             initiatePlusClientConnect();
-        } else if (requestCode == OUR_REQUEST_CODE) {
+        } else if (requestCode == OUR_REQUEST_CODE && responseCode != RESULT_OK) {
             // If we've got an error we can't resolve, we're no longer in the midst of signing
             // in, so we can stop the progress spinner.
             setProgressBarVisible(false);
