@@ -1,8 +1,8 @@
-package novo.tvir.access.signin.task;
+package novo.tvir.signin.task;
 
 import lombok.extern.slf4j.Slf4j;
-import novo.tvir.access.signin.activity.SignInActivity;
-import novo.tvir.access.signin.service.SignInService;
+import novo.tvir.signin.activity.SignInActivity;
+import novo.tvir.signin.service.SignInService;
 import org.androidannotations.annotations.*;
 
 // @author: m on 29.03.15 17:21.
