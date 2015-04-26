@@ -70,15 +70,16 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     provided 'org.projectlombok:lombok:1.12.6'
     apt "org.projectlombok:lombok:1.12.6"
+    apt "org.androidannotations:androidannotations:$AAVersion"
+    compile "org.androidannotations:androidannotations-api:$AAVersion"
     compile 'com.android.support:appcompat-v7:22.0.0'
     compile 'org.springframework.android:spring-android-rest-template:2.0.0.M1'
     compile 'com.google.android.gms:play-services:7.0.0'
-    apt "org.androidannotations:androidannotations:$AAVersion"
-    compile "org.androidannotations:androidannotations-api:$AAVersion"
     compile 'com.fasterxml.jackson.core:jackson-core:2.5.1'
     compile 'com.fasterxml.jackson.core:jackson-annotations:2.5.1'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.5.1'
     compile 'org.slf4j:slf4j-android:1.7.12'
     compile 'com.j256.ormlite:ormlite-android:4.45'
     compile 'org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final'
+    compile 'com.android.support:support-v4:22.0.0'
 }
