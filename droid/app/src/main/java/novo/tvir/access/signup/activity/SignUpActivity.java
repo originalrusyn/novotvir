@@ -26,6 +26,8 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.plus.Plus;
 import lombok.extern.slf4j.Slf4j;
 import novo.tvir.R;
+import novo.tvir.access.GoogleApiActivity;
+import novo.tvir.access.GoogleApiService;
 import novo.tvir.access.PasswordFormatValidator;
 import novo.tvir.access.signup.task.UserSignUpTask;
 import org.androidannotations.annotations.*;
@@ -38,8 +40,7 @@ import java.util.List;
 
 @Slf4j
 @EActivity(R.layout.activity_signup)
-public class SignUpActivity extends FragmentActivity implements LoaderCallbacks<Cursor> , GoogleApiClient.ConnectionCallbacks,
-        GoogleApiClient.OnConnectionFailedListener {
+public class SignUpActivity extends GoogleApiActivity implements LoaderCallbacks<Cursor> {
 
     @NonConfigurationInstance @Bean UserSignUpTask userSignUpTask;
 
@@ -54,6 +55,7 @@ public class SignUpActivity extends FragmentActivity implements LoaderCallbacks<
 
     @Bean EmailFormatValidator emailFormatValidator;
     @Bean PasswordFormatValidator passwordFormatValidator;
+    @Bean GoogleApiService googleApiService;
 
     private static final int REQUEST_RESOLVE_ERROR = 49404;
 
@@ -61,8 +63,6 @@ public class SignUpActivity extends FragmentActivity implements LoaderCallbacks<
     private boolean autoResolveOnFail;
 
     public boolean googleApiClientIsConnecting = false;
-
-    private GoogleApiClient googleApiClient;
 
     // The saved result from {@link #onConnectionFailed(ConnectionResult)}.  If a connection
     // attempt has been made, this is non-null.
@@ -152,23 +152,9 @@ public class SignUpActivity extends FragmentActivity implements LoaderCallbacks<
         }
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        if(googleApiClient==null){
-            googleApiClient = new GoogleApiClient.Builder(this)
-                    .addApi(Plus.API)
-                    .addScope(Plus.SCOPE_PLUS_LOGIN)
-                    .addConnectionCallbacks(this)
-                    .addOnConnectionFailedListener(this)
-                    .build();
-        }
-    }
-
     @Click(R.id.plus_sign_up_button)
     public void signUp() {
-        if (!googleApiClient.isConnected()) {
+        if (!googleApiService.isConnected()) {
             setProgressBarVisible(true);
             // Make sure that we will start the resolution (e.g. fire the intent and pop up a
             // dialog for the user) for any errors that come in.
@@ -184,13 +170,13 @@ public class SignUpActivity extends FragmentActivity implements LoaderCallbacks<
     }
 
     private void initiatePlusClientConnect() {
-        if (!googleApiClient.isConnected() && !googleApiClient.isConnecting()) {
-            googleApiClient.connect();
+        if (!googleApiService.isConnected() && !googleApiService.isConnecting()) {
+            googleApiService.connect();
         }
     }
 
     private void initiatePlusClientDisconnect() {
-        googleApiClient.disconnect();
+        googleApiService.disconnect();
     }
 
     @Click(R.id.plus_sign_out_button)
@@ -347,7 +333,7 @@ public class SignUpActivity extends FragmentActivity implements LoaderCallbacks<
      */
     protected void updateConnectButtonState() {
         //TODO: Update this logic to also handle the user logged in by email.
-        boolean connected = googleApiClient.isConnected();
+        boolean connected = googleApiService.isConnected();
 
         signOutButtons.setVisibility(connected ? View.VISIBLE : View.GONE);
         pusSignInButton.setVisibility(connected ? View.GONE : View.VISIBLE);
