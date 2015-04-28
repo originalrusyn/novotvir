@@ -5,8 +5,10 @@ import org.androidannotations.annotations.EBean;
 import org.springframework.http.ResponseEntity;
 import persist.domain.Account;
 
+import static org.androidannotations.annotations.EBean.Scope.Singleton;
+
 // @author: Mykhaylo Titov on 12.04.15 19:40.
-@EBean
+@EBean(scope = Singleton)
 public class AccountDtoAsm {
 
     public Account fromResponse(ResponseEntity<AccountDto> responseEntity){

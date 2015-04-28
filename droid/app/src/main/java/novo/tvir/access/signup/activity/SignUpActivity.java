@@ -60,14 +60,14 @@ public class SignUpActivity extends GoogleApiActivity implements LoaderCallbacks
     @Bean GoogleApiService googleApiService;
 
     // A flag to stop multiple dialogues appearing for the user
-    private boolean autoResolveOnFail;
-
-    public boolean googleApiClientIsConnecting = false;
+    @InstanceState
+    boolean autoResolveOnFail;
 
     // The saved result from {@link #onConnectionFailed(ConnectionResult)}.  If a connection
     // attempt has been made, this is non-null.
     // If this IS null, then the connect method is still running.
-    private ConnectionResult connectionResult;
+    @InstanceState
+    ConnectionResult connectionResult;
 
     @AfterViews
     void onAfterViews() {
@@ -75,7 +75,11 @@ public class SignUpActivity extends GoogleApiActivity implements LoaderCallbacks
             pusSignInButton.setVisibility(View.GONE);
             return;
         }
-        populateAutoComplete();
+        if(googleApiService.isConnected()) {
+            updateConnectButtonState();
+        } else {
+            populateAutoComplete();
+        }
     }
 
     @EditorAction(R.id.password)
@@ -122,13 +126,13 @@ public class SignUpActivity extends GoogleApiActivity implements LoaderCallbacks
         if (cancel) {
             focusView.requestFocus();
         } else {
-            showProgress(true);
+            setProgressBarVisible(true);
             userSignUpTask.signup(email, password);
         }
     }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
-    public void showProgress(final boolean show) {
+    public void setProgressBarVisible(final boolean show) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
 
             signUpFormView.setVisibility(show ? View.GONE : View.VISIBLE);
@@ -216,11 +220,6 @@ public class SignUpActivity extends GoogleApiActivity implements LoaderCallbacks
         initiatePlusClientDisconnect();
     }
 
-    private void setProgressBarVisible(boolean flag) {
-        googleApiClientIsConnecting = flag;
-        showProgress(flag);
-    }
-
     /**
      * A helper method to flip the mResolveOnFail flag and start the resolution
      * of the ConnectionResult from the failed connect() call.
@@ -269,13 +268,11 @@ public class SignUpActivity extends GoogleApiActivity implements LoaderCallbacks
     public void onConnected(Bundle connectionHint) {
         updateConnectButtonState();
         setProgressBarVisible(false);
-        onPlusClientSignIn();
     }
 
     @Override
     public void onConnectionSuspended(int cause) {
         updateConnectButtonState();
-        onPlusClientSignOut();
     }
 
     @Override
@@ -312,14 +309,6 @@ public class SignUpActivity extends GoogleApiActivity implements LoaderCallbacks
         setProgressBarVisible(false);
     }
 
-
-    /**
-     * Called when the PlusClient is successfully connected.
-     */
-    protected void onPlusClientSignIn() {
-        log.info("onPlusClientSignIn");
-    }
-
     /**
      * Called when there is a change in connection state.  If you have "Sign in"/ "Connect",
      * "Sign out"/ "Disconnect", or "Revoke access" buttons, this lets you know when their states
@@ -332,23 +321,6 @@ public class SignUpActivity extends GoogleApiActivity implements LoaderCallbacks
         signOutButtons.setVisibility(connected ? View.VISIBLE : View.GONE);
         pusSignInButton.setVisibility(connected ? View.GONE : View.VISIBLE);
         emailSignUpFormView.setVisibility(connected ? View.GONE : View.VISIBLE);
-    }
-
-    /**
-     * Called when the {@link PlusClient} revokes access to this app.
-     */
-    protected void onPlusClientRevokeAccess() {
-        // TODO: Access to the user's G+ account has been revoked.  Per the developer terms, delete
-        // any stored user data here.
-        log.info("onPlusClientRevokeAccess");
-    }
-
-    /**
-     * Called when the {@link PlusClient} is disconnected.
-     */
-    protected void onPlusClientSignOut() {
-        log.info("onPlusClientSignOut");
-
     }
 
     private boolean supportsGooglePlayServices() {
@@ -399,7 +371,7 @@ public class SignUpActivity extends GoogleApiActivity implements LoaderCallbacks
     }
 
     public void onLoginComplete(boolean success) {
-        showProgress(false);
+        setProgressBarVisible(false);
 
         if (success) {
             finish();
@@ -409,6 +381,3 @@ public class SignUpActivity extends GoogleApiActivity implements LoaderCallbacks
         }
     }
 }
-
-
-
