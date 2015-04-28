@@ -38,7 +38,6 @@ import util.EmailFormatValidator;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @Slf4j
 @EActivity(R.layout.activity_signup)
 public class SignUpActivity extends GoogleApiActivity implements LoaderCallbacks<Cursor> {
@@ -196,7 +195,6 @@ public class SignUpActivity extends GoogleApiActivity implements LoaderCallbacks
             googleApiService.revokeAccessAndDisconnect(new ResultCallback<Status>() {
                 @Override
                 public void onResult(Status status) {
-                    log.info(status.getStatusMessage());
                     if (status.isSuccess()) {
                         Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_LONG).show();
                         updateConnectButtonState();

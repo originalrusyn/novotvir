@@ -29,9 +29,18 @@ public class GoogleApiService {
                 .build();
     }
 
-    public void revokeAccessAndDisconnect(ResultCallback<Status> resultCallback){
+    public void revokeAccessAndDisconnect(final ResultCallback<Status> resultCallback){
         clearDefaultAccount();
-        Plus.AccountApi.revokeAccessAndDisconnect(googleApiClient).setResultCallback(resultCallback);
+        ResultCallback<Status> resultCallbackWrapper = new ResultCallback<Status>() {
+            @Override
+            public void onResult(Status status) {
+                if(status.isSuccess()){
+                    googleApiClient.disconnect();
+                }
+                resultCallback.onResult(status);
+            }
+        };
+        Plus.AccountApi.revokeAccessAndDisconnect(googleApiClient).setResultCallback(resultCallbackWrapper);
     }
 
     public void clearDefaultAccount() {
