@@ -3,32 +3,33 @@ package novo.tvir.access.signup.activity;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
-import android.app.Dialog;
 import android.app.LoaderManager.LoaderCallbacks;
-import android.content.*;
+import android.content.CursorLoader;
+import android.content.IntentSender;
+import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.FragmentActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
+import android.widget.Toast;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.SignInButton;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.plus.Plus;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 import lombok.extern.slf4j.Slf4j;
 import novo.tvir.R;
 import novo.tvir.access.GoogleApiActivity;
 import novo.tvir.access.GoogleApiService;
 import novo.tvir.access.PasswordFormatValidator;
+import novo.tvir.access.signup.fragment.ErrorDialogFragment;
 import novo.tvir.access.signup.task.UserSignUpTask;
 import org.androidannotations.annotations.*;
 import org.androidannotations.annotations.res.IntegerRes;
@@ -42,8 +43,9 @@ import java.util.List;
 @EActivity(R.layout.activity_signup)
 public class SignUpActivity extends GoogleApiActivity implements LoaderCallbacks<Cursor> {
 
-    @NonConfigurationInstance @Bean UserSignUpTask userSignUpTask;
+    public static final int REQUEST_RESOLVE_ERROR = 49404;
 
+    @NonConfigurationInstance @Bean UserSignUpTask userSignUpTask;
     @ViewById(R.id.email) AutoCompleteTextView emailView;
     @ViewById(R.id.password) EditText passwordView;
     @ViewById(R.id.signup_progress) View progressView;
@@ -51,13 +53,12 @@ public class SignUpActivity extends GoogleApiActivity implements LoaderCallbacks
     @ViewById(R.id.plus_sign_up_button) SignInButton pusSignInButton;
     @ViewById(R.id.plus_sign_out_buttons) View signOutButtons;
     @ViewById(R.id.signup_form) View signUpFormView;
-    @IntegerRes(android.R.integer.config_shortAnimTime) int shortAnimTime;
 
+    @IntegerRes(android.R.integer.config_shortAnimTime) int shortAnimTime;
     @Bean EmailFormatValidator emailFormatValidator;
     @Bean PasswordFormatValidator passwordFormatValidator;
-    @Bean GoogleApiService googleApiService;
 
-    private static final int REQUEST_RESOLVE_ERROR = 49404;
+    @Bean GoogleApiService googleApiService;
 
     // A flag to stop multiple dialogues appearing for the user
     private boolean autoResolveOnFail;
@@ -176,11 +177,14 @@ public class SignUpActivity extends GoogleApiActivity implements LoaderCallbacks
     }
 
     private void initiatePlusClientDisconnect() {
-        googleApiService.disconnect();
+        if(googleApiService.isConnected()) {
+            googleApiService.disconnect();
+        }
     }
 
     @Click(R.id.plus_sign_out_button)
     public void signOut() {
+        googleApiService.clearDefaultAccount();
         initiatePlusClientDisconnect();
         updateConnectButtonState();
     }
@@ -188,7 +192,18 @@ public class SignUpActivity extends GoogleApiActivity implements LoaderCallbacks
 
     @Click(R.id.plus_disconnect_button)
     public void revokeAccess() {
-        initiatePlusClientDisconnect();
+        if(googleApiService.isConnected()) {
+            googleApiService.revokeAccessAndDisconnect(new ResultCallback<Status>() {
+                @Override
+                public void onResult(Status status) {
+                    log.info(status.getStatusMessage());
+                    if (status.isSuccess()) {
+                        Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_LONG).show();
+                        updateConnectButtonState();
+                    }
+                }
+            });
+        }
     }
 
     @Override
@@ -234,10 +249,10 @@ public class SignUpActivity extends GoogleApiActivity implements LoaderCallbacks
      *
      * @see #onConnectionFailed(ConnectionResult)
      */
-    @Override
-    protected void onActivityResult(int requestCode, int responseCode, Intent intent) {
+    @OnActivityResult(REQUEST_RESOLVE_ERROR)
+    void onRequestResolveErrorResult(int responseCode) {
         updateConnectButtonState();
-        if (requestCode == REQUEST_RESOLVE_ERROR && responseCode == RESULT_OK) {
+        if (responseCode == RESULT_OK) {
             // If we have a successful result, we will want to be able to resolve any further
             // errors, so turn on resolution with our flag.
             autoResolveOnFail = true;
@@ -245,7 +260,7 @@ public class SignUpActivity extends GoogleApiActivity implements LoaderCallbacks
             // errors to resolve we'll get our onConnectionFailed, but if not,
             // we'll get onConnected.
             initiatePlusClientConnect();
-        } else if (requestCode == REQUEST_RESOLVE_ERROR) {
+        } else {
             // If we've got an error we can't resolve, we're no longer in the midst of signing
             // in, so we can stop the progress spinner.
             setProgressBarVisible(false);
@@ -282,14 +297,12 @@ public class SignUpActivity extends GoogleApiActivity implements LoaderCallbacks
         }
     }
 
-    private static final String DIALOG_ERROR = "dialog_error";
-
     private void showErrorDialog(int errorCode) {
         // Create a fragment for the error dialog
         ErrorDialogFragment dialogFragment = new ErrorDialogFragment();
         // Pass the error that should be displayed
         Bundle args = new Bundle();
-        args.putInt(DIALOG_ERROR, errorCode);
+        args.putInt(ErrorDialogFragment.DIALOG_ERROR, errorCode);
         dialogFragment.setArguments(args);
         dialogFragment.show(getSupportFragmentManager(), "errordialog");
     }
@@ -299,23 +312,6 @@ public class SignUpActivity extends GoogleApiActivity implements LoaderCallbacks
         autoResolveOnFail = false;
         updateConnectButtonState();
         setProgressBarVisible(false);
-    }
-
-    /* A fragment to display an error dialog */
-    public static class ErrorDialogFragment extends DialogFragment {
-
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            // Get the error code and retrieve the appropriate dialog
-            int errorCode = this.getArguments().getInt(DIALOG_ERROR);
-            return GooglePlayServicesUtil.getErrorDialog(errorCode,
-                    this.getActivity(), REQUEST_RESOLVE_ERROR);
-        }
-
-        @Override
-        public void onDismiss(DialogInterface dialog) {
-            ((SignUpActivity) getActivity()).onDialogDismissed();
-        }
     }
 
 

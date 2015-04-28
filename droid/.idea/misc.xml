@@ -8,5 +8,5 @@
     <file type="web" url="file://$PROJECT_DIR$/../novotvir" />
   </component>
   <component name="IdProvider" IDEtalkID="C307EAD7F4BD8F07B468CA8CD9BA29C7" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" default="false" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
 </project>
