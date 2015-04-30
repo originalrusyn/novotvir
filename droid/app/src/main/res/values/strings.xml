@@ -17,7 +17,6 @@
     <string name="error_incorrect_password">Невірний формат</string>
     <string name="error_field_required">Обов’язкове поле</string>
 
-<!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="g_plus_scope">oauth2:server:client_id:673344638177-6rp180dkr0oi8lela1l26dsmg9i1a9ac.apps.googleusercontent.com:api_scope:https://www.googleapis.com/auth/plus.login</string>
 
 </resources>

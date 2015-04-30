@@ -1,10 +1,13 @@
 package novo.tvir.access.signup.activity;
 
+import android.accounts.AccountManager;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.app.Dialog;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.IntentSender;
 import android.content.Loader;
 import android.database.Cursor;
@@ -19,6 +22,9 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.Toast;
+import com.google.android.gms.auth.GooglePlayServicesAvailabilityException;
+import com.google.android.gms.auth.UserRecoverableAuthException;
+import com.google.android.gms.common.AccountPicker;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.SignInButton;
@@ -30,9 +36,11 @@ import novo.tvir.access.GoogleApiActivity;
 import novo.tvir.access.GoogleApiService;
 import novo.tvir.access.PasswordFormatValidator;
 import novo.tvir.access.signup.fragment.ErrorDialogFragment;
+import novo.tvir.access.signup.task.GetGoogleAuthTokenTask;
 import novo.tvir.access.signup.task.UserSignUpTask;
 import org.androidannotations.annotations.*;
 import org.androidannotations.annotations.res.IntegerRes;
+import service.NetworkService;
 import util.EmailFormatValidator;
 
 import java.util.ArrayList;
@@ -43,8 +51,12 @@ import java.util.List;
 public class SignUpActivity extends GoogleApiActivity implements LoaderCallbacks<Cursor> {
 
     public static final int REQUEST_RESOLVE_ERROR = 49404;
+    public static final int REQUEST_CODE_PICK_ACCOUNT = 1000;
+    static final int REQUEST_CODE_RECOVER_FROM_PLAY_SERVICES_ERROR = 1002;
 
     @NonConfigurationInstance @Bean UserSignUpTask userSignUpTask;
+    @NonConfigurationInstance @Bean GetGoogleAuthTokenTask googleAuthTokenTask;
+
     @ViewById(R.id.email) AutoCompleteTextView emailView;
     @ViewById(R.id.password) EditText passwordView;
     @ViewById(R.id.signup_progress) View progressView;
@@ -58,6 +70,9 @@ public class SignUpActivity extends GoogleApiActivity implements LoaderCallbacks
     @Bean PasswordFormatValidator passwordFormatValidator;
 
     @Bean GoogleApiService googleApiService;
+    @Bean NetworkService networkService;
+
+    String email;
 
     // A flag to stop multiple dialogues appearing for the user
     @InstanceState
@@ -158,19 +173,21 @@ public class SignUpActivity extends GoogleApiActivity implements LoaderCallbacks
 
     @Click(R.id.plus_sign_up_button)
     public void signUp() {
-        if (!googleApiService.isConnected()) {
-            setProgressBarVisible(true);
-            // Make sure that we will start the resolution (e.g. fire the intent and pop up a
-            // dialog for the user) for any errors that come in.
-            autoResolveOnFail = true;
-            if (connectionResult != null) {
-                startResolution();
-            } else {
-                initiatePlusClientConnect();
-            }
-        }
-
-        updateConnectButtonState();
+        Intent intent = AccountPicker.newChooseAccountIntent(null, null, new String[]{"com.google"}, false, null, null, null, null);
+        startActivityForResult(intent, REQUEST_CODE_PICK_ACCOUNT);
+//        if (!googleApiService.isConnected()) {
+//            setProgressBarVisible(true);
+//            // Make sure that we will start the resolution (e.g. fire the intent and pop up a
+//            // dialog for the user) for any errors that come in.
+//            autoResolveOnFail = true;
+//            if (connectionResult != null) {
+//                startResolution();
+//            } else {
+//                initiatePlusClientConnect();
+//            }
+//        }
+//
+//        updateConnectButtonState();
     }
 
     private void initiatePlusClientConnect() {
@@ -261,6 +278,32 @@ public class SignUpActivity extends GoogleApiActivity implements LoaderCallbacks
             // If we've got an error we can't resolve, we're no longer in the midst of signing
             // in, so we can stop the progress spinner.
             setProgressBarVisible(false);
+        }
+    }
+
+    @OnActivityResult(REQUEST_CODE_PICK_ACCOUNT)
+    void onRequestPickAccount(int responseCode, Intent data){
+        if (responseCode == RESULT_OK) {
+            if(networkService.isOnline()) {
+                email = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
+                googleAuthTokenTask.fetchToken(email);
+            }else{
+                Toast.makeText(this, "No network", Toast.LENGTH_SHORT).show();
+            }
+        } else if (responseCode == RESULT_CANCELED) {
+            Toast.makeText(this, "Canceled", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void handleException(UserRecoverableAuthException e){
+        if (e instanceof GooglePlayServicesAvailabilityException) {
+            log.info("The Google Play services APK is old, disabled, or not present. Show a dialog created by Google Play services that allows the user to update the APK");
+            int statusCode = ((GooglePlayServicesAvailabilityException)e).getConnectionStatusCode();
+            Dialog dialog = GooglePlayServicesUtil.getErrorDialog(statusCode, this, REQUEST_CODE_RECOVER_FROM_PLAY_SERVICES_ERROR);
+            dialog.show();
+        } else {
+            log.info("Unable to authenticate, such as when the user has not yet granted the app access to the account, but the user can fix this.");
+            startActivityForResult(e.getIntent(), REQUEST_CODE_RECOVER_FROM_PLAY_SERVICES_ERROR);
         }
     }
 
