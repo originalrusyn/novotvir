@@ -31,7 +31,7 @@ public class GetGoogleAuthTokenTask {
             String token = GoogleAuthUtil.getToken(signUpActivity, email, scope, extras);
             onFetchTokenComplete(token);
         } catch (IOException e) {
-
+            log.error("Some unrecoverable exception has occurred", e);
         }catch (UserRecoverableAuthException e){
             handleException(e);
         } catch (GoogleAuthException e) {

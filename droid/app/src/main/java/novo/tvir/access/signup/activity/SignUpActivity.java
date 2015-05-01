@@ -307,6 +307,20 @@ public class SignUpActivity extends GoogleApiActivity implements LoaderCallbacks
         }
     }
 
+    @OnActivityResult(REQUEST_CODE_RECOVER_FROM_PLAY_SERVICES_ERROR)
+    void onRequestRecoverFromPlayServicesError(int responseCode, Intent data){
+        if (responseCode == RESULT_OK) {
+            if(networkService.isOnline()) {
+                email = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
+                googleAuthTokenTask.fetchToken(email);
+            }else{
+                Toast.makeText(this, "No network", Toast.LENGTH_SHORT).show();
+            }
+        } else if (responseCode == RESULT_CANCELED) {
+            Toast.makeText(this, "Canceled", Toast.LENGTH_SHORT).show();
+        }
+    }
+
     @Override
     public void onConnected(Bundle connectionHint) {
         updateConnectButtonState();
