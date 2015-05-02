@@ -7,10 +7,8 @@ import com.google.android.gms.auth.UserRecoverableAuthException;
 import lombok.extern.slf4j.Slf4j;
 import novo.tvir.R;
 import novo.tvir.access.signup.activity.SignUpActivity;
-import org.androidannotations.annotations.Background;
-import org.androidannotations.annotations.EBean;
-import org.androidannotations.annotations.RootContext;
-import org.androidannotations.annotations.UiThread;
+import novo.tvir.access.signup.service.SignUpByGoogleService;
+import org.androidannotations.annotations.*;
 import org.androidannotations.annotations.res.StringRes;
 
 import java.io.IOException;
@@ -22,6 +20,7 @@ public class GetGoogleAuthTokenTask {
 
     @RootContext SignUpActivity signUpActivity;
     @StringRes(R.string.g_plus_scope) String scope;
+    @Bean SignUpByGoogleService signUpByGoogleService;
 
     @Background
     public void fetchToken(String email){
@@ -29,6 +28,7 @@ public class GetGoogleAuthTokenTask {
             Bundle extras = new Bundle();
             //extras.putString(GoogleAuthUtil.KEY_REQUEST_VISIBLE_ACTIVITIES, "");
             String token = GoogleAuthUtil.getToken(signUpActivity, email, scope, extras);
+            signUpByGoogleService.signup(token);
             onFetchTokenComplete(token);
         } catch (IOException e) {
             log.error("Some unrecoverable exception has occurred", e);

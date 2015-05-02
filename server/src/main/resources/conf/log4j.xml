@@ -47,6 +47,18 @@
         <appender-ref ref="stderr"/>
     </logger>
 
+    <logger name="httpclient.wire" additivity="false">
+        <level value="DEBUG"/>
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="stderr"/>
+    </logger>
+
+    <logger name="org.apache.commons" additivity="false">
+        <level value="DEBUG"/>
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="stderr"/>
+    </logger>
+
     <root>
         <level value="INFO"/>
         <appender-ref ref="stdout"/>

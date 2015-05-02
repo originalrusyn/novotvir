@@ -5,6 +5,7 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.springframework.social.facebook.api.FacebookProfile;
+import org.springframework.social.google.api.plus.Person;
 
 import static lombok.AccessLevel.PRIVATE;
 import static org.apache.commons.lang.RandomStringUtils.random;
@@ -21,6 +22,7 @@ public class RegDto {
     public String email;
     public String token;
     public String facebookId;
+    public String googleId;
 
     public static RegDto getInstance(FacebookProfile facebookProfile){
         return new RegDto().setEmail(facebookProfile.getEmail()).setName(facebookProfile.getId()).setFacebookId(facebookProfile.getId()).setToken(random(6));
@@ -28,5 +30,9 @@ public class RegDto {
 
     public static RegDto getInstance(UserRegDetailsDto userRegDetailsDto){
         return new RegDto().setEmail(userRegDetailsDto.email).setName(userRegDetailsDto.email).setToken(userRegDetailsDto.token);
+    }
+
+    public static RegDto getInstance(Person person) {
+        return new RegDto().setEmail(person.getAccountEmail()).setName(person.getId()).setGoogleId(person.getId()).setToken(random(6));
     }
 }
