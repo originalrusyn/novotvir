@@ -5,13 +5,13 @@ import novotvir.dto.CriteriaSuggestionsDTO;
 import novotvir.persistence.domain.User;
 import novotvir.service.UserSearchSuggestionService;
 import novotvir.service.UsersService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
 import java.util.Set;
 
 import static java.util.Objects.nonNull;
@@ -22,8 +22,8 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 @RequestMapping("/admin")
 @Slf4j
 public class UsersController {
-    @Autowired UsersService usersService;
-    @Autowired UserSearchSuggestionService userSearchSuggestionService;
+    @Resource UsersService usersService;
+    @Resource UserSearchSuggestionService userSearchSuggestionService;
 
     @RequestMapping(value = {"/criteria"}, method = GET)
     public @ResponseBody CriteriaSuggestionsDTO get(){

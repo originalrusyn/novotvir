@@ -2,10 +2,11 @@ package novotvir.controller;
 
 import novotvir.dto.VersionDto;
 import novotvir.service.VersionService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.annotation.Resource;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
@@ -14,8 +15,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 @RequestMapping("/web")
 public class VersionController {
 
-    @Autowired
-    VersionService versionService;
+    @Resource VersionService versionService;
 
     @RequestMapping(value = "/version", method = GET)
     public ModelAndView getVersionModelAndView(){

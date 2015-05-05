@@ -2,11 +2,11 @@ package novotvir.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import novotvir.service.CustomMessageSource;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.Resource;
 import java.util.concurrent.Callable;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
@@ -17,8 +17,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 @RequestMapping("/web")
 public class AsyncController {
 
-    @Autowired
-    CustomMessageSource messageSource;
+    @Resource CustomMessageSource customMessageSource;
 
     @RequestMapping(value = "/do", method = GET)
     @ResponseBody
