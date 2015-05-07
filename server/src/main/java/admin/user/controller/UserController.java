@@ -1,6 +1,6 @@
 package admin.user.controller;
 
-import admin.user.dto.CriteriaSuggestionsDto;
+import admin.user.dto.CriteriaSuggestionsDTO;
 import admin.user.service.UserSearchSuggestionServiceImpl;
 import admin.user.service.UserServiceImpl;
 import lombok.extern.slf4j.Slf4j;
@@ -27,7 +27,7 @@ public class UserController {
 
     @RequestMapping(value = {"/criteria"}, method = GET)
     public @ResponseBody
-    CriteriaSuggestionsDto getCriteriaSuggestionsDTO(){
+    CriteriaSuggestionsDTO getCriteriaSuggestionsDTO(){
         return userSearchSuggestionService.getCriteriaSuggestionsDTO();
     }
 

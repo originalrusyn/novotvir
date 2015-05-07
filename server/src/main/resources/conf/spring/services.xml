@@ -9,7 +9,9 @@
 
     <context:annotation-config/>
 
-    <context:component-scan base-package="novotvir.service"/>
+    <context:component-scan base-package="admin, common, web">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+    </context:component-scan>
 
     <import resource="components.xml"/>
     <import resource="messages.xml"/>

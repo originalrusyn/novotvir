@@ -1,6 +1,6 @@
 package admin.user.service;
 
-import admin.user.dto.CriteriaSuggestionsDto;
+import admin.user.dto.CriteriaSuggestionsDTO;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
@@ -20,7 +20,7 @@ public class UserSearchSuggestionServiceImpl {
 
     @PersistenceContext EntityManager entityManager;
 
-    public CriteriaSuggestionsDto getCriteriaSuggestionsDTO() {
+    public CriteriaSuggestionsDTO getCriteriaSuggestionsDTO() {
 
         Metamodel metaModel = entityManager.getMetamodel();
 
@@ -31,6 +31,6 @@ public class UserSearchSuggestionServiceImpl {
             suggestions.addAll(managedType.getAttributes().stream().map(attribute -> aliasClassEntry.getKey() + "." + attribute.getName()).collect(Collectors.toList()));
         }
 
-        return new CriteriaSuggestionsDto().setSuggestions(suggestions);
+        return new CriteriaSuggestionsDTO().setSuggestions(suggestions);
     }
 }
