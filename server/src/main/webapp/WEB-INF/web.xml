@@ -68,7 +68,7 @@
         </init-param>
         <init-param>
             <param-name>contextClass</param-name>
-            <param-value>novotvir.utils.XmlWebApplicationContextWithDisabledValidation</param-value>
+            <param-value>common.util.XmlWebApplicationContextWithDisabledValidation</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
         <async-supported>true</async-supported>

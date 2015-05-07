@@ -2,13 +2,13 @@ package command.v1;
 
 import command.AbstractCommand;
 import command.SignUp;
-import novotvir.dto.AccountDto;
-import novotvir.dto.UserRegDetailsDto;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import web.account.dto.AccountDto;
+import web.signup.email.dto.UserRegDetailsDto;
 
 import java.util.List;
 import java.util.Locale;

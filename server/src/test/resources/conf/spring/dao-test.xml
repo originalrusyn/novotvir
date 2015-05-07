@@ -45,7 +45,7 @@
     <bean id="dataSource"
           depends-on="org.springframework.jdbc.datasource.init.DataSourceInitializer#0"
           destroy-method="close"
-          class="novotvir.util.CustomDataSource"
+          class="common.util.CustomDataSource"
           p:removeAbandoned="${jdbc.removeAbandoned}"
           p:removeAbandonedTimeout="${jdbc.removeAbandonedTimeout}"
           p:testOnBorrow="${jdbc.testOnBorrow}"

@@ -103,7 +103,7 @@
           p:userPropertyToUse="username" />
 
     <bean id="customRememberMeServices"
-          class="novotvir.security.service.impl.CustomTokenBasedRememberMeServicesImpl"
+          class="common.security.service.impl.CustomTokenBasedRememberMeServicesImpl"
           p:cookieName="${rememberMe.cookieName}"
           p:tokenValiditySeconds="${rememberMe.tokenValiditySeconds}"
           p:alwaysRemember="true"
@@ -112,7 +112,7 @@
           c:userDetailsService-ref="userDetailsService"/>
 
     <bean id="adminCustomRememberMeServices"
-          class="novotvir.security.service.impl.CustomTokenBasedRememberMeServicesImpl"
+          class="common.security.service.impl.CustomTokenBasedRememberMeServicesImpl"
           p:cookieName="${admin.rememberMe.cookieName}"
           p:tokenValiditySeconds="${admin.rememberMe.tokenValiditySeconds}"
           p:alwaysRemember="true"
@@ -120,26 +120,26 @@
           c:userDetailsService-ref="adminDetailsService"/>
 
     <bean id="rememberMeSuccessfulHandler"
-          class="novotvir.security.handler.impl.RememberMeSuccessfulHandler"
+          class="web.security.handler.impl.RememberMeSuccessfulHandler"
           p:userRepository-ref="userRepository" />
 
     <bean id="nullAuthoritiesMapper"
           class="org.springframework.security.core.authority.mapping.NullAuthoritiesMapper"/>
 
     <bean id="facebookUserDetailsAuthProvider"
-          class="novotvir.security.social.facebook.provider.impl.FacebookUserDetailsAuthProviderImpl"
+          class="web.security.social.facebook.provider.impl.FacebookUserDetailsAuthProviderImpl"
           p:facebookProfileRegService-ref="facebookProfileRegService"
           p:userDetailsService-ref="userDetailsService"
           p:authoritiesMapper-ref="nullAuthoritiesMapper"/>
 
     <bean id="googleUserDetailsAuthProvider"
-          class="novotvir.security.social.google.provider.impl.GoogleUserDetailsAuthProviderImpl"
+          class="web.security.social.google.provider.impl.GoogleUserDetailsAuthProviderImpl"
           p:googleProfileRegService-ref="googleProfileRegService"
           p:userDetailsService-ref="userDetailsService"
           p:authoritiesMapper-ref="nullAuthoritiesMapper"/>
 
     <bean id="facebookAuthFilter"
-          class="novotvir.security.social.facebook.filter.impl.FacebookAuthFilterImpl"
+          class="web.security.social.facebook.filter.impl.FacebookAuthFilterImpl"
           p:rememberMeServices-ref="customRememberMeServices"
           p:authenticationManager-ref="authenticationManager"
           p:authenticationSuccessHandler-ref="simpleUrlAuthenticationSuccessHandler"
@@ -149,7 +149,7 @@
           c:defaultFilterProcessesUrl="/web/facebook_auth" />
 
     <bean id="googleAuthFilter"
-          class="novotvir.security.social.google.filter.impl.GoogleAuthFilterImpl"
+          class="web.security.social.google.filter.impl.GoogleAuthFilterImpl"
           p:rememberMeServices-ref="customRememberMeServices"
           p:authenticationManager-ref="authenticationManager"
           p:authenticationSuccessHandler-ref="simpleUrlAuthenticationSuccessHandler"
@@ -171,58 +171,58 @@
           class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler"
           p:defaultFailureUrl="/web/signin.html?google_error=true" />
 
-    <bean id="passwordEncoder" class="novotvir.security.encoder.impl.PasswordEncoderImpl" />
+    <bean id="passwordEncoder" class="web.security.encoder.impl.PasswordEncoderImpl" />
 
     <bean id="adminDetailsService"
-          class="novotvir.security.service.impl.AdminDetailsServiceImpl"
+          class="admin.security.impl.AdminDetailsServiceImpl"
           p:adminRepository-ref="adminRepository" />
 
     <bean id="userDetailsService"
-          class="novotvir.security.service.impl.UserDetailsServiceImpl"
+          class="web.security.service.impl.UserDetailsServiceImpl"
           p:userRepository-ref="userRepository" />
 
     <bean id="facebookRedirectUriService"
-          class="novotvir.security.social.facebook.service.impl.FacebookRedirectUriServiceImpl"
+          class="web.security.social.facebook.service.impl.FacebookRedirectUriServiceImpl"
           p:facebookRedirectUri="${facebook.connect.redirectUrl}" />
 
     <bean id="googleRedirectUriService"
-          class="novotvir.security.social.google.service.impl.GoogleRedirectUriServiceImpl"
+          class="web.security.social.google.service.impl.GoogleRedirectUriServiceImpl"
           p:googleRedirectUri="${google.connect.redirectUrl}" />
 
     <bean id="facebookAuthUrlService"
-          class="novotvir.security.social.facebook.service.impl.FacebookAuthUrlServiceImpl"
+          class="web.security.social.facebook.service.impl.FacebookAuthUrlServiceImpl"
           p:facebookConnectionFactory-ref="facebookConnectionFactory"
           p:facebookRedirectUriService-ref="facebookRedirectUriService"/>
 
     <bean id="googleAuthUrlService"
-          class="novotvir.security.social.google.service.impl.GoogleAuthUrlServiceImpl"
+          class="web.security.social.google.service.impl.GoogleAuthUrlServiceImpl"
           p:googleConnectionFactory-ref="googleConnectionFactory"
           p:googleRedirectUriService-ref="googleRedirectUriService"/>
 
     <bean id="facebookProfileService"
-          class="novotvir.security.social.facebook.service.impl.FacebookProfileServiceImpl"
+          class="web.security.social.facebook.service.impl.FacebookProfileServiceImpl"
           p:facebookConnectionFactory-ref="facebookConnectionFactory"
           p:facebookRedirectUriService-ref="facebookRedirectUriService"/>
 
     <bean id="googleProfileService"
-          class="novotvir.security.social.google.service.impl.GoogleProfileServiceImpl"
+          class="web.security.social.google.service.impl.GoogleProfileServiceImpl"
           p:googleConnectionFactory-ref="googleConnectionFactory"
           p:googleRedirectUriService-ref="googleRedirectUriService"/>
 
     <bean id="facebookProfileRegService"
-          class="novotvir.security.social.facebook.service.impl.FacebookProfileRegServiceImpl"
+          class="web.security.social.facebook.service.impl.FacebookProfileRegServiceImpl"
           p:userFacebookRegService-ref="userFacebookRegService"/>
 
     <bean id="googleProfileRegService"
-          class="novotvir.security.social.google.service.impl.GoogleProfileRegServiceImpl"
+          class="web.security.social.google.service.impl.GoogleProfileRegServiceImpl"
           p:userGoogleRegService-ref="userGoogleRegService"/>
 
     <bean id="afterRememberMeFilter"
-          class="novotvir.security.filter.impl.AfterRememberMeFilter"
+          class="common.security.filter.impl.AfterRememberMeFilter"
           p:tokenBasedRememberMeServices-ref="customRememberMeServices"/>
 
     <bean id="adminAfterRememberMeFilter"
-          class="novotvir.security.filter.impl.AfterRememberMeFilter"
+          class="common.security.filter.impl.AfterRememberMeFilter"
           p:tokenBasedRememberMeServices-ref="adminCustomRememberMeServices"/>
 
     <bean id="facebookConnectionFactory"
@@ -236,11 +236,11 @@
           c:clientSecret="${google.connect.clientSecret}"/>
 
     <bean id="accountSavedRequestAwareAuthSuccessHandler"
-          class="novotvir.security.handler.impl.AccountSavedRequestAwareAuthSuccessHandler"
+          class="web.security.handler.impl.AccountSavedRequestAwareAuthSuccessHandler"
           p:alwaysUseDefaultTargetUrl="true"
           p:defaultTargetUrl="/web/"
           p:redirectStrategy-ref="redirectStrategy"/>
 
-    <bean id="redirectStrategy" class="novotvir.security.strategy.impl.RedirectStrategy"/>
+    <bean id="redirectStrategy" class="web.security.strategy.impl.RedirectStrategy"/>
 
 </beans>

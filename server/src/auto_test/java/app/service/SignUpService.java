@@ -2,15 +2,15 @@ package app.service;
 
 import command.SignUp;
 import command.v1.SignUpV1;
-import features.domain.Application;
-import novotvir.dto.AccountDto;
-import novotvir.dto.UserRegDetailsDto;
+import feature.domain.Application;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.util.MultiValueMap;
+import web.account.dto.AccountDto;
+import web.signup.email.dto.UserRegDetailsDto;
 
-import static features.domain.Application.randomToken;
+import static feature.domain.Application.randomToken;
 import static org.springframework.http.HttpMethod.POST;
 
 // @author: Mykhaylo Titov on 09.01.15 23:05.

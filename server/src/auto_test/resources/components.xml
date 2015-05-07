@@ -15,21 +15,21 @@
 
     <util:constant
             id="uk_UA_LOCALE"
-            static-field="novotvir.service.CustomMessageSource.uk_UA_LOCALE"/>
+            static-field="common.service.CustomMessageSource.uk_UA_LOCALE"/>
 
     <util:constant
             id="en_UK_LOCALE"
             static-field="java.util.Locale.UK"/>
 
     <bean id="ukUaMessageSource"
-          class="utils.invokers.MessageSourceImpl"
+          class="util.invoker.MessageSourceImpl"
           p:locale="#{uk_UA_LOCALE}"/>
 
     <bean id="enUKMessageSource"
-          class="utils.invokers.MessageSourceImpl"
+          class="util.invoker.MessageSourceImpl"
           p:locale="#{en_UK_LOCALE}"/>
 
-    <util:list id="messageSources" value-type="utils.invokers.MessageSourceImpl">
+    <util:list id="messageSources" value-type="util.invoker.MessageSourceImpl">
         <ref bean="ukUaMessageSource"/>
         <ref bean="enUKMessageSource"/>
     </util:list>
@@ -62,9 +62,6 @@
           p:algorithm="PBEWithMD5AndDES"
           p:passwordSysPropertyName="pwd"/>
 
-    <context:annotation-config/>
-    <context:component-scan base-package="utils.invokers, checkers, app.service"/>
-
     <bean id="httpClientBuilder"
           class="org.apache.http.impl.client.HttpClientBuilder"
           init-method="disableRedirectHandling"/>
@@ -87,4 +84,8 @@
           destroy-method="stop"
           p:hostname="${mail.smtp.host}"
           p:port="${mail.smtp.port}"/>
+
+    <context:annotation-config/>
+    <context:component-scan base-package="util.invoker, checker, app.service"/>
+
 </beans>

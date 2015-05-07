@@ -16,8 +16,8 @@
           p:exitMessage="Leaving $[targetClassShortName].$[methodName](): $[returnValue]"/>
 
     <aop:config>
-        <aop:advisor advice-ref="customizableTraceInterceptor" pointcut="execution(public * novotvir.controller..*(..))"/>
-        <aop:advisor advice-ref="customizableTraceInterceptor" pointcut="execution(public * novotvir.service.impl..*(..))"/>
-        <aop:advisor advice-ref="customizableTraceInterceptor" pointcut="execution(public * novotvir.executors.impl..*(..))"/>
+        <aop:advisor advice-ref="customizableTraceInterceptor" pointcut="execution(public * common.controller..*(..))"/>
+        <aop:advisor advice-ref="customizableTraceInterceptor" pointcut="execution(public * common.service.impl..*(..))"/>
+        <aop:advisor advice-ref="customizableTraceInterceptor" pointcut="execution(public * common.executor.impl..*(..))"/>
     </aop:config>
 </beans>

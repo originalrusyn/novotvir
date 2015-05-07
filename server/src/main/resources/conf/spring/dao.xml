@@ -32,7 +32,7 @@
 
     <bean id="entityManagerFactory"
           class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
-          p:packagesToScan="novotvir.persistence.domain"
+          p:packagesToScan="admin.persistence.domain, web.persistence.domain"
           p:dataSource-ref="dataSource"
           p:jpaPropertyMap-ref="jpaPropertyMap"
           p:jpaVendorAdapter-ref="hibernateVendor"
@@ -67,13 +67,10 @@
           p:entityManagerFactory-ref="entityManagerFactory"/>
 
     <jpa:repositories
-            base-package="novotvir.persistence.repository"
+            base-package="admin.persistence.repository, web.persistence.repository"
             entity-manager-factory-ref="entityManagerFactory"
             transaction-manager-ref="transactionManager"/>
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
-
-    <context:annotation-config/>
-    <context:component-scan base-package="novotvir.executors"/>
 
 </beans>

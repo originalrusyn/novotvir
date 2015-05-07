@@ -2,9 +2,9 @@ package app.service;
 
 import command.ActivateAccount;
 import command.v1.ActivateAccountV1;
-import features.domain.Application;
+import feature.domain.Application;
 import lombok.extern.slf4j.Slf4j;
-import novotvir.dto.AccountDto;
+import web.account.dto.AccountDto;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

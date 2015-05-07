@@ -1,6 +1,6 @@
 package command;
 
-import novotvir.dto.AccountDto;
+import web.account.dto.AccountDto;
 
 import java.util.Locale;
 
