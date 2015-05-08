@@ -1,4 +1,4 @@
-package common.security.filter.impl;
+package web.security.filter.impl;
 
 import lombok.Setter;
 import org.springframework.security.core.Authentication;

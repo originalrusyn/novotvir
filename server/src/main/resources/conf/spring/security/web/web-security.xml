@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:sec="http://www.springframework.org/schema/security"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security.xsd">
+
+    <import resource="../common.xml"/>
+    <import resource="social/facebook.xml"/>
+    <import resource="social/gplus.xml"/>
+
+    <sec:http create-session="stateless" pattern="/web/.*" authentication-manager-ref="authenticationManager" use-expressions="true" request-matcher="regex">
+        <sec:anonymous/>
+
+        <sec:intercept-url pattern="/web/doc.*" access="hasRole('DEV')" />
+        <sec:intercept-url pattern="/web/api-docs.*" access="hasRole('DEV')" />
+        <sec:intercept-url pattern="/web/reg_successful" access="permitAll"/>
+        <sec:intercept-url pattern="/web/users/.*\?((activationToken=.*_method=PUT)|(_method=PUT.*activationToken=.*))" access="permitAll" method="GET" />
+        <sec:intercept-url pattern="/web/users/.*(^\?((activationToken=.*_method=PUT)|(_method=PUT.*activationToken=.*)))" access="authenticated" method="GET" />
+        <sec:intercept-url pattern="/web/assets/.*" access="permitAll" method="GET" />
+        <sec:intercept-url pattern="/web/signup.*" access="permitAll" />
+        <sec:intercept-url pattern="/web/signin.*" access="permitAll" />
+        <sec:intercept-url pattern="/web/signout" access="permitAll" />
+        <sec:intercept-url pattern="/web/restore_password.*" access="permitAll" />
+        <sec:intercept-url pattern="/web/faq.*" access="permitAll" />
+        <sec:intercept-url pattern="/web/terms.*" access="permitAll" />
+        <sec:intercept-url pattern="/web/privacy_policy.*" access="permitAll" />
+        <sec:intercept-url pattern="/web/error.*" access="permitAll" />
+        <sec:intercept-url pattern="/web/internal_server_error.*" access="permitAll" />
+        <sec:intercept-url pattern="/web/page_not_found.*" access="permitAll" />
+        <sec:intercept-url pattern="/web/.*" access="authenticated" />
+
+        <sec:custom-filter before="FORM_LOGIN_FILTER" ref="facebookAuthFilter" />
+        <sec:custom-filter position="CAS_FILTER" ref="googleAuthFilter" />
+
+        <sec:form-login
+                        authentication-success-handler-ref="accountSavedRequestAwareAuthSuccessHandler"
+                        authentication-failure-url="/web/signin.html?error"
+                        login-page="/web/signin.html"
+                        password-parameter="token"
+                        username-parameter="email"
+                        login-processing-url="/web/signin"/>
+
+        <sec:logout logout-success-url="/web/signin.html"
+                    logout-url="/web/signout"
+                    delete-cookies="JSESSIONID" />
+
+        <sec:remember-me key="${rememberMe.key}" services-ref="customRememberMeServices" />
+
+        <sec:custom-filter after="REMEMBER_ME_FILTER" ref="afterRememberMeFilter" />
+    </sec:http>
+
+    <sec:authentication-manager id="authenticationManager" alias="authenticationManager">
+        <sec:authentication-provider user-service-ref="userDetailsService">
+            <sec:password-encoder ref="passwordEncoder">
+                <sec:salt-source ref="saltSource" />
+            </sec:password-encoder>
+        </sec:authentication-provider>
+
+        <sec:authentication-provider ref="facebookUserDetailsAuthProvider"/>
+        <sec:authentication-provider ref="googleUserDetailsAuthProvider"/>
+    </sec:authentication-manager>
+
+    <sec:authentication-manager id="authenticationManagerWithoutPasswordEncoder" alias="authenticationManagerWithoutPasswordEncoder">
+        <sec:authentication-provider user-service-ref="userDetailsService">
+        </sec:authentication-provider>
+    </sec:authentication-manager>
+
+    <bean id="customRememberMeServices"
+          class="common.security.service.impl.CustomTokenBasedRememberMeServicesImpl"
+          p:cookieName="${rememberMe.cookieName}"
+          p:tokenValiditySeconds="${rememberMe.tokenValiditySeconds}"
+          p:alwaysRemember="true"
+          p:successHandler-ref="rememberMeSuccessfulHandler"
+          c:key="${rememberMe.key}"
+          c:userDetailsService-ref="userDetailsService"/>
+
+    <bean id="userDetailsService"
+          class="web.security.service.impl.UserDetailsServiceImpl"
+          p:userRepository-ref="userRepository" />
+
+    <bean id="rememberMeSuccessfulHandler"
+          class="web.security.handler.impl.RememberMeSuccessfulHandler"
+          p:userRepository-ref="userRepository" />
+
+    <bean id="accountSavedRequestAwareAuthSuccessHandler"
+          class="web.security.handler.impl.AccountSavedRequestAwareAuthSuccessHandler"
+          p:alwaysUseDefaultTargetUrl="true"
+          p:defaultTargetUrl="/web/"
+          p:redirectStrategy-ref="redirectStrategy"/>
+
+    <bean id="afterRememberMeFilter"
+          class="web.security.filter.impl.AfterRememberMeFilter"
+          p:tokenBasedRememberMeServices-ref="customRememberMeServices"/>
+
+    <bean id="redirectStrategy" class="web.security.strategy.impl.RedirectStrategy"/>
+</beans>

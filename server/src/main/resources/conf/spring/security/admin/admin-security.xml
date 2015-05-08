@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:sec="http://www.springframework.org/schema/security"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security.xsd">
+
+    <import resource="../common.xml"/>
+
+    <sec:http create-session="stateless" pattern="/admin/.*" authentication-manager-ref="adminAuthenticationManager" use-expressions="true" request-matcher="regex">
+        <sec:anonymous/>
+
+        <sec:intercept-url pattern="/admin/signin.*" access="permitAll" />
+        <sec:intercept-url pattern="/admin/.*" access="authenticated" />
+
+        <sec:form-login default-target-url="/admin/account.html"
+                        authentication-failure-url="/admin/signin.html?error"
+                        login-page="/admin/signin.html"
+                        password-parameter="token"
+                        username-parameter="email"
+                        login-processing-url="/admin/signin"/>
+
+        <sec:logout logout-success-url="/admin/signin.html"
+                    logout-url="/admin/signout"
+                    delete-cookies="JSESSIONID" />
+
+        <sec:remember-me key="${admin.rememberMe.key}" services-ref="adminCustomRememberMeServices" />
+
+        <sec:custom-filter after="REMEMBER_ME_FILTER" ref="adminAfterRememberMeFilter" />
+    </sec:http>
+
+    <sec:authentication-manager id="adminAuthenticationManager" alias="adminAuthenticationManager">
+        <sec:authentication-provider user-service-ref="adminDetailsService">
+            <sec:password-encoder ref="passwordEncoder">
+                <sec:salt-source ref="saltSource" />
+            </sec:password-encoder>
+        </sec:authentication-provider>
+    </sec:authentication-manager>
+
+    <bean id="adminCustomRememberMeServices"
+          class="common.security.service.impl.CustomTokenBasedRememberMeServicesImpl"
+          p:cookieName="${admin.rememberMe.cookieName}"
+          p:tokenValiditySeconds="${admin.rememberMe.tokenValiditySeconds}"
+          p:alwaysRemember="true"
+          c:key="${admin.rememberMe.key}"
+          c:userDetailsService-ref="adminDetailsService"/>
+
+    <bean id="rememberMeSuccessfulHandler"
+          class="web.security.handler.impl.RememberMeSuccessfulHandler"
+          p:userRepository-ref="userRepository" />
+
+    <bean id="nullAuthoritiesMapper"
+          class="org.springframework.security.core.authority.mapping.NullAuthoritiesMapper"/>
+
+    <bean id="simpleUrlAuthenticationSuccessHandler"
+          class="org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler"
+          p:defaultTargetUrl="/web/"
+          p:alwaysUseDefaultTargetUrl="true"/>
+
+    <bean id="passwordEncoder" class="web.security.encoder.impl.PasswordEncoderImpl" />
+
+    <bean id="adminDetailsService"
+          class="admin.security.service.impl.AdminDetailsServiceImpl"
+          p:adminRepository-ref="adminRepository" />
+
+    <bean id="adminAfterRememberMeFilter"
+          class="web.security.filter.impl.AfterRememberMeFilter"
+          p:tokenBasedRememberMeServices-ref="adminCustomRememberMeServices"/>
+
+</beans>

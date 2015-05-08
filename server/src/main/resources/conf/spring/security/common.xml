@@ -9,9 +9,18 @@
        http://www.springframework.org/schema/security
        http://www.springframework.org/schema/security/spring-security.xsd">
 
-    <sec:http pattern="/version" security="none"/>
+    <bean id="saltSource"
+          class="org.springframework.security.authentication.dao.ReflectionSaltSource"
+          p:userPropertyToUse="username" />
 
-    <import resource="security/web/web-security.xml"/>
-    <import resource="security/admin/admin-security.xml"/>
+    <bean id="nullAuthoritiesMapper"
+          class="org.springframework.security.core.authority.mapping.NullAuthoritiesMapper"/>
+
+    <bean id="simpleUrlAuthenticationSuccessHandler"
+          class="org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler"
+          p:defaultTargetUrl="/web/"
+          p:alwaysUseDefaultTargetUrl="true"/>
+
+    <bean id="passwordEncoder" class="web.security.encoder.impl.PasswordEncoderImpl" />
 
 </beans>

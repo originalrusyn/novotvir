@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:sec="http://www.springframework.org/schema/security"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security.xsd">
+
+    <bean id="facebookUserDetailsAuthProvider"
+          class="web.security.social.facebook.provider.impl.FacebookUserDetailsAuthProviderImpl"
+          p:facebookProfileRegService-ref="facebookProfileRegService"
+          p:userDetailsService-ref="userDetailsService"
+          p:authoritiesMapper-ref="nullAuthoritiesMapper"/>
+
+    <bean id="facebookAuthFilter"
+          class="web.security.social.facebook.filter.impl.FacebookAuthFilterImpl"
+          p:rememberMeServices-ref="customRememberMeServices"
+          p:authenticationManager-ref="authenticationManager"
+          p:authenticationSuccessHandler-ref="simpleUrlAuthenticationSuccessHandler"
+          p:authenticationFailureHandler-ref="facebookSimpleUrlAuthenticationFailureHandler"
+          p:facebookAuthUrlService-ref="facebookAuthUrlService"
+          p:facebookProfileService-ref="facebookProfileService"
+          c:defaultFilterProcessesUrl="/web/facebook_auth" />
+
+    <bean id="facebookSimpleUrlAuthenticationFailureHandler"
+            class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler"
+            p:defaultFailureUrl="/web/signin.html?facebook_error=true" />
+
+    <bean id="facebookRedirectUriService"
+          class="web.security.social.facebook.service.impl.FacebookRedirectUriServiceImpl"
+          p:facebookRedirectUri="${facebook.connect.redirectUrl}" />
+
+    <bean id="facebookAuthUrlService"
+          class="web.security.social.facebook.service.impl.FacebookAuthUrlServiceImpl"
+          p:facebookConnectionFactory-ref="facebookConnectionFactory"
+          p:facebookRedirectUriService-ref="facebookRedirectUriService"/>
+
+    <bean id="facebookProfileService"
+          class="web.security.social.facebook.service.impl.FacebookProfileServiceImpl"
+          p:facebookConnectionFactory-ref="facebookConnectionFactory"
+          p:facebookRedirectUriService-ref="facebookRedirectUriService"/>
+
+    <bean id="facebookProfileRegService"
+          class="web.security.social.facebook.service.impl.FacebookProfileRegServiceImpl"
+          p:userFacebookRegService-ref="userFacebookRegService"/>
+
+    <bean id="facebookConnectionFactory"
+          class="org.springframework.social.facebook.connect.FacebookConnectionFactory"
+          c:appId="${facebook.connect.appId}"
+          c:appSecret="${facebook.connect.appSecret}"/>
+
+</beans>

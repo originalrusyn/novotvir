@@ -2,14 +2,14 @@ package web.security.social.facebook.filter.impl;
 
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import web.security.social.facebook.service.FacebookAuthUrlService;
-import web.security.social.facebook.service.FacebookProfileService;
-import web.security.social.facebook.token.impl.FacebookAuthenticationToken;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
-import org.springframework.social.facebook.api.FacebookProfile;
+import org.springframework.social.facebook.api.User;
+import web.security.social.facebook.service.FacebookAuthUrlService;
+import web.security.social.facebook.service.FacebookProfileService;
+import web.security.social.facebook.token.impl.FacebookAuthenticationToken;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -40,7 +40,7 @@ public class FacebookAuthFilterImpl extends AbstractAuthenticationProcessingFilt
         if (isNull(code)) {
             response.sendRedirect(authorizeUrl);
         } else {
-            FacebookProfile facebookProfile = facebookProfileService.getFacebookProfile(code, signUp);
+            User facebookProfile = facebookProfileService.getFacebookProfile(code, signUp);
             authentication = new FacebookAuthenticationToken(facebookProfile, signUp);
 
             AuthenticationManager authenticationManager = getAuthenticationManager();

@@ -3,7 +3,6 @@ package web.security.social.facebook.service.impl;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.social.facebook.api.FacebookProfile;
 import web.persistence.domain.User;
 import web.security.credential.impl.UserDetailsImpl;
 import web.security.social.facebook.service.FacebookProfileRegService;
@@ -16,7 +15,7 @@ public class FacebookProfileRegServiceImpl implements FacebookProfileRegService 
     @Setter UserFacebookRegServiceImpl userFacebookRegService;
 
     @Override
-    public UserDetails registerUser(FacebookProfile facebookProfile){
+    public UserDetails registerUser(org.springframework.social.facebook.api.User facebookProfile){
         User user = userFacebookRegService.registerUser(facebookProfile);
         return new UserDetailsImpl(user);
     }

@@ -5,7 +5,7 @@ import lombok.ToString;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.social.facebook.api.FacebookProfile;
+import org.springframework.social.facebook.api.User;
 
 import java.util.Collection;
 
@@ -17,7 +17,7 @@ public class FacebookAuthenticationToken extends AbstractAuthenticationToken {
     private static final long serialVersionUID = 4205964421055985979L;
 
     private Object credentials;
-    private FacebookProfile facebookProfile;
+    private User facebookProfile;
     private UserDetails principal;
     private boolean signUp;
 
@@ -26,7 +26,7 @@ public class FacebookAuthenticationToken extends AbstractAuthenticationToken {
         this.principal = userDetails;
     }
 
-    public FacebookAuthenticationToken(FacebookProfile facebookProfile, boolean signUp) {
+    public FacebookAuthenticationToken(User facebookProfile, boolean signUp) {
         super(null);
         this.facebookProfile = facebookProfile;
         this.signUp = signUp;

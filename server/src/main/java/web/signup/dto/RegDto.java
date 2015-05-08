@@ -4,7 +4,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.Accessors;
-import org.springframework.social.facebook.api.FacebookProfile;
+import org.springframework.social.facebook.api.User;
 import org.springframework.social.google.api.plus.Person;
 import web.signup.email.dto.UserRegDetailsDto;
 
@@ -25,7 +25,7 @@ public class RegDto {
     public String facebookId;
     public String googleId;
 
-    public static RegDto getInstance(FacebookProfile facebookProfile){
+    public static RegDto getInstance(User facebookProfile){
         return new RegDto().setEmail(facebookProfile.getEmail()).setName(facebookProfile.getId()).setFacebookId(facebookProfile.getId()).setToken(random(6));
     }
 
