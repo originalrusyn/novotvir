@@ -4,14 +4,17 @@
        xmlns:sec="http://www.springframework.org/schema/security"
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/security
-       http://www.springframework.org/schema/security/spring-security.xsd">
+       http://www.springframework.org/schema/security/spring-security.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd">
 
     <import resource="../common.xml"/>
-    <import resource="social/facebook.xml"/>
-    <import resource="social/gplus.xml"/>
+    <!--<import resource="social/facebook.xml"/>-->
+    <!--<import resource="social/gplus.xml"/>-->
 
     <sec:http create-session="stateless" pattern="/web/.*" authentication-manager-ref="authenticationManager" use-expressions="true" request-matcher="regex">
         <sec:anonymous/>
@@ -34,8 +37,7 @@
         <sec:intercept-url pattern="/web/page_not_found.*" access="permitAll" />
         <sec:intercept-url pattern="/web/.*" access="authenticated" />
 
-        <sec:custom-filter before="FORM_LOGIN_FILTER" ref="facebookAuthFilter" />
-        <sec:custom-filter position="CAS_FILTER" ref="googleAuthFilter" />
+        <sec:custom-filter before="FORM_LOGIN_FILTER" ref="socialAuthenticationFilter" />
 
         <sec:form-login
                         authentication-success-handler-ref="accountSavedRequestAwareAuthSuccessHandler"
@@ -61,14 +63,68 @@
             </sec:password-encoder>
         </sec:authentication-provider>
 
-        <sec:authentication-provider ref="facebookUserDetailsAuthProvider"/>
-        <sec:authentication-provider ref="googleUserDetailsAuthProvider"/>
+        <sec:authentication-provider ref="socialAuthenticationProvider"/>
     </sec:authentication-manager>
+
+    <bean id="socialUserDetailsService"
+          class="web.security.social.service.SocialUserDetailsServiceImpl"/>
+
+    <bean id="socialAuthenticationProvider"
+          class="org.springframework.social.security.SocialAuthenticationProvider"
+          c:usersConnectionRepository-ref="usersConnectionRepository"
+          c:userDetailsService-ref="socialUserDetailsService"/>
 
     <sec:authentication-manager id="authenticationManagerWithoutPasswordEncoder" alias="authenticationManagerWithoutPasswordEncoder">
         <sec:authentication-provider user-service-ref="userDetailsService">
         </sec:authentication-provider>
     </sec:authentication-manager>
+
+    <util:list id="authenticationServices">
+        <bean id="facebookAuthenticationService"
+              class="org.springframework.social.facebook.security.FacebookAuthenticationService"
+              c:apiKey="1418639491789374"
+              c:appSecret="0d0b1c148af203e44fa1bf37c75c62cf"/>
+        <bean id="googleAuthenticationService"
+              class="org.springframework.social.google.security.GoogleAuthenticationService"
+              c:apiKey="673344638177-ru7241s1nmt79oq681hluq7lh0fsme03.apps.googleusercontent.com"
+              c:appSecret="IMoNDofKpkfpsscvEbby7laL"/>
+    </util:list>
+
+    <bean id="socialAuthenticationServiceLocator"
+          class="org.springframework.social.security.SocialAuthenticationServiceRegistry"
+          p:authenticationServices-ref="authenticationServices"/>
+
+    <bean id="connectionSignUp"
+          class="web.security.social.ConnectionSignUpImpl"/>
+
+    <bean id="usersConnectionRepository"
+          class="org.springframework.social.connect.mem.InMemoryUsersConnectionRepository"
+          c:connectionFactoryLocator-ref="socialAuthenticationServiceLocator"
+          p:connectionSignUp-ref="connectionSignUp"/>
+
+    <bean id="userIdSource"
+          class="org.springframework.social.security.AuthenticationNameUserIdSource"/>
+
+    <bean id="simpleUrlAuthenticationFailureHandler"
+          class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler"
+          p:defaultFailureUrl="/web/signup.html?error=true" />
+
+    <bean id="socialAuthenticationFailureHandler"
+          class="org.springframework.social.security.SocialAuthenticationFailureHandler"
+          c:delegate-ref="simpleUrlAuthenticationFailureHandler"/>
+
+    <bean id="socialAuthenticationFilter"
+          class="org.springframework.social.security.SocialAuthenticationFilter"
+          c:authManager-ref="authenticationManager"
+          c:authServiceLocator-ref="socialAuthenticationServiceLocator"
+          c:usersConnectionRepository-ref="usersConnectionRepository"
+          c:userIdSource-ref="userIdSource"
+          p:rememberMeServices-ref="customRememberMeServices"
+          p:authenticationSuccessHandler-ref="simpleUrlAuthenticationSuccessHandler"
+          p:authenticationFailureHandler-ref="socialAuthenticationFailureHandler"
+          p:filterProcessesUrl="/web/auth"
+          p:signupUrl="/web/signup"
+          p:allowSessionCreation="false"/>
 
     <bean id="customRememberMeServices"
           class="common.security.service.impl.CustomTokenBasedRememberMeServicesImpl"

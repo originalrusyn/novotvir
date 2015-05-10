@@ -16,8 +16,7 @@ import static java.util.Objects.isNull;
 @Slf4j
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    @Setter
-    protected UserRepository userRepository;
+    @Setter UserRepository userRepository;
 
     @Override
     @Transactional(readOnly = true)
