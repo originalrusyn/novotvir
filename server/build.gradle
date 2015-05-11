@@ -159,7 +159,7 @@ dependencies {
     compile 'org.jasypt:jasypt-spring31:1.9.2'
 
     testCompile 'org.springframework:spring-test:4.0.6.RELEASE'
-    testCompile "org.codehaus.groovy:groovy-all:2.2.0"
+    testCompile "org.codehaus.groovy:groovy-all:2.4.3"
     testCompile 'info.cukes:cucumber-junit:1.1.8'
     testCompile 'info.cukes:cucumber-groovy:1.1.8'
     testCompile ('org.mockito:mockito-core:1.9.5'){
@@ -178,6 +178,7 @@ dependencies {
     testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
     testCompile 'org.spockframework:spock-spring:0.7-groovy-2.0'
     testCompile 'org.codehaus.groovy:http-builder:0.4.1'
+    testCompile 'commons-configuration:commons-configuration:1.6'
 
     auto_testCompile 'org.springframework:spring-core:4.0.3.RELEASE'
     auto_testCompile 'org.springframework:spring-context:4.0.3.RELEASE'

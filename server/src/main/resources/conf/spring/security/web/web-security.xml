@@ -84,10 +84,14 @@
               class="org.springframework.social.facebook.security.FacebookAuthenticationService"
               c:apiKey="1418639491789374"
               c:appSecret="0d0b1c148af203e44fa1bf37c75c62cf"/>
+        <!--<bean id="googleAuthenticationService"-->
+              <!--class="org.springframework.social.google.security.GoogleAuthenticationService"-->
+              <!--c:apiKey="673344638177-ru7241s1nmt79oq681hluq7lh0fsme03.apps.googleusercontent.com"-->
+              <!--c:appSecret="IMoNDofKpkfpsscvEbby7laL"/>-->
         <bean id="googleAuthenticationService"
-              class="org.springframework.social.google.security.GoogleAuthenticationService"
-              c:apiKey="673344638177-ru7241s1nmt79oq681hluq7lh0fsme03.apps.googleusercontent.com"
-              c:appSecret="IMoNDofKpkfpsscvEbby7laL"/>
+              class="web.security.social.service.GoogleAuthenticationServiceImpl"
+              c:apiKey="673344638177-5r5d2hoe8en6ujeu3g7q03o32on6o4ve.apps.googleusercontent.com"
+              c:appSecret="6XvH5Q8ZIBi1iXn3u0SL7wap"/>
     </util:list>
 
     <bean id="socialAuthenticationServiceLocator"
