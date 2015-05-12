@@ -13,8 +13,6 @@
        http://www.springframework.org/schema/util/spring-util.xsd">
 
     <import resource="../common.xml"/>
-    <!--<import resource="social/facebook.xml"/>-->
-    <!--<import resource="social/gplus.xml"/>-->
 
     <sec:http create-session="stateless" pattern="/web/.*" authentication-manager-ref="authenticationManager" use-expressions="true" request-matcher="regex">
         <sec:anonymous/>
@@ -84,10 +82,6 @@
               class="org.springframework.social.facebook.security.FacebookAuthenticationService"
               c:apiKey="1418639491789374"
               c:appSecret="0d0b1c148af203e44fa1bf37c75c62cf"/>
-        <!--<bean id="googleAuthenticationService"-->
-              <!--class="org.springframework.social.google.security.GoogleAuthenticationService"-->
-              <!--c:apiKey="673344638177-ru7241s1nmt79oq681hluq7lh0fsme03.apps.googleusercontent.com"-->
-              <!--c:appSecret="IMoNDofKpkfpsscvEbby7laL"/>-->
         <bean id="googleAuthenticationService"
               class="web.security.social.service.GoogleAuthenticationServiceImpl"
               c:apiKey="673344638177-5r5d2hoe8en6ujeu3g7q03o32on6o4ve.apps.googleusercontent.com"
@@ -101,9 +95,21 @@
     <bean id="connectionSignUp"
           class="web.security.social.ConnectionSignUpImpl"/>
 
+    <bean id="aesBytesEncryptor"
+          class="org.springframework.security.crypto.encrypt.AesBytesEncryptor"
+          c:password="pp"
+          c:salt="salt"/>
+
+    <bean id="hexEncodingTextEncryptor"
+          class="org.springframework.security.crypto.encrypt.HexEncodingTextEncryptor"
+          c:encryptor-ref="aesBytesEncryptor"/>
+
     <bean id="usersConnectionRepository"
-          class="org.springframework.social.connect.mem.InMemoryUsersConnectionRepository"
+          class="org.springframework.social.connect.jdbc.JdbcUsersConnectionRepository"
           c:connectionFactoryLocator-ref="socialAuthenticationServiceLocator"
+          c:dataSource-ref="dataSource"
+          c:textEncryptor-ref="hexEncodingTextEncryptor"
+          p:tablePrefix="social"
           p:connectionSignUp-ref="connectionSignUp"/>
 
     <bean id="userIdSource"

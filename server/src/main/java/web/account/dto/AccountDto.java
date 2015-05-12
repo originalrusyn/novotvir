@@ -20,6 +20,6 @@ public class AccountDto {
     boolean blocked;
 
     public static AccountDto accountDto(User user){
-        return new AccountDto().setEmail(user.email).setName(user.name).setActivated(user.activated).setBlocked(user.blocked);
+        return new AccountDto().setEmail(user.primaryEmailAddress.email).setName(user.name).setActivated(user.activated).setBlocked(user.blocked);
     }
 }

@@ -1,6 +1,7 @@
 package admin.user.service;
 
 import admin.user.dto.CriteriaSuggestionsDTO;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
@@ -20,6 +21,7 @@ public class UserSearchSuggestionServiceImpl {
 
     @PersistenceContext EntityManager entityManager;
 
+    @Cacheable("criteriaSuggestionsDTO")
     public CriteriaSuggestionsDTO getCriteriaSuggestionsDTO() {
 
         Metamodel metaModel = entityManager.getMetamodel();

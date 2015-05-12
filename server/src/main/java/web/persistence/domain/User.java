@@ -1,9 +1,9 @@
 package web.persistence.domain;
 
+import common.enums.Role;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.Accessors;
-import common.enums.Role;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -18,11 +18,10 @@ import static javax.persistence.GenerationType.SEQUENCE;
 @Entity
 @Table(name = "users", uniqueConstraints = {
         @UniqueConstraint( name = "name", columnNames = "name"),
-        @UniqueConstraint( name = "name_facebookId", columnNames = {"name" ,"facebookId"}),
         @UniqueConstraint( name = "activationToken", columnNames = "activationToken")
 })
 @Accessors(chain = true)
-@ToString(exclude = "authorities")
+@ToString(exclude = {"authorities"})
 @Setter
 public class User {
 
@@ -34,14 +33,15 @@ public class User {
     @Column(nullable = false)
     public String name;
 
-    @Column(nullable = false)
-    public String email;
+    @OneToOne(fetch = EAGER, cascade = ALL)
+    @JoinColumn(name = "primaryEmailAddressId")
+    public EmailAddress primaryEmailAddress;
+
+    @OneToMany(cascade = ALL)
+    public List<EmailAddress> emailAddresses;
 
     @Column(nullable = true)
     public String token;
-
-    @Column(nullable = true)
-    public String facebookId;
 
     @Column(nullable = false)
     public String lastSignInIpAddress;

@@ -1,14 +1,16 @@
 package common.service;
 
 import admin.user.service.UserServiceImpl;
-import web.persistence.domain.User;
-import web.persistence.repository.UserRepository;
 import common.util.DataBaseIT;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
+import web.persistence.domain.EmailAddress;
+import web.persistence.domain.User;
+import web.persistence.repository.EmailAddressRepository;
+import web.persistence.repository.UserRepository;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -24,14 +26,16 @@ public class UsersServiceIT extends DataBaseIT{
 
     @Resource UserServiceImpl usersService;
     @Resource UserRepository userRepository;
+    @Resource EmailAddressRepository emailAddressRepository;
 
     @Test
     public void shouldFindUsersByNameAndEmailAndRole() {
         //given
-        User user = userRepository.save(new User().setName("name").setEmail("email").setFacebookId("facebookId").setActivationToken("activationToken").setActivated(true).setLastSignInIpAddress("lastSignInIpAddress").setToken("token"));
+        EmailAddress emailAddress = emailAddressRepository.save(new EmailAddress().setEmail("email"));
+        User user = userRepository.save(new User().setName("name").setPrimaryEmailAddress(emailAddress).setActivationToken("activationToken").setActivated(true).setLastSignInIpAddress("lastSignInIpAddress").setToken("token"));
 
         //when
-        Set<User> users = usersService.findUsers("name='name' and email='email' and authorities.role='USER'");
+        Set<User> users = usersService.findUsers("name='name' and primaryEmailAddress.email='email' and authorities.role='USER'");
 
         //then
         ArrayList<User> userList = new ArrayList<>(users);

@@ -55,7 +55,7 @@ public class ConfirmationMailMailMessageConstructorImpl implements ConfirmationM
         String subj = customMessageSource.getMailValidationMailSubj();
         String text = customMessageSource.getMailValidationMailText(emailValidationUrl);
 
-        msg.setTo(user.email);
+        msg.setTo(user.primaryEmailAddress.email);
         msg.setSubject(subj);
         msg.setText(text);
 

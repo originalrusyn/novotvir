@@ -34,6 +34,7 @@ repositories {
     maven {url "http://repo.spring.io/milestone"}
     maven {url "https://repository.jboss.org/nexus/content/groups/public/"}
     maven {url "http://mavenrepo.openmrs.org/nexus/content/repositories/thirdparty"}
+    maven {url "http://repository.apache.org/snapshots/"}
 }
 
 task wrapper(type: Wrapper) {
@@ -108,7 +109,7 @@ dependencies {
     }
 
     provided 'javax:javaee-api:7.0'
-    provided 'org.projectlombok:lombok:1.12.4'
+    provided 'org.projectlombok:lombok:1.16.4'
 
     compile 'org.springframework:spring-aop:4.0.3.RELEASE'
     compile 'org.springframework:spring-core:4.0.3.RELEASE'
@@ -178,7 +179,7 @@ dependencies {
     testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
     testCompile 'org.spockframework:spock-spring:0.7-groovy-2.0'
     testCompile 'org.codehaus.groovy:http-builder:0.4.1'
-    testCompile 'commons-configuration:commons-configuration:1.6'
+    testCompile 'commons-configuration:commons-configuration:2.0-SNAPSHOT'
 
     auto_testCompile 'org.springframework:spring-core:4.0.3.RELEASE'
     auto_testCompile 'org.springframework:spring-context:4.0.3.RELEASE'
