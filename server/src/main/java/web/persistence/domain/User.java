@@ -37,7 +37,7 @@ public class User {
     @JoinColumn(name = "primaryEmailAddressId")
     public EmailAddress primaryEmailAddress;
 
-    @OneToMany(cascade = ALL)
+    @OneToMany(mappedBy = "user", cascade = ALL)
     public List<EmailAddress> emailAddresses;
 
     @Column(nullable = true)

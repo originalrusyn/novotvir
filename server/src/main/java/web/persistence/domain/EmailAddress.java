@@ -12,15 +12,19 @@ import static javax.persistence.GenerationType.SEQUENCE;
 @Entity
 @Table(name = "emailAddresses")
 @Accessors(chain = true)
-@ToString
+@ToString(exclude = "user")
 @Setter
 public class EmailAddress {
 
     @Id
-    @SequenceGenerator(name = "email_addresses_id_seq_gen", sequenceName = "email_addresses_id_seq", allocationSize = 1)
-    @GeneratedValue(strategy = SEQUENCE, generator = "email_addresses_id_seq_gen")
+    @SequenceGenerator(name = "emailAddresses_id_seq_gen", sequenceName = "emailAddresses_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = SEQUENCE, generator = "emailAddresses_id_seq_gen")
     public Long id;
 
     @Column(nullable = false)
     public String email;
+
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    public User user;
 }

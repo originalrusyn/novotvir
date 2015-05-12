@@ -98,7 +98,7 @@
     <bean id="aesBytesEncryptor"
           class="org.springframework.security.crypto.encrypt.AesBytesEncryptor"
           c:password="pp"
-          c:salt="salt"/>
+          c:salt="6666"/>
 
     <bean id="hexEncodingTextEncryptor"
           class="org.springframework.security.crypto.encrypt.HexEncodingTextEncryptor"

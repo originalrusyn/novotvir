@@ -1,4 +1,4 @@
--- liquibase formatted sql
+-- liquibase formatted sql logicalFilePath:release1.0.0.sql
 -- changeset titov:1 dbms:postgresql runInTransaction:true
 CREATE TABLE
   users (
@@ -11,8 +11,7 @@ CREATE TABLE
   activated                boolean             NOT NULL,
   blocked                  boolean             NOT NULL,
   lastWebSignInTimestamp   timestamp with time zone,
-  PRIMARY KEY (id),
-  CONSTRAINT users_activeEmailAddress FOREIGN KEY (activeEmailAddressId) REFERENCES emailAddresses (id) MATCH SIMPLE ON DELETE CASCADE
+  PRIMARY KEY (id)
 );
 
 -- rollback drop table if exists users;
@@ -24,12 +23,18 @@ CREATE TABLE
   email                    VARCHAR(255)        NOT NULL,
   userId                   bigint              NOT NULL,
   PRIMARY KEY (id),
-  CONSTRAINT emailAddresses UNIQUE (userId, email)
+  CONSTRAINT userId_email UNIQUE (userId, email),
+  CONSTRAINT emailAddresses_users FOREIGN KEY (userId) REFERENCES users (id) MATCH SIMPLE
 );
 
 -- rollback drop table if exists emailAddresses;
 
 -- changeset titov:3 dbms:postgresql runInTransaction:true
+alter table users add CONSTRAINT users_activeEmailAddress FOREIGN KEY (primaryEmailAddressId) REFERENCES emailAddresses (id) MATCH SIMPLE ON DELETE CASCADE;
+
+-- rollback alter table users drop constraint if exists users_activeEmailAddress;
+
+-- changeset titov:4 dbms:postgresql runInTransaction:true
 create table
   socialUserConnection (
   userId                 varchar(255) not null,
@@ -45,12 +50,12 @@ create table
   expireTime             bigint,
   primary key (userId, providerId, providerUserId),
   CONSTRAINT UserConnectionRank UNIQUE (userId, providerId, rank),
-  CONSTRAINT UserConnection_user FOREIGN KEY (userId) REFERENCES users (name) MATCH SIMPLE ON DELETE CASCADE
+  CONSTRAINT UserConnection_user FOREIGN KEY (userId) REFERENCES users (name) MATCH SIMPLE
 );
 
 -- rollback drop table if exists UserConnection;
 
--- changeset titov:4 dbms:postgresql runInTransaction:true
+-- changeset titov:5 dbms:postgresql runInTransaction:true
 CREATE
 TABLE
   authorities(
@@ -64,7 +69,7 @@ TABLE
 
 -- rollback drop table if exists authorities;
 
--- changeset titov:5 dbms:postgresql runInTransaction:true
+-- changeset titov:6 dbms:postgresql runInTransaction:true
 CREATE
 TABLE
   userLogs(
@@ -77,7 +82,7 @@ TABLE
 
 -- rollback drop table if exists authorities;
 
--- changeset titov:6 dbms:postgresql runInTransaction:true splitStatements:false endDelimiter:#
+-- changeset titov:7 dbms:postgresql runInTransaction:true splitStatements:false endDelimiter:#
 create function userLogProcedure() returns trigger as $$
 begin
 insert into userLogs(timestamp, userId, body) select current_timestamp, new.id, row_to_json(u.*) from users u where u.id=new.id;
@@ -87,19 +92,21 @@ $$ LANGUAGE 'plpgsql';
 
 -- rollback drop function if exists userLogProcedure;
 
--- changeset titov:7 dbms:postgresql runInTransaction:true
+-- changeset titov:8 dbms:postgresql runInTransaction:true
 create trigger userLogTrigger after insert or update on users for each row execute PROCEDURE userLogProcedure();
 
 -- rollback drop trigger if exists userLogTrigger;
 
--- changeset titov:8 dbms:postgresql runInTransaction:true
+-- changeset titov:9 dbms:postgresql runInTransaction:true
 INSERT INTO users
 (id, name            , token                                                                           , lastSignInIpAddress, activationToken , activated, blocked, lastWebSignInTimestamp) VALUES
 (1 , '${admin_email}', MD5('${admin_email}' || MD5('${pass_salt}'|| '${admin_pass}' || '${pass_salt}')), '127.0.0.1'        , '${admin_email}', true     , false  , NULL);
 
 INSERT INTO emailAddresses
-(id, email           , userId, main) VALUES
-(1 , '${admin_email}', 1     , true);
+(id, email           , userId) VALUES
+(1 , '${admin_email}', 1     );
+
+update users set primaryEmailAddressId = 1 where id = 1;
 
 INSERT INTO authorities
 (userId, role  ) VALUES
@@ -110,7 +117,7 @@ INSERT INTO authorities
 -- rollback delete from emailAddresses;
 -- rollback delete from authorities;
 
--- changeset titov:9 dbms:postgresql runInTransaction:true
+-- changeset titov:10 dbms:postgresql runInTransaction:true
 CREATE
 TABLE
   admins (
@@ -125,7 +132,7 @@ TABLE
 
 -- rollback drop table if exists admins;
 
--- changeset titov:10 dbms:postgresql runInTransaction:true
+-- changeset titov:11 dbms:postgresql runInTransaction:true
 CREATE
 TABLE
   adminAuthorities(
@@ -139,7 +146,7 @@ TABLE
 
 -- rollback drop table if exists adminAuthorities;
 
--- changeset titov:11 dbms:postgresql runInTransaction:true
+-- changeset titov:12 dbms:postgresql runInTransaction:true
 INSERT INTO admins
 (id, email           , token                                                                                       , lastSignInIpAddress, blocked, lastWebSignInTimestamp) VALUES
 (1 , '${admin_email}', MD5('${admin_email}' || MD5('${admin_pass_salt}'|| '${admin_pass}' || '${admin_pass_salt}')), '127.0.0.1'        , false  , NULL);
@@ -151,8 +158,8 @@ INSERT INTO adminAuthorities
 -- rollback delete from admins;
 -- rollback delete from adminAuthorities;
 
--- changeset titov:12 dbms:postgresql runInTransaction:true
+-- changeset titov:13 dbms:postgresql runInTransaction:true
 alter SEQUENCE users_id_seq RESTART WITH 2;
 
--- changeset titov:13 dbms:postgresql runInTransaction:true
+-- changeset titov:14 dbms:postgresql runInTransaction:true
 alter SEQUENCE admins_id_seq RESTART WITH 2;

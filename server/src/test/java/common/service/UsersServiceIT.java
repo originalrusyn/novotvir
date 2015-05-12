@@ -16,6 +16,7 @@ import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Set;
 
+import static java.util.Collections.singletonList;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -32,7 +33,8 @@ public class UsersServiceIT extends DataBaseIT{
     public void shouldFindUsersByNameAndEmailAndRole() {
         //given
         EmailAddress emailAddress = emailAddressRepository.save(new EmailAddress().setEmail("email"));
-        User user = userRepository.save(new User().setName("name").setPrimaryEmailAddress(emailAddress).setActivationToken("activationToken").setActivated(true).setLastSignInIpAddress("lastSignInIpAddress").setToken("token"));
+        User user = userRepository.save(new User().setName("name").setEmailAddresses(singletonList(emailAddress)).setActivationToken("activationToken").setActivated(true).setLastSignInIpAddress("lastSignInIpAddress").setToken("token"));
+        user = userRepository.save(user.setPrimaryEmailAddress(emailAddress));
 
         //when
         Set<User> users = usersService.findUsers("name='name' and primaryEmailAddress.email='email' and authorities.role='USER'");
