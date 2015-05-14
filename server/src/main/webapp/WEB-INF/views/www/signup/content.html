@@ -41,7 +41,7 @@
         <p id="confirmPassParagraphForError"></p>
 
         <input id="signUpButton" type="submit" name="submit" th:value="#{signup.content.signUpForm.submit}" value="Sign Up"/>
-        <a th:text="#{signup.content.facebook.signup.link.text}" th:href="@{auth/facebook?signUp=true&scope=email}">Facebook Sign Up</a>
-        <a th:text="#{signup.content.google.signup.link.text}" th:href="@{auth/google?signUp=true&scope=email}">Google+ Sign Up</a>
+        <a th:text="#{signup.content.facebook.signup.link.text}" th:href="@{auth/facebook(__${T(web.security.social.ConnectionSignUpImpl).SIGN_UP}__=true,scope=email)}">Facebook Sign Up</a>
+        <a th:text="#{signup.content.google.signup.link.text}" th:href="@{auth/google(__${T(web.security.social.ConnectionSignUpImpl).SIGN_UP}__=true,scope=email)}">Google+ Sign Up</a>
     </form>
 </div>

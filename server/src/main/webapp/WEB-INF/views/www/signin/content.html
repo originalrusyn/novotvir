@@ -20,7 +20,7 @@
 
         <input id="SignInButton" type="submit" name="submit" class="btn btn-lg btn-primary btn-block" th:value="#{signin.content.signInForm.submit}" value="Send"/>
     </form>
-    <a th:text="#{signin.content.facebook.signin.link.text}" th:href="@{auth/facebook?scope=email}">Facebook Sign In</a>
-    <a th:text="#{signin.content.google.signin.link.text}" th:href="@{auth/google?scope=email}">Google+ Sign In</a>
+    <a th:text="#{signin.content.facebook.signin.link.text}" th:href="@{auth/facebook(scope=email)}">Facebook Sign In</a>
+    <a th:text="#{signin.content.google.signin.link.text}" th:href="@{auth/google(scope=email)}">Google+ Sign In</a>
     <a th:text="#{signin.content.signup.link.text}" th:href="@{signup}">Sign Up</a>
 </div>

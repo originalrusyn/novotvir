@@ -21,6 +21,7 @@ public class SocialUserDetailsServiceImpl implements SocialUserDetailsService {
     @Transactional(readOnly = true)
     @Override
     public SocialUserDetails loadUserByUserId(String userId) throws UsernameNotFoundException, DataAccessException {
+        userRepository.findByName(userId);
         return new SocialUser("gg", "ggg", Collections.singletonList(new SimpleGrantedAuthority(Role.USER.name())));
     }
 }

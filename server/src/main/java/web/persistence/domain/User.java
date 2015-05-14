@@ -6,10 +6,10 @@ import lombok.ToString;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static java.util.Arrays.asList;
 import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.GenerationType.SEQUENCE;
@@ -63,6 +63,8 @@ public class User {
     }
 
     private List<Authority> getUserDefaultAuthorities(User user) {
-        return asList(new Authority().setUser(user).setRole(Role.USER));
+        ArrayList<Authority> authorities = new ArrayList<>();
+        authorities.add(new Authority().setUser(user).setRole(Role.USER));
+        return authorities;
     }
 }

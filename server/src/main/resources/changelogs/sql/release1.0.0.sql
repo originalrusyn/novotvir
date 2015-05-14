@@ -30,9 +30,9 @@ CREATE TABLE
 -- rollback drop table if exists emailAddresses;
 
 -- changeset titov:3 dbms:postgresql runInTransaction:true
-alter table users add CONSTRAINT users_activeEmailAddress FOREIGN KEY (primaryEmailAddressId) REFERENCES emailAddresses (id) MATCH SIMPLE ON DELETE CASCADE;
+alter table users add CONSTRAINT users_emailAddresses FOREIGN KEY (primaryEmailAddressId) REFERENCES emailAddresses (id) MATCH SIMPLE ON DELETE CASCADE;
 
--- rollback alter table users drop constraint if exists users_activeEmailAddress;
+-- rollback alter table users drop constraint if exists users_emailAddresses;
 
 -- changeset titov:4 dbms:postgresql runInTransaction:true
 create table

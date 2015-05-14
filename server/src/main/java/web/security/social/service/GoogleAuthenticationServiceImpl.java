@@ -12,7 +12,7 @@ public class GoogleAuthenticationServiceImpl extends GoogleAuthenticationService
 
     @Override
     protected String buildReturnToUrl(HttpServletRequest request) {
-        boolean installedApp = Boolean.valueOf(request.getParameter("installedApp"));
+        boolean installedApp = Boolean.parseBoolean(request.getParameter("installedApp"));
         return installedApp? "" : super.buildReturnToUrl(request);
     }
 }
