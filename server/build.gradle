@@ -178,8 +178,9 @@ dependencies {
     testCompile 'org.powermock:powermock-module-junit4-rule-agent:1.5'
     testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
     testCompile 'org.spockframework:spock-spring:0.7-groovy-2.0'
-    testCompile 'org.codehaus.groovy:http-builder:0.4.1'
+    testCompile 'org.codehaus.groovy.modules.http-builder:http-builder:0.7.1'
     testCompile 'commons-configuration:commons-configuration:2.0-SNAPSHOT'
+    testCompile 'commons-cli:commons-cli:1.2'
 
     auto_testCompile 'org.springframework:spring-core:4.0.3.RELEASE'
     auto_testCompile 'org.springframework:spring-context:4.0.3.RELEASE'

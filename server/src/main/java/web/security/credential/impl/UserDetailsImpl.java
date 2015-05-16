@@ -14,7 +14,7 @@ import java.util.Collection;
 import java.util.List;
 
 // @author Titov Mykhaylo (titov) on 11.01.14 20:25
-@ToString
+@ToString(exclude = "user")
 public class UserDetailsImpl implements UserDetails, SecurityContextDetails {
 
     private static final long serialVersionUID = 3753615312297453066L;

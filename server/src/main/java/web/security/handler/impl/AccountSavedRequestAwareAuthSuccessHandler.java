@@ -18,7 +18,7 @@ import java.io.IOException;
 // @author: Titov Mykhaylo (titov) on 31.03.15 21:46.
 public class AccountSavedRequestAwareAuthSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {
 
-    private JsonEncoding encoding = JsonEncoding.UTF8;
+    JsonEncoding encoding = JsonEncoding.UTF8;
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {

@@ -11,7 +11,7 @@
 
     <sec:http pattern="/version" security="none"/>
 
-    <import resource="security/web/web-security.xml"/>
-    <import resource="security/admin/admin-security.xml"/>
+    <import resource="security/web-security.xml"/>
+    <import resource="security/admin-security.xml"/>
 
 </beans>

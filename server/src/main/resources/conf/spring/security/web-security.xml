@@ -12,7 +12,7 @@
        http://www.springframework.org/schema/util
        http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <import resource="../common.xml"/>
+    <import resource="common.xml"/>
 
     <sec:http create-session="stateless" pattern="/web/.*" authentication-manager-ref="authenticationManager" use-expressions="true" request-matcher="regex">
         <sec:anonymous/>
@@ -80,13 +80,13 @@
     <util:list id="authenticationServices">
         <bean id="facebookAuthenticationService"
               class="org.springframework.social.facebook.security.FacebookAuthenticationService"
-              c:apiKey="1418639491789374"
-              c:appSecret="0d0b1c148af203e44fa1bf37c75c62cf"
+              c:apiKey="${facebook.connect.appId}"
+              c:appSecret="${facebook.connect.appSecret}"
               p:returnToUrlParameters="#{T(web.security.social.ConnectionSignUpImpl).SIGN_UP}"/>
         <bean id="googleAuthenticationService"
               class="web.security.social.service.GoogleAuthenticationServiceImpl"
-              c:apiKey="673344638177-5r5d2hoe8en6ujeu3g7q03o32on6o4ve.apps.googleusercontent.com"
-              c:appSecret="6XvH5Q8ZIBi1iXn3u0SL7wap"
+              c:apiKey="${google.connect.clientId}"
+              c:appSecret="${google.connect.clientSecret}"
               p:returnToUrlParameters="#{T(web.security.social.ConnectionSignUpImpl).SIGN_UP}"/>
     </util:list>
 
@@ -97,22 +97,21 @@
     <bean id="connectionSignUp"
           class="web.security.social.ConnectionSignUpImpl"/>
 
-    <bean id="aesBytesEncryptor"
-          class="org.springframework.security.crypto.encrypt.AesBytesEncryptor"
-          c:password="pp"
-          c:salt="6666"/>
+    <bean id="textEncryptor"
+          class="org.jasypt.util.text.BasicTextEncryptor"
+          p:password="${social.connections.encryptor.password}"/>
 
-    <bean id="hexEncodingTextEncryptor"
-          class="org.springframework.security.crypto.encrypt.HexEncodingTextEncryptor"
-          c:encryptor-ref="aesBytesEncryptor"/>
+    <bean id="socialBasedTextEncryptor"
+          class="common.security.encryptor.JasyptBasedTextEncryptor"
+          p:textEncryptor-ref="textEncryptor"/>
 
     <bean id="usersConnectionRepository"
-          class="org.springframework.social.connect.jdbc.JdbcUsersConnectionRepository"
+          class="web.security.social.service.JdbcUsersConnectionRepo"
           c:connectionFactoryLocator-ref="socialAuthenticationServiceLocator"
           c:dataSource-ref="dataSource"
-          c:textEncryptor-ref="hexEncodingTextEncryptor"
-          p:tablePrefix="social"
-          p:connectionSignUp-ref="connectionSignUp"/>
+          c:textEncryptor-ref="socialBasedTextEncryptor"
+          c:connectionSignUp-ref="connectionSignUp"
+          p:tablePrefix="social"/>
 
     <bean id="userIdSource"
           class="org.springframework.social.security.AuthenticationNameUserIdSource"/>
