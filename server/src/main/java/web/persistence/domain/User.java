@@ -6,6 +6,7 @@ import lombok.ToString;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -26,7 +27,7 @@ import static javax.persistence.GenerationType.SEQUENCE;
 public class User {
 
     @Id
-    @SequenceGenerator(name = "users_id_seq_gen", sequenceName = "users_id_seq", allocationSize = 1)
+    @SequenceGenerator(name = "users_id_seq_gen", sequenceName = "users_id_seq", initialValue = 2, allocationSize = 1)
     @GeneratedValue(strategy = SEQUENCE, generator = "users_id_seq_gen")
     public Long id;
 
@@ -46,9 +47,9 @@ public class User {
     @Column(nullable = false)
     public String lastSignInIpAddress;
 
-    public Date lastWebSignInTimestamp;
+    public Date lastSignInTimestamp;
 
-    @Column(nullable = false)
+    @Column
     public String activationToken;
 
     public boolean activated;
@@ -61,6 +62,9 @@ public class User {
     public User(){
         this.setAuthorities(getUserDefaultAuthorities(this));
     }
+
+    @Version
+    Timestamp lastUpdatedTimestamp;
 
     private List<Authority> getUserDefaultAuthorities(User user) {
         ArrayList<Authority> authorities = new ArrayList<>();

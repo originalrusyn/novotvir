@@ -30,7 +30,7 @@
     </appender>
 
     <logger name="org.springframework" additivity="false">
-        <level value="DEBUG"/>
+        <level value="INFO"/>
         <appender-ref ref="stdout"/>
         <appender-ref ref="stderr"/>
     </logger>
@@ -55,6 +55,18 @@
 
     <logger name="org.apache.commons" additivity="false">
         <level value="DEBUG"/>
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="stderr"/>
+    </logger>
+    
+    <logger name="org.hibernate.SQL" additivity="false">
+        <level value="DEBUG"/>
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="stderr"/>
+    </logger>
+
+    <logger name="org.hibernate.type" additivity="false">
+        <level value="TRACE"/>
         <appender-ref ref="stdout"/>
         <appender-ref ref="stderr"/>
     </logger>

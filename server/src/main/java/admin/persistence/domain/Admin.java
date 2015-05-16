@@ -23,7 +23,7 @@ import static javax.persistence.GenerationType.SEQUENCE;
 public class Admin {
 
     @Id
-    @SequenceGenerator(name = "admins_id_seq", sequenceName = "admins_id_seq", allocationSize = 1)
+    @SequenceGenerator(name = "admins_id_seq", sequenceName = "admins_id_seq", initialValue = 2, allocationSize = 1)
     @GeneratedValue(strategy = SEQUENCE, generator = "admins_id_seq")
     public Long id;
 
@@ -36,7 +36,7 @@ public class Admin {
     @Column(nullable = false)
     public String lastSignInIpAddress;
 
-    public Date lastWebSignInTimestamp;
+    public Date lastSignInTimestamp;
 
     public boolean blocked;
 

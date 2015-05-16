@@ -25,8 +25,7 @@ import static org.springframework.util.DigestUtils.md5DigestAsHex;
 @Slf4j
 public class CustomTokenBasedRememberMeServicesImpl extends TokenBasedRememberMeServices implements CustomTokenBasedRememberMeService{
 
-    @Setter
-    private AuthenticationSuccessHandler successHandler;
+    @Setter AuthenticationSuccessHandler successHandler;
 
     public CustomTokenBasedRememberMeServicesImpl(String key, UserDetailsService userDetailsService) {
         super(key, userDetailsService);

@@ -150,10 +150,6 @@
           class="web.security.service.impl.UserDetailsServiceImpl"
           p:userRepository-ref="userRepository" />
 
-    <bean id="rememberMeSuccessfulHandler"
-          class="web.security.handler.impl.RememberMeSuccessfulHandler"
-          p:userRepository-ref="userRepository" />
-
     <bean id="accountSavedRequestAwareAuthSuccessHandler"
           class="web.security.handler.impl.AccountSavedRequestAwareAuthSuccessHandler"
           p:alwaysUseDefaultTargetUrl="true"

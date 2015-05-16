@@ -17,7 +17,7 @@ import static javax.persistence.GenerationType.SEQUENCE;
 public class EmailAddress {
 
     @Id
-    @SequenceGenerator(name = "emailAddresses_id_seq_gen", sequenceName = "emailAddresses_id_seq", allocationSize = 1)
+    @SequenceGenerator(name = "emailAddresses_id_seq_gen", sequenceName = "emailAddresses_id_seq", initialValue = 2, allocationSize = 1)
     @GeneratedValue(strategy = SEQUENCE, generator = "emailAddresses_id_seq_gen")
     public Long id;
 

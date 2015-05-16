@@ -1,13 +1,15 @@
 package web.security.handler.impl;
 
-import lombok.Setter;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.social.security.SocialUserDetails;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 import web.persistence.domain.User;
 import web.persistence.repository.UserRepository;
 import web.security.credential.impl.UserDetailsImpl;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
-import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,28 +20,29 @@ import static common.util.RequestUtils.getRemoteAddr;
 import static org.springframework.transaction.annotation.Propagation.REQUIRED;
 
 // @author Titov Mykhaylo (titov) on 11.01.14 22:38
+@Component
 public class RememberMeSuccessfulHandler implements AuthenticationSuccessHandler {
 
-    @Setter
-    private UserRepository userRepository;
+    @Resource UserRepository userRepository;
 
     @Override
     @Transactional(propagation = REQUIRED)
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         Object principal = authentication.getPrincipal();
-        if (principal instanceof UserDetailsImpl){
-            UserDetailsImpl userDetailsImpl=(UserDetailsImpl)principal;
-            long userId = userDetailsImpl.getUserId();
+        String requestURI = request.getRequestURI();
+        if (principal instanceof UserDetailsImpl && requestURI.endsWith("/signin") ) {
+            long userId = ((UserDetailsImpl) principal).getUserId();
             User user = userRepository.findOne(userId);
-
-            String requestURI = request.getRequestURI();
-            if (requestURI.endsWith("/signin") || requestURI.endsWith("/facebook_signin"))
-                updateLastWebLoginInfo(user);
+            updateLastLoginInfo(user);
+        } else if (principal instanceof SocialUserDetails && requestURI.contains("/auth/")){
+            String userName = ((SocialUserDetails) principal).getUserId();
+            User user = userRepository.findByName(userName);
+            updateLastLoginInfo(user);
         }
-
     }
 
-    private User updateLastWebLoginInfo(User user) {
-        return userRepository.save(user.setLastSignInIpAddress(getRemoteAddr()).setLastWebSignInTimestamp(new Date()));
+    private void updateLastLoginInfo(User user) {
+        userRepository.save(user.setLastSignInIpAddress(getRemoteAddr()).setLastSignInTimestamp(new Date()));
     }
+
 }

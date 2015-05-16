@@ -33,7 +33,10 @@ public class UserRegServiceImpl implements UserRegService {
     @Override
     @Transactional(propagation = REQUIRED)
     public User registerUser(RegDto regDto) {
-        User user = new User().setName(regDto.name).setLastSignInIpAddress(getRemoteAddr()).setActivationToken(activationTokenGenerator.generate());
+        User user = new User().setName(regDto.name).setLastSignInIpAddress(getRemoteAddr()).setActivated(regDto.activated);
+        if(!user.activated){
+            user.setActivationToken(activationTokenGenerator.generate());
+        }
 
         Object salt = saltSource.getSalt(new UserDetailsImpl(user));
         String encodedToken = passwordEncoder.encodePassword(regDto.token, salt);
