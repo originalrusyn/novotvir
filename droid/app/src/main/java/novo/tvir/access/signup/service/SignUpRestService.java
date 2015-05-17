@@ -16,7 +16,7 @@ public interface SignUpRestService extends RestClientRootUrl {
     @Post("/signup")
     ResponseEntity<AccountDto> signup(LinkedMultiValueMap<String, String> formData);
 
-    @Post("/auth/google?installedApp=true")
+    @Post("/auth/google?installedApp=true&signUp=true")
     ResponseEntity<AccountDto> signupByGoogle(LinkedMultiValueMap<String, String> formData);
 
 }

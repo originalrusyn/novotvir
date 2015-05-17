@@ -49,7 +49,6 @@ public class User {
 
     public Date lastSignInTimestamp;
 
-    @Column
     public String activationToken;
 
     public boolean activated;

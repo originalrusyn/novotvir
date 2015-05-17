@@ -30,7 +30,7 @@
     </appender>
 
     <logger name="org.springframework" additivity="false">
-        <level value="INFO"/>
+        <level value="DEBUG"/>
         <appender-ref ref="stdout"/>
         <appender-ref ref="stderr"/>
     </logger>
@@ -67,6 +67,12 @@
 
     <logger name="org.hibernate.type" additivity="false">
         <level value="TRACE"/>
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="stderr"/>
+    </logger>
+
+    <logger name="web" additivity="false">
+        <level value="DEBUG"/>
         <appender-ref ref="stdout"/>
         <appender-ref ref="stderr"/>
     </logger>
