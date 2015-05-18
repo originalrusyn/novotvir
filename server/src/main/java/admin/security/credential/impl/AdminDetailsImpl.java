@@ -2,7 +2,7 @@ package admin.security.credential.impl;
 
 import admin.persistence.domain.Admin;
 import admin.persistence.domain.AdminAuthority;
-import common.security.credential.SecurityContextDetails;
+import admin.security.credential.AdminSecurityContextDetails;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,7 +12,7 @@ import java.util.Collection;
 import java.util.List;
 
 // @author Titov Mykhaylo (titov) on 06.07.14.
-public class AdminDetailsImpl implements UserDetails, SecurityContextDetails {
+public class AdminDetailsImpl implements UserDetails, AdminSecurityContextDetails {
 
     private static final long serialVersionUID = 3753615312297453066L;
     private Admin admin;
@@ -66,7 +66,7 @@ public class AdminDetailsImpl implements UserDetails, SecurityContextDetails {
     }
 
     @Override
-    public long getUserId() {
+    public long getId() {
         return admin.id;
     }
 }

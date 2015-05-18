@@ -30,7 +30,7 @@ public class AdminRememberMeSuccessfulHandler implements AuthenticationSuccessHa
         Object principal = authentication.getPrincipal();
         String requestURI = request.getRequestURI();
         if(principal instanceof AdminDetailsImpl && requestURI.endsWith("/signin")) {
-            long userId = ((AdminDetailsImpl) principal).getUserId();
+            long userId = ((AdminDetailsImpl) principal).getId();
             Admin admin = adminRepository.findOne(userId);
             adminRepository.save(admin.setLastSignInIpAddress(getRemoteAddr()).setLastSignInTimestamp(new Date()));
         }

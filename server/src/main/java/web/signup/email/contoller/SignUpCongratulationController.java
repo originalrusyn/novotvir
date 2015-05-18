@@ -24,7 +24,7 @@ public class SignUpCongratulationController {
     @RequestMapping(value = "/signUpSuccessful", method = GET)
     public ModelAndView getSignUpSuccessfulModelAndView(){
         UserDetailsImpl userDetails = (UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        User user = userRepository.findOne(userDetails.getUserId());
+        User user = userRepository.findOne(userDetails.getId());
 
         ModelAndView modelAndView = new ModelAndView("sign_up_successful");
         modelAndView.addObject(ACCOUNT_DTO, accountDto(user));

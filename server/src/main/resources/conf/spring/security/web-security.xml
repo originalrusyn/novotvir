@@ -131,7 +131,7 @@
           c:usersConnectionRepository-ref="usersConnectionRepository"
           c:userIdSource-ref="userIdSource"
           p:rememberMeServices-ref="customRememberMeServices"
-          p:authenticationSuccessHandler-ref="simpleUrlAuthenticationSuccessHandler"
+          p:authenticationSuccessHandler-ref="accountSavedRequestAwareAuthSuccessHandler"
           p:authenticationFailureHandler-ref="socialAuthenticationFailureHandler"
           p:filterProcessesUrl="/web/auth"
           p:signupUrl="/web/signup"

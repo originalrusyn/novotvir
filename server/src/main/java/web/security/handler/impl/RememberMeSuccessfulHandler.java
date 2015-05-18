@@ -31,7 +31,7 @@ public class RememberMeSuccessfulHandler implements AuthenticationSuccessHandler
         Object principal = authentication.getPrincipal();
         String requestURI = request.getRequestURI();
         if (principal instanceof UserDetailsImpl && requestURI.endsWith("/signin") ) {
-            long userId = ((UserDetailsImpl) principal).getUserId();
+            long userId = ((UserDetailsImpl) principal).getId();
             User user = userRepository.findOne(userId);
             updateLastLoginInfo(user);
         } else if (principal instanceof SocialUserDetails && requestURI.contains("/auth/")){

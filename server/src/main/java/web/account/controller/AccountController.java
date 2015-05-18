@@ -21,6 +21,6 @@ public class AccountController {
 
     @RequestMapping(value = {"/", "/users/{name}"}, method = GET)
     public ModelAndView account(){
-        return new ModelAndView("account", ACCOUNT_DTO, accountDto(userService.getUser(getSecurityContextDetails().getUserId())));
+        return new ModelAndView("account", ACCOUNT_DTO, accountDto(userService.getUser(getSecurityContextDetails().getId())));
     }
 }
