@@ -36,7 +36,7 @@
         <put-attribute name="content" expression="/WEB-INF/views/www/signin/content.html"/>
     </definition>
 
-    <definition name="signup" extends="authorized_user_template">
+    <definition name="signup" extends="main_template">
         <put-attribute name="title" expression="/WEB-INF/views/www/signup/title.html"/>
         <put-attribute name="content" expression="/WEB-INF/views/www/signup/content.html"/>
     </definition>

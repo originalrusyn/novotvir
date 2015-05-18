@@ -1,4 +1,4 @@
-package web.security.social.service;
+package web.security.social.google.service.impl;
 
 import org.springframework.social.google.security.GoogleAuthenticationService;
 

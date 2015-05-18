@@ -84,7 +84,7 @@
               c:appSecret="${facebook.connect.appSecret}"
               p:returnToUrlParameters="#{T(web.security.social.ConnectionSignUpImpl).SIGN_UP}"/>
         <bean id="googleAuthenticationService"
-              class="web.security.social.service.GoogleAuthenticationServiceImpl"
+              class="web.security.social.google.service.impl.GoogleAuthenticationServiceImpl"
               c:apiKey="${google.connect.clientId}"
               c:appSecret="${google.connect.clientSecret}"
               p:returnToUrlParameters="#{T(web.security.social.ConnectionSignUpImpl).SIGN_UP}"/>
