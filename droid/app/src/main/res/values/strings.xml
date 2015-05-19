@@ -5,8 +5,8 @@
     <string name="hello_world">Привіт світ!</string>
     <string name="action_settings">Налаштування</string>
 
-    <!--<string name="novotvir_base_url">http://192.168.56.1:8080/novotvir/web</string>-->
     <string name="novotvir_base_url">http://192.168.1.144:8080/novotvir/web</string>
+    <!--<string name="novotvir_base_url">http://192.168.56.1:8080/novotvir/web</string>-->
     <string name="novotvir_salt">Роисся вперде</string>
 
     <string name="prompt_email">Електронна скринька</string>
@@ -18,9 +18,6 @@
     <string name="error_incorrect_password">Невірний формат</string>
     <string name="error_field_required">Обов’язкове поле</string>
 
-    <!--<string name="g_plus_scope">oauth2:server:client_id:673344638177-6rp180dkr0oi8lela1l26dsmg9i1a9ac.apps.googleusercontent.com:api_scope:https://www.googleapis.com/auth/plus.login</string>-->
-    <!--<string name="g_plus_scope">oauth2:server:client_id:673344638177-5r5d2hoe8en6ujeu3g7q03o32on6o4ve.apps.googleusercontent.com:api_scope:https://www.googleapis.com/auth/plus.login</string>-->
-    <!--<string name="g_plus_scope">oauth2:server:client_id:673344638177-6rp180dkr0oi8lela1l26dsmg9i1a9ac.apps.googleusercontent.com:api_scope:https://www.googleapis.com/auth/plus.login</string>-->
     <string name="g_plus_scope">oauth2:server:client_id:673344638177-ru7241s1nmt79oq681hluq7lh0fsme03.apps.googleusercontent.com:api_scope:https://www.googleapis.com/auth/plus.login</string>
 
 </resources>

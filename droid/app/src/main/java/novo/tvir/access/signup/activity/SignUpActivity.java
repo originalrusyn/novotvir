@@ -412,6 +412,15 @@ public class SignUpActivity extends GoogleApiActivity implements LoaderCallbacks
 
     }
 
+    public void onFetchTokenCompleteSuccess(String token) {
+        log.info(token);
+        Toast.makeText(this, "Signup success", Toast.LENGTH_LONG).show();
+    }
+
+    public void handleSignUpError(Exception e) {
+        Toast.makeText(this, "Signup fail", Toast.LENGTH_LONG).show();
+    }
+
     private interface ProfileQuery {
         String[] PROJECTION = {
                 ContactsContract.CommonDataKinds.Email.ADDRESS,

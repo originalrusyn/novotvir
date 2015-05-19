@@ -27,19 +27,13 @@ public class SignUpByGoogleService {
 
     @OrmLiteDao(helper = DBHelper.class) Dao<Account, Integer> accountDao;
 
-    public boolean signup(String code){
-        try {
-            signUpRestService.setRootUrl(novotvirBaseUrl);
-            LinkedMultiValueMap<String, String> formData = new LinkedMultiValueMap<>();
-            formData.add("code", code);
-            ResponseEntity<AccountDto> responseEntity = signUpRestService.signupByGoogle(formData);
-            Account account = accountDtoAsm.fromResponse(responseEntity);
-            accountDao.createOrUpdate(account);
-            return true;
-        } catch (Exception e) {
-            log.error("Can't sign in", e);
-            return false;
-        }
+    public void signup(String code) throws Exception {
+        signUpRestService.setRootUrl(novotvirBaseUrl);
+        LinkedMultiValueMap<String, String> formData = new LinkedMultiValueMap<>();
+        formData.add("code", code);
+        ResponseEntity<AccountDto> responseEntity = signUpRestService.signupByGoogle(formData);
+        Account account = accountDtoAsm.fromResponse(responseEntity);
+        accountDao.createOrUpdate(account);
     }
 
 }
