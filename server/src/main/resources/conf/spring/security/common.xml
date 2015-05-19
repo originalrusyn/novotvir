@@ -16,11 +16,6 @@
     <bean id="nullAuthoritiesMapper"
           class="org.springframework.security.core.authority.mapping.NullAuthoritiesMapper"/>
 
-    <bean id="simpleUrlAuthenticationSuccessHandler"
-          class="org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler"
-          p:defaultTargetUrl="/web/"
-          p:alwaysUseDefaultTargetUrl="true"/>
-
     <bean id="passwordEncoder" class="web.security.encoder.impl.PasswordEncoderImpl" />
 
 </beans>

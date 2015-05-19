@@ -69,7 +69,7 @@ public class UserDetailsImpl implements UserDetails, SecurityContextDetails {
     }
 
     @Override
-    public long getUserId() {
+    public long getId() {
         return user.id;
     }
 }

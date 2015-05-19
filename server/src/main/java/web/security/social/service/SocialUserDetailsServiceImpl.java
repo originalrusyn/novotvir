@@ -4,13 +4,13 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.social.security.SocialUser;
 import org.springframework.social.security.SocialUserDetails;
 import org.springframework.social.security.SocialUserDetailsService;
 import org.springframework.transaction.annotation.Transactional;
 import web.persistence.domain.Authority;
 import web.persistence.domain.User;
 import web.persistence.repository.UserRepository;
+import web.security.social.credential.impl.SocialUserImpl;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -30,6 +30,6 @@ public class SocialUserDetailsServiceImpl implements SocialUserDetailsService {
             GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(authority.role.name());
             grantedAuthorities.add(grantedAuthority);
         }
-        return new SocialUser(user.name, user.token, grantedAuthorities);
+        return new SocialUserImpl(user, true, true, true, true, grantedAuthorities);
     }
 }

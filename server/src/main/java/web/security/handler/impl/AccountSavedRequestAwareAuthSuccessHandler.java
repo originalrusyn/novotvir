@@ -4,10 +4,10 @@ import com.fasterxml.jackson.core.JsonEncoding;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import web.account.dto.AccountDto;
-import web.security.credential.impl.UserDetailsImpl;
+import common.security.credential.SecurityContextDetails;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
+import web.account.dto.AccountDto;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -22,7 +22,7 @@ public class AccountSavedRequestAwareAuthSuccessHandler extends SavedRequestAwar
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-        AccountDto accountDto = AccountDto.accountDto(((UserDetailsImpl) authentication.getPrincipal()).getUser());
+        AccountDto accountDto = AccountDto.accountDto(((SecurityContextDetails) authentication.getPrincipal()).getUser());
 
         ObjectMapper objectMapper = new ObjectMapper();
 
