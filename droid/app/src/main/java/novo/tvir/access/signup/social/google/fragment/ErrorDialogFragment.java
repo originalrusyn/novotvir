@@ -1,4 +1,4 @@
-package novo.tvir.access.signup.fragment;
+package novo.tvir.access.signup.social.google.fragment;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import com.google.android.gms.common.GooglePlayServicesUtil;
-import novo.tvir.access.signup.activity.SignUpActivity;
 
 // @author Titov Mykhaylo (titov) on 28.04.2015.
 public class ErrorDialogFragment extends DialogFragment {
@@ -17,11 +16,9 @@ public class ErrorDialogFragment extends DialogFragment {
     @NonNull
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         int errorCode = this.getArguments().getInt(DIALOG_ERROR);
-        return GooglePlayServicesUtil.getErrorDialog(errorCode, this.getActivity(), SignUpActivity.REQUEST_RESOLVE_ERROR);
+        return GooglePlayServicesUtil.getErrorDialog(errorCode, this.getActivity(), GoogleSignUpFragment.REQUEST_RESOLVE_ERROR);
     }
 
     @Override
-    public void onDismiss(DialogInterface dialog) {
-        ((SignUpActivity) getActivity()).onDialogDismissed();
-    }
+    public void onDismiss(DialogInterface dialog) {((GoogleSignUpFragment) getTargetFragment()).onDialogDismissed();}
 }

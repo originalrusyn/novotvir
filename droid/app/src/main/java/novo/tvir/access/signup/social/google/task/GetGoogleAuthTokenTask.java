@@ -1,4 +1,4 @@
-package novo.tvir.access.signup.task;
+package novo.tvir.access.signup.social.google.task;
 
 import android.os.Bundle;
 import com.google.android.gms.auth.GoogleAuthException;
@@ -7,7 +7,8 @@ import com.google.android.gms.auth.UserRecoverableAuthException;
 import lombok.extern.slf4j.Slf4j;
 import novo.tvir.R;
 import novo.tvir.access.signup.activity.SignUpActivity;
-import novo.tvir.access.signup.service.SignUpByGoogleService;
+import novo.tvir.access.signup.social.google.fragment.GoogleSignUpFragment;
+import novo.tvir.access.signup.social.google.service.SignUpByGoogleService;
 import org.androidannotations.annotations.*;
 import org.androidannotations.annotations.res.StringRes;
 
@@ -19,6 +20,7 @@ import java.io.IOException;
 public class GetGoogleAuthTokenTask {
 
     @RootContext SignUpActivity signUpActivity;
+    @FragmentById(R.id.google_signup_fragment) GoogleSignUpFragment googleSignUpFragment;
     @StringRes(R.string.g_plus_scope) String scope;
     @Bean SignUpByGoogleService signUpByGoogleService;
 
@@ -41,7 +43,7 @@ public class GetGoogleAuthTokenTask {
 
     @UiThread
     public void handleException(UserRecoverableAuthException e){
-        signUpActivity.handleException(e);
+        googleSignUpFragment.handleException(e);
     }
 
     @UiThread

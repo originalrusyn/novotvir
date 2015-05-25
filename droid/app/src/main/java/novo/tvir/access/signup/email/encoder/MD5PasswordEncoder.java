@@ -1,4 +1,4 @@
-package novo.tvir.access.signup.encoder;
+package novo.tvir.access.signup.email.encoder;
 
 import org.androidannotations.annotations.EBean;
 

@@ -1,4 +1,4 @@
-package novo.tvir.access.signup.dto;
+package novo.tvir.access.signup.email.dto;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
