@@ -34,6 +34,12 @@
                       android:layout_height="match_parent"
                       tools:layout="@layout/fragment_google_signup"/>
 
+            <fragment android:id="@+id/facebook_sign_up_button"
+                      android:name="novo.tvir.access.signup.social.facebook.fragment.FacebookSignUpFragment_"
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      tools:layout="@layout/fragment_facebook_signup"/>
+
             <fragment android:id="@+id/email_signup_fragment"
                       android:name="novo.tvir.access.signup.email.fragment.EmailSignUpFragment_"
                       android:layout_width="match_parent"
