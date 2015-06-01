@@ -6,7 +6,6 @@ import lombok.ToString;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -63,7 +62,7 @@ public class User {
     }
 
     @Version
-    Timestamp lastUpdatedTimestamp;
+    long version;
 
     private List<Authority> getUserDefaultAuthorities(User user) {
         ArrayList<Authority> authorities = new ArrayList<>();

@@ -42,11 +42,16 @@ public class UserRegServiceImpl implements UserRegService {
         String encodedToken = passwordEncoder.encodePassword(regDto.token, salt);
 
         user = userRepository.save(user.setToken(encodedToken));
-        EmailAddress emailAddress = emailAddressRepository.save(new EmailAddress().setEmail(regDto.email).setUser(user));
 
-        List<EmailAddress> emailAddresses = new ArrayList<>();
-        emailAddresses.add(emailAddress);
+        if (regDto.email != null) {
+            EmailAddress emailAddress = emailAddressRepository.save(new EmailAddress().setEmail(regDto.email).setUser(user));
 
-        return userRepository.save(user.setPrimaryEmailAddress(emailAddress).setEmailAddresses(emailAddresses));
+            List<EmailAddress> emailAddresses = new ArrayList<>();
+            emailAddresses.add(emailAddress);
+            return userRepository.save(user.setPrimaryEmailAddress(emailAddress).setEmailAddresses(emailAddresses));
+        }
+
+        return user;
+
     }
 }
