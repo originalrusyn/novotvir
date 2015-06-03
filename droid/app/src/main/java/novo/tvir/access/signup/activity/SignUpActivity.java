@@ -3,8 +3,13 @@ package novo.tvir.access.signup.activity;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.os.Build;
 import android.support.v4.app.FragmentActivity;
+import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import lombok.extern.slf4j.Slf4j;
 import novo.tvir.R;
@@ -14,6 +19,8 @@ import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.FragmentById;
 import org.androidannotations.annotations.ViewById;
 import org.androidannotations.annotations.res.IntegerRes;
+
+import java.security.MessageDigest;
 
 @Slf4j
 @EActivity(R.layout.activity_signup)
@@ -29,6 +36,19 @@ public class SignUpActivity extends FragmentActivity implements GoogleSignUpFrag
 
     @Override
     public void populateAutoComplete() {
+        try {
+            PackageInfo info = getPackageManager().getPackageInfo(
+                    "novo.tvir",
+                    PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+            }
+        } catch (Exception e) {
+            log.error("error", e);
+        }
+
         emailSignUpFragment.populateAutoComplete();
     }
 
