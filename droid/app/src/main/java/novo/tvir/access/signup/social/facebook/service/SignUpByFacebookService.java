@@ -29,11 +29,11 @@ public class SignUpByFacebookService {
 
     @OrmLiteDao(helper = DBHelper.class) Dao<Account, Integer> accountDao;
 
-    public boolean signup(String code){
+    public boolean signup(String accessToken){
         try {
             signUpRestService.setRootUrl(novotvirBaseUrl);
             LinkedMultiValueMap<String, String> formData = new LinkedMultiValueMap<>();
-            formData.add("code", code);
+            formData.add("accessToken", accessToken);
             ResponseEntity<AccountDto> responseEntity = signUpRestService.signupByFacebook(formData);
             Account account = accountDtoAsm.fromResponse(responseEntity);
             accountDao.createOrUpdate(account);

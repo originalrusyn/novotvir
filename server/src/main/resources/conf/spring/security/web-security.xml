@@ -79,7 +79,7 @@
 
     <util:list id="authenticationServices">
         <bean id="facebookAuthenticationService"
-              class="org.springframework.social.facebook.security.FacebookAuthenticationService"
+              class="web.security.social.facebook.service.impl.FacebookAuthenticationServiceImpl"
               c:apiKey="${facebook.connect.appId}"
               c:appSecret="${facebook.connect.appSecret}"
               p:returnToUrlParameters="#{T(web.security.social.ConnectionSignUpImpl).SIGN_UP}"/>
@@ -125,7 +125,7 @@
           c:delegate-ref="simpleUrlAuthenticationFailureHandler"/>
 
     <bean id="socialAuthenticationFilter"
-          class="org.springframework.social.security.SocialAuthenticationFilter"
+          class="web.security.social.facebook.service.SocialAuthFilterImpl"
           c:authManager-ref="authenticationManager"
           c:authServiceLocator-ref="socialAuthenticationServiceLocator"
           c:usersConnectionRepository-ref="usersConnectionRepository"

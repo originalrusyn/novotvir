@@ -17,9 +17,9 @@ public class FacebookSignUpTask {
     @Bean SignUpByFacebookService signUpByFacebookService;
 
     @Background
-    public void signup(String token){
+    public void signup(String accessToken){
         try {
-            signUpByFacebookService.signup(token);
+            signUpByFacebookService.signup(accessToken);
         } catch (Exception e) {
             log.error("Some unrecoverable exception has occurred", e);
         }
