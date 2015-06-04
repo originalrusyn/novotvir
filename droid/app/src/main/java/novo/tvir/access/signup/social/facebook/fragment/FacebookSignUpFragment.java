@@ -12,6 +12,8 @@ import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import lombok.extern.slf4j.Slf4j;
 import novo.tvir.R;
+import novo.tvir.access.signup.social.facebook.task.FacebookSignUpTask;
+import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
 
@@ -21,6 +23,8 @@ import org.androidannotations.annotations.ViewById;
 public class FacebookSignUpFragment extends Fragment{
 
     @ViewById(R.id.facebook_sign_up_button) LoginButton signUpButton;
+    @Bean FacebookSignUpTask facebookSignUpTask;
+
     CallbackManager callbackManager;
 
     @Override
@@ -40,6 +44,7 @@ public class FacebookSignUpFragment extends Fragment{
             @Override
             public void onSuccess(LoginResult loginResult) {
                 log.info(loginResult.getAccessToken().toString());
+                facebookSignUpTask.signup(loginResult.getAccessToken().getToken());
             }
 
             @Override
