@@ -10,7 +10,6 @@ import web.signup.service.UserRegService;
 
 import javax.annotation.Resource;
 
-import static org.springframework.transaction.annotation.Propagation.REQUIRED;
 
 // @author Titov Mykhaylo (titov) on 07.05.2014.
 @Service("userEmailRegService")
@@ -19,7 +18,7 @@ public class UserEmailRegServiceImpl {
     @Resource ConfirmationMailMailServiceImpl confirmationMailMailService;
     @Resource UserRegService userRegService;
 
-    @Transactional(propagation = REQUIRED)
+    @Transactional
     public User registerUser(UserRegDetailsDto userRegDetailsDto) {
         User user = userRegService.registerUser(RegDto.getInstance(userRegDetailsDto));
         afterCommitExecutor.execute(() -> confirmationMailMailService.sendMailConfirmationLink(user));
