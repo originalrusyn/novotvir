@@ -22,7 +22,7 @@ import com.google.android.gms.common.api.Status;
 import lombok.extern.slf4j.Slf4j;
 import novo.tvir.R;
 import novo.tvir.access.GoogleApiService;
-import novo.tvir.access.signup.social.google.task.GetGoogleAuthTokenTask;
+import novo.tvir.access.signup.social.google.task.GoogleSignUpTask;
 import org.androidannotations.annotations.*;
 import service.NetworkService;
 
@@ -40,7 +40,8 @@ public class GoogleSignUpFragment extends Fragment implements GoogleApiClient.Co
     public static final int REQUEST_CODE_PICK_ACCOUNT = 1000;
 
     //@NonConfigurationInstance
-    @Bean GetGoogleAuthTokenTask googleAuthTokenTask;
+    @Bean
+    GoogleSignUpTask googleAuthTokenTask;
     @Bean GoogleApiService googleApiService;
     @Bean NetworkService networkService;
 
@@ -169,7 +170,7 @@ public class GoogleSignUpFragment extends Fragment implements GoogleApiClient.Co
         if (responseCode == RESULT_OK) {
             if(networkService.isOnline()) {
                 email = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
-                googleAuthTokenTask.fetchToken(email);
+                googleAuthTokenTask.signUp(email);
             }else{
                 Toast.makeText(getActivity(), "No network", Toast.LENGTH_SHORT).show();
             }
@@ -234,12 +235,16 @@ public class GoogleSignUpFragment extends Fragment implements GoogleApiClient.Co
         }
     }
 
+    public void handleSignUpError(Exception e) {
+        Toast.makeText(getActivity(), "Signup fail", Toast.LENGTH_LONG).show();
+    }
+
     @OnActivityResult(REQUEST_CODE_RECOVER_FROM_PLAY_SERVICES_ERROR)
     void onRequestRecoverFromPlayServicesError(int responseCode, Intent data){
         if (responseCode == RESULT_OK) {
             if(networkService.isOnline()) {
                 email = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
-                googleAuthTokenTask.fetchToken(email);
+                googleAuthTokenTask.signUp(email);
             }else{
                 Toast.makeText(getActivity(), "No network", Toast.LENGTH_SHORT).show();
             }
