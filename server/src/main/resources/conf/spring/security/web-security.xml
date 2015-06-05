@@ -125,7 +125,7 @@
           c:delegate-ref="simpleUrlAuthenticationFailureHandler"/>
 
     <bean id="socialAuthenticationFilter"
-          class="web.security.social.facebook.service.SocialAuthFilterImpl"
+          class="web.security.social.SocialAuthFilterImpl"
           c:authManager-ref="authenticationManager"
           c:authServiceLocator-ref="socialAuthenticationServiceLocator"
           c:usersConnectionRepository-ref="usersConnectionRepository"

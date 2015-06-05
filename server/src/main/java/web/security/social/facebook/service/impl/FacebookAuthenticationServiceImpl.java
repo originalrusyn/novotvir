@@ -11,6 +11,8 @@ import org.springframework.util.StringUtils;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import static web.security.social.SocialAuthFilterImpl.ACCESS_TOKEN;
+
 // @author: Mykhaylo Titov on 04.06.15 22:20.
 public class FacebookAuthenticationServiceImpl extends FacebookAuthenticationService {
 
@@ -20,7 +22,7 @@ public class FacebookAuthenticationServiceImpl extends FacebookAuthenticationSer
 
     @Override
     public SocialAuthenticationToken getAuthToken(HttpServletRequest request, HttpServletResponse response) throws SocialAuthenticationRedirectException {
-        String accessToken = request.getParameter("accessToken");
+        String accessToken = request.getParameter(ACCESS_TOKEN);
         if (StringUtils.hasText(accessToken)) {
             AccessGrant accessGrant = new AccessGrant(accessToken);
             Connection<Facebook> connection = getConnectionFactory().createConnection(accessGrant);
