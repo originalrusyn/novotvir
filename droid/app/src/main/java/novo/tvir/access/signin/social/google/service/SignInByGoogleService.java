@@ -1,4 +1,4 @@
-package novo.tvir.access.signup.social.facebook.service;
+package novo.tvir.access.signin.social.google.service;
 
 import asm.AccountDtoAsm;
 import com.j256.ormlite.dao.Dao;
@@ -15,25 +15,24 @@ import org.springframework.util.LinkedMultiValueMap;
 import persist.DBHelper;
 import persist.domain.Account;
 
-// @author: Mykhaylo Titov on 03.06.15 23:15.
+// @author: Mykhaylo Titov on 01.05.15 19:07.
 @EBean
 @Slf4j
-public class SignUpByFacebookService {
-
+public class SignInByGoogleService {
     @Bean AccountDtoAsm accountDtoAsm;
 
-    @RestService SignUpByFacebookRestService signUpByFacebookRestService;
+    @RestService SignInByGoogleRestService signInByGoogleRestService;
 
     @StringRes(R.string.novotvir_base_url) String novotvirBaseUrl;
 
     @OrmLiteDao(helper = DBHelper.class) Dao<Account, Integer> accountDao;
 
-    public boolean signUp(String accessToken){
+    public boolean signIn(String code){
         try {
-            signUpByFacebookRestService.setRootUrl(novotvirBaseUrl);
+            signInByGoogleRestService.setRootUrl(novotvirBaseUrl);
             LinkedMultiValueMap<String, String> formData = new LinkedMultiValueMap<>();
-            formData.add("accessToken", accessToken);
-            ResponseEntity<AccountDto> responseEntity = signUpByFacebookRestService.signUp(formData);
+            formData.add("code", code);
+            ResponseEntity<AccountDto> responseEntity = signInByGoogleRestService.signIn(formData);
             Account account = accountDtoAsm.fromResponse(responseEntity);
             accountDao.createOrUpdate(account);
             return true;
@@ -42,4 +41,5 @@ public class SignUpByFacebookService {
             return false;
         }
     }
+
 }

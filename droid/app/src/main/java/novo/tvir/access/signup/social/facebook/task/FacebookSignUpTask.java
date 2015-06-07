@@ -13,13 +13,13 @@ import org.androidannotations.annotations.*;
 public class FacebookSignUpTask {
 
     @RootContext SignUpActivity signUpActivity;
-    @FragmentById(R.id.email_signup_fragment) FacebookSignUpFragment facebookSignUpFragment;
+    @FragmentById(R.id.email_sign_up_fragment) FacebookSignUpFragment facebookSignUpFragment;
     @Bean SignUpByFacebookService signUpByFacebookService;
 
     @Background
-    public void signup(String accessToken){
+    public void signUp(String accessToken){
         try {
-            signUpByFacebookService.signup(accessToken);
+            signUpByFacebookService.signUp(accessToken);
         } catch (Exception e) {
             log.error("Some unrecoverable exception has occurred", e);
         }

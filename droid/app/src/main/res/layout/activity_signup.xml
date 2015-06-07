@@ -11,7 +11,7 @@
               tools:context="novo.tvir.access.signup.activity.SignUpActivity_">
 
     <ProgressBar
-            android:id="@+id/signup_progress"
+            android:id="@+id/sign_up_progress"
             style="?android:attr/progressBarStyleLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
             android:visibility="gone"/>
 
     <ScrollView
-            android:id="@+id/signup_form"
+            android:id="@+id/sign_up_form"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -28,19 +28,19 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-            <fragment android:id="@+id/google_signup_fragment"
+            <fragment android:id="@+id/google_sign_up_fragment"
                       android:name="novo.tvir.access.signup.social.google.fragment.GoogleSignUpFragment_"
                       android:layout_width="match_parent"
                       android:layout_height="match_parent"
                       tools:layout="@layout/fragment_google_signup"/>
 
-            <fragment android:id="@+id/facebook_sign_up_button"
+            <fragment android:id="@+id/facebook_sign_up_fragment"
                       android:name="novo.tvir.access.signup.social.facebook.fragment.FacebookSignUpFragment_"
                       android:layout_width="match_parent"
                       android:layout_height="match_parent"
                       tools:layout="@layout/fragment_facebook_signup"/>
 
-            <fragment android:id="@+id/email_signup_fragment"
+            <fragment android:id="@+id/email_sign_up_fragment"
                       android:name="novo.tvir.access.signup.email.fragment.EmailSignUpFragment_"
                       android:layout_width="match_parent"
                       android:layout_height="match_parent"

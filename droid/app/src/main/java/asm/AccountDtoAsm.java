@@ -1,4 +1,4 @@
-package novo.tvir.access.signup.asm;
+package asm;
 
 import dto.AccountDto;
 import org.androidannotations.annotations.EBean;

@@ -1,4 +1,4 @@
-package novo.tvir.access;
+package novo.tvir.access.signin.social.google.service;
 
 import android.support.v4.app.FragmentActivity;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -7,29 +7,27 @@ import com.google.android.gms.common.api.Status;
 import com.google.android.gms.plus.Plus;
 import lombok.Delegate;
 import novo.tvir.R;
-import novo.tvir.access.signup.social.google.fragment.GoogleSignUpFragment;
+import novo.tvir.access.signin.social.google.fragment.GoogleSignInFragment;
 import org.androidannotations.annotations.AfterInject;
 import org.androidannotations.annotations.EBean;
 import org.androidannotations.annotations.RootContext;
 
 // @author Titov Mykhaylo (titov) on 27.04.2015.
 @EBean
-public class GoogleApiService {
+public class GoogleApiSignInService {
 
     @RootContext FragmentActivity activity;
-
-    //@FragmentById(R.id.google_signup_fragment) GoogleSignUpFragment googleSignUpFragment;
 
     @Delegate GoogleApiClient googleApiClient;
 
     @AfterInject
     public void init(){
-        GoogleSignUpFragment googleSignUpFragment = (GoogleSignUpFragment)activity.getSupportFragmentManager().findFragmentById(R.id.google_signup_fragment);
+        GoogleSignInFragment googleSignInFragment = (GoogleSignInFragment)activity.getSupportFragmentManager().findFragmentById(R.id.google_sign_in_fragment);
         googleApiClient = new GoogleApiClient.Builder(activity.getApplicationContext())
                 .addApi(Plus.API)
                 .addScope(Plus.SCOPE_PLUS_LOGIN)
-                .addConnectionCallbacks(googleSignUpFragment)
-                .addOnConnectionFailedListener(googleSignUpFragment)
+                .addConnectionCallbacks(googleSignInFragment)
+                .addOnConnectionFailedListener(googleSignInFragment)
                 .build();
     }
 

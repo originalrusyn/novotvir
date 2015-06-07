@@ -1,4 +1,4 @@
-package novo.tvir.access.signin.encoder;
+package novo.tvir.access.encoder;
 
 import org.androidannotations.annotations.EBean;
 
@@ -6,8 +6,10 @@ import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import static org.androidannotations.annotations.EBean.Scope.Singleton;
+
 // @author: Mykhaylo Titov on 12.04.15 10:00.
-@EBean
+@EBean(scope = Singleton)
 public class MD5PasswordEncoder {
 
     public String encodePassword(String rawPassword, String salt) throws NoSuchAlgorithmException {

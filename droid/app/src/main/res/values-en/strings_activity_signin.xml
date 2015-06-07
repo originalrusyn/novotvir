@@ -1,5 +1,8 @@
 <resources>
-    <string name="title_activity_signin">Sign in</string>
+    <string name="title_activity_sign_in">Sign in</string>
     <string name="action_sign_in">Sign in</string>
     <string name="action_sign_in_short">Sign in</string>
+
+    <string name="facebook_sign_in_button">Sign in</string>
+    <string name="plus_sign_in_button">Sign in</string>
 </resources>

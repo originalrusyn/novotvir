@@ -1,4 +1,4 @@
-package novo.tvir.access.signup.social.facebook.service;
+package novo.tvir.access.signin.social.facebook.service;
 
 import asm.AccountDtoAsm;
 import com.j256.ormlite.dao.Dao;
@@ -18,22 +18,22 @@ import persist.domain.Account;
 // @author: Mykhaylo Titov on 03.06.15 23:15.
 @EBean
 @Slf4j
-public class SignUpByFacebookService {
+public class SignInByFacebookService {
 
     @Bean AccountDtoAsm accountDtoAsm;
 
-    @RestService SignUpByFacebookRestService signUpByFacebookRestService;
+    @RestService SignInByFacebookRestService signInByFacebookRestService;
 
     @StringRes(R.string.novotvir_base_url) String novotvirBaseUrl;
 
     @OrmLiteDao(helper = DBHelper.class) Dao<Account, Integer> accountDao;
 
-    public boolean signUp(String accessToken){
+    public boolean signIn(String accessToken){
         try {
-            signUpByFacebookRestService.setRootUrl(novotvirBaseUrl);
+            signInByFacebookRestService.setRootUrl(novotvirBaseUrl);
             LinkedMultiValueMap<String, String> formData = new LinkedMultiValueMap<>();
             formData.add("accessToken", accessToken);
-            ResponseEntity<AccountDto> responseEntity = signUpByFacebookRestService.signUp(formData);
+            ResponseEntity<AccountDto> responseEntity = signInByFacebookRestService.signIn(formData);
             Account account = accountDtoAsm.fromResponse(responseEntity);
             accountDao.createOrUpdate(account);
             return true;

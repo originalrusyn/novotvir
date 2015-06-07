@@ -1,4 +1,4 @@
-package novo.tvir.access.signup.email.fragment;
+package novo.tvir.access.signin.email.fragment;
 
 import android.app.Activity;
 import android.database.Cursor;
@@ -27,15 +27,15 @@ import java.util.List;
 
 // @author: Mykhaylo Titov on 23.05.15 12:45.
 @Slf4j
-@EFragment(R.layout.fragment_email_signup)
-public class EmailSignUpFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
+@EFragment(R.layout.fragment_email_signin)
+public class EmailSignInFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
     @ViewById(R.id.email) AutoCompleteTextView emailView;
     @ViewById(R.id.password) EditText passwordView;
-    @ViewById(R.id.email_sign_up_form) View emailSignUpFormView;
+    @ViewById(R.id.email_sign_in_form) View emailSignInFormView;
 
     //@NonConfigurationInstance
-    @Bean UserSignInTask userSignInTask;
+    @Bean UserSignInTask userSignUpTask;
 
     @Bean EmailFormatValidator emailFormatValidator;
     @Bean PasswordFormatValidator passwordFormatValidator;
@@ -43,7 +43,7 @@ public class EmailSignUpFragment extends Fragment implements LoaderManager.Loade
     A a;
 
     public void onConnectionChanged(boolean connected) {
-        emailSignUpFormView.setVisibility(connected ? View.GONE : View.VISIBLE);
+        emailSignInFormView.setVisibility(connected ? View.GONE : View.VISIBLE);
     }
 
     public interface A{
@@ -109,7 +109,7 @@ public class EmailSignUpFragment extends Fragment implements LoaderManager.Loade
 
     @EditorAction(R.id.password)
     public boolean onPasswordEditorAction(int id) {
-        if (id == R.id.sign_up || id == EditorInfo.IME_NULL) {
+        if (id == R.id.sign_in || id == EditorInfo.IME_NULL) {
             attemptSignUp();
             return true;
         }
@@ -148,11 +148,11 @@ public class EmailSignUpFragment extends Fragment implements LoaderManager.Loade
             focusView.requestFocus();
         } else {
             a.setProgressBarVisible(true);
-            userSignInTask.signIn(email, password);
+            userSignUpTask.signIn(email, password);
         }
     }
 
-    public void onSignUpComplete(boolean success) {
+    public void onSignInComplete(boolean success) {
         a.setProgressBarVisible(false);
 
         if (success) {

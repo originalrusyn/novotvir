@@ -1,4 +1,4 @@
-package novo.tvir.access.signup.social.facebook.fragment;
+package novo.tvir.access.signin.social.facebook.fragment;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,18 +12,18 @@ import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import lombok.extern.slf4j.Slf4j;
 import novo.tvir.R;
-import novo.tvir.access.signup.social.facebook.task.FacebookSignUpTask;
+import novo.tvir.access.signin.social.facebook.task.FacebookSignInTask;
 import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
 
 // @author: Mykhaylo Titov on 01.06.15 19:57.
 @Slf4j
-@EFragment(R.layout.fragment_facebook_signup)
-public class FacebookSignUpFragment extends Fragment{
+@EFragment(R.layout.fragment_facebook_signin)
+public class FacebookSignInFragment extends Fragment{
 
-    @ViewById(R.id.facebook_sign_up_button) LoginButton signUpButton;
-    @Bean FacebookSignUpTask facebookSignUpTask;
+    @ViewById(R.id.facebook_sign_in_button) LoginButton signInButton;
+    @Bean FacebookSignInTask facebookSignInTask;
 
     CallbackManager callbackManager;
 
@@ -38,13 +38,12 @@ public class FacebookSignUpFragment extends Fragment{
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        //signUpButton.setReadPermissions("user_friends");
-        signUpButton.setFragment(this);
-        signUpButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+        signInButton.setFragment(this);
+        signInButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 log.info(loginResult.getAccessToken().toString());
-                facebookSignUpTask.signUp(loginResult.getAccessToken().getToken());
+                facebookSignInTask.signIn(loginResult.getAccessToken().getToken());
             }
 
             @Override

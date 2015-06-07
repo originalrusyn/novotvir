@@ -1,5 +1,8 @@
 <resources>
-    <string name="title_activity_signup">Sign up</string>
+    <string name="title_activity_sign_up">Sign up</string>
     <string name="action_sign_up">Sign up</string>
     <string name="action_sign_up_short">Sign up</string>
+
+    <string name="facebook_sign_up_button">Sign up</string>
+    <string name="plus_sign_up_button">Sign up</string>
 </resources>

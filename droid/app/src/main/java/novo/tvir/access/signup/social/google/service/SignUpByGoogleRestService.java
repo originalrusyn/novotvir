@@ -1,4 +1,4 @@
-package novo.tvir.access.signup.service;
+package novo.tvir.access.signup.social.google.service;
 
 import dto.AccountDto;
 import org.androidannotations.annotations.rest.Post;
@@ -9,17 +9,10 @@ import org.springframework.http.converter.FormHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.util.LinkedMultiValueMap;
 
-// @author: m on 29.03.15 18:56.
+// @author: Mykhaylo Titov on 12.04.15 19:50.
 @Rest(converters = { FormHttpMessageConverter.class, MappingJackson2HttpMessageConverter.class })
-public interface SignUpRestService extends RestClientRootUrl {
-
-    @Post("/signup")
-    ResponseEntity<AccountDto> signup(LinkedMultiValueMap<String, String> formData);
+public interface SignUpByGoogleRestService extends RestClientRootUrl{
 
     @Post("/auth/google?installedApp=true&signUp=true")
-    ResponseEntity<AccountDto> signupByGoogle(LinkedMultiValueMap<String, String> formData);
-
-    @Post("/auth/facebook?installedApp=true&signUp=true")
-    ResponseEntity<AccountDto> signupByFacebook(LinkedMultiValueMap<String, String> formData);
-
+    ResponseEntity<AccountDto> signUp(LinkedMultiValueMap<String, String> formData);
 }

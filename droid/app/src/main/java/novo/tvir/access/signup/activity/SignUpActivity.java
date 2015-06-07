@@ -26,13 +26,13 @@ import java.security.MessageDigest;
 @EActivity(R.layout.activity_signup)
 public class SignUpActivity extends FragmentActivity implements GoogleSignUpFragment.SignUpProgressListener, EmailSignUpFragment.A {
 
-    @ViewById(R.id.signup_progress) View progressView;
+    @ViewById(R.id.sign_up_progress) View progressView;
 
-    @ViewById(R.id.signup_form) View signUpFormView;
+    @ViewById(R.id.sign_up_form) View signUpFormView;
 
     @IntegerRes(android.R.integer.config_shortAnimTime) int shortAnimTime;
 
-    @FragmentById(R.id.email_signup_fragment) EmailSignUpFragment emailSignUpFragment;
+    @FragmentById(R.id.email_sign_up_fragment) EmailSignUpFragment emailSignUpFragment;
 
     @Override
     public void populateAutoComplete() {

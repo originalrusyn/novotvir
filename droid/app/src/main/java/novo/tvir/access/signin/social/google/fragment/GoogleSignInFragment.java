@@ -1,4 +1,4 @@
-package novo.tvir.access.signup.social.google.fragment;
+package novo.tvir.access.signin.social.google.fragment;
 
 import android.accounts.AccountManager;
 import android.app.Activity;
@@ -21,8 +21,9 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import lombok.extern.slf4j.Slf4j;
 import novo.tvir.R;
-import novo.tvir.access.signup.social.google.service.GoogleApiSignUpService;
-import novo.tvir.access.signup.social.google.task.GoogleSignUpTask;
+import novo.tvir.access.signin.social.google.service.GoogleApiSignInService;
+import novo.tvir.access.signin.social.google.task.GoogleSignInTask;
+import novo.tvir.access.signup.social.google.fragment.ErrorDialogFragment;
 import org.androidannotations.annotations.*;
 import service.NetworkService;
 
@@ -31,8 +32,8 @@ import static android.app.Activity.RESULT_OK;
 
 // @author: Mykhaylo Titov on 23.05.15 11:42.
 @Slf4j
-@EFragment(R.layout.fragment_google_signup)
-public class GoogleSignUpFragment extends Fragment implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
+@EFragment(R.layout.fragment_google_signin)
+public class GoogleSignInFragment extends Fragment implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
     public static final int REQUEST_RESOLVE_ERROR = 49404;
 
@@ -41,13 +42,13 @@ public class GoogleSignUpFragment extends Fragment implements GoogleApiClient.Co
 
     //@NonConfigurationInstance
     @Bean
-    GoogleSignUpTask googleAuthTokenTask;
-    @Bean GoogleApiSignUpService googleApiSignUpService;
+    GoogleSignInTask googleAuthTokenTask;
+    @Bean GoogleApiSignInService googleApiSignInService;
     @Bean NetworkService networkService;
 
-    @ViewById(R.id.plus_sign_up_button) SignInButton plusSignInButton;
+    @ViewById(R.id.plus_sign_in_button) SignInButton plusSignInButton;
     @ViewById(R.id.plus_sign_out_buttons) View signOutButtons;
-    @ViewById(R.id.sign_up_form) View signUpFormView;
+    @ViewById(R.id.sign_in_form) View signInFormView;
 
     // A flag to stop multiple dialogues appearing for the user
     @InstanceState boolean autoResolveOnFail;
@@ -60,9 +61,9 @@ public class GoogleSignUpFragment extends Fragment implements GoogleApiClient.Co
     String email;
 
 
-    SignUpProgressListener signUpProgressListener;
+    SignInProgressListener signInProgressListener;
 
-    public interface SignUpProgressListener{
+    public interface SignInProgressListener{
         void populateAutoComplete();
         void setProgressBarVisible(boolean visible);
         void onConnectionChanged(boolean connected);
@@ -73,9 +74,9 @@ public class GoogleSignUpFragment extends Fragment implements GoogleApiClient.Co
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try{
-            signUpProgressListener = (SignUpProgressListener) activity;
+            signInProgressListener = (SignInProgressListener) activity;
         }catch (Exception e){
-            log.error("{} must implement {}", activity, SignUpProgressListener.class, e);
+            log.error("{} must implement {}", activity, SignInProgressListener.class, e);
         }
     }
 
@@ -86,10 +87,10 @@ public class GoogleSignUpFragment extends Fragment implements GoogleApiClient.Co
             plusSignInButton.setVisibility(View.GONE);
             return;
         }
-        if(googleApiSignUpService.isConnected()) {
+        if(googleApiSignInService.isConnected()) {
             updateConnectButtonState();
         } else {
-            signUpProgressListener.populateAutoComplete();
+            signInProgressListener.populateAutoComplete();
         }
     }
 
@@ -104,28 +105,28 @@ public class GoogleSignUpFragment extends Fragment implements GoogleApiClient.Co
      */
     protected void updateConnectButtonState() {
         //TODO: Update this logic to also handle the user logged in by email.
-        boolean connected = googleApiSignUpService.isConnected();
+        boolean connected = googleApiSignInService.isConnected();
 
         signOutButtons.setVisibility(connected ? View.VISIBLE : View.GONE);
         plusSignInButton.setVisibility(connected ? View.GONE : View.VISIBLE);
-        signUpProgressListener.onConnectionChanged(connected);
+        signInProgressListener.onConnectionChanged(connected);
     }
 
     private void initiatePlusClientConnect() {
-        if (!googleApiSignUpService.isConnected() && !googleApiSignUpService.isConnecting()) {
-            googleApiSignUpService.connect();
+        if (!googleApiSignInService.isConnected() && !googleApiSignInService.isConnecting()) {
+            googleApiSignInService.connect();
         }
     }
 
     private void initiatePlusClientDisconnect() {
-        if(googleApiSignUpService.isConnected()) {
-            googleApiSignUpService.disconnect();
+        if(googleApiSignInService.isConnected()) {
+            googleApiSignInService.disconnect();
         }
     }
 
     @Click(R.id.plus_sign_out_button)
     public void signOut() {
-        googleApiSignUpService.clearDefaultAccount();
+        googleApiSignInService.clearDefaultAccount();
         initiatePlusClientDisconnect();
         updateConnectButtonState();
     }
@@ -133,8 +134,8 @@ public class GoogleSignUpFragment extends Fragment implements GoogleApiClient.Co
 
     @Click(R.id.plus_disconnect_button)
     public void revokeAccess() {
-        if(googleApiSignUpService.isConnected()) {
-            googleApiSignUpService.revokeAccessAndDisconnect(new ResultCallback<Status>() {
+        if(googleApiSignInService.isConnected()) {
+            googleApiSignInService.revokeAccessAndDisconnect(new ResultCallback<Status>() {
                 @Override
                 public void onResult(Status status) {
                     if (status.isSuccess()) {
@@ -146,8 +147,8 @@ public class GoogleSignUpFragment extends Fragment implements GoogleApiClient.Co
         }
     }
 
-    @Click(R.id.plus_sign_up_button)
-    public void signUp() {
+    @Click(R.id.plus_sign_in_button)
+    public void signIn() {
         Intent intent = AccountPicker.newChooseAccountIntent(null, null, new String[]{"com.google"}, false, null, null, null, null);
         startActivityForResult(intent, REQUEST_CODE_PICK_ACCOUNT);
 //        if (!googleApiService.isConnected()) {
@@ -170,7 +171,7 @@ public class GoogleSignUpFragment extends Fragment implements GoogleApiClient.Co
         if (responseCode == RESULT_OK) {
             if(networkService.isOnline()) {
                 email = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
-                googleAuthTokenTask.signUp(email);
+                googleAuthTokenTask.signIn(email);
             }else{
                 Toast.makeText(getActivity(), "No network", Toast.LENGTH_SHORT).show();
             }
@@ -219,7 +220,7 @@ public class GoogleSignUpFragment extends Fragment implements GoogleApiClient.Co
         } else {
             // If we've got an error we can't resolve, we're no longer in the midst of signing
             // in, so we can stop the progress spinner.
-            signUpProgressListener.setProgressBarVisible(false);
+            signInProgressListener.setProgressBarVisible(false);
         }
     }
 
@@ -236,7 +237,7 @@ public class GoogleSignUpFragment extends Fragment implements GoogleApiClient.Co
     }
 
     public void handleSignUpError(Exception e) {
-        Toast.makeText(getActivity(), "Signup fail", Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity(), "Sign in fail", Toast.LENGTH_LONG).show();
     }
 
     @OnActivityResult(REQUEST_CODE_RECOVER_FROM_PLAY_SERVICES_ERROR)
@@ -244,7 +245,7 @@ public class GoogleSignUpFragment extends Fragment implements GoogleApiClient.Co
         if (responseCode == RESULT_OK) {
             if(networkService.isOnline()) {
                 email = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
-                googleAuthTokenTask.signUp(email);
+                googleAuthTokenTask.signIn(email);
             }else{
                 Toast.makeText(getActivity(), "No network", Toast.LENGTH_SHORT).show();
             }
@@ -268,7 +269,7 @@ public class GoogleSignUpFragment extends Fragment implements GoogleApiClient.Co
     @Override
     public void onConnected(Bundle connectionHint) {
         updateConnectButtonState();
-        signUpProgressListener.setProgressBarVisible(false);
+        signInProgressListener.setProgressBarVisible(false);
     }
 
     @Override
@@ -301,13 +302,13 @@ public class GoogleSignUpFragment extends Fragment implements GoogleApiClient.Co
         args.putInt(ErrorDialogFragment.DIALOG_ERROR, errorCode);
         dialogFragment.setArguments(args);
         dialogFragment.setTargetFragment(this, 0);
-        dialogFragment.show(signUpProgressListener.getSupportFragmentManager(), "errordialog");
+        dialogFragment.show(signInProgressListener.getSupportFragmentManager(), "errordialog");
     }
 
     /* Called from ErrorDialogFragment when the dialog is dismissed. */
     public void onDialogDismissed() {
         autoResolveOnFail = false;
         updateConnectButtonState();
-        signUpProgressListener.setProgressBarVisible(false);
+        signInProgressListener.setProgressBarVisible(false);
     }
 }

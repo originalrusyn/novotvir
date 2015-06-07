@@ -1,12 +1,11 @@
 package novo.tvir.access.signup.email.service;
 
+import asm.AccountDtoAsm;
 import com.j256.ormlite.dao.Dao;
 import dto.AccountDto;
 import lombok.extern.slf4j.Slf4j;
 import novo.tvir.R;
-import novo.tvir.access.signup.asm.AccountDtoAsm;
-import novo.tvir.access.signup.email.encoder.MD5PasswordEncoder;
-import novo.tvir.access.signup.service.SignUpRestService;
+import novo.tvir.access.encoder.MD5PasswordEncoder;
 import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EBean;
 import org.androidannotations.annotations.OrmLiteDao;
@@ -26,26 +25,26 @@ public class SignUpByEmailService {
 
     @Bean MD5PasswordEncoder md5PasswordEncoder;
 
-    @RestService SignUpRestService signUpRestService;
+    @RestService SignUpByEmailRestService signUpByEmailRestService;
 
     @StringRes(R.string.novotvir_base_url) String novotvirBaseUrl;
     @StringRes(R.string.novotvir_salt) String salt;
 
     @OrmLiteDao(helper = DBHelper.class) Dao<Account, Integer> accountDao;
 
-    public boolean signup(String mEmail, String mPassword){
+    public boolean signUp(String mEmail, String mPassword){
         try {
             String token = md5PasswordEncoder.encodePassword(mPassword, salt);
-            signUpRestService.setRootUrl(novotvirBaseUrl);
+            signUpByEmailRestService.setRootUrl(novotvirBaseUrl);
             LinkedMultiValueMap<String, String> formData = new LinkedMultiValueMap<>();
             formData.add("email", mEmail);
             formData.add("token", token);
-            ResponseEntity<AccountDto> responseEntity = signUpRestService.signup(formData);
+            ResponseEntity<AccountDto> responseEntity = signUpByEmailRestService.signUp(formData);
             Account account = accountDtoAsm.fromResponse(responseEntity);
             accountDao.createOrUpdate(account);
             return true;
         } catch (Exception e) {
-            log.error("Can't sign in", e);
+            log.error("Can't sign up", e);
             return false;
         }
     }

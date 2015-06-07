@@ -2,4 +2,7 @@
     <string name="title_activity_sign_in">Вхід</string>
     <string name="action_sign_in">Увійти</string>
     <string name="action_sign_in_short">Увійти</string>
+
+    <string name="facebook_sign_in_button">Увійти</string>
+    <string name="plus_sign_in_button">Увійти</string>
 </resources>

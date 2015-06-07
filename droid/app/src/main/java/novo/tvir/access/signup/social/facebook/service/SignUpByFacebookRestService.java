@@ -1,4 +1,4 @@
-package novo.tvir.access.signin.service;
+package novo.tvir.access.signup.social.facebook.service;
 
 import dto.AccountDto;
 import org.androidannotations.annotations.rest.Post;
@@ -9,11 +9,10 @@ import org.springframework.http.converter.FormHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.util.LinkedMultiValueMap;
 
-// @author: m on 29.03.15 18:56.
+// @author: Mykhaylo Titov on 12.04.15 19:50.
 @Rest(converters = { FormHttpMessageConverter.class, MappingJackson2HttpMessageConverter.class })
-public interface SignInRestService extends RestClientRootUrl {
+public interface SignUpByFacebookRestService extends RestClientRootUrl{
 
-    @Post("/signin")
-    ResponseEntity<AccountDto> signin(LinkedMultiValueMap<String, String> formData);
-
+    @Post("/auth/facebook?installedApp=true&signUp=true")
+    ResponseEntity<AccountDto> signUp(LinkedMultiValueMap<String, String> formData);
 }
