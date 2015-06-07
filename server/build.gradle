@@ -3,6 +3,7 @@ apply plugin: 'java'
 apply plugin: 'groovy'
 apply plugin: 'idea'
 apply plugin: 'pitest'
+apply plugin: 'findbugs'
 
 group = 'novotvir'
 
@@ -38,7 +39,7 @@ repositories {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.2'
+    gradleVersion = '2.4'
 }
 
 configurations {
@@ -97,6 +98,17 @@ task auto_test(type:Test){
     systemProperty "log4j.defaultInitOverride", "false"
 
     testLogging.showStandardStreams=true
+}
+
+findbugs{
+    sourceSets = [sourceSets.main, sourceSets.auto_test]
+}
+
+tasks.withType(FindBugs) {
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
 }
 
 dependencies {
@@ -158,6 +170,8 @@ dependencies {
     compile 'com.mangofactory:swagger-springmvc:0.6.6'
     compile 'org.jasypt:jasypt:1.9.2'
     compile 'org.jasypt:jasypt-spring31:1.9.2'
+    compile 'com.google.code.findbugs:annotations:3.0.0'
+    compile 'com.google.code.findbugs:jsr305:3.0.0'
 
     testCompile 'org.springframework:spring-test:4.0.6.RELEASE'
     testCompile "org.codehaus.groovy:groovy-all:2.4.3"

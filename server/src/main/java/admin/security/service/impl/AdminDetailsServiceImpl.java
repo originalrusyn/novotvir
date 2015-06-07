@@ -21,8 +21,9 @@ public class AdminDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
         Admin admin = adminRepository.findByEmail(userName);
 
-        if (isNull(admin))
+        if (isNull(admin)) {
             throw new UsernameNotFoundException("Couldn't find user with userName [" + userName + "] in the DB");
+        }
 
         return new AdminDetailsImpl(admin);
     }

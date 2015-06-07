@@ -1,6 +1,7 @@
 package web.security.social.service;
 
 import common.util.RequestUtils;
+import lombok.NonNull;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.security.crypto.encrypt.TextEncryptor;
 import org.springframework.social.connect.Connection;
@@ -8,7 +9,6 @@ import org.springframework.social.connect.ConnectionFactoryLocator;
 import org.springframework.social.connect.ConnectionKey;
 import org.springframework.social.connect.ConnectionSignUp;
 import org.springframework.social.connect.jdbc.JdbcUsersConnectionRepository;
-import org.springframework.util.Assert;
 
 import javax.sql.DataSource;
 import java.util.Arrays;
@@ -24,11 +24,8 @@ public class JdbcUsersConnectionRepo extends JdbcUsersConnectionRepository {
     String tablePrefix = "";
     ConnectionSignUp connectionSignUp;
 
-    public JdbcUsersConnectionRepo(DataSource dataSource, ConnectionFactoryLocator connectionFactoryLocator, TextEncryptor textEncryptor, ConnectionSignUp connectionSignUp) {
+    public JdbcUsersConnectionRepo(@NonNull DataSource dataSource, @NonNull ConnectionFactoryLocator connectionFactoryLocator, TextEncryptor textEncryptor, ConnectionSignUp connectionSignUp) {
         super(dataSource, connectionFactoryLocator, textEncryptor);
-
-        Assert.notNull(dataSource);
-        Assert.notNull(connectionSignUp);
 
         this.connectionSignUp = connectionSignUp;
         this.jdbcTemplate = new JdbcTemplate(dataSource);

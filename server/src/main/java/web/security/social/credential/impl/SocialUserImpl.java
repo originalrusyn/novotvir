@@ -1,6 +1,7 @@
 package web.security.social.credential.impl;
 
 import common.security.credential.SecurityContextDetails;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import lombok.Getter;
 import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
@@ -11,6 +12,7 @@ import java.util.List;
 
 // @author: Mykhaylo Titov on 18.05.15 22:11.
 @ToString(exclude = "user")
+@SuppressFBWarnings("EQ_DOESNT_OVERRIDE_EQUALS")
 public class SocialUserImpl extends SocialUser implements SecurityContextDetails {
 
     @Getter final User user;

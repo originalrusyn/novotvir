@@ -1,6 +1,5 @@
 package feature.domain;
 
-import app.service.SignUpService;
 import command.Command;
 import command.SignUp;
 import lombok.Getter;
@@ -28,8 +27,6 @@ public class Application{
     Account account;
     Locale locale;
     List<Command> commandHistory = new ArrayList<>();
-
-    static SignUpService signUpService;
 
     public Application(Device device, AppVersion appVersion){
         this(device, appVersion, uk_UA_LOCALE);

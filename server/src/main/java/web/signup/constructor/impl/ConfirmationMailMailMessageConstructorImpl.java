@@ -66,7 +66,9 @@ public class ConfirmationMailMailMessageConstructorImpl implements ConfirmationM
     private RequestMapping getActivationRequestMapping() {
         Method[] methods = AccountActivationController.class.getMethods();
         Method activateMethod = asList(methods).stream().filter(e-> e.getName().equals("activate")).findFirst().get();
-        if (isNull(activateMethod)) throw new CouldNotConstructMailException("Couldn't retrieve activationUrl and http method to construct mail message", null);
+        if (isNull(activateMethod)) {
+            throw new CouldNotConstructMailException("Couldn't retrieve activationUrl and http method to construct mail message", null);
+        }
         return getAnnotation(activateMethod, RequestMapping.class);
     }
 }

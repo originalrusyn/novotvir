@@ -16,9 +16,9 @@ import static org.springframework.util.StringUtils.hasText;
 @Service("versionService")
 public class VersionServiceImpl {
 
-    String IMPLEMENTATION_BUILD = "Implementation-Build";
-    String IMPLEMENTATION_VERSION = "Implementation-Version";
-    String BRANCH_ATTRIBUTE = "Branch";
+    final static String IMPLEMENTATION_BUILD = "Implementation-Build";
+    final static String IMPLEMENTATION_VERSION = "Implementation-Version";
+    final static String BRANCH_ATTRIBUTE = "Branch";
 
     @Value("classpath:META-INF/MANIFEST.MF") Resource manifestFile;
     Attributes manifestAttributes;

@@ -1,13 +1,13 @@
 package web.security.credential.impl;
 
+import common.security.credential.SecurityContextDetails;
 import lombok.Getter;
 import lombok.ToString;
-import web.persistence.domain.Authority;
-import web.persistence.domain.User;
-import common.security.credential.SecurityContextDetails;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import web.persistence.domain.Authority;
+import web.persistence.domain.User;
 
 import java.util.ArrayList;
 import java.util.Collection;

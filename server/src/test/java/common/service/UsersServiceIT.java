@@ -32,9 +32,9 @@ public class UsersServiceIT extends DataBaseIT{
     @Test
     public void shouldFindUsersByNameAndEmailAndRole() {
         //given
-        EmailAddress emailAddress = emailAddressRepository.save(new EmailAddress().setEmail("email"));
-        User user = userRepository.save(new User().setName("name").setEmailAddresses(singletonList(emailAddress)).setActivationToken("activationToken").setActivated(true).setLastSignInIpAddress("lastSignInIpAddress").setToken("token"));
-        user = userRepository.save(user.setPrimaryEmailAddress(emailAddress));
+        User user = userRepository.save(new User().setName("name").setActivationToken("activationToken").setActivated(true).setLastSignInIpAddress("lastSignInIpAddress").setToken("token"));
+        EmailAddress emailAddress = emailAddressRepository.save(new EmailAddress().setEmail("email").setUser(user));
+        user = userRepository.save(user.setPrimaryEmailAddress(emailAddress).setEmailAddresses(singletonList(emailAddress)));
 
         //when
         Set<User> users = usersService.findUsers("name='name' and primaryEmailAddress.email='email' and authorities.role='USER'");

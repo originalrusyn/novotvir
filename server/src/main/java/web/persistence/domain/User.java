@@ -1,11 +1,13 @@
 package web.persistence.domain;
 
 import common.enums.Role;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -23,7 +25,10 @@ import static javax.persistence.GenerationType.SEQUENCE;
 @Accessors(chain = true)
 @ToString(exclude = {"authorities"})
 @Setter
-public class User {
+@SuppressFBWarnings("EQ_DOESNT_OVERRIDE_EQUALS")
+public class User implements Serializable {
+
+    private static final long serialVersionUID = -8771610125938886166L;
 
     @Id
     @SequenceGenerator(name = "users_id_seq_gen", sequenceName = "users_id_seq", initialValue = 2, allocationSize = 1)
@@ -58,7 +63,7 @@ public class User {
     public List<Authority> authorities;
 
     public User(){
-        this.setAuthorities(getUserDefaultAuthorities(this));
+        authorities = getUserDefaultAuthorities(this);
     }
 
     @Version
@@ -68,5 +73,10 @@ public class User {
         ArrayList<Authority> authorities = new ArrayList<>();
         authorities.add(new Authority().setUser(user).setRole(Role.USER));
         return authorities;
+    }
+
+    public User setLastSignInTimestamp(Date lastSignInTimestamp){
+        this.lastSignInTimestamp = new Date(lastSignInTimestamp.getTime());
+        return this;
     }
 }

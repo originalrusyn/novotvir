@@ -44,8 +44,9 @@ public class CustomTokenBasedRememberMeServicesImpl extends TokenBasedRememberMe
     public void onLoginSuccess(HttpServletRequest request, HttpServletResponse response, Authentication successfulAuthentication) {
         try {
             super.onLoginSuccess(request, response, successfulAuthentication);
-            if (nonNull(successHandler))
+            if (nonNull(successHandler)) {
                 successHandler.onAuthenticationSuccess(request, response, successfulAuthentication);
+            }
         } catch (IOException | ServletException e) {
             log.error("Couldn't login", e);
         }
@@ -64,7 +65,9 @@ public class CustomTokenBasedRememberMeServicesImpl extends TokenBasedRememberMe
             return super.processAutoLoginCookie(cookieTokens, request, response);
         } catch (Exception e) {
             log.error("Couldn't auto login", e);
-            throw new InvalidCookieException(e.getMessage());
+            InvalidCookieException invalidCookieException = new InvalidCookieException(e.getMessage());
+            invalidCookieException.setStackTrace(e.getStackTrace());
+            throw invalidCookieException;
         }
     }
 

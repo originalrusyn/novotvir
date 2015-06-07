@@ -3,9 +3,12 @@ package util.invoker;
 import app.service.AccountActivationService;
 import command.Command;
 import command.SignUp;
-import feature.domain.*;
-import lombok.extern.slf4j.Slf4j;
 import common.service.CustomMessageSource;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+import feature.domain.Application;
+import feature.domain.Device;
+import feature.domain.Person;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.subethamail.wiser.Wiser;
 import org.subethamail.wiser.WiserMessage;
@@ -22,6 +25,7 @@ import static javax.mail.Message.RecipientType.TO;
 // @author: Mykhaylo Titov on 04.01.15 22:45.
 @Component
 @Slf4j
+@SuppressFBWarnings("REC_CATCH_EXCEPTION")
 public class EmailActivationInvoker {
     static final String activationUrlRegex = ".+?/users/.+?activationToken=.+?&_method=PUT";
 

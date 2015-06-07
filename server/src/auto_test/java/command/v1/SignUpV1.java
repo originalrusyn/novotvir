@@ -3,14 +3,12 @@ package command.v1;
 import command.AbstractCommand;
 import command.SignUp;
 import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import web.account.dto.AccountDto;
 import web.signup.email.dto.UserRegDetailsDto;
 
-import java.util.List;
 import java.util.Locale;
 
 import static java.util.Objects.nonNull;
@@ -60,10 +58,6 @@ public class SignUpV1 extends AbstractCommand implements SignUp {
         assertThat(respEntity.getStatusCode(), is(SEE_OTHER));
         assertThat(respEntity.getBody(), is(notNullValue()));
 
-        HttpHeaders headers = respEntity.getHeaders();
-        List<String> cookies = headers.get(SET_COOKIE);
-
-        //assertThat(cookies.size(), is(1));
         return respEntity.getStatusCode().equals(SEE_OTHER) && nonNull(respEntity.getBody());
     }
 }

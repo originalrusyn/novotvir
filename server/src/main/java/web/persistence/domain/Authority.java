@@ -7,6 +7,8 @@ import common.enums.Role;
 
 import javax.persistence.*;
 
+import java.io.Serializable;
+
 import static javax.persistence.EnumType.STRING;
 import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.GenerationType.SEQUENCE;
@@ -19,7 +21,9 @@ import static javax.persistence.GenerationType.SEQUENCE;
 @Accessors(chain = true)
 @ToString(exclude = "user")
 @Setter
-public class Authority {
+public class Authority implements Serializable {
+
+    private static final long serialVersionUID = -3142986930024203254L;
 
     @Id
     @SequenceGenerator(name = "authorities_id_seq", sequenceName = "authorities_id_seq", allocationSize = 1)

@@ -5,6 +5,7 @@ import lombok.ToString;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -20,7 +21,9 @@ import static javax.persistence.GenerationType.SEQUENCE;
 @Accessors(chain = true)
 @ToString(exclude = "authorities")
 @Setter
-public class Admin {
+public class Admin implements Serializable {
+
+    private static final long serialVersionUID = 5332524357319929085L;
 
     @Id
     @SequenceGenerator(name = "admins_id_seq", sequenceName = "admins_id_seq", initialValue = 2, allocationSize = 1)
@@ -42,5 +45,10 @@ public class Admin {
 
     @OneToMany(mappedBy = "admin", fetch = EAGER, cascade = ALL)
     public List<AdminAuthority> authorities;
+
+    public Admin setLastSignInTimestamp(Date lastSignInTimestamp){
+        this.lastSignInTimestamp = new Date(lastSignInTimestamp.getTime());
+        return this;
+    }
 
 }

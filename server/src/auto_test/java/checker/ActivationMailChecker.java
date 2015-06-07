@@ -1,5 +1,6 @@
 package checker;
 
+import lombok.extern.slf4j.Slf4j;
 import util.invoker.MessageSourceImpl;
 import feature.domain.Email;
 import feature.domain.Person;
@@ -17,6 +18,7 @@ import static javax.mail.Message.RecipientType.TO;
 import static org.junit.Assert.assertTrue;
 
 // @author: Mykhaylo Titov on 19.10.14 22:10.
+@Slf4j
 @Component
 public class ActivationMailChecker {
     static final String activationUrlRegex = ".+?/users/.+?activationToken=.+?&_method=PUT";
@@ -43,7 +45,7 @@ public class ActivationMailChecker {
                 }
             }
         }catch (Exception e){
-
+            log.error("Can't check mail", e);
         }
     }
 }
