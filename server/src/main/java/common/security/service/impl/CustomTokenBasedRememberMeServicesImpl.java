@@ -1,5 +1,6 @@
 package common.security.service.impl;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import common.security.service.CustomTokenBasedRememberMeService;
@@ -57,6 +58,7 @@ public class CustomTokenBasedRememberMeServicesImpl extends TokenBasedRememberMe
         return md5DigestAsHex((getEncodedUserName(username) + ":" + tokenExpiryTimeMillis + ":" + password + ":" + getKey()).getBytes(Charset.forName("UTF-8")));
     }
 
+    @SuppressFBWarnings({"LEST_LOST_EXCEPTION_STACK_TRACE"})
     @Override
     protected UserDetails processAutoLoginCookie(String[] cookieTokens, HttpServletRequest request, HttpServletResponse response) {
         try {

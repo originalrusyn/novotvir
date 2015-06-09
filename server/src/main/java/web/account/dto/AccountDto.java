@@ -1,5 +1,6 @@
 package web.account.dto;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import lombok.Data;
 import lombok.experimental.Accessors;
 import lombok.experimental.FieldDefaults;
@@ -8,6 +9,7 @@ import web.persistence.domain.User;
 import static lombok.AccessLevel.PUBLIC;
 
 // @author: Titov Mykhaylo (titov) on 13.09.14 20:36.
+@SuppressFBWarnings({"USBR_UNNECESSARY_STORE_BEFORE_RETURN"})
 @Data
 @Accessors(chain = true)
 @FieldDefaults(level = PUBLIC)

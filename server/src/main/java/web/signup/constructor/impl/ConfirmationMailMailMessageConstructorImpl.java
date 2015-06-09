@@ -1,38 +1,38 @@
 package web.signup.constructor.impl;
 
-import org.springframework.stereotype.Component;
-import web.signup.email.exception.CouldNotConstructMailException;
-import lombok.extern.slf4j.Slf4j;
-import web.activation.controller.AccountActivationController;
-import web.persistence.domain.User;
 import common.service.CustomMessageSource;
-import web.signup.constructor.ConfirmationMailMailMessageConstructor;
 import common.util.filter.HiddenHttpMethodEnhancedFilter;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.mail.SimpleMailMessage;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import web.activation.controller.AccountActivationController;
+import web.persistence.domain.User;
+import web.signup.constructor.ConfirmationMailMailMessageConstructor;
+import web.signup.email.exception.CouldNotConstructMailException;
 
+import javax.annotation.Resource;
 import java.lang.reflect.Method;
 
+import static common.util.RequestUtils.getServerURL;
 import static java.util.Arrays.asList;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
-import static web.activation.controller.AccountActivationController.ACTIVATION_TOKEN_REQ_PARAM;
-import static web.activation.controller.AccountActivationController.NAME_PATH_VAR;
-import static common.util.RequestUtils.getServerURL;
 import static org.springframework.core.annotation.AnnotationUtils.getAnnotation;
 import static org.springframework.social.support.URIBuilder.fromUri;
+import static web.activation.controller.AccountActivationController.ACTIVATION_TOKEN_REQ_PARAM;
+import static web.activation.controller.AccountActivationController.NAME_PATH_VAR;
 
 // @author Titov Mykhaylo (titov) on 16.05.2014.
 @Slf4j
 @Component("mailMessageConstructor")
 public class ConfirmationMailMailMessageConstructorImpl implements ConfirmationMailMailMessageConstructor {
 
-    @Autowired SimpleMailMessage templateMessage;
-    @Autowired HiddenHttpMethodEnhancedFilter hiddenHttpMethodEnhancedFilter;
-    @Autowired CustomMessageSource customMessageSource;
+    @Resource SimpleMailMessage templateMessage;
+    @Resource HiddenHttpMethodEnhancedFilter hiddenHttpMethodEnhancedFilter;
+    @Resource CustomMessageSource customMessageSource;
 
     @Override
     public SimpleMailMessage construct(User user){
@@ -65,7 +65,7 @@ public class ConfirmationMailMailMessageConstructorImpl implements ConfirmationM
     @Cacheable("activateMethodRequestMapping")
     private RequestMapping getActivationRequestMapping() {
         Method[] methods = AccountActivationController.class.getMethods();
-        Method activateMethod = asList(methods).stream().filter(e-> e.getName().equals("activate")).findFirst().get();
+        Method activateMethod = asList(methods).stream().filter(e -> "activate".equals(e.getName())).findFirst().get();
         if (isNull(activateMethod)) {
             throw new CouldNotConstructMailException("Couldn't retrieve activationUrl and http method to construct mail message", null);
         }

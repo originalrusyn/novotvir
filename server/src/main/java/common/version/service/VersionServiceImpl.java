@@ -1,6 +1,7 @@
 package common.version.service;
 
 import common.version.dto.VersionDto;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
@@ -29,6 +30,7 @@ public class VersionServiceImpl {
         manifestAttributes = mf.getMainAttributes();
     }
 
+    @SuppressFBWarnings({"CLI_CONSTANT_LIST_INDEX"})
     public VersionDto getVersion() {
         VersionDto dto = new VersionDto();
         dto.setVersion(manifestAttributes.getValue(IMPLEMENTATION_VERSION));
