@@ -2,6 +2,7 @@ package novo.tvir.access.signup.activity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -22,9 +23,10 @@ import org.androidannotations.annotations.res.IntegerRes;
 
 import java.security.MessageDigest;
 
+@SuppressLint("Registered")
 @Slf4j
 @EActivity(R.layout.activity_signup)
-public class SignUpActivity extends FragmentActivity implements GoogleSignUpFragment.SignUpProgressListener, EmailSignUpFragment.A {
+public class SignUpActivity extends FragmentActivity implements GoogleSignUpFragment.SignUpProgressListener, EmailSignUpFragment.SignUpByEmailListener {
 
     @ViewById(R.id.sign_up_progress) View progressView;
 

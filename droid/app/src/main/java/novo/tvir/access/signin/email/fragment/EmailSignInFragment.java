@@ -40,13 +40,13 @@ public class EmailSignInFragment extends Fragment implements LoaderManager.Loade
     @Bean EmailFormatValidator emailFormatValidator;
     @Bean PasswordFormatValidator passwordFormatValidator;
 
-    A a;
+    SignInByEmailListener signInByEmailListener;
 
     public void onConnectionChanged(boolean connected) {
         emailSignInFormView.setVisibility(connected ? View.GONE : View.VISIBLE);
     }
 
-    public interface A{
+    public interface SignInByEmailListener {
         void setProgressBarVisible(boolean visible);
     }
 
@@ -54,9 +54,9 @@ public class EmailSignInFragment extends Fragment implements LoaderManager.Loade
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try{
-            a = (A) activity;
+            signInByEmailListener = (SignInByEmailListener) activity;
         }catch (Exception e){
-            log.error("{} must implement {}", activity, A.class, e);
+            log.error("{} must implement {}", activity, SignInByEmailListener.class, e);
         }
     }
 
@@ -147,13 +147,13 @@ public class EmailSignInFragment extends Fragment implements LoaderManager.Loade
         if (cancel) {
             focusView.requestFocus();
         } else {
-            a.setProgressBarVisible(true);
+            signInByEmailListener.setProgressBarVisible(true);
             userSignUpTask.signIn(email, password);
         }
     }
 
     public void onSignInComplete(boolean success) {
-        a.setProgressBarVisible(false);
+        signInByEmailListener.setProgressBarVisible(false);
 
         if (success) {
             getActivity().finish();

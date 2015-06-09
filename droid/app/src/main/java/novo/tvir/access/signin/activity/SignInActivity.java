@@ -2,6 +2,7 @@ package novo.tvir.access.signin.activity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.support.v4.app.FragmentActivity;
@@ -15,8 +16,9 @@ import org.androidannotations.annotations.ViewById;
 import org.androidannotations.annotations.res.IntegerRes;
 
 
+@SuppressLint("Registered")
 @EActivity(R.layout.activity_signin)
-public class SignInActivity extends FragmentActivity implements GoogleSignInFragment.SignInProgressListener, EmailSignInFragment.A {
+public class SignInActivity extends FragmentActivity implements GoogleSignInFragment.SignInProgressListener, EmailSignInFragment.SignInByEmailListener {
 
     @ViewById(R.id.sign_up_progress) View progressView;
 

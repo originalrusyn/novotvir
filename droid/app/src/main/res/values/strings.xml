@@ -2,7 +2,6 @@
 <resources>
 
     <string name="app_name">Новотвір</string>
-    <string name="hello_world">Привіт світ!</string>
     <string name="action_settings">Налаштування</string>
 
     <!--<string name="novotvir_base_url">http://192.168.56.1:8080/novotvir/web</string>-->
