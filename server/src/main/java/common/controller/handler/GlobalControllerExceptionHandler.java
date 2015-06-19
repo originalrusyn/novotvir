@@ -17,7 +17,7 @@ import static org.springframework.http.HttpStatus.CONFLICT;
 public class GlobalControllerExceptionHandler {
 
     @ExceptionHandler({DataIntegrityViolationException.class})
-    @ResponseStatus(value = CONFLICT)
+    @ResponseStatus(CONFLICT)
     public ModelAndView handleConstraintViolationException(HttpServletRequest req, DataIntegrityViolationException dataIntegrityViolationException){
         log.trace("Data integrity violation", dataIntegrityViolationException);
 
