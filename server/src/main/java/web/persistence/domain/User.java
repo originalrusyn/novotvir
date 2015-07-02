@@ -8,8 +8,8 @@ import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import static javax.persistence.CascadeType.ALL;
@@ -51,7 +51,7 @@ public class User implements Serializable {
     @Column(nullable = false)
     public String lastSignInIpAddress;
 
-    public Date lastSignInTimestamp;
+    public LocalDateTime lastSignInTimestamp;
 
     public String activationToken;
 
@@ -73,10 +73,5 @@ public class User implements Serializable {
         ArrayList<Authority> authorities = new ArrayList<>();
         authorities.add(new Authority().setUser(user).setRole(Role.USER));
         return authorities;
-    }
-
-    public User setLastSignInTimestamp(Date lastSignInTimestamp){
-        this.lastSignInTimestamp = new Date(lastSignInTimestamp.getTime());
-        return this;
     }
 }

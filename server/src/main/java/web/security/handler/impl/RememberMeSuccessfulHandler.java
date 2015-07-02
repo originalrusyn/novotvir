@@ -14,7 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import static common.util.RequestUtils.getRemoteAddr;
 import static org.springframework.transaction.annotation.Propagation.REQUIRED;
@@ -42,7 +42,7 @@ public class RememberMeSuccessfulHandler implements AuthenticationSuccessHandler
     }
 
     private void updateLastLoginInfo(User user) {
-        userRepository.save(user.setLastSignInIpAddress(getRemoteAddr()).setLastSignInTimestamp(new Date()));
+        userRepository.save(user.setLastSignInIpAddress(getRemoteAddr()).setLastSignInTimestamp(LocalDateTime.now()));
     }
 
 }

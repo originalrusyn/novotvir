@@ -6,7 +6,7 @@ import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static javax.persistence.CascadeType.ALL;
@@ -39,16 +39,11 @@ public class Admin implements Serializable {
     @Column(nullable = false)
     public String lastSignInIpAddress;
 
-    public Date lastSignInTimestamp;
+    public LocalDateTime lastSignInTimestamp;
 
     public boolean blocked;
 
     @OneToMany(mappedBy = "admin", fetch = EAGER, cascade = ALL)
     public List<AdminAuthority> authorities;
-
-    public Admin setLastSignInTimestamp(Date lastSignInTimestamp){
-        this.lastSignInTimestamp = new Date(lastSignInTimestamp.getTime());
-        return this;
-    }
 
 }

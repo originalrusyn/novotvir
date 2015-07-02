@@ -32,7 +32,7 @@
 
     <bean id="entityManagerFactory"
           class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
-          p:packagesToScan="admin.persistence.domain, web.persistence.domain"
+          p:packagesToScan="admin.persistence.domain, web.persistence.domain, org.springframework.data.jpa.convert.threeten"
           p:dataSource-ref="dataSource"
           p:jpaPropertyMap-ref="jpaPropertyMap"
           p:jpaVendorAdapter-ref="hibernateVendor"

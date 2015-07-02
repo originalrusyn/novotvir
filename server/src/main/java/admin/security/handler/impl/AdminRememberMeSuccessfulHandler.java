@@ -13,7 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import static common.util.RequestUtils.getRemoteAddr;
 import static org.springframework.transaction.annotation.Propagation.REQUIRED;
@@ -32,7 +32,7 @@ public class AdminRememberMeSuccessfulHandler implements AuthenticationSuccessHa
         if(principal instanceof AdminDetailsImpl && requestURI.endsWith("/signin")) {
             long userId = ((AdminDetailsImpl) principal).getId();
             Admin admin = adminRepository.findOne(userId);
-            adminRepository.save(admin.setLastSignInIpAddress(getRemoteAddr()).setLastSignInTimestamp(new Date()));
+            adminRepository.save(admin.setLastSignInIpAddress(getRemoteAddr()).setLastSignInTimestamp(LocalDateTime.now()));
         }
     }
 }
