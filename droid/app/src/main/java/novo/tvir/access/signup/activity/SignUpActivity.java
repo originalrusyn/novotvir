@@ -4,24 +4,21 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
+import android.content.Intent;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.util.Base64;
-import android.util.Log;
 import android.view.View;
 import lombok.extern.slf4j.Slf4j;
 import novo.tvir.R;
 import novo.tvir.access.signup.email.fragment.EmailSignUpFragment;
 import novo.tvir.access.signup.social.google.fragment.GoogleSignUpFragment;
+import novo.tvir.main.MainActivity_;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.FragmentById;
 import org.androidannotations.annotations.ViewById;
 import org.androidannotations.annotations.res.IntegerRes;
-
-import java.security.MessageDigest;
+import persist.domain.Account;
 
 @SuppressLint("Registered")
 @Slf4j
@@ -38,18 +35,18 @@ public class SignUpActivity extends FragmentActivity implements GoogleSignUpFrag
 
     @Override
     public void populateAutoComplete() {
-        try {
-            PackageInfo info = getPackageManager().getPackageInfo(
-                    "novo.tvir",
-                    PackageManager.GET_SIGNATURES);
-            for (Signature signature : info.signatures) {
-                MessageDigest md = MessageDigest.getInstance("SHA");
-                md.update(signature.toByteArray());
-                Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
-            }
-        } catch (Exception e) {
-            log.error("error", e);
-        }
+//        try {
+//            PackageInfo info = getPackageManager().getPackageInfo(
+//                    "novo.tvir",
+//                    PackageManager.GET_SIGNATURES);
+//            for (Signature signature : info.signatures) {
+//                MessageDigest md = MessageDigest.getInstance("SHA");
+//                md.update(signature.toByteArray());
+//                Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+//            }
+//        } catch (Exception e) {
+//            log.error("error", e);
+//        }
 
         emailSignUpFragment.populateAutoComplete();
     }
@@ -77,6 +74,14 @@ public class SignUpActivity extends FragmentActivity implements GoogleSignUpFrag
             progressView.setVisibility(show ? View.VISIBLE : View.GONE);
             signUpFormView.setVisibility(show ? View.GONE : View.VISIBLE);
         }
+    }
+
+    @Override
+    public void onSignUpSuccess(Account account) {
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("account", account);
+        startActivity(new Intent(this, MainActivity_.class), bundle);
+
     }
 
     @Override

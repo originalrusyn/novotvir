@@ -15,7 +15,7 @@ repositories {
 }
 
 android {
-    compileSdkVersion 21
+    compileSdkVersion 22
     buildToolsVersion "21.1.2"
     lintOptions {
         abortOnError false
@@ -68,9 +68,9 @@ def androidAnnotationsVersion = '3.3.1'
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    provided 'org.projectlombok:lombok:1.12.6'
-    apt "org.projectlombok:lombok:1.12.6"
-    compile 'com.android.support:appcompat-v7:22.0.0'
+    provided 'org.projectlombok:lombok:1.16.4'
+    apt "org.projectlombok:lombok:1.16.4"
+    compile 'com.android.support:appcompat-v7:22.1.1'
     compile 'org.springframework.android:spring-android-rest-template:2.0.0.M1'
     compile 'com.google.android.gms:play-services:7.0.0'
     apt "org.androidannotations:androidannotations:$androidAnnotationsVersion"
@@ -81,6 +81,16 @@ dependencies {
     compile 'org.slf4j:slf4j-android:1.7.12'
     compile 'com.j256.ormlite:ormlite-android:4.45'
     compile 'org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final'
-    compile 'com.android.support:support-v4:22.0.0'
+    compile 'com.android.support:support-v4:22.1.1'
+    compile 'com.android.support:recyclerview-v7:22.1.1'
     compile 'com.facebook.android:facebook-android-sdk:4.1.0'
+    compile ('com.android.support:design:22.2.0'){
+        exclude module: 'support-v4'
+        exclude module: 'appcompat-v7'
+    }
+    compile('com.mikepenz:materialdrawer:3.0.7@aar') {
+        transitive = true
+        exclude module: 'support-v4'
+        exclude module: 'appcompat-v7'
+    }
 }

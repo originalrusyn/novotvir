@@ -20,6 +20,19 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
+                android:name=".main.MainActivity_"
+                android:label="@string/title_activity_main"
+                android:windowSoftInputMode="adjustResize|stateHidden" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+        <activity
             android:name=".access.signup.activity.SignUpActivity_"
             android:label="@string/title_activity_sign_up"
             android:windowSoftInputMode="adjustResize|stateHidden" >
@@ -29,12 +42,6 @@
             android:name=".access.signin.activity.SignInActivity_"
             android:label="@string/title_activity_sign_in"
             android:windowSoftInputMode="adjustResize|stateHidden" >
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
 

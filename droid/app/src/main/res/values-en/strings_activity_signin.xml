@@ -5,4 +5,7 @@
 
     <string name="facebook_sign_in_button">Sign in</string>
     <string name="plus_sign_in_button">Sign in</string>
+    <string name="google_sign_in_canceled">Canceled</string>
+    <string name="google_sign_in_no_network_error">No network</string>
+    <string name="google_sign_in_error">Sign in fail</string>
 </resources>

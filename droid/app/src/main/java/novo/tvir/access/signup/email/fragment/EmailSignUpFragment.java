@@ -20,6 +20,7 @@ import novo.tvir.R;
 import novo.tvir.access.PasswordFormatValidator;
 import novo.tvir.access.signin.email.task.UserSignInTask;
 import org.androidannotations.annotations.*;
+import persist.domain.Account;
 import util.EmailFormatValidator;
 
 import java.util.ArrayList;
@@ -48,6 +49,7 @@ public class EmailSignUpFragment extends Fragment implements LoaderManager.Loade
 
     public interface SignUpByEmailListener {
         void setProgressBarVisible(boolean visible);
+        void onSignUpSuccess(Account account);
     }
 
     @Override
@@ -152,11 +154,12 @@ public class EmailSignUpFragment extends Fragment implements LoaderManager.Loade
         }
     }
 
-    public void onSignUpComplete(boolean success) {
+    public void onSignUpComplete(Account account) {
         signUpByEmailListener.setProgressBarVisible(false);
 
-        if (success) {
+        if (account != null) {
             getActivity().finish();
+            signUpByEmailListener.onSignUpSuccess(account);
         } else {
             passwordView.setError(getString(R.string.error_incorrect_password));
             passwordView.requestFocus();

@@ -32,7 +32,7 @@ public class SignUpByEmailService {
 
     @OrmLiteDao(helper = DBHelper.class) Dao<Account, Integer> accountDao;
 
-    public boolean signUp(String mEmail, String mPassword){
+    public Account signUp(String mEmail, String mPassword){
         try {
             String token = md5PasswordEncoder.encodePassword(mPassword, salt);
             signUpByEmailRestService.setRootUrl(novotvirBaseUrl);
@@ -42,10 +42,10 @@ public class SignUpByEmailService {
             ResponseEntity<AccountDto> responseEntity = signUpByEmailRestService.signUp(formData);
             Account account = accountDtoAsm.fromResponse(responseEntity);
             accountDao.createOrUpdate(account);
-            return true;
+            return account;
         } catch (Exception e) {
             log.error("Can't sign up", e);
-            return false;
+            return null;
         }
     }
 }

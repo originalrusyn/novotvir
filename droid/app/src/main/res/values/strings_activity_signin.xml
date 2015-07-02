@@ -5,4 +5,7 @@
 
     <string name="facebook_sign_in_button">Увійти</string>
     <string name="plus_sign_in_button">Увійти</string>
+    <string name="google_sign_in_canceled">Скасовано</string>
+    <string name="google_sign_in_no_network_error">Немає інтернету</string>
+    <string name="google_sign_in_error">Помилка входу</string>
 </resources>

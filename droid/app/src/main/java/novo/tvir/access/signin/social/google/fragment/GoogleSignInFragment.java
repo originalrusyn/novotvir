@@ -173,10 +173,10 @@ public class GoogleSignInFragment extends Fragment implements GoogleApiClient.Co
                 email = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
                 googleAuthTokenTask.signIn(email);
             }else{
-                Toast.makeText(getActivity(), "No network", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), getString(R.string.google_sign_in_no_network_error), Toast.LENGTH_SHORT).show();
             }
         } else if (responseCode == RESULT_CANCELED) {
-            Toast.makeText(getActivity(), "Canceled", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), getString(R.string.google_sign_in_canceled), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -237,7 +237,7 @@ public class GoogleSignInFragment extends Fragment implements GoogleApiClient.Co
     }
 
     public void handleSignUpError(Exception e) {
-        Toast.makeText(getActivity(), "Sign in fail", Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity(), getString(R.string.google_sign_in_error), Toast.LENGTH_LONG).show();
     }
 
     @OnActivityResult(REQUEST_CODE_RECOVER_FROM_PLAY_SERVICES_ERROR)
@@ -247,10 +247,10 @@ public class GoogleSignInFragment extends Fragment implements GoogleApiClient.Co
                 email = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
                 googleAuthTokenTask.signIn(email);
             }else{
-                Toast.makeText(getActivity(), "No network", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), getString(R.string.google_sign_in_no_network_error), Toast.LENGTH_SHORT).show();
             }
         } else if (responseCode == RESULT_CANCELED) {
-            Toast.makeText(getActivity(), "Canceled", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), getString(R.string.google_sign_in_canceled), Toast.LENGTH_SHORT).show();
         }
     }
 

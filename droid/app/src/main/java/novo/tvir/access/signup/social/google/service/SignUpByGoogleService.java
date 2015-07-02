@@ -27,7 +27,7 @@ public class SignUpByGoogleService {
 
     @OrmLiteDao(helper = DBHelper.class) Dao<Account, Integer> accountDao;
 
-    public boolean signUp(String code){
+    public Account signUp(String code){
         try {
             signUpByGoogleRestService.setRootUrl(novotvirBaseUrl);
             LinkedMultiValueMap<String, String> formData = new LinkedMultiValueMap<>();
@@ -35,10 +35,10 @@ public class SignUpByGoogleService {
             ResponseEntity<AccountDto> responseEntity = signUpByGoogleRestService.signUp(formData);
             Account account = accountDtoAsm.fromResponse(responseEntity);
             accountDao.createOrUpdate(account);
-            return true;
+            return account;
         } catch (Exception e) {
             log.error("Can't sign up", e);
-            return false;
+            return null;
         }
     }
 

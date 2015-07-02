@@ -5,6 +5,7 @@ import novo.tvir.R;
 import novo.tvir.access.signup.email.fragment.EmailSignUpFragment;
 import novo.tvir.access.signup.email.service.SignUpByEmailService;
 import org.androidannotations.annotations.*;
+import persist.domain.Account;
 
 // @author: Mykhaylo Titov on 29.03.15 17:21.
 @EBean
@@ -20,8 +21,8 @@ public class UserSignUpTask {
     }
 
     @UiThread
-    void onLoginComplete(boolean success) {
-        emailSignUpFragment.onSignUpComplete(success);
+    void onLoginComplete(Account account) {
+        emailSignUpFragment.onSignUpComplete(account);
     }
 
 }

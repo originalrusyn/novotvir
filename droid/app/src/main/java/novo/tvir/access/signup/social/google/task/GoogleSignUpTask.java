@@ -10,6 +10,7 @@ import novo.tvir.access.signup.social.google.fragment.GoogleSignUpFragment;
 import novo.tvir.access.signup.social.google.service.SignUpByGoogleService;
 import org.androidannotations.annotations.*;
 import org.androidannotations.annotations.res.StringRes;
+import persist.domain.Account;
 
 // @author Mykhaylo Titov on 30.04.2015.
 @Slf4j
@@ -25,8 +26,8 @@ public class GoogleSignUpTask {
     public void signUp(String email){
         try {
             String token = GoogleAuthUtil.getToken(signUpActivity, email, scope, new Bundle());
-            signUpByGoogleService.signUp(token);
-            onFetchTokenComplete(token);
+            Account account = signUpByGoogleService.signUp(token);
+            onSignUpSuccess(account);
         }catch (UserRecoverableAuthException e){
             handleException(e);
         } catch (Exception e) {
@@ -46,8 +47,8 @@ public class GoogleSignUpTask {
     }
 
     @UiThread
-    void onFetchTokenComplete(String token){
-        log.info(token);
+    void onSignUpSuccess(Account account){
+        googleSignUpFragment.onSignUpSuccess(account);
     }
 
 }

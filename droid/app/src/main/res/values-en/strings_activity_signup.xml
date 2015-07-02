@@ -5,4 +5,8 @@
 
     <string name="facebook_sign_up_button">Sign up</string>
     <string name="plus_sign_up_button">Sign up</string>
+    <string name="google_sign_up_success">Success</string>
+    <string name="google_sign_up_no_network_error">No network</string>
+    <string name="google_sign_up_canceled">Canceled</string>
+    <string name="google_sign_up_fail">Signup fail</string>
 </resources>

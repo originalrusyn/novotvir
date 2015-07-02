@@ -24,6 +24,7 @@ import novo.tvir.R;
 import novo.tvir.access.signup.social.google.service.GoogleApiSignUpService;
 import novo.tvir.access.signup.social.google.task.GoogleSignUpTask;
 import org.androidannotations.annotations.*;
+import persist.domain.Account;
 import service.NetworkService;
 
 import static android.app.Activity.RESULT_CANCELED;
@@ -67,6 +68,7 @@ public class GoogleSignUpFragment extends Fragment implements GoogleApiClient.Co
         void setProgressBarVisible(boolean visible);
         void onConnectionChanged(boolean connected);
         FragmentManager getSupportFragmentManager();
+        void onSignUpSuccess(Account account);
     }
 
     @Override
@@ -138,7 +140,7 @@ public class GoogleSignUpFragment extends Fragment implements GoogleApiClient.Co
                 @Override
                 public void onResult(Status status) {
                     if (status.isSuccess()) {
-                        Toast.makeText(getActivity(), "Success", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(), getString(R.string.google_sign_up_success), Toast.LENGTH_LONG).show();
                         updateConnectButtonState();
                     }
                 }
@@ -172,10 +174,10 @@ public class GoogleSignUpFragment extends Fragment implements GoogleApiClient.Co
                 email = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
                 googleAuthTokenTask.signUp(email);
             }else{
-                Toast.makeText(getActivity(), "No network", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), getString(R.string.google_sign_up_no_network_error), Toast.LENGTH_SHORT).show();
             }
         } else if (responseCode == RESULT_CANCELED) {
-            Toast.makeText(getActivity(), "Canceled", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), getString(R.string.google_sign_up_canceled), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -236,7 +238,7 @@ public class GoogleSignUpFragment extends Fragment implements GoogleApiClient.Co
     }
 
     public void handleSignUpError(Exception e) {
-        Toast.makeText(getActivity(), "Signup fail", Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity(), getString(R.string.google_sign_up_fail), Toast.LENGTH_LONG).show();
     }
 
     @OnActivityResult(REQUEST_CODE_RECOVER_FROM_PLAY_SERVICES_ERROR)
@@ -246,10 +248,10 @@ public class GoogleSignUpFragment extends Fragment implements GoogleApiClient.Co
                 email = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
                 googleAuthTokenTask.signUp(email);
             }else{
-                Toast.makeText(getActivity(), "No network", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), getString(R.string.google_sign_up_no_network_error), Toast.LENGTH_SHORT).show();
             }
         } else if (responseCode == RESULT_CANCELED) {
-            Toast.makeText(getActivity(), "Canceled", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), getString(R.string.google_sign_up_canceled), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -269,6 +271,10 @@ public class GoogleSignUpFragment extends Fragment implements GoogleApiClient.Co
     public void onConnected(Bundle connectionHint) {
         updateConnectButtonState();
         signUpProgressListener.setProgressBarVisible(false);
+    }
+
+    public void onSignUpSuccess(Account account) {
+        signUpProgressListener.onSignUpSuccess(account);
     }
 
     @Override

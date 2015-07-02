@@ -5,4 +5,8 @@
 
     <string name="facebook_sign_up_button">Зареєструватися</string>
     <string name="plus_sign_up_button">Зареєструватися</string>
+    <string name="google_sign_up_success">Готово</string>
+    <string name="google_sign_up_no_network_error">Відсутній інтернет</string>
+    <string name="google_sign_up_canceled">Скасовано</string>
+    <string name="google_sign_up_fail">Помилка реєстрації</string>
 </resources>
