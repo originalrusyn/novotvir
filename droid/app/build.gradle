@@ -68,8 +68,8 @@ def androidAnnotationsVersion = '3.3.1'
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    provided 'org.projectlombok:lombok:1.16.4'
-    apt "org.projectlombok:lombok:1.16.4"
+    provided 'org.projectlombok:lombok:1.12.6'
+    apt "org.projectlombok:lombok:1.12.6"
     compile 'com.android.support:appcompat-v7:22.1.1'
     compile 'org.springframework.android:spring-android-rest-template:2.0.0.M1'
     compile 'com.google.android.gms:play-services:7.0.0'
