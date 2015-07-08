@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 public class VersionComparator implements Comparator<String>, Serializable{
 
 
-    static final Pattern PATTERN = Pattern.compile(".*release(\\d+)\\.(\\d+)(\\.(\\d+))?.*\\.sql");
+    private static final Pattern PATTERN = Pattern.compile(".*release(\\d+)\\.(\\d+)(\\.(\\d+))?.*\\.sql");
 
     @Override
     public int compare(String filePath1, String filePath2) {

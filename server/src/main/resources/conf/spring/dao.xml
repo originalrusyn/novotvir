@@ -18,7 +18,7 @@
        http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <bean id="springLiquibase"
-          class="liquibase.integration.spring.SpringLiquibase"
+          class="common.liquibase.CustomSpringLiquibase"
           p:dataSource-ref="dataSource"
           p:changeLog="classpath:changelogs/changelog-master.xml"
           p:changeLogParameters-ref="changeLogParameters"/>
