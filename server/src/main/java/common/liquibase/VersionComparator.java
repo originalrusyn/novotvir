@@ -9,8 +9,9 @@ import java.util.regex.Pattern;
 // @author Titov Mykhaylo on 19.06.2015.
 public class VersionComparator implements Comparator<String>, Serializable{
 
+    private static final long serialVersionUID = 1848516584535155650L;
 
-    private static final Pattern PATTERN = Pattern.compile(".*release(\\d+)\\.(\\d+)(\\.(\\d+))?.*\\.sql");
+    private static final Pattern PATTERN = Pattern.compile(".*release(\\d+)\\.(\\d+)(\\.(\\d+))?\\.sql");
 
     @Override
     public int compare(String filePath1, String filePath2) {
@@ -46,6 +47,6 @@ public class VersionComparator implements Comparator<String>, Serializable{
 
     private void throwWrongFileNameFormatException(String fileName) {
         throw new RuntimeException(String.format("Wrong file name format %s. It has to match following ref exp: %s. " +
-                "For example, release1.1.1-SNAPSHOT.sql, release1.2.sql, release10.150-SNAPSHOT.sql", fileName, PATTERN));
+                "For example, release1.2.sql, release10.150.5.sql", fileName, PATTERN));
     }
 }
