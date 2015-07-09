@@ -54,7 +54,7 @@ CREATE TABLE
   CONSTRAINT UserConnection_user FOREIGN KEY (userId) REFERENCES users (name) MATCH SIMPLE
 );
 
--- rollback drop table if exists UserConnection;
+-- rollback drop table if exists socialUserConnection;
 
 -- changeset titov:5 dbms:postgresql runInTransaction:true
 CREATE TABLE
