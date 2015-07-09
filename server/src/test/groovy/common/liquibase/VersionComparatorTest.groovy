@@ -12,11 +12,11 @@ class VersionComparatorTest extends Specification {
         versionComparator.compare(fileName1, fileName2) == result
 
         where:
-        fileName1              | fileName2                       | result
-        "release1.1.sql"       | "release1.10-SNAPSHOT.sql"      | -1
-        "release2.1.sql"       | "release1.10-SNAPSHOT.sql"      | 1
-        "release1.1.0.sql"     | "release1.10-SNAPSHOT.sql"      | -1
-        "sql/release1.1.0.sql" | "sql/release1.1.0-SNAPSHOT.sql" | 0
-        "release1.1.0.sql"     | "release1.1-SNAPSHOT.sql"       | 0
+        fileName1            | fileName2              | result
+        "release1.1.sql"     | "release1.10.sql"      | -1
+        "SQL/release2.1.sql" | "release1.10.sql"      | 1
+        "release1.1.0.sql"   | "release1.10.sql"      | -1
+        "release1.1.0.sql"   | "sql/release1.1.0.sql" | 0
+        "release1.1.0.sql"   | "release1.1.sql"       | 0
     }
 }
