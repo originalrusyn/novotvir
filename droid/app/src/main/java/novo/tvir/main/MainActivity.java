@@ -100,6 +100,7 @@ public class MainActivity extends AppCompatActivity{
 
         AccountHeader accountHeader = new AccountHeaderBuilder()
                 .withActivity(this)
+                .withHeaderBackground(R.drawable.nav_drawer_background)
                 .withProfiles(profiles)
                 .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener() {
                     @Override
