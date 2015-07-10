@@ -23,7 +23,7 @@ import static javax.persistence.GenerationType.SEQUENCE;
         @UniqueConstraint( name = "activationToken", columnNames = "activationToken")
 })
 @Accessors(chain = true)
-@ToString(exclude = {"authorities"})
+@ToString(exclude = {"authorities", "socialUserConnections"})
 @Setter
 @SuppressFBWarnings("EQ_DOESNT_OVERRIDE_EQUALS")
 public class User implements Serializable {
@@ -62,12 +62,12 @@ public class User implements Serializable {
     @OneToMany(mappedBy = "user", fetch = EAGER, cascade = ALL)
     public List<Authority> authorities;
 
+    @Version
+    public long version;
+
     public User(){
         authorities = getUserDefaultAuthorities(this);
     }
-
-    @Version
-    long version;
 
     private List<Authority> getUserDefaultAuthorities(User user) {
         ArrayList<Authority> authorities = new ArrayList<>();

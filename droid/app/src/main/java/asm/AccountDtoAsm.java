@@ -15,7 +15,10 @@ public class AccountDtoAsm {
         AccountDto accountDto = responseEntity.getBody();
         String rememberMeToken = getRememberMeToken(responseEntity.getHeaders().getFirst("Set-Cookie"));
 
-        return new Account().setName(accountDto.getName()).
+        return new Account().
+                setDisplayName(accountDto.getDisplayName()).
+                setName(accountDto.getName()).
+                setImageUrl(accountDto.getImageUrl()).
                 setEmail(accountDto.getEmail()).
                 setActivated(accountDto.isActivated()).
                 setBlocked(accountDto.isBlocked()).

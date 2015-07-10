@@ -6,7 +6,6 @@ import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.os.Build;
-import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import lombok.extern.slf4j.Slf4j;
@@ -78,9 +77,8 @@ public class SignUpActivity extends FragmentActivity implements GoogleSignUpFrag
 
     @Override
     public void onSignUpSuccess(Account account) {
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("account", account);
-        startActivity(new Intent(this, MainActivity_.class), bundle);
+        startActivity(new Intent(this, MainActivity_.class).
+                putExtra("accountName", account.getName()));
 
     }
 

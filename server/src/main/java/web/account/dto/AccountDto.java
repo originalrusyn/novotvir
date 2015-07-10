@@ -16,6 +16,8 @@ import static lombok.AccessLevel.PUBLIC;
 public class AccountDto {
     public static final String ACCOUNT_DTO="accountDto";
 
+    String imageUrl;
+    String displayName;
     String email;
     String name;
     boolean activated;

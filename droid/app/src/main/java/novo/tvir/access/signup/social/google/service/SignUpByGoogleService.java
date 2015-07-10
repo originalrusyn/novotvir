@@ -1,10 +1,11 @@
 package novo.tvir.access.signup.social.google.service;
 
+import asm.AccountDtoAsm;
 import com.j256.ormlite.dao.Dao;
 import dto.AccountDto;
 import lombok.extern.slf4j.Slf4j;
 import novo.tvir.R;
-import asm.AccountDtoAsm;
+import novo.tvir.access.signup.exception.CanNotSignUpException;
 import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EBean;
 import org.androidannotations.annotations.OrmLiteDao;
@@ -38,7 +39,7 @@ public class SignUpByGoogleService {
             return account;
         } catch (Exception e) {
             log.error("Can't sign up", e);
-            return null;
+            throw new CanNotSignUpException("Can't sign up", e);
         }
     }
 

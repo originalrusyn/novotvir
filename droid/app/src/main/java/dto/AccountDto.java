@@ -8,6 +8,8 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public class AccountDto {
     String email;
+    String displayName;
+    String imageUrl;
     String name;
     boolean activated;
     boolean blocked;

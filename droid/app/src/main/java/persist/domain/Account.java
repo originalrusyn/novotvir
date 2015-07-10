@@ -19,8 +19,10 @@ import java.io.Serializable;
 public class Account implements Serializable {
 
     @Id String name;
+    @Column String displayName;
+    @Column String imageUrl;
     @Column String email;
     @Column boolean activated;
     @Column boolean blocked;
-    @Column String rememberMeToken;
+    @Column(nullable = false) String rememberMeToken;
 }

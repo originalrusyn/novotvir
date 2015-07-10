@@ -26,6 +26,7 @@ android {
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -64,13 +65,13 @@ apt {
     }
 }
 
-def androidAnnotationsVersion = '3.3.1'
+def androidAnnotationsVersion = '3.3.2'
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     provided 'org.projectlombok:lombok:1.12.6'
     apt "org.projectlombok:lombok:1.12.6"
-    compile 'com.android.support:appcompat-v7:22.1.1'
+    compile 'com.android.support:appcompat-v7:22.2.0'
     compile 'org.springframework.android:spring-android-rest-template:2.0.0.M1'
     compile 'com.google.android.gms:play-services:7.0.0'
     apt "org.androidannotations:androidannotations:$androidAnnotationsVersion"
@@ -81,7 +82,8 @@ dependencies {
     compile 'org.slf4j:slf4j-android:1.7.12'
     compile 'com.j256.ormlite:ormlite-android:4.45'
     compile 'org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final'
-    compile 'com.android.support:support-v4:22.1.1'
+    compile 'com.github.bumptech.glide:glide:3.5.2'
+    compile 'com.android.support:support-v4:22.2.0'
     compile 'com.android.support:recyclerview-v7:22.1.1'
     compile 'com.facebook.android:facebook-android-sdk:4.1.0'
     compile ('com.android.support:design:22.2.0'){

@@ -7,6 +7,8 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import common.security.credential.SecurityContextDetails;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
+import org.springframework.social.connect.Connection;
+import org.springframework.social.security.SocialAuthenticationToken;
 import web.account.dto.AccountDto;
 
 import javax.servlet.ServletException;
@@ -23,6 +25,11 @@ public class AccountSavedRequestAwareAuthSuccessHandler extends SavedRequestAwar
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         AccountDto accountDto = AccountDto.accountDto(((SecurityContextDetails) authentication.getPrincipal()).getUser());
+        if(authentication instanceof SocialAuthenticationToken){
+            Connection<?> connection = ((SocialAuthenticationToken) authentication).getConnection();
+            accountDto.setDisplayName(connection.getDisplayName());
+            accountDto.setImageUrl(connection.getImageUrl());
+        }
 
         ObjectMapper objectMapper = new ObjectMapper();
 

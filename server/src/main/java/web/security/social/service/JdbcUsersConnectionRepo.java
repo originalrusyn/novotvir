@@ -11,7 +11,6 @@ import org.springframework.social.connect.ConnectionSignUp;
 import org.springframework.social.connect.jdbc.JdbcUsersConnectionRepository;
 
 import javax.sql.DataSource;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -49,7 +48,7 @@ public class JdbcUsersConnectionRepo extends JdbcUsersConnectionRepository {
             }else {
                 String newUserId = connectionSignUp.execute(connection);
                 createConnectionRepository(newUserId).addConnection(connection);
-                return Arrays.asList(newUserId);
+                return Collections.singletonList(newUserId);
             }
         }
         return localUserIds;
