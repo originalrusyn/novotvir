@@ -17,6 +17,7 @@ import com.mikepenz.materialdrawer.accountswitcher.AccountHeader;
 import com.mikepenz.materialdrawer.accountswitcher.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
+import com.mikepenz.materialdrawer.model.ProfileSettingDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
@@ -77,17 +78,30 @@ public class MainActivity extends AppCompatActivity{
         try {
             List<Account> accounts = accountDao.queryForAll();
             for (Account account : accounts) {
-                ProfileDrawerItem profileDrawerItem = new ProfileDrawerItem();
-                profileDrawerItem.setEmail(account.getEmail());
-                profileDrawerItem.setName(account.getDisplayName());
-                profileDrawerItem.setTag(account.getName());
-                profileDrawerItem.setIcon(account.getImageUrl());
-                profileDrawerItem.setEnabled(account.isActivated() && !account.isBlocked());
+                ProfileDrawerItem profileDrawerItem = new ProfileDrawerItem()
+                        .withEmail(account.getEmail())
+                        .withName(account.getDisplayName())
+                        .withTag(account.getName())
+                        .withIcon(account.getImageUrl())
+                        .setEnabled(account.isActivated() && !account.isBlocked());
+
                 profiles.add(profileDrawerItem);
+
                 if(account.getName().equals(accountName)){
                     activeProfileDrawerItem = profileDrawerItem;
                 }
             }
+            ProfileSettingDrawerItem addProfileSettingDrawerItem = new ProfileSettingDrawerItem().
+                    withName(getString(R.string.nav_menu_item_sign_up))
+                    .withIcon(getResources().getDrawable(R.drawable.ic_add_black_18dp, getTheme()));
+
+            ProfileSettingDrawerItem profileSettingDrawerItem = new ProfileSettingDrawerItem().
+                    withName(getString(R.string.nav_menu_item_sign_in))
+                    .withIcon(getResources().getDrawable(R.drawable.ic_settings_black_18dp, getTheme()));
+
+            profiles.add(addProfileSettingDrawerItem);
+
+            profiles.add(profileSettingDrawerItem);
         } catch (SQLException e) {
             log.error("Can't get accounts", e);
         }
