@@ -172,6 +172,7 @@ dependencies {
     compile 'org.jasypt:jasypt-spring31:1.9.2'
     compile 'com.google.code.findbugs:annotations:3.0.0'
     compile 'com.google.code.findbugs:jsr305:3.0.0'
+    compile 'org.quartz-scheduler:quartz:2.2.1'
 
     testCompile 'org.springframework:spring-test:4.1.7.RELEASE'
     testCompile "org.codehaus.groovy:groovy-all:2.4.3"

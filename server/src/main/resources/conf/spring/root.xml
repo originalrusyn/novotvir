@@ -10,5 +10,6 @@
     <import resource="docs.xml"/>
     <import resource="dao.xml"/>
     <import resource="aspects.xml"/>
+    <import resource="jobs.xml"/>
 
 </beans>
