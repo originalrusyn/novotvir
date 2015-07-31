@@ -47,6 +47,11 @@
                       android:layout_height="match_parent"
                       tools:layout="@layout/fragment_email_signin"/>
 
+            <Button android:id="@+id/show_sign_up_activity_button"
+                    android:text="@string/show_sign_up_activity"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
         </LinearLayout>
     </ScrollView>
 

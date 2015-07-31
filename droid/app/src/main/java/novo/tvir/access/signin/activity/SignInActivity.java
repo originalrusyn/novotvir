@@ -4,12 +4,15 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.os.Build;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import novo.tvir.R;
 import novo.tvir.access.signin.email.fragment.EmailSignInFragment;
 import novo.tvir.access.signin.social.google.fragment.GoogleSignInFragment;
+import novo.tvir.access.signup.activity.SignUpActivity_;
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.FragmentById;
 import org.androidannotations.annotations.ViewById;
@@ -62,6 +65,13 @@ public class SignInActivity extends FragmentActivity implements GoogleSignInFrag
     public void onConnectionChanged(boolean connected) {
         emailSignInFragment.onConnectionChanged(connected);
     }
+
+    @Click(R.id.show_sign_up_activity_button)
+    public void onShowSignUpActivityButtonClick() {
+        Intent intent = new Intent(SignInActivity.this, SignUpActivity_.class);
+        startActivity(intent);
+    }
+
 }
 
 

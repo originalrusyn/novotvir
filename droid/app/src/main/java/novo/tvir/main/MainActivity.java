@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity{
     @Extra @InstanceState String accountName;
 
     Drawer drawer;
+    private ProfileSettingDrawerItem signInProfileSettingDrawerItem;
 
     @AfterViews
     public void onAfterView(){
@@ -53,6 +54,47 @@ public class MainActivity extends AppCompatActivity{
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        initImageLoader();
+
+        initDrawer();
+
+    }
+
+    private void initDrawer() {
+        final PrimaryDrawerItem signUpDrawerItem = new PrimaryDrawerItem().withName(R.string.nav_menu_item_sign_up);
+        final SecondaryDrawerItem signInDrawerItem = new SecondaryDrawerItem().withName(R.string.nav_menu_item_sign_in);
+
+        ArrayList<IDrawerItem> drawerItems = new ArrayList<>();
+        drawerItems.add(signUpDrawerItem);
+        drawerItems.add(signInDrawerItem);
+
+        drawer = new DrawerBuilder()
+                .withActivity(this)
+                .withAccountHeader(getAccountHeader())
+                .withToolbar(toolbar)
+                .withDisplayBelowToolbar(true)
+                .withActionBarDrawerToggleAnimated(true)
+                .withDrawerItems(drawerItems)
+                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                    @Override
+                    public boolean onItemClick(AdapterView<?> adapterView, View view, int i, long l, IDrawerItem iDrawerItem) {
+                        Intent intent;
+                        if(iDrawerItem == signUpDrawerItem){
+                            intent = new Intent(MainActivity.this, SignUpActivity_.class);
+                        }else if (iDrawerItem == signInDrawerItem){
+                            intent = new Intent(MainActivity.this, SignInActivity_.class);
+                        }else {
+                            log.error("Unknown item {}", iDrawerItem);
+                            return false;
+                        }
+                        startActivity(intent);
+                        return false;
+                    }
+                })
+                .build();
+    }
+
+    private void initImageLoader() {
         DrawerImageLoader.init(new DrawerImageLoader.IDrawerImageLoader() {
             @Override
             public void set(ImageView imageView, Uri uri, Drawable drawable) {
@@ -61,7 +103,6 @@ public class MainActivity extends AppCompatActivity{
 
             @Override
             public void cancel(ImageView imageView) {
-
             }
 
             @Override
@@ -69,12 +110,43 @@ public class MainActivity extends AppCompatActivity{
                 return null;
             }
         });
+    }
 
+    private AccountHeader getAccountHeader() {
+        AccountHeader accountHeader = new AccountHeaderBuilder()
+                .withActivity(this)
+                .withHeaderBackground(R.drawable.nav_drawer_background)
+                .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener() {
+                    @Override
+                    public boolean onProfileChanged(View view, IProfile iProfile, boolean b) {
+                        if(iProfile instanceof ProfileSettingDrawerItem) {
+                            ProfileSettingDrawerItem profileSettingDrawerItem = (ProfileSettingDrawerItem) iProfile;
+                            Intent intent;
+                            if(profileSettingDrawerItem == signInProfileSettingDrawerItem){
+                                intent = new Intent(MainActivity.this, SignInActivity_.class);
+                            }else {
+                                log.error("Unknown item {}", profileSettingDrawerItem);
+                                return false;
+                            }
+                            startActivity(intent);
+                        }else {
+                            accountName = (String) ((ProfileDrawerItem) iProfile).getTag();
+                        }
+                        return false;
+                    }
+                })
+                .build();
 
-        ArrayList<IDrawerItem> drawerItems = new ArrayList<>();
+        return populateProfiles(accountHeader);
+    }
 
-        ProfileDrawerItem activeProfileDrawerItem = null;
+    private AccountHeader populateProfiles(AccountHeader accountHeader) {
+        signInProfileSettingDrawerItem = new ProfileSettingDrawerItem()
+                .withName(getString(R.string.nav_menu_item_sign_in))
+                .withIcon(getResources().getDrawable(R.drawable.ic_add_black_18dp, getTheme()));
+
         ArrayList<IProfile> profiles = new ArrayList<>();
+        ProfileDrawerItem activeProfileDrawerItem = null;
         try {
             List<Account> accounts = accountDao.queryForAll();
             for (Account account : accounts) {
@@ -91,67 +163,18 @@ public class MainActivity extends AppCompatActivity{
                     activeProfileDrawerItem = profileDrawerItem;
                 }
             }
-            ProfileSettingDrawerItem addProfileSettingDrawerItem = new ProfileSettingDrawerItem().
-                    withName(getString(R.string.nav_menu_item_sign_up))
-                    .withIcon(getResources().getDrawable(R.drawable.ic_add_black_18dp, getTheme()));
-
-            ProfileSettingDrawerItem profileSettingDrawerItem = new ProfileSettingDrawerItem().
-                    withName(getString(R.string.nav_menu_item_sign_in))
-                    .withIcon(getResources().getDrawable(R.drawable.ic_settings_black_18dp, getTheme()));
-
-            profiles.add(addProfileSettingDrawerItem);
-
-            profiles.add(profileSettingDrawerItem);
         } catch (SQLException e) {
             log.error("Can't get accounts", e);
         }
 
-        final PrimaryDrawerItem signUpDrawerItem = new PrimaryDrawerItem().withName(R.string.nav_menu_item_sign_up);
-        final SecondaryDrawerItem signInDrawerItem = new SecondaryDrawerItem().withName(R.string.nav_menu_item_sign_in);
+        profiles.add(signInProfileSettingDrawerItem);
+        accountHeader.setProfiles(profiles);
 
-        drawerItems.add(signUpDrawerItem);
-        drawerItems.add(signInDrawerItem);
-
-        AccountHeader accountHeader = new AccountHeaderBuilder()
-                .withActivity(this)
-                .withHeaderBackground(R.drawable.nav_drawer_background)
-                .withProfiles(profiles)
-                .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener() {
-                    @Override
-                    public boolean onProfileChanged(View view, IProfile iProfile, boolean b) {
-                        accountName = (String) ((ProfileDrawerItem)iProfile).getTag();
-                        return false;
-                    }
-                })
-                .build();
-
-        if(activeProfileDrawerItem!=null) {
+        if(activeProfileDrawerItem != null) {
             accountHeader.setActiveProfile(activeProfileDrawerItem);
         }
 
-        drawer = new DrawerBuilder()
-                .withActivity(this)
-                .withAccountHeader(accountHeader)
-                .withToolbar(toolbar)
-                .withDisplayBelowToolbar(true)
-                .withActionBarDrawerToggleAnimated(true)
-                .withDrawerItems(drawerItems)
-                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
-                    @Override
-                    public boolean onItemClick(AdapterView<?> adapterView, View view, int i, long l, IDrawerItem iDrawerItem) {
-                        Intent intent = null;
-                        if(iDrawerItem == signUpDrawerItem){
-                            intent = new Intent(MainActivity.this, SignUpActivity_.class);
-
-                        }else if (iDrawerItem == signInDrawerItem){
-                            intent = new Intent(MainActivity.this, SignInActivity_.class);
-                        }
-                        startActivity(intent);
-                        return false;
-                    }
-                })
-                .build();
-
+        return accountHeader;
     }
 
     @Override

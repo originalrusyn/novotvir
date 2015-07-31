@@ -2,5 +2,5 @@
     <string name="title_activity_main">Новотвір</string>
 
     <string name="nav_menu_item_sign_up">Реєстрація</string>
-    <string name="nav_menu_item_sign_in">Вхід</string>
+    <string name="nav_menu_item_sign_in">Увійти</string>
 </resources>

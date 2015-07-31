@@ -5,7 +5,8 @@
     <string name="action_settings">Налаштування</string>
 
     <!--<string name="novotvir_base_url">http://192.168.56.1:8080/novotvir/web</string>-->
-    <string name="novotvir_base_url">http://192.168.1.144:8080/novotvir/web</string>
+    <string name="novotvir_base_url">http://10.20.30.142:8080/novotvir/web</string>
+    <!--<string name="novotvir_base_url">http://192.168.1.144:8080/novotvir/web</string>-->
     <string name="novotvir_salt">Роисся вперде</string>
 
     <string name="prompt_email">Електронна скринька</string>
@@ -22,5 +23,6 @@
     <!--<string name="g_plus_scope">oauth2:server:client_id:673344638177-6rp180dkr0oi8lela1l26dsmg9i1a9ac.apps.googleusercontent.com:api_scope:https://www.googleapis.com/auth/plus.login</string>-->
     <string name="g_plus_scope">oauth2:server:client_id:673344638177-ru7241s1nmt79oq681hluq7lh0fsme03.apps.googleusercontent.com:api_scope:https://www.googleapis.com/auth/plus.login</string>
     <string name="facebook_app_id">221215564739982</string>
+    <string name="show_sign_up_activity">Новий обліковий запис</string>
 
 </resources>
