@@ -33,7 +33,7 @@ public class UsersServiceIT {
     @Test
     public void shouldFindUsersByNameAndEmailAndRole() {
         //given
-        User user = userRepository.save(new User().setName("name").setActivationToken("activationToken").setActivated(true).setLastSignInIpAddress("lastSignInIpAddress").setToken("token"));
+        User user = userRepository.save(new User("name", "token").setActivationToken("activationToken").setActivated(true).setLastSignInIpAddress("lastSignInIpAddress"));
         EmailAddress emailAddress = emailAddressRepository.save(new EmailAddress().setEmail("email").setUser(user));
         user = userRepository.save(user.setPrimaryEmailAddress(emailAddress).setEmailAddresses(singletonList(emailAddress)));
 
@@ -44,6 +44,6 @@ public class UsersServiceIT {
         ArrayList<User> userList = new ArrayList<>(users);
 
         assertThat(users.size(), is(1));
-        assertThat(userList.get(0).id, is(user.id));
+        assertThat(userList.get(0).getId(), is(user.getId()));
     }
 }

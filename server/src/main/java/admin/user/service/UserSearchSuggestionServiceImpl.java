@@ -1,6 +1,7 @@
 package admin.user.service;
 
 import admin.user.dto.CriteriaSuggestionsDTO;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,7 @@ public class UserSearchSuggestionServiceImpl {
 
     @PersistenceContext EntityManager entityManager;
 
+    @SuppressFBWarnings("UCPM_USE_CHARACTER_PARAMETERIZED_METHOD")
     @Cacheable("criteriaSuggestionsDTO")
     public CriteriaSuggestionsDTO getCriteriaSuggestionsDTO() {
 
@@ -30,7 +32,7 @@ public class UserSearchSuggestionServiceImpl {
 
         for (Entry<String, Class<?>> aliasClassEntry : aliasClassMap.entrySet()) {
             ManagedType<?> managedType = metaModel.managedType(aliasClassEntry.getValue());
-            suggestions.addAll(managedType.getAttributes().stream().map(attribute -> aliasClassEntry.getKey() + "." + attribute.getName()).collect(Collectors.toList()));
+            suggestions.addAll(managedType.getAttributes().stream().map(attribute -> aliasClassEntry.getKey() + '.' + attribute.getName()).collect(Collectors.toList()));
         }
 
         return new CriteriaSuggestionsDTO().setSuggestions(suggestions);

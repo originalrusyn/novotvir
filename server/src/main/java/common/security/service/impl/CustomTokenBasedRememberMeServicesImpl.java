@@ -1,9 +1,9 @@
 package common.security.service.impl;
 
+import common.security.service.CustomTokenBasedRememberMeService;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import common.security.service.CustomTokenBasedRememberMeService;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -55,10 +55,10 @@ public class CustomTokenBasedRememberMeServicesImpl extends TokenBasedRememberMe
 
     @Override
     protected String makeTokenSignature(long tokenExpiryTimeMillis, String username, String password) {
-        return md5DigestAsHex((getEncodedUserName(username) + ":" + tokenExpiryTimeMillis + ":" + password + ":" + getKey()).getBytes(Charset.forName("UTF-8")));
+        return md5DigestAsHex((getEncodedUserName(username) + ':' + tokenExpiryTimeMillis + ':' + password + ':' + getKey()).getBytes(Charset.forName("UTF-8")));
     }
 
-    @SuppressFBWarnings({"LEST_LOST_EXCEPTION_STACK_TRACE"})
+    @SuppressFBWarnings("LEST_LOST_EXCEPTION_STACK_TRACE")
     @Override
     protected UserDetails processAutoLoginCookie(String[] cookieTokens, HttpServletRequest request, HttpServletResponse response) {
         try {

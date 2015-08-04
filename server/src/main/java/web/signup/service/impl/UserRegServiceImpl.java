@@ -17,7 +17,6 @@ import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
-import static common.util.RequestUtils.getRemoteAddr;
 import static org.springframework.transaction.annotation.Propagation.REQUIRED;
 
 // @author Titov Mykhaylo (titov) on 07.05.2014.
@@ -33,18 +32,18 @@ public class UserRegServiceImpl implements UserRegService {
     @Override
     @Transactional(propagation = REQUIRED)
     public User registerUser(RegDto regDto) {
-        User user = new User().setName(regDto.name).setLastSignInIpAddress(getRemoteAddr()).setActivated(regDto.activated);
-        if(!user.activated){
+        User user = new User(regDto.getName(), regDto.getToken()).setActivated(regDto.isActivated());
+        if(!user.isActivated()){
             user.setActivationToken(activationTokenGenerator.generate());
         }
 
         Object salt = saltSource.getSalt(new UserDetailsImpl(user));
-        String encodedToken = passwordEncoder.encodePassword(regDto.token, salt);
+        String encodedToken = passwordEncoder.encodePassword(regDto.getToken(), salt);
 
         user = userRepository.save(user.setToken(encodedToken));
 
-        if (regDto.email != null) {
-            EmailAddress emailAddress = emailAddressRepository.save(new EmailAddress().setEmail(regDto.email).setUser(user));
+        if (regDto.getEmail().isPresent()) {
+            EmailAddress emailAddress = emailAddressRepository.save(new EmailAddress().setEmail(regDto.getEmail().get()).setUser(user));
 
             List<EmailAddress> emailAddresses = new ArrayList<>();
             emailAddresses.add(emailAddress);

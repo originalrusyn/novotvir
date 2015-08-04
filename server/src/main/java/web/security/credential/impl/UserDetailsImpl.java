@@ -1,7 +1,9 @@
 package web.security.credential.impl;
 
 import common.security.credential.SecurityContextDetails;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -14,6 +16,7 @@ import java.util.Collection;
 import java.util.List;
 
 // @author Titov Mykhaylo (titov) on 11.01.14 20:25
+@SuppressFBWarnings("UCPM_USE_CHARACTER_PARAMETERIZED_METHOD")
 @ToString(exclude = "user")
 public class UserDetailsImpl implements UserDetails, SecurityContextDetails {
 
@@ -21,13 +24,13 @@ public class UserDetailsImpl implements UserDetails, SecurityContextDetails {
     private @Getter User user;
     private List<GrantedAuthority> grantedAuthorities;
 
-    public UserDetailsImpl(User user) {
+    public UserDetailsImpl(@NonNull User user) {
         this.user = user;
 
         grantedAuthorities = new ArrayList<>();
 
-        for (Authority authority : user.authorities) {
-            GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(authority.role.name());
+        for (Authority authority : user.getAuthorities()) {
+            GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(authority.getRole().name());
             grantedAuthorities.add(grantedAuthority);
         }
 
@@ -40,12 +43,12 @@ public class UserDetailsImpl implements UserDetails, SecurityContextDetails {
 
     @Override
     public String getPassword() {
-        return user.token;
+        return user.getToken();
     }
 
     @Override
     public String getUsername() {
-        return user.name;
+        return user.getName();
     }
 
     @Override
@@ -70,6 +73,6 @@ public class UserDetailsImpl implements UserDetails, SecurityContextDetails {
 
     @Override
     public long getId() {
-        return user.id;
+        return user.getId();
     }
 }

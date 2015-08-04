@@ -9,7 +9,7 @@ import web.persistence.domain.User;
 import static lombok.AccessLevel.PUBLIC;
 
 // @author: Titov Mykhaylo (titov) on 13.09.14 20:36.
-@SuppressFBWarnings({"USBR_UNNECESSARY_STORE_BEFORE_RETURN"})
+@SuppressFBWarnings({"USBR_UNNECESSARY_STORE_BEFORE_RETURN", "UCPM_USE_CHARACTER_PARAMETERIZED_METHOD"})
 @Data
 @Accessors(chain = true)
 @FieldDefaults(level = PUBLIC)
@@ -24,6 +24,6 @@ public class AccountDto {
     boolean blocked;
 
     public static AccountDto accountDto(User user){
-        return new AccountDto().setEmail(user.primaryEmailAddress.email).setName(user.name).setActivated(user.activated).setBlocked(user.blocked);
+        return new AccountDto().setEmail(user.getPrimaryEmailAddress().getEmail()).setName(user.getName()).setActivated(user.isActivated()).setBlocked(user.isBlocked());
     }
 }

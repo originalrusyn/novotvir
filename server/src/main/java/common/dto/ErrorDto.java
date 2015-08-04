@@ -6,7 +6,7 @@ import lombok.experimental.Accessors;
 import common.util.RequestUtils;
 
 // @author Titov Mykhaylo (titov) on 22.05.2014.
-@SuppressFBWarnings({"USBR_UNNECESSARY_STORE_BEFORE_RETURN"})
+@SuppressFBWarnings({"USBR_UNNECESSARY_STORE_BEFORE_RETURN", "UCPM_USE_CHARACTER_PARAMETERIZED_METHOD"})
 @Data
 @Accessors(chain = true)
 public class ErrorDto {

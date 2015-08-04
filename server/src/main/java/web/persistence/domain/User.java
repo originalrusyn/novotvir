@@ -2,8 +2,7 @@ package web.persistence.domain;
 
 import common.enums.Role;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
@@ -23,9 +22,12 @@ import static javax.persistence.GenerationType.SEQUENCE;
         @UniqueConstraint( name = "activationToken", columnNames = "activationToken")
 })
 @Accessors(chain = true)
+@NoArgsConstructor(access = AccessLevel.PACKAGE)
+@RequiredArgsConstructor
 @ToString(exclude = {"authorities", "clients"})
 @Setter
-@SuppressFBWarnings("EQ_DOESNT_OVERRIDE_EQUALS")
+@Getter
+@SuppressFBWarnings({"EQ_DOESNT_OVERRIDE_EQUALS", "UCPM_USE_CHARACTER_PARAMETERIZED_METHOD"})
 public class User implements Serializable {
 
     private static final long serialVersionUID = -8771610125938886166L;
@@ -33,48 +35,48 @@ public class User implements Serializable {
     @Id
     @SequenceGenerator(name = "users_id_seq_gen", sequenceName = "users_id_seq", initialValue = 2, allocationSize = 1)
     @GeneratedValue(strategy = SEQUENCE, generator = "users_id_seq_gen")
-    public Long id;
+    private Long id;
 
     @Column(nullable = false)
-    public String name;
+    @NonNull
+    private String name;
 
     @OneToOne(fetch = EAGER, cascade = ALL)
     @JoinColumn(name = "primaryEmailAddressId")
-    public EmailAddress primaryEmailAddress;
+    private EmailAddress primaryEmailAddress;
 
     @OneToMany(mappedBy = "user", cascade = ALL)
-    public List<EmailAddress> emailAddresses;
-
-    @Column(nullable = true)
-    public String token;
+    @NonNull
+    private List<EmailAddress> emailAddresses = new ArrayList<>();
 
     @Column(nullable = false)
-    public String lastSignInIpAddress;
+    @NonNull
+    private String token;
 
-    public LocalDateTime lastSignInTimestamp;
+    private String lastSignInIpAddress;
 
-    public String activationToken;
+    private LocalDateTime lastSignInDateTime;
 
-    public boolean activated;
+    private String activationToken;
 
-    public boolean blocked;
+    private boolean activated;
 
-    @OneToMany
-    public List<Client> clients;
+    private boolean blocked;
+
+    //@OneToMany
+    //@NonNull
+    //private List<Client> clients = new ArrayList<>();
 
     @OneToMany(mappedBy = "user", fetch = EAGER, cascade = ALL)
-    public List<Authority> authorities;
+    @NonNull
+    private List<Authority> authorities = getUserDefaultAuthorities(this);
 
     @Version
-    public long version;
-
-    public User(){
-        authorities = getUserDefaultAuthorities(this);
-    }
+    private long version;
 
     private List<Authority> getUserDefaultAuthorities(User user) {
         ArrayList<Authority> authorities = new ArrayList<>();
-        authorities.add(new Authority().setUser(user).setRole(Role.USER));
+        authorities.add(new Authority(user, Role.USER));
         return authorities;
     }
 }

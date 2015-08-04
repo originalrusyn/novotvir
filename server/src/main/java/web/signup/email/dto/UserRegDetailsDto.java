@@ -7,7 +7,7 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
 // @author: Titov Mykhaylo (titov) on 18.02.14 16:20
-@SuppressFBWarnings({"USBR_UNNECESSARY_STORE_BEFORE_RETURN"})
+@SuppressFBWarnings({"USBR_UNNECESSARY_STORE_BEFORE_RETURN", "UCPM_USE_CHARACTER_PARAMETERIZED_METHOD"})
 @Data
 @Accessors(chain = true)
 public class UserRegDetailsDto {

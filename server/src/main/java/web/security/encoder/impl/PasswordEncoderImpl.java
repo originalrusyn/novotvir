@@ -16,7 +16,7 @@ public class PasswordEncoderImpl extends Md5PasswordEncoder {
         String md5 = number.toString(16);
 
         while (md5.length() < 32) {
-            md5 = "0" + md5;
+            md5 = '0' + md5;
         }
         return md5;
     }

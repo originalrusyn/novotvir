@@ -6,11 +6,11 @@ CREATE TABLE
   name                     VARCHAR(255) UNIQUE NOT NULL,
   primaryEmailAddressId    BIGINT,
   token                    VARCHAR(255)        NOT NULL,
-  lastSignInIpAddress      VARCHAR(255)        NOT NULL,
   activationToken          VARCHAR(255),
   activated                BOOLEAN             NOT NULL,
   blocked                  BOOLEAN             NOT NULL,
-  lastSignInTimestamp      TIMESTAMP     WITH TIME ZONE,
+  lastSignInIpAddress      VARCHAR(255),
+  lastSignInDateTime       TIMESTAMP     WITH TIME ZONE,
   version                  BIGINT              NOT NULL,
   PRIMARY KEY (id)
 );
@@ -98,8 +98,8 @@ CREATE TRIGGER userLogTrigger AFTER INSERT OR UPDATE ON users FOR EACH ROW EXECU
 
 -- changeset titov:9 dbms:postgresql runInTransaction:true
 INSERT INTO users
-(id, name            , token                                                                           , lastSignInIpAddress, activationToken , activated, blocked, lastSignInTimestamp, version) VALUES
-(1 , '${admin_email}', MD5('${admin_email}' || MD5('${pass_salt}'|| '${admin_pass}' || '${pass_salt}')), '127.0.0.1'        , '${admin_email}', true     , false  , NULL               , 1);
+(id, name            , token                                                                           , lastSignInIpAddress, activationToken , activated, blocked, lastSignInDateTime, version) VALUES
+(1 , '${admin_email}', MD5('${admin_email}' || MD5('${pass_salt}'|| '${admin_pass}' || '${pass_salt}')), '127.0.0.1'        , '${admin_email}', true     , false  , NULL              , 1);
 
 INSERT INTO emailAddresses
 (id, email           , userId) VALUES
@@ -124,7 +124,7 @@ CREATE TABLE
   token                    VARCHAR(255)        NOT NULL,
   lastSignInIpAddress      VARCHAR(255)        NOT NULL,
   blocked                  BOOLEAN             NOT NULL,
-  lastSignInTimestamp      TIMESTAMP WITH TIME ZONE,
+  lastSignInDateTime       TIMESTAMP WITH TIME ZONE,
   PRIMARY KEY (id)
 );
 
@@ -145,7 +145,7 @@ CREATE TABLE
 
 -- changeset titov:12 dbms:postgresql runInTransaction:true
 INSERT INTO admins
-(id, email           , token                                                                                       , lastSignInIpAddress, blocked, lastSignInTimestamp) VALUES
+(id, email           , token                                                                                       , lastSignInIpAddress, blocked, lastSignInDateTime) VALUES
 (1 , '${admin_email}', MD5('${admin_email}' || MD5('${admin_pass_salt}'|| '${admin_pass}' || '${admin_pass_salt}')), '127.0.0.1'        , false  , NULL);
 
 INSERT INTO adminAuthorities

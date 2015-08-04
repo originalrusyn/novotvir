@@ -162,7 +162,7 @@ dependencies {
     compile 'org.thymeleaf:thymeleaf:2.1.2.RELEASE'
     compile 'org.thymeleaf.extras:thymeleaf-extras-tiles2-spring4:2.1.1.RELEASE'
     compile 'javax.servlet:jstl:1.2'
-    compile 'org.liquibase:liquibase-core:3.4.0'
+    compile 'org.liquibase:liquibase-core:3.4.1'
     compile 'commons-io:commons-io:2.4'
     compile 'commons-lang:commons-lang:2.6'
     compile 'commons-dbcp:commons-dbcp:1.4'

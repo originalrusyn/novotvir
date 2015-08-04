@@ -18,17 +18,17 @@ public class SocialUserImpl extends SocialUser implements SecurityContextDetails
     @Getter final User user;
 
     public SocialUserImpl(User user, boolean enabled, boolean accountNonExpired, boolean credentialsNonExpired, boolean accountNonLocked, List<GrantedAuthority> grantedAuthorities) {
-        super(user.name, user.token, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, grantedAuthorities);
+        super(user.getName(), user.getToken(), enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, grantedAuthorities);
         this.user = user;
     }
 
     @Override
     public long getId() {
-        return user.id;
+        return user.getId();
     }
 
     @Override
     public String getUsername() {
-        return user.name;
+        return user.getName();
     }
 }

@@ -42,7 +42,7 @@ public class RememberMeSuccessfulHandler implements AuthenticationSuccessHandler
     }
 
     private void updateLastLoginInfo(User user) {
-        userRepository.save(user.setLastSignInIpAddress(getRemoteAddr()).setLastSignInTimestamp(LocalDateTime.now()));
+        userRepository.save(user.setLastSignInIpAddress(getRemoteAddr()).setLastSignInDateTime(LocalDateTime.now()));
     }
 
 }

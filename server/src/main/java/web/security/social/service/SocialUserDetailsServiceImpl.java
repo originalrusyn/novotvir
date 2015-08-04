@@ -26,8 +26,8 @@ public class SocialUserDetailsServiceImpl implements SocialUserDetailsService {
     public SocialUserDetails loadUserByUserId(String userId) throws UsernameNotFoundException, DataAccessException {
         User user = userRepository.findByName(userId);
         List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
-        for (Authority authority : user.authorities) {
-            GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(authority.role.name());
+        for (Authority authority : user.getAuthorities()) {
+            GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(authority.getRole().name());
             grantedAuthorities.add(grantedAuthority);
         }
         return new SocialUserImpl(user, true, true, true, true, grantedAuthorities);

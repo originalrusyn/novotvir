@@ -1,5 +1,6 @@
 package web.activation.service;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import lombok.extern.slf4j.Slf4j;
 import common.service.CustomMessageSource;
 import org.springframework.stereotype.Service;
@@ -28,28 +29,29 @@ public class UserActivationServiceImpl  {
         User user = userRepository.findByName(userName);
         if(isNull(user)) {
             throwNoSuchUserException(userName);
-        } else if(!user.activationToken.equals(activationToken)){
+        } else if(!user.getActivationToken().equals(activationToken)){
             throwUnExpectedActivationTokenException(userName, activationToken, user);
-        } else if (user.activated){
+        } else if (user.isActivated()){
             throwUserAlreadyActivatedException(userName);
         }
         return userRepository.save(user.setActivated(true));
     }
 
+    @SuppressFBWarnings("UCPM_USE_CHARACTER_PARAMETERIZED_METHOD")
     private User throwNoSuchUserException(String userName) {
-        String message = "Couldn't find user with name ["+userName+"]";
+        String message = "Couldn't find user with name [" + userName + "]";
         String localizedMessage = customMessageSource.getMessage(NO_SUCH_USER_EXCEPTION_MESSAGE_CODE, userName);
         throw new NoSuchUserException(message, localizedMessage);
     }
 
     private User throwUnExpectedActivationTokenException(String userName, String activationToken, User user) {
-        String message = "Expected activation token ["+user.activationToken+"] for user with name ["+user.name+"] and actual activated token ["+activationToken+"] aren't the same";
+        String message = "Expected activation token [" + user.getActivationToken() + "] for user with name [" + user.getName() + "] and actual activated token [" + activationToken + "] aren't the same";
         String localizedMessage = customMessageSource.getMessage(UN_EXPECTED_ACTIVATION_TOKEN_EXCEPTION_MESSAGE_CODE, userName, activationToken);
         throw new UnExpectedActivationTokenException(message, localizedMessage);
     }
 
     private User throwUserAlreadyActivatedException(String userName) {
-        String message = "User with name ["+userName+"] had been already activated";
+        String message = "User with name [" + userName + "] had been already activated";
         String localizedMessage = customMessageSource.getMessage(USER_ALREADY_ACTIVATED_EXCEPTION_MESSAGE_CODE, userName);
         throw new UserAlreadyActivatedException(message, localizedMessage);
     }

@@ -3,6 +3,7 @@ package admin.security.credential.impl;
 import admin.persistence.domain.Admin;
 import admin.persistence.domain.AdminAuthority;
 import admin.security.credential.AdminSecurityContextDetails;
+import lombok.NonNull;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,13 +19,13 @@ public class AdminDetailsImpl implements UserDetails, AdminSecurityContextDetail
     private Admin admin;
     private List<GrantedAuthority> grantedAuthorities;
 
-    public AdminDetailsImpl(Admin admin) {
+    public AdminDetailsImpl(@NonNull Admin admin) {
         this.admin = admin;
 
         grantedAuthorities = new ArrayList<>();
 
-        for (AdminAuthority authority : admin.authorities) {
-            GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(authority.role.name());
+        for (AdminAuthority authority : admin.getAuthorities()) {
+            GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(authority.getRole().name());
             grantedAuthorities.add(grantedAuthority);
         }
 
@@ -37,12 +38,12 @@ public class AdminDetailsImpl implements UserDetails, AdminSecurityContextDetail
 
     @Override
     public String getPassword() {
-        return admin.token;
+        return admin.getToken();
     }
 
     @Override
     public String getUsername() {
-        return admin.email;
+        return admin.getEmail();
     }
 
     @Override
@@ -67,6 +68,6 @@ public class AdminDetailsImpl implements UserDetails, AdminSecurityContextDetail
 
     @Override
     public long getId() {
-        return admin.id;
+        return admin.getId();
     }
 }

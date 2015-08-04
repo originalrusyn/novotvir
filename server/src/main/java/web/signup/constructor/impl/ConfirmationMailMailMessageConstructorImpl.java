@@ -47,15 +47,15 @@ public class ConfirmationMailMailMessageConstructorImpl implements ConfirmationM
 
         RequestMapping requestMapping = getActivationRequestMapping();
 
-        String activationUri = requestMapping.value()[0].replaceFirst("\\{.*"+ NAME_PATH_VAR +".*\\}", user.name);
+        String activationUri = requestMapping.value()[0].replaceFirst("\\{.*"+ NAME_PATH_VAR +".*\\}", user.getName());
         RequestMethod method = requestMapping.method()[0];
 
-        String emailValidationUrl = fromUri(getServerURL() + base + activationUri).queryParam(ACTIVATION_TOKEN_REQ_PARAM, user.activationToken).queryParam(hiddenHttpMethodEnhancedFilter.getMethodParam(), method.name()).build().toString();
+        String emailValidationUrl = fromUri(getServerURL() + base + activationUri).queryParam(ACTIVATION_TOKEN_REQ_PARAM, user.getActivationToken()).queryParam(hiddenHttpMethodEnhancedFilter.getMethodParam(), method.name()).build().toString();
 
         String subj = customMessageSource.getMailValidationMailSubj();
         String text = customMessageSource.getMailValidationMailText(emailValidationUrl);
 
-        msg.setTo(user.primaryEmailAddress.email);
+        msg.setTo(user.getPrimaryEmailAddress().getEmail());
         msg.setSubject(subj);
         msg.setText(text);
 

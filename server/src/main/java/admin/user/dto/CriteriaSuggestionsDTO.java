@@ -7,7 +7,7 @@ import lombok.experimental.Accessors;
 import java.util.List;
 
 // @author: Titov Mykhaylo (titov) on 28.08.14 22:37.
-@SuppressFBWarnings({"USBR_UNNECESSARY_STORE_BEFORE_RETURN"})
+@SuppressFBWarnings({"USBR_UNNECESSARY_STORE_BEFORE_RETURN", "UCPM_USE_CHARACTER_PARAMETERIZED_METHOD"})
 @Data
 @Accessors(chain = true)
 public class CriteriaSuggestionsDTO {

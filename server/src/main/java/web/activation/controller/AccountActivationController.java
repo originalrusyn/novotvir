@@ -61,14 +61,14 @@ public class AccountActivationController {
     }
 
     private ResponseEntity<AccountDto> autoLogin(HttpServletRequest request, HttpServletResponse response, User user) {
-        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(user.name, user.token);
+        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(user.getName(), user.getToken());
         authentication.setDetails(new WebAuthenticationDetails(request));
         Authentication authenticated = authenticationManagerWithoutPasswordEncoder.authenticate(authentication);
         rememberMeServices.loginSuccess(request, response, authenticated);
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         HttpHeaders headers = new HttpHeaders ();
-        headers.setLocation(ServletUriComponentsBuilder.fromCurrentContextPath().path("users/" + user.name).build().toUri());
+        headers.setLocation(ServletUriComponentsBuilder.fromCurrentContextPath().path("users/" + user.getName()).build().toUri());
         return new ResponseEntity<>(accountDto(user), headers, SEE_OTHER);
     }
 }
