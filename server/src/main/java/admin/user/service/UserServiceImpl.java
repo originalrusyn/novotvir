@@ -46,8 +46,9 @@ public class UserServiceImpl {
     @Transactional(readOnly = true)
     public Set<User> findUsers(String criteria) {
         Assert.doesNotContain(";", criteria);
-        Query query = entityManager.createQuery("select user from User " + USER + " join user.primaryEmailAddress "+ PRIMARY_EMAIL_ADDRESS +" join user.emailAddresses "+ EMAIL_ADDRESSES + " left join user.authorities "+AUTHORITIES+" where " + criteria, User.class);
-        @SuppressWarnings("unchecked") Set<User> set = new HashSet<>(query.getResultList());
+        Query query = entityManager.createQuery("select user from User " + USER + " join user.primaryEmailAddress "+ PRIMARY_EMAIL_ADDRESS +" join user.emailAddresses "+ EMAIL_ADDRESSES + " left join user.authorities " + AUTHORITIES + " where " + criteria, User.class);
+
+        @SuppressWarnings("unchecked") Set<User> set = new HashSet<>(query.setMaxResults(10).getResultList());
         return set;
     }
 }

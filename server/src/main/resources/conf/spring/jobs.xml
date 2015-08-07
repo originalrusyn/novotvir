@@ -12,7 +12,7 @@
 
     <bean id="sendPushJobDetail"
           class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean"
-          p:targetObject-ref="sendPushJob"
+          p:targetObject-ref="taskJob"
           p:targetMethod="execute"
           p:concurrent="${send.push.job.concurrent}"
     />

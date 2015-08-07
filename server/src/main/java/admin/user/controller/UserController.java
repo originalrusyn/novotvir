@@ -26,8 +26,7 @@ public class UserController {
     @Resource UserSearchSuggestionServiceImpl userSearchSuggestionService;
 
     @RequestMapping(value = {"/criteria"}, method = GET)
-    public @ResponseBody
-    CriteriaSuggestionsDTO getCriteriaSuggestionsDTO(){
+    public @ResponseBody CriteriaSuggestionsDTO getCriteriaSuggestionsDTO(){
         return userSearchSuggestionService.getCriteriaSuggestionsDTO();
     }
 

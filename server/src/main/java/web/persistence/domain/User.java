@@ -1,5 +1,6 @@
 package web.persistence.domain;
 
+import com.google.common.collect.Lists;
 import common.enums.Role;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import lombok.*;
@@ -63,20 +64,14 @@ public class User implements Serializable {
 
     private boolean blocked;
 
-    //@OneToMany
-    //@NonNull
-    //private List<Client> clients = new ArrayList<>();
+    @OneToMany
+    @NonNull
+    private List<Client> clients = new ArrayList<>();
 
     @OneToMany(mappedBy = "user", fetch = EAGER, cascade = ALL)
     @NonNull
-    private List<Authority> authorities = getUserDefaultAuthorities(this);
+    private List<Authority> authorities = Lists.newArrayList(new Authority(this, Role.USER));
 
     @Version
     private long version;
-
-    private List<Authority> getUserDefaultAuthorities(User user) {
-        ArrayList<Authority> authorities = new ArrayList<>();
-        authorities.add(new Authority(user, Role.USER));
-        return authorities;
-    }
 }

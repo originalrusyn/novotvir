@@ -1,9 +1,7 @@
 package web.persistence.domain;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
-import lombok.NonNull;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
@@ -15,12 +13,14 @@ import static javax.persistence.GenerationType.SEQUENCE;
 
 // @author Titov Mykhaylo on 31.07.2015.
 @SuppressFBWarnings("UCPM_USE_CHARACTER_PARAMETERIZED_METHOD")
-//@Entity
-//@Table(name = "devices", uniqueConstraints = {
-//        @UniqueConstraint( name = "userId", columnNames = "userId"),
-//        @UniqueConstraint( name = "deviceUID", columnNames = "deviceUID")
-//})
+@Entity
+@Table(name = "devices", uniqueConstraints = {
+        @UniqueConstraint( name = "userId", columnNames = "userId"),
+        @UniqueConstraint( name = "deviceUID", columnNames = "deviceUID")
+})
 @Accessors(chain = true)
+@RequiredArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PACKAGE)
 @ToString(exclude = {"pushTokenInfo", "user"})
 @Setter
 public class Client implements Serializable {

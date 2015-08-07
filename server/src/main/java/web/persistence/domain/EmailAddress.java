@@ -1,10 +1,7 @@
 package web.persistence.domain;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
@@ -18,6 +15,8 @@ import static javax.persistence.GenerationType.SEQUENCE;
 @Table(name = "emailAddresses")
 @Accessors(chain = true)
 @ToString(exclude = "user")
+@NoArgsConstructor(access = AccessLevel.PACKAGE)
+@RequiredArgsConstructor
 @Setter
 @Getter
 public class EmailAddress implements Serializable {
