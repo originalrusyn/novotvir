@@ -4,6 +4,7 @@ import com.google.common.base.Preconditions;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import lombok.*;
 import lombok.experimental.Accessors;
+import org.hibernate.validator.constraints.NotBlank;
 import org.quartz.CronExpression;
 
 import javax.persistence.*;
@@ -11,10 +12,10 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 import static javax.persistence.GenerationType.SEQUENCE;
-import static web.job.persistence.domain.tasks.Task.TaskStatus.ACTIVE;
-import static web.job.persistence.domain.tasks.Task.TaskStatus.PROCESSING;
 
 // @author Titov Mykhaylo on 04.08.2015.
 @SuppressFBWarnings("UCPM_USE_CHARACTER_PARAMETERIZED_METHOD")
@@ -24,6 +25,7 @@ import static web.job.persistence.domain.tasks.Task.TaskStatus.PROCESSING;
 @ToString
 @Accessors(chain = true)
 @Entity
+@Table(name = "tasks")
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Task implements Serializable {
 
@@ -38,21 +40,10 @@ public abstract class Task implements Serializable {
 
     private static final String RUN_EACH_TIME = "RUN_EACH_TIME";
 
-    public enum TaskStatus{
-        ACTIVE,
-        PROCESSING
-    }
-
     @Id
     @SequenceGenerator(name = "tasks_id_seq_gen", sequenceName = "tasks_id_seq", initialValue = 2, allocationSize = 1)
     @GeneratedValue(strategy = SEQUENCE, generator = "tasks_id_seq_gen")
     private Long id;
-
-    @Setter(AccessLevel.PRIVATE)
-    @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    @NonNull
-    private TaskStatus taskStatus = ACTIVE;
 
     @Setter(AccessLevel.PRIVATE)
     private LocalDateTime lastTaskRunDateTime;
@@ -64,6 +55,7 @@ public abstract class Task implements Serializable {
     private int maxRetriesOnError;
 
     @Column(nullable = false)
+    @NotBlank
     @NonNull
     private String schedule = RUN_EACH_TIME;
 
@@ -73,6 +65,14 @@ public abstract class Task implements Serializable {
     @Min(REPEAT_COUNT_MIN_VALUE)
     private long repeatCount;
 
+    @Setter(AccessLevel.PRIVATE)
+    @NonNull
+    @CollectionTable(name = "taskItemsInProcessing", joinColumns = @JoinColumn(name = "taskId"))
+    @ElementCollection
+    @Column(name = "processingItemId")
+    private Set<Long> itemsInProcessing = new HashSet<>();
+
+    @Setter(AccessLevel.PRIVATE)
     @Version
     private long version;
 
@@ -100,14 +100,15 @@ public abstract class Task implements Serializable {
         return this;
     }
 
-    public Task lock(){
-        setTaskStatus(PROCESSING);
+    public Task lock(@NonNull Set<Long> itemsInProcessing){
+        Preconditions.checkArgument(!itemsInProcessing.isEmpty());
+        this.itemsInProcessing.addAll(itemsInProcessing);
         setLastTaskRunDateTime(LocalDateTime.now());
         return this;
     }
 
     public Task unlock(){
-        setTaskStatus(ACTIVE);
+        this.itemsInProcessing = new HashSet<>();
         return this;
     }
 

@@ -169,3 +169,84 @@ ALTER SEQUENCE admins_id_seq RESTART WITH 2;
 
 -- changeset titov:17 dbms:postgresql runInTransaction:true
 ALTER SEQUENCE adminAuthorities_id_seq RESTART WITH 2;
+
+-- changeset titov:18 dbms:postgresql runInTransaction:true
+CREATE TABLE
+  clients (
+  id                       BIGSERIAL           NOT NULL,
+  uID                      VARCHAR(255)        NOT NULL,
+  clientType               VARCHAR(255)        NOT NULL,
+  platformVersion          VARCHAR(255),
+  userId                   bigint              NOT NULL,
+  pushToken                VARCHAR(255),
+  version                  BIGINT              NOT NULL,
+  PRIMARY KEY (id),
+  CONSTRAINT userId_uID UNIQUE (userId, uID),
+  CONSTRAINT clients_user FOREIGN KEY (userId) REFERENCES users (id) MATCH SIMPLE ON DELETE CASCADE
+);
+
+-- rollback drop table if exists clients;
+
+-- changeset titov:19 dbms:postgresql runInTransaction:true
+CREATE TABLE
+  pushNotifications (
+  id                         BIGSERIAL           NOT NULL,
+  pushMessage                VARCHAR(255)        NOT NULL,
+  queryNameForFetchReceivers VARCHAR(255)        NOT NULL,
+  version                    BIGINT              NOT NULL,
+  PRIMARY KEY (id)
+);
+
+-- rollback drop table if exists pushNotifications;
+
+-- changeset titov:20 dbms:postgresql runInTransaction:true
+CREATE TABLE
+  tasks (
+  id                         BIGSERIAL           NOT NULL,
+  lastTaskRunDateTime        TIMESTAMP     WITH TIME ZONE,
+  lastTaskCompletionDateTime TIMESTAMP     WITH TIME ZONE,
+  maxRetriesOnError          INT                 NOT NULL,
+  schedule                   VARCHAR(255)        NOT NULL,
+  maxRepeatCount             BIGINT              NOT NULL,
+  repeatCount                BIGINT              NOT NULL,
+  version                    BIGINT              NOT NULL,
+  PRIMARY KEY (id)
+);
+
+-- rollback drop table if exists tasks;
+
+-- changeset titov:21 dbms:postgresql runInTransaction:true
+CREATE TABLE
+  taskItemsInProcessing (
+  taskId                     BIGINT              NOT NULL,
+  processingItemId           BIGINT              NOT NULL,
+  CONSTRAINT taskItemsInProcessing_task FOREIGN KEY (taskId) REFERENCES tasks (id) MATCH SIMPLE
+);
+
+-- rollback drop table if exists taskItemsInProcessing;
+
+-- changeset titov:22 dbms:postgresql runInTransaction:true
+CREATE TABLE
+  pushNotificationTasks (
+  id                         BIGINT              NOT NULL,
+  pushNotificationId         BIGINT              NOT NULL,
+  userFiltrationQuery        VARCHAR(255)        NOT NULL,
+  CONSTRAINT pushNotificationTasks_task FOREIGN KEY (id) REFERENCES tasks (id) MATCH SIMPLE ON DELETE CASCADE
+);
+
+-- rollback drop table if exists tasks;
+
+-- changeset titov:23 dbms:postgresql runInTransaction:true
+CREATE TABLE
+  jobProcessingItems (
+  id                    BIGINT                     NOT NULL,
+  taskId                BIGINT                     NOT NULL,
+  jobItemStatus         VARCHAR(255)               NOT NULL,
+  forScheduleDateTime   TIMESTAMP WITH TIME ZONE   NOT NULL,
+  creationDateTime      TIMESTAMP WITH TIME ZONE   NOT NULL,
+  retriesOnError        INT                        NOT NULL,
+  version               BIGINT                     NOT NULL,
+  CONSTRAINT jobProcessingItems_task FOREIGN KEY (taskId) REFERENCES tasks (id) MATCH SIMPLE
+);
+
+-- rollback drop table if exists jobProcessingItems;

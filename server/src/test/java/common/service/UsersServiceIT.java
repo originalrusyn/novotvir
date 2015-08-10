@@ -34,11 +34,11 @@ public class UsersServiceIT {
     public void shouldFindUsersByNameAndEmailAndRole() {
         //given
         User user = userRepository.save(new User("name", "token").setActivationToken("activationToken").setActivated(true).setLastSignInIpAddress("lastSignInIpAddress"));
-        EmailAddress emailAddress = emailAddressRepository.save(new EmailAddress().setEmail("email").setUser(user));
+        EmailAddress emailAddress = emailAddressRepository.save(new EmailAddress("email@email.com", user));
         user = userRepository.save(user.setPrimaryEmailAddress(emailAddress).setEmailAddresses(singletonList(emailAddress)));
 
         //when
-        Set<User> users = usersService.findUsers("name='name' and primaryEmailAddress.email='email' and authorities.role='USER'");
+        Set<User> users = usersService.findUsers("name='name' and primaryEmailAddress.email='email@email.com' and authorities.role='USER'");
 
         //then
         ArrayList<User> userList = new ArrayList<>(users);

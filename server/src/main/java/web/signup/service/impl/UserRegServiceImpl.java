@@ -43,7 +43,7 @@ public class UserRegServiceImpl implements UserRegService {
         user = userRepository.save(user.setToken(encodedToken));
 
         if (regDto.getEmail().isPresent()) {
-            EmailAddress emailAddress = emailAddressRepository.save(new EmailAddress().setEmail(regDto.getEmail().get()).setUser(user));
+            EmailAddress emailAddress = emailAddressRepository.save(new EmailAddress(regDto.getEmail().get(), user));
 
             List<EmailAddress> emailAddresses = new ArrayList<>();
             emailAddresses.add(emailAddress);

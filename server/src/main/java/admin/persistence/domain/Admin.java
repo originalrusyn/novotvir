@@ -1,8 +1,12 @@
 package admin.persistence.domain;
 
+import com.google.common.base.Preconditions;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import lombok.*;
 import lombok.experimental.Accessors;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.util.StringUtils;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -21,7 +25,6 @@ import static javax.persistence.GenerationType.SEQUENCE;
         @UniqueConstraint(name = "email", columnNames = "email"),
 })
 @NoArgsConstructor(access = AccessLevel.PACKAGE)
-@RequiredArgsConstructor
 @Accessors(chain = true)
 @ToString(exclude = "authorities")
 @Setter
@@ -35,11 +38,11 @@ public class Admin implements Serializable {
     @GeneratedValue(strategy = SEQUENCE, generator = "admins_id_seq")
     private Long id;
 
-    @Column(nullable = false)
+    @Email
     @NonNull
     private String email;
 
-    @Column(nullable = false)
+    @NotBlank
     @NonNull
     private String token;
 
@@ -52,5 +55,24 @@ public class Admin implements Serializable {
     @OneToMany(mappedBy = "admin", fetch = EAGER, cascade = ALL)
     @NonNull
     private List<AdminAuthority> authorities = new ArrayList<>();
+
+    public Admin(@NonNull String email, @NonNull String token){
+        Preconditions.checkArgument(StringUtils.hasText(email));
+        Preconditions.checkArgument(StringUtils.hasText(token));
+        this.email = email;
+        this.token = token;
+    }
+
+    public Admin setToken(@NonNull String token){
+        Preconditions.checkArgument(StringUtils.hasText(token));
+        this.token = token;
+        return this;
+    }
+
+    public Admin setEmail(@NonNull String email){
+        Preconditions.checkArgument(StringUtils.hasText(email));
+        this.email = email;
+        return this;
+    }
 
 }

@@ -1,11 +1,13 @@
 package web.persistence.domain;
 
+import com.google.common.base.Preconditions;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import lombok.*;
 import lombok.experimental.Accessors;
+import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.util.StringUtils;
 
 import javax.persistence.*;
-
 import java.io.Serializable;
 
 import static javax.persistence.EnumType.STRING;
@@ -14,14 +16,14 @@ import static javax.persistence.GenerationType.SEQUENCE;
 // @author Titov Mykhaylo on 31.07.2015.
 @SuppressFBWarnings("UCPM_USE_CHARACTER_PARAMETERIZED_METHOD")
 @Entity
-@Table(name = "devices", uniqueConstraints = {
+@Table(name = "clients", uniqueConstraints = {
         @UniqueConstraint( name = "userId", columnNames = "userId"),
-        @UniqueConstraint( name = "deviceUID", columnNames = "deviceUID")
+        @UniqueConstraint( name = "uID", columnNames = "uID")
 })
 @Accessors(chain = true)
 @RequiredArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PACKAGE)
-@ToString(exclude = {"pushTokenInfo", "user"})
+@ToString(exclude = {"user"})
 @Setter
 public class Client implements Serializable {
 
@@ -36,16 +38,14 @@ public class Client implements Serializable {
     @GeneratedValue(strategy = SEQUENCE, generator = "device_id_seq_gen")
     private Long id;
 
-    @Column(nullable = false)
-    @NonNull
-    private String deviceUID;
+    @NotBlank
+    private String uID;
 
     @Enumerated(STRING)
     @Column(nullable = false)
     @NonNull
     private ClientType clientType;
 
-    @Column
     private String platformVersion;
 
     @ManyToOne
@@ -53,11 +53,15 @@ public class Client implements Serializable {
     @NonNull
     private User user;
 
-    @OneToOne
-    @JoinColumn(name = "pushTokenInfoId")
-    private PushTokenInfo pushTokenInfo;
+    public String pushToken;
 
+    @Setter(AccessLevel.PRIVATE)
     @Version
     private long version;
 
+    public Client setDeviceUID(@NonNull String uID){
+        Preconditions.checkArgument(StringUtils.hasText(uID));
+        this.uID = uID;
+        return this;
+    }
 }

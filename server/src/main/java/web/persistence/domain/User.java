@@ -1,10 +1,13 @@
 package web.persistence.domain;
 
+import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import common.enums.Role;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import lombok.*;
 import lombok.experimental.Accessors;
+import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.util.StringUtils;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -24,7 +27,6 @@ import static javax.persistence.GenerationType.SEQUENCE;
 })
 @Accessors(chain = true)
 @NoArgsConstructor(access = AccessLevel.PACKAGE)
-@RequiredArgsConstructor
 @ToString(exclude = {"authorities", "clients"})
 @Setter
 @Getter
@@ -39,6 +41,7 @@ public class User implements Serializable {
     private Long id;
 
     @Column(nullable = false)
+    @NotBlank
     @NonNull
     private String name;
 
@@ -50,21 +53,24 @@ public class User implements Serializable {
     @NonNull
     private List<EmailAddress> emailAddresses = new ArrayList<>();
 
-    @Column(nullable = false)
     @NonNull
+    @NotBlank
     private String token;
 
+    @NonNull
     private String lastSignInIpAddress;
 
+    @NonNull
     private LocalDateTime lastSignInDateTime;
 
+    @NonNull
     private String activationToken;
 
     private boolean activated;
 
     private boolean blocked;
 
-    @OneToMany
+    @OneToMany(mappedBy = "user")
     @NonNull
     private List<Client> clients = new ArrayList<>();
 
@@ -72,6 +78,26 @@ public class User implements Serializable {
     @NonNull
     private List<Authority> authorities = Lists.newArrayList(new Authority(this, Role.USER));
 
+    @Setter(AccessLevel.PRIVATE)
     @Version
     private long version;
+
+    public User(@NonNull String name, @NonNull String token){
+        Preconditions.checkArgument(StringUtils.hasText(name));
+        Preconditions.checkArgument(StringUtils.hasText(token));
+        this.name = name;
+        this.token = token;
+    }
+
+    public User setName(@NonNull String name){
+        Preconditions.checkArgument(StringUtils.hasText(name));
+        this.name = name;
+        return this;
+    }
+
+    public User setToken(@NonNull String token){
+        Preconditions.checkArgument(StringUtils.hasText(token));
+        this.token = token;
+        return this;
+    }
 }

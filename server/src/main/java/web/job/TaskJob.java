@@ -34,17 +34,17 @@ public class TaskJob {
 
     @Transactional
     public void execute(){
-        Stream<Task> activeTasksStream = taskService.findActiveTasks();
+        Stream<Task> allTasksStream = taskService.getAllTasks();
 
-        List<Task> activeTasks = activeTasksStream.sorted(taskByLastTaskRunDateTimeComparator).collect(Collectors.toList());
+        List<Task> sortedByPriorityDescTasks = allTasksStream.sorted(taskByLastTaskRunDateTimeComparator).collect(Collectors.toList());
 
-        ListIterator<Task> taskListIterator = activeTasks.listIterator(activeTasks.size());
+        ListIterator<Task> taskListIterator = sortedByPriorityDescTasks.listIterator(sortedByPriorityDescTasks.size());
 
         while (taskListIterator.hasPrevious()) {
             Task task = taskListIterator.previous();
             try {
                 if (shouldBeRun(task)) {
-                    Task actualTask = taskService.lockTask(task);
+                    taskService.process(task);
                 }
             }catch (OptimisticLockException e){
                 log.warn("Task {} will be skipped because it's already locked", task);
@@ -70,7 +70,7 @@ public class TaskJob {
             Date nextValidTimeAfter = cronExpression.getNextValidTimeAfter(date);
             return nextValidTimeAfter.toInstant().isAfter(Instant.now());
         } catch (ParseException e) {
-            log.error("Can't calc task schedule time for schedule expression", task.getSchedule(), e);
+            log.error("Can't calc task schedule time for schedule expression {}", task.getSchedule(), e);
             return false;
         }
     }

@@ -4,8 +4,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import web.job.persistence.domain.tasks.Task;
 import web.job.persistence.repository.TaskRepository;
+import web.job.processor.TaskProcessor;
 
 import javax.annotation.Resource;
+import java.util.HashSet;
+import java.util.List;
 import java.util.stream.Stream;
 
 import static org.springframework.transaction.annotation.Propagation.REQUIRES_NEW;
@@ -16,18 +19,27 @@ public class TaskService {
 
     @Resource TaskRepository taskRepository;
 
-    @Transactional
-    public Stream<Task> findActiveTasks() {
-        return taskRepository.findActiveTasks();
+    @Resource List<TaskProcessor> processors;
+
+    public Stream<Task> getAllTasks(){
+        return taskRepository.getAllTasks();
     }
 
     @Transactional(propagation = REQUIRES_NEW)
-    public Task lockTask(Task task){
-        return taskRepository.save(task.lock());
+    public Task process(Task task){
+        Task lockedTask = taskRepository.lockTask(task.lock(new HashSet<>()));
+
+        for (TaskProcessor processor : processors) {
+            if(processor.supports(task)){
+                lockedTask = processor.process(task);
+            }
+        }
+
+        return lockedTask;
     }
 
     @Transactional(propagation = REQUIRES_NEW)
     public Task unlockTask(Task task){
-        return taskRepository.save(task.lock());
+        return taskRepository.save(task.unlock());
     }
 }
