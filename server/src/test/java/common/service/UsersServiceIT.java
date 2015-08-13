@@ -3,6 +3,8 @@ package common.service;
 import admin.user.service.UserServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -36,9 +38,10 @@ public class UsersServiceIT {
         User user = userRepository.save(new User("name", "token").setActivationToken("activationToken").setActivated(true).setLastSignInIpAddress("lastSignInIpAddress"));
         EmailAddress emailAddress = emailAddressRepository.save(new EmailAddress("email@email.com", user));
         user = userRepository.save(user.setPrimaryEmailAddress(emailAddress).setEmailAddresses(singletonList(emailAddress)));
+        Pageable pageable = new PageRequest(0, 2);
 
         //when
-        Set<User> users = usersService.findUsers("name='name' and primaryEmailAddress.email='email@email.com' and authorities.role='USER'");
+        Set<User> users = usersService.findUsers("name='name' and primaryEmailAddress.email='email@email.com' and authorities.role='USER'", pageable);
 
         //then
         ArrayList<User> userList = new ArrayList<>(users);

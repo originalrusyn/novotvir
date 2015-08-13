@@ -1,6 +1,7 @@
 package admin.user.service;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
@@ -11,7 +12,6 @@ import web.persistence.domain.User;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import javax.swing.*;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -44,11 +44,16 @@ public class UserServiceImpl {
 
     @SuppressFBWarnings({"USBR_UNNECESSARY_STORE_BEFORE_RETURN", "SQL_INJECTION_JPA"})
     @Transactional(readOnly = true)
-    public Set<User> findUsers(String criteria) {
+    public Set<User> findUsers(String criteria, Pageable pageable) {
         Assert.doesNotContain(";", criteria);
-        Query query = entityManager.createQuery("select user from User " + USER + " join user.primaryEmailAddress "+ PRIMARY_EMAIL_ADDRESS +" join user.emailAddresses "+ EMAIL_ADDRESSES + " left join user.authorities " + AUTHORITIES + " where " + criteria, User.class);
+        Assert.doesNotContain(" limit ", criteria);
+        Assert.notNull(pageable);
+        Query query = entityManager.
+                createQuery("select user from User " + USER + " join user.primaryEmailAddress "+ PRIMARY_EMAIL_ADDRESS +" join user.emailAddresses "+ EMAIL_ADDRESSES + " left join user.authorities " + AUTHORITIES + " where " + criteria, User.class)
+                .setFirstResult(pageable.getPageNumber())
+                .setMaxResults(pageable.getPageSize());
 
-        @SuppressWarnings("unchecked") Set<User> set = new HashSet<>(query.setMaxResults(10).getResultList());
+        @SuppressWarnings("unchecked") Set<User> set = new HashSet<>(query.getResultList());
         return set;
     }
 }
