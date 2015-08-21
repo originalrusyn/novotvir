@@ -55,7 +55,7 @@ public class AccountActivationController {
     public ModelAndView handleValidationException(CouldNotActivateUserException couldNotActivateUserException){
         log.warn(couldNotActivateUserException.getMessage());
         ModelAndView modelAndView = new ModelAndView("activation_can_not_be_completed");
-        ErrorDto errorDto = new ErrorDto().setErrCode(couldNotActivateUserException.getErrCode()).setLocalizedMessage(couldNotActivateUserException.getLocalizedMessage());
+        ErrorDto errorDto = new ErrorDto(couldNotActivateUserException.getErrCode(), couldNotActivateUserException.getLocalizedMessage());
         modelAndView.addObject(ERROR_DTO, errorDto);
         return modelAndView;
     }

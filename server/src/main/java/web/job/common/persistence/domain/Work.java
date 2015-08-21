@@ -1,9 +1,8 @@
-package web.job.persistence.domain;
+package web.job.common.persistence.domain;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import lombok.*;
 import lombok.experimental.Accessors;
-import web.job.persistence.domain.tasks.Task;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -19,21 +18,24 @@ import static javax.persistence.GenerationType.SEQUENCE;
 @Getter
 @ToString(exclude = {"task"})
 @Accessors(chain = true)
-@Table(name = "jobProcessingItems")
+@Table(name = "works")
 @Entity
-public class JobProcessingItem implements Serializable{
+public class Work implements Serializable{
 
     private static final long serialVersionUID = 8984778954151783321L;
 
-    public enum JobItemStatus {
+    public enum WorkStatus {
         ERROR,
         PROCESSING
     }
 
     @Id
-    @SequenceGenerator(name = "jobProcessingItems_id_seq_gen", sequenceName = "jobProcessingItems_id_seq", initialValue = 2, allocationSize = 1)
-    @GeneratedValue(strategy = SEQUENCE, generator = "jobProcessingItems_id_seq_gen")
+    @SequenceGenerator(name = "works_id_seq_gen", sequenceName = "works_id_seq", initialValue = 1, allocationSize = 1)
+    @GeneratedValue(strategy = SEQUENCE, generator = "works_id_seq_gen")
     private Long id;
+
+    @NonNull
+    private Long workItemId;
 
     @NonNull
     @ManyToOne(optional = false)
@@ -43,7 +45,7 @@ public class JobProcessingItem implements Serializable{
     @NonNull
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private JobItemStatus jobItemStatus;
+    private WorkStatus workStatus = WorkStatus.PROCESSING;
 
     @NonNull
     @Column(nullable = false)
@@ -59,7 +61,7 @@ public class JobProcessingItem implements Serializable{
     @Version
     private long version;
 
-    public JobProcessingItem incrementRetriesOnError(){
+    public Work incrementRetriesOnError(){
         retriesOnError++;
         return this;
     }

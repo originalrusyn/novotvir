@@ -1,9 +1,9 @@
-package web.job.persistence.repository;
+package web.job.common.persistence.repository;
 
 import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
-import web.job.persistence.domain.tasks.Task;
+import web.job.common.persistence.domain.Task;
 
 import javax.persistence.LockModeType;
 import java.util.stream.Stream;
@@ -15,6 +15,6 @@ public interface TaskRepository extends PagingAndSortingRepository<Task, Long> {
     Stream<Task> getAllTasks();
 
     @Lock(LockModeType.PESSIMISTIC_FORCE_INCREMENT)
-    @Query("select task from Task task join fetch task.itemsInProcessing")
+    @Query("select task from Task task join fetch task.processingWorkItemsIds")
     Task lockTask(Task task);
 }

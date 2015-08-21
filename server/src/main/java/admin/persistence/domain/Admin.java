@@ -12,6 +12,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static javax.persistence.CascadeType.ALL;
@@ -73,6 +74,15 @@ public class Admin implements Serializable {
         Preconditions.checkArgument(StringUtils.hasText(email));
         this.email = email;
         return this;
+    }
+
+    public Admin add(@NonNull AdminAuthority adminAuthority){
+        this.authorities.add(adminAuthority);
+        return this;
+    }
+
+    public List<AdminAuthority> getAuthorities(){
+        return Collections.unmodifiableList(authorities);
     }
 
 }

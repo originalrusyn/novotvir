@@ -2,6 +2,7 @@ package common.dto;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import lombok.Data;
+import lombok.NonNull;
 import lombok.experimental.Accessors;
 import common.util.RequestUtils;
 
@@ -12,7 +13,7 @@ import common.util.RequestUtils;
 public class ErrorDto {
     public static final String ERROR_DTO = "errorDto";
 
-    private String requestUrl = RequestUtils.getRequestUrl();
-    private String errCode;
-    private String localizedMessage;
+    private final @NonNull String requestUrl = RequestUtils.getRequestUrl();
+    private final @NonNull String errCode;
+    private final @NonNull String localizedMessage;
 }

@@ -35,8 +35,8 @@
           p:triggers-ref="triggers"
     />
 
-    <util:list id="processors" value-type="web.job.processor.TaskProcessor">
-        <ref bean="pushNotificationTaskProcessor"/>
+    <util:list id="processors" value-type="web.job.common.processor.WorkItemsIdsExtractor">
+        <ref bean="workItemsIdsExtractor"/>
     </util:list>
 
 </beans>

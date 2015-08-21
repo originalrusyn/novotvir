@@ -13,6 +13,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static javax.persistence.CascadeType.ALL;
@@ -98,6 +99,24 @@ public class User implements Serializable {
     public User setToken(@NonNull String token){
         Preconditions.checkArgument(StringUtils.hasText(token));
         this.token = token;
+        return this;
+    }
+
+    public List<Client> getClients(){
+        return Collections.unmodifiableList(clients);
+    }
+
+    public User add(@NonNull Client client){
+        this.clients.add(client);
+        return this;
+    }
+
+    public List<Authority> getAuthorities(){
+        return Collections.unmodifiableList(authorities);
+    }
+
+    public User add(@NonNull Authority authority){
+        this.authorities.add(authority);
         return this;
     }
 }

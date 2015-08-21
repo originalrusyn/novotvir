@@ -1,8 +1,9 @@
-package web.job.service;
+package web.job.push.service;
 
+import lombok.NonNull;
 import org.springframework.stereotype.Service;
-import web.job.persistence.domain.tasks.PushNotificationTask;
-import web.job.persistence.domain.tasks.PushNotificationTask.UserFiltrationQuery;
+import web.job.push.persistence.domain.PushNotificationTask;
+import web.job.push.persistence.domain.PushNotificationTask.UserFiltrationQuery;
 import web.persistence.repository.ClientRepository;
 
 import javax.annotation.Resource;
@@ -15,15 +16,8 @@ public class PushNotificationService {
 
     @Resource ClientRepository clientRepository;
 
-    public PushNotificationTask getAndLockProcessingItems(PushNotificationTask task){
-        Set<Long> items = getItems(task);
-        task.lock(items);
-
-        return task;
-    }
-
-    private Set<Long> getItems(PushNotificationTask task) {
-        Set<Long> lockedProcessingIds = task.getItemsInProcessing();
+    public Set<Long> getNewPortionOfWorkItemsIds(@NonNull PushNotificationTask task){
+        Set<Long> lockedProcessingIds = task.getProcessingWorkItemsIds();
 
         UserFiltrationQuery userFiltrationQuery = task.getUserFiltrationQuery();
         switch (userFiltrationQuery){

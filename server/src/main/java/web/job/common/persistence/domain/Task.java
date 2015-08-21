@@ -1,4 +1,4 @@
-package web.job.persistence.domain.tasks;
+package web.job.common.persistence.domain;
 
 import com.google.common.base.Preconditions;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
@@ -12,6 +12,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -67,10 +68,10 @@ public abstract class Task implements Serializable {
 
     @Setter(AccessLevel.PRIVATE)
     @NonNull
-    @CollectionTable(name = "taskItemsInProcessing", joinColumns = @JoinColumn(name = "taskId"))
+    @CollectionTable(name = "processingWorkItems", joinColumns = @JoinColumn(name = "taskId"))
     @ElementCollection
-    @Column(name = "processingItemId")
-    private Set<Long> itemsInProcessing = new HashSet<>();
+    @Column(name = "workItemId")
+    private Set<Long> processingWorkItemsIds = new HashSet<>();
 
     @Setter(AccessLevel.PRIVATE)
     @Version
@@ -100,15 +101,19 @@ public abstract class Task implements Serializable {
         return this;
     }
 
-    public Task lock(@NonNull Set<Long> itemsInProcessing){
-        Preconditions.checkArgument(!itemsInProcessing.isEmpty());
-        this.itemsInProcessing.addAll(itemsInProcessing);
+    public Task lock(@NonNull Set<Long> workItemsIds){
+        Preconditions.checkArgument(!workItemsIds.isEmpty());
+        this.processingWorkItemsIds.addAll(workItemsIds);
         setLastTaskRunDateTime(LocalDateTime.now());
         return this;
     }
 
+    public Set<Long> getProcessingWorkItemsIds(){
+        return Collections.unmodifiableSet(processingWorkItemsIds);
+    }
+
     public Task unlock(){
-        this.itemsInProcessing = new HashSet<>();
+        this.processingWorkItemsIds = new HashSet<>();
         return this;
     }
 

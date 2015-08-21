@@ -13,6 +13,7 @@ import web.persistence.domain.User;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 // @author Titov Mykhaylo (titov) on 11.01.14 20:25
@@ -38,7 +39,7 @@ public class UserDetailsImpl implements UserDetails, SecurityContextDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return grantedAuthorities;
+        return Collections.unmodifiableList(grantedAuthorities);
     }
 
     @Override
