@@ -1,4 +1,4 @@
-package web.job.common.processor;
+package web.job.common.extractor;
 
 import web.job.common.persistence.domain.Task;
 

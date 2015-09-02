@@ -1,5 +1,6 @@
 package web.job.common;
 
+import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.quartz.CronExpression;
 import org.springframework.core.task.TaskExecutor;
@@ -14,10 +15,7 @@ import java.text.ParseException;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -29,12 +27,13 @@ import static java.util.Comparator.nullsLast;
 @Component
 public class TaskJob {
 
-    @Resource
-    WorkItemsExtractorsService processingItemsExtractorsService;
+    @Resource WorkItemsExtractorsService processingItemsExtractorsService;
 
     @Resource TaskExecutor executor;
 
     @Resource TaskRepository taskRepository;
+
+    @Resource Map<Class<Task>, WorkProcessor> workProcessors;
 
     static final Comparator<Task> taskByLastTaskRunDateTimeComparator = comparing(Task::getLastTaskRunDateTime, nullsLast(Comparator.<LocalDateTime>naturalOrder()));
 
@@ -50,10 +49,11 @@ public class TaskJob {
             try {
                 LocalDateTime scheduleDateTime = getScheduleDateTime(task);
                 if (scheduleDateTime.isAfter(LocalDateTime.now())) {
+                    @NonNull WorkProcessor workProcessor = workProcessors.get(task.getClass());
                     List<Work> works = processingItemsExtractorsService.getNewPortionOfWorkToProcessing(task, scheduleDateTime);
 
                     for (Work work : works) {
-                        executor.execute(new ExecutableTask(work));
+                        executor.execute(new ExecutableTask(work, workProcessor));
                     }
                 }
             } catch (Exception e) {

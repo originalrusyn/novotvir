@@ -34,30 +34,18 @@ public class PushNotification implements Serializable{
     @Column(nullable = false)
     private String pushMessage;
 
-    @NotBlank
-    @Column(nullable = false)
-    private String queryNameForFetchReceivers;
-
     @Setter(AccessLevel.PRIVATE)
     @Version
     private long version;
 
-    public PushNotification(@NonNull String pushMessage, @NonNull String queryNameForFetchReceivers){
+    public PushNotification(@NonNull String pushMessage){
         Preconditions.checkArgument(StringUtils.hasText(pushMessage));
-        Preconditions.checkArgument(StringUtils.hasText(queryNameForFetchReceivers));
         this.pushMessage = pushMessage;
-        this.queryNameForFetchReceivers = queryNameForFetchReceivers;
     }
 
     public PushNotification setPushMessage(@NonNull String pushMessage){
         Preconditions.checkArgument(StringUtils.hasText(pushMessage));
         this.pushMessage = pushMessage;
-        return this;
-    }
-
-    public PushNotification setQueryNameForFetchReceivers(@NonNull String queryNameForFetchReceivers){
-        Preconditions.checkArgument(StringUtils.hasText(queryNameForFetchReceivers));
-        this.queryNameForFetchReceivers = queryNameForFetchReceivers;
         return this;
     }
 }

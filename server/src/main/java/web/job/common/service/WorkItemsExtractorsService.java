@@ -7,7 +7,7 @@ import web.job.common.persistence.domain.Work;
 import web.job.common.persistence.domain.Task;
 import web.job.common.persistence.repository.WorkRepository;
 import web.job.common.persistence.repository.TaskRepository;
-import web.job.common.processor.WorkItemsIdsExtractor;
+import web.job.common.extractor.WorkItemsIdsExtractor;
 
 import javax.annotation.Resource;
 import java.time.LocalDateTime;

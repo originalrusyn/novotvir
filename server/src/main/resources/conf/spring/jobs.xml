@@ -35,7 +35,7 @@
           p:triggers-ref="triggers"
     />
 
-    <util:list id="processors" value-type="web.job.common.processor.WorkItemsIdsExtractor">
+    <util:list id="processors" value-type="web.job.common.extractor.WorkItemsIdsExtractor">
         <ref bean="workItemsIdsExtractor"/>
     </util:list>
 

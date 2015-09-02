@@ -9,9 +9,10 @@ import web.job.common.persistence.domain.Work;
 public class ExecutableTask implements Runnable{
 
     private @NonNull final Work work;
+    private @NonNull final WorkProcessor workProcessor;
 
     @Override
     public void run() {
-
+       workProcessor.process(work);
     }
 }
