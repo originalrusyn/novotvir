@@ -32,7 +32,7 @@
 
     <bean id="entityManagerFactory"
           class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
-          p:packagesToScan="admin.persistence.domain, web.persistence.domain, web.job.persistence.domain, org.springframework.data.jpa.convert.threeten"
+          p:packagesToScan="admin.persistence.domain, web.persistence.domain, web.job.common.persistence.domain, org.springframework.data.jpa.convert.threeten"
           p:dataSource-ref="dataSource"
           p:jpaPropertyMap-ref="jpaPropertyMap"
           p:jpaVendorAdapter-ref="hibernateVendor"
@@ -67,7 +67,7 @@
           p:entityManagerFactory-ref="entityManagerFactory"/>
 
     <jpa:repositories
-            base-package="admin.persistence.repository, web.persistence.repository, web.job.persistence.repository"
+            base-package="admin.persistence.repository, web.persistence.repository, web.persistence.repository, web.job.common.persistence.repository"
             entity-manager-factory-ref="entityManagerFactory"
             transaction-manager-ref="transactionManager"/>
 

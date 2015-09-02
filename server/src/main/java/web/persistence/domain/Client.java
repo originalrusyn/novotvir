@@ -34,8 +34,8 @@ public class Client implements Serializable {
     }
 
     @Id
-    @SequenceGenerator(name = "device_id_seq_gen", sequenceName = "device_id_seq", initialValue = 2, allocationSize = 1)
-    @GeneratedValue(strategy = SEQUENCE, generator = "device_id_seq_gen")
+    @SequenceGenerator(name = "clients_id_seq_gen", sequenceName = "clients_id_seq", initialValue = 2, allocationSize = 1)
+    @GeneratedValue(strategy = SEQUENCE, generator = "clients_id_seq_gen")
     private Long id;
 
     @NotBlank

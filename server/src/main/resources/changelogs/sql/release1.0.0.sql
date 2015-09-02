@@ -217,16 +217,6 @@ CREATE TABLE
 
 -- changeset titov:21 dbms:postgresql runInTransaction:true
 CREATE TABLE
-  taskItemsInProcessing (
-  taskId                     BIGINT              NOT NULL,
-  processingItemId           BIGINT              NOT NULL,
-  CONSTRAINT taskItemsInProcessing_task FOREIGN KEY (taskId) REFERENCES tasks (id) MATCH SIMPLE
-);
-
--- rollback drop table if exists taskItemsInProcessing;
-
--- changeset titov:22 dbms:postgresql runInTransaction:true
-CREATE TABLE
   pushNotificationTasks (
   id                         BIGINT              NOT NULL,
   pushNotificationId         BIGINT              NOT NULL,
@@ -236,17 +226,29 @@ CREATE TABLE
 
 -- rollback drop table if exists tasks;
 
--- changeset titov:23 dbms:postgresql runInTransaction:true
+-- changeset titov:22 dbms:postgresql runInTransaction:true
 CREATE TABLE
-  jobProcessingItems (
-  id                    BIGINT                     NOT NULL,
+  works (
+  id                    BIGSERIAL                  NOT NULL,
+  workItemId            BIGINT                     NOT NULL,
   taskId                BIGINT                     NOT NULL,
-  jobItemStatus         VARCHAR(255)               NOT NULL,
+  workStatus            VARCHAR(255)               NOT NULL,
   forScheduleDateTime   TIMESTAMP WITH TIME ZONE   NOT NULL,
   creationDateTime      TIMESTAMP WITH TIME ZONE   NOT NULL,
   retriesOnError        INT                        NOT NULL,
   version               BIGINT                     NOT NULL,
-  CONSTRAINT jobProcessingItems_task FOREIGN KEY (taskId) REFERENCES tasks (id) MATCH SIMPLE
+  CONSTRAINT works_task FOREIGN KEY (taskId) REFERENCES tasks (id) MATCH SIMPLE
 );
 
--- rollback drop table if exists jobProcessingItems;
+-- rollback drop table if exists works;
+
+-- changeset titov:23 dbms:postgresql runInTransaction:true
+CREATE TABLE
+processingWorkItems (
+taskId                BIGINT                     NOT NULL,
+workItemId            BIGINT                     NOT NULL,
+CONSTRAINT processingWorkItems_task FOREIGN KEY (taskId) REFERENCES tasks (id) MATCH SIMPLE
+);
+
+-- rollback drop table if exists processingWorkItems;
+
