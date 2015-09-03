@@ -1,6 +1,6 @@
-package web.job.common.extractor;
+package job.common.extractor;
 
-import web.job.common.persistence.domain.Task;
+import job.common.persistence.domain.Task;
 
 import java.util.Set;
 

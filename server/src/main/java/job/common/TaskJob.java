@@ -1,18 +1,16 @@
-package web.job.common;
+package job.common;
 
-import lombok.NonNull;
+import job.common.persistence.domain.Task;
+import job.common.persistence.domain.Work;
+import job.common.persistence.repository.TaskRepository;
+import job.common.service.WorkItemsExtractorsService;
 import lombok.extern.slf4j.Slf4j;
 import org.quartz.CronExpression;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.stereotype.Component;
-import web.job.common.persistence.domain.Work;
-import web.job.common.persistence.repository.TaskRepository;
-import web.job.common.service.WorkItemsExtractorsService;
-import web.job.common.persistence.domain.Task;
 
 import javax.annotation.Resource;
 import java.text.ParseException;
-import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.*;
@@ -33,7 +31,7 @@ public class TaskJob {
 
     @Resource TaskRepository taskRepository;
 
-    @Resource Map<Class<Task>, WorkProcessor> workProcessors;
+    @Resource Set<WorkProcessor> workProcessors;
 
     static final Comparator<Task> taskByLastTaskRunDateTimeComparator = comparing(Task::getLastTaskRunDateTime, nullsLast(Comparator.<LocalDateTime>naturalOrder()));
 
@@ -49,7 +47,8 @@ public class TaskJob {
             try {
                 LocalDateTime scheduleDateTime = getScheduleDateTime(task);
                 if (scheduleDateTime.isAfter(LocalDateTime.now())) {
-                    @NonNull WorkProcessor workProcessor = workProcessors.get(task.getClass());
+                    Optional<WorkProcessor> workProcessorOptional = workProcessors.stream().filter(wProcessor -> wProcessor.supports(task)).findAny();
+                    WorkProcessor workProcessor = workProcessorOptional.get();
                     List<Work> works = processingItemsExtractorsService.getNewPortionOfWorkToProcessing(task, scheduleDateTime);
 
                     for (Work work : works) {

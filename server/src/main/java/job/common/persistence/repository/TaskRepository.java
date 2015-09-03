@@ -1,9 +1,9 @@
-package web.job.common.persistence.repository;
+package job.common.persistence.repository;
 
+import job.common.persistence.domain.Task;
 import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
-import web.job.common.persistence.domain.Task;
 
 import javax.persistence.LockModeType;
 import java.util.stream.Stream;

@@ -1,8 +1,8 @@
-package web.job.common;
+package job.common;
 
+import job.common.persistence.domain.Work;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import web.job.common.persistence.domain.Work;
 
 // @author Titov Mykhaylo on 21.08.2015.
 @RequiredArgsConstructor

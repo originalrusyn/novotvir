@@ -1,14 +1,14 @@
-package web.job.push.persistence.domain;
+package job.push.persistence.domain;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+import job.common.persistence.domain.Task;
 import lombok.*;
 import lombok.experimental.Accessors;
-import web.job.common.persistence.domain.Task;
 import web.persistence.domain.PushNotification;
 
 import javax.persistence.*;
 
-import static web.job.push.persistence.domain.PushNotificationTask.UserFiltrationQuery.ALL_USERS;
+import static job.push.persistence.domain.PushNotificationTask.UserFiltrationQuery.ALL_USERS;
 
 // @author Titov Mykhaylo on 06.08.2015.
 @SuppressFBWarnings("UCPM_USE_CHARACTER_PARAMETERIZED_METHOD")

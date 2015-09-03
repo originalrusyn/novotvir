@@ -53,6 +53,8 @@ public class Admin implements Serializable {
 
     private boolean blocked;
 
+    //private @checkers.nullness.quals.NonNull String op = null;
+
     @OneToMany(mappedBy = "admin", fetch = EAGER, cascade = ALL)
     @NonNull
     private List<AdminAuthority> authorities = new ArrayList<>();

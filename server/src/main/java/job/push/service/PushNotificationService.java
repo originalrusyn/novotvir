@@ -1,9 +1,9 @@
-package web.job.push.service;
+package job.push.service;
 
 import lombok.NonNull;
 import org.springframework.stereotype.Service;
-import web.job.push.persistence.domain.PushNotificationTask;
-import web.job.push.persistence.domain.PushNotificationTask.UserFiltrationQuery;
+import job.push.persistence.domain.PushNotificationTask;
+import job.push.persistence.domain.PushNotificationTask.UserFiltrationQuery;
 import web.persistence.repository.ClientRepository;
 
 import javax.annotation.Resource;

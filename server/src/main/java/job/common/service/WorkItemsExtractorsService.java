@@ -1,13 +1,13 @@
-package web.job.common.service;
+package job.common.service;
 
+import job.common.extractor.WorkItemsIdsExtractor;
+import job.common.persistence.domain.Task;
+import job.common.persistence.domain.Work;
+import job.common.persistence.repository.TaskRepository;
+import job.common.persistence.repository.WorkRepository;
 import lombok.NonNull;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-import web.job.common.persistence.domain.Work;
-import web.job.common.persistence.domain.Task;
-import web.job.common.persistence.repository.WorkRepository;
-import web.job.common.persistence.repository.TaskRepository;
-import web.job.common.extractor.WorkItemsIdsExtractor;
 
 import javax.annotation.Resource;
 import java.time.LocalDateTime;
@@ -20,11 +20,13 @@ import java.util.stream.Collectors;
 @Component
 public class WorkItemsExtractorsService {
 
-    @Resource TaskRepository taskRepository;
+    @Resource
+    TaskRepository taskRepository;
 
     @Resource List<WorkItemsIdsExtractor> extractors;
 
-    @Resource WorkRepository workRepository;
+    @Resource
+    WorkRepository workRepository;
 
     @Transactional
     public List<Work> getNewPortionOfWorkToProcessing(@NonNull Task task, @NonNull LocalDateTime scheduleDateTime){

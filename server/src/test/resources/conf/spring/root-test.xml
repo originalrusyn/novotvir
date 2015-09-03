@@ -5,11 +5,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <import resource="controllers.xml"/>
+    <import resource="root.xml"/>
     <import resource="services-test.xml"/>
-    <import resource="security.xml"/>
-    <import resource="docs.xml"/>
     <import resource="dao-test.xml"/>
-    <import resource="aspects.xml"/>
 
 </beans>

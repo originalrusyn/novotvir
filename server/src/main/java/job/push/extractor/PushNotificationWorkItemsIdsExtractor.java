@@ -1,11 +1,11 @@
-package web.job.push.extractor;
+package job.push.extractor;
 
+import job.common.extractor.WorkItemsIdsExtractor;
 import lombok.NonNull;
 import org.springframework.stereotype.Component;
-import web.job.push.persistence.domain.PushNotificationTask;
-import web.job.common.persistence.domain.Task;
-import web.job.common.extractor.WorkItemsIdsExtractor;
-import web.job.push.service.PushNotificationService;
+import job.push.persistence.domain.PushNotificationTask;
+import job.common.persistence.domain.Task;
+import job.push.service.PushNotificationService;
 
 import javax.annotation.Resource;
 import java.util.Set;

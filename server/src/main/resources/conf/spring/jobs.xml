@@ -12,6 +12,12 @@
        http://www.springframework.org/schema/util
        http://www.springframework.org/schema/util/spring-util.xsd">
 
+    <bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+        <property name="corePoolSize" value="${task.executor.corePoolSize}"/>
+        <property name="maxPoolSize" value="${task.executor.maxPoolSize}"/>
+        <property name="queueCapacity" value="${task.executor.queueCapacity}"/>
+    </bean>
+
     <bean id="sendPushJobDetail"
           class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean"
           p:targetObject-ref="taskJob"
@@ -35,8 +41,8 @@
           p:triggers-ref="triggers"
     />
 
-    <util:list id="processors" value-type="web.job.common.extractor.WorkItemsIdsExtractor">
-        <ref bean="workItemsIdsExtractor"/>
+    <util:list id="processors" value-type="job.common.extractor.WorkItemsIdsExtractor">
+        <ref bean="pushNotificationWorkItemsIdsExtractor"/>
     </util:list>
 
 </beans>

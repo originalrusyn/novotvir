@@ -1,4 +1,4 @@
-package web.job.common.persistence.domain;
+package job.common.persistence.domain;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import lombok.*;
