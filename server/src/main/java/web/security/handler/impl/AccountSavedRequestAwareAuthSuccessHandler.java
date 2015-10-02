@@ -37,7 +37,7 @@ public class AccountSavedRequestAwareAuthSuccessHandler extends SavedRequestAwar
         JsonGenerator generator = objectMapper.getJsonFactory().createJsonGenerator(outputStream, encoding);
 
         // A workaround for JsonGenerators not applying serialization features
-        // https://github.com/FasterXML/jackson-databind/issues/12
+        // https://github.com/Faster XML/jackson-databind/issues/12
         if (objectMapper.isEnabled(SerializationFeature.INDENT_OUTPUT)) {
             generator.useDefaultPrettyPrinter();
         }

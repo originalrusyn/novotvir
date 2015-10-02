@@ -19,7 +19,7 @@
           p:useCodeAsDefaultMessage="true"/>
 
     <bean id="propertyPlaceholderConfigurer"
-          class="org.jasypt.spring31.properties.EncryptablePropertyPlaceholderConfigurer"
+          class="common.util.CustomEncryptablePropertyPlaceholderConfigurer"
           c:stringEncryptor-ref="configurationEncryptor"
           p:locations-ref="appPropertiesLocations"/>
 
