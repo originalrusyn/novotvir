@@ -1,37 +1,20 @@
 package common.util;
 
-import org.jasypt.commons.CommonUtils;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.jasypt.encryption.StringEncryptor;
 import org.jasypt.exceptions.EncryptionOperationNotPossibleException;
 import org.jasypt.properties.PropertyValueEncryptionUtils;
-import org.jasypt.util.text.TextEncryptor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 
 // @author Titov Mykhaylo on 02.10.2015.
+@Slf4j
+@RequiredArgsConstructor
 public class CustomEncryptablePropertyPlaceholderConfigurer extends PropertyPlaceholderConfigurer {
 
-    final Logger logger = LoggerFactory.getLogger(CustomEncryptablePropertyPlaceholderConfigurer.class);
-
+    @NonNull
     private final StringEncryptor stringEncryptor;
-    private final TextEncryptor textEncryptor;
-
-    public CustomEncryptablePropertyPlaceholderConfigurer(
-            final StringEncryptor stringEncryptor) {
-        super();
-        CommonUtils.validateNotNull(stringEncryptor, "Encryptor cannot be null");
-        this.stringEncryptor = stringEncryptor;
-        this.textEncryptor = null;
-    }
-
-
-    public CustomEncryptablePropertyPlaceholderConfigurer(final TextEncryptor textEncryptor) {
-        super();
-        CommonUtils.validateNotNull(textEncryptor, "Encryptor cannot be null");
-        this.stringEncryptor = null;
-        this.textEncryptor = textEncryptor;
-    }
 
     @Override
     protected String convertPropertyValue(final String originalValue) {
@@ -39,14 +22,9 @@ public class CustomEncryptablePropertyPlaceholderConfigurer extends PropertyPlac
             if (!PropertyValueEncryptionUtils.isEncryptedValue(originalValue)) {
                 return originalValue;
             }
-            if (this.stringEncryptor != null) {
-                return PropertyValueEncryptionUtils.decrypt(originalValue,
-                        this.stringEncryptor);
-
-            }
-            return PropertyValueEncryptionUtils.decrypt(originalValue, this.textEncryptor);
+            return PropertyValueEncryptionUtils.decrypt(originalValue, this.stringEncryptor);
         } catch (EncryptionOperationNotPossibleException e) {
-            logger.error("Can't decrypt value: [{}]", originalValue);
+            log.error("Can't decrypt value: [{}]", originalValue);
             throw e;
         }
     }

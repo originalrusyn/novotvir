@@ -36,7 +36,7 @@ public class TaskJob {
     static final Comparator<Task> taskByLastTaskRunDateTimeComparator = comparing(Task::getLastTaskRunDateTime, nullsLast(Comparator.<LocalDateTime>naturalOrder()));
 
     public void execute(){
-        Stream<Task> allTasksStream = taskRepository.getAllTasks();
+        Stream<Task> allTasksStream = taskRepository.getAllTasks().stream();
 
         List<Task> sortedByPriorityDescTasks = allTasksStream.sorted(taskByLastTaskRunDateTimeComparator).collect(Collectors.toList());
 
