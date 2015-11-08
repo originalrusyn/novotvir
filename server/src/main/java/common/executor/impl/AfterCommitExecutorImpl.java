@@ -1,13 +1,14 @@
 package common.executor.impl;
 
-import lombok.extern.slf4j.Slf4j;
 import common.executor.AfterCommitExecutor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.support.TransactionSynchronizationAdapter;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
+import web.persistence.domain.User;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import static java.util.Objects.isNull;
 import static org.springframework.transaction.support.TransactionSynchronizationManager.isSynchronizationActive;
@@ -50,4 +51,5 @@ public class AfterCommitExecutorImpl extends TransactionSynchronizationAdapter i
     public void afterCompletion(int status) {
         COMMANDS.remove();
     }
+
 }

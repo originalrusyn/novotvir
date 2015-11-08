@@ -10,6 +10,6 @@ public class MyRepositoryRestMvcConfiguration extends RepositoryRestMvcConfigura
 
     @Override
     protected void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
-        config.setBasePath("/api/");
+        config.setBasePath("/api");
     }
 }

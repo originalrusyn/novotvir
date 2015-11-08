@@ -1,0 +1,50 @@
+status: info
+monitorInterval: 30
+
+appenders:
+    Console:
+      - name: stdout
+        target: SYSTEM_OUT
+        ThresholdFilter:
+          level: warn
+          onMatch: deny
+          onMismatch: accept
+        PatternLayout: { pattern: "%-24d{ISO8601}: [%t] %-5p %C{1}.%M():%L - %m%n" }
+
+      - name: stderr
+        target: SYSTEM_ERR
+        ThresholdFilter:
+          level: warn
+        PatternLayout: { pattern: "%-24d{ISO8601}: [%t] %-5p %C{1}.%M():%L - %m%n" }
+
+loggers:
+    root:
+      level: info
+      appender-ref:
+        - ref: stdout
+        - ref: stderr
+    logger:
+      - name: org.springframework
+          level: debug
+          additivity: false
+      - name: org.springframework.aop.interceptor.CustomizableTraceInterceptor
+          level: debug
+          additivity: false
+      - name: org.thymeleaf
+          level: debug
+          additivity: false
+      - name: httpclient.wire
+          level: debug
+          additivity: false
+      - name: org.apache.commons
+          level: debug
+          additivity: false
+      - name: rg.hibernate.SQL
+          level: debug
+          additivity: false
+      - name: org.hibernate.type
+          level: debug
+          additivity: false
+      - name: web
+          level: debug
+          additivity: false

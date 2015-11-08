@@ -7,6 +7,7 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import lombok.*;
 import lombok.experimental.Accessors;
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.data.rest.core.annotation.RestResource;
 import org.springframework.util.StringUtils;
 
 import javax.persistence.*;
@@ -56,6 +57,7 @@ public class User implements Serializable {
 
     @NonNull
     @NotBlank
+    @RestResource(exported = false)
     private String token;
 
     @NonNull

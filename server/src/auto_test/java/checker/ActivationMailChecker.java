@@ -22,6 +22,7 @@ import static org.junit.Assert.assertTrue;
 @Component
 public class ActivationMailChecker {
     static final String activationUrlRegex = ".+?/users/.+?activationToken=.+?&_method=PUT";
+    String a ="";
 
     @Resource Wiser mockSMTPServer;
     @Resource MessageSourceImpl messageSourceImpl;
