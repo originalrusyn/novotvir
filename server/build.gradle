@@ -45,6 +45,7 @@ task wrapper(type: Wrapper) {
 configurations {
     all*.exclude group: "commons-logging", module: "commons-logging"
     all*.exclude group: "cglib", module: "cglib"
+    all*.exclude module:"slf4j-log4j12"
     provided
     testProvided.extendsFrom provided
     auto_testProvided.extendsFrom provided

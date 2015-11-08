@@ -6,7 +6,7 @@
          version="3.0" metadata-complete="false">
 
     <context-param>
-        <param-name>log4jConfigLocation</param-name>
+        <param-name>log4jConfiguration</param-name>
         <param-value>file:${conf.dir.path}/log4j2.yml</param-value> 
     </context-param>
     <context-param>

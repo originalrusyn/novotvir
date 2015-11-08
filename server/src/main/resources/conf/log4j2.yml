@@ -9,13 +9,13 @@ appenders:
           level: warn
           onMatch: deny
           onMismatch: accept
-        PatternLayout: { pattern: "%-24d{ISO8601}: [%t] %-5p %C{1}.%M():%L - %m%n" }
+        PatternLayout: { pattern: "%highlight{%d [%t] %-5p %C{1}.%M():%L - %m%n}" }
 
       - name: stderr
         target: SYSTEM_ERR
         ThresholdFilter:
           level: warn
-        PatternLayout: { pattern: "%-24d{ISO8601}: [%t] %-5p %C{1}.%M():%L - %m%n" }
+        PatternLayout: { pattern: "%highlight{%d [%t] %-5p %C{1}.%M():%L - %m%n}" }
 
 loggers:
     root:
@@ -25,26 +25,28 @@ loggers:
         - ref: stderr
     logger:
       - name: org.springframework
-          level: debug
-          additivity: false
+        level: debug
+
       - name: org.springframework.aop.interceptor.CustomizableTraceInterceptor
-          level: debug
-          additivity: false
+        level: debug
+
       - name: org.thymeleaf
-          level: debug
-          additivity: false
+        level: debug
+
       - name: httpclient.wire
-          level: debug
-          additivity: false
+        level: debug
+
       - name: org.apache.commons
-          level: debug
-          additivity: false
-      - name: rg.hibernate.SQL
-          level: debug
-          additivity: false
+        level: debug
+
+      - name: org.jboss.logging
+        level: info
+
+      - name: org.hibernate.SQL
+        level: debug
+
       - name: org.hibernate.type
-          level: debug
-          additivity: false
+        level: debug
+
       - name: web
-          level: debug
-          additivity: false
+        level: debug
